@@ -25,7 +25,7 @@ GitCode 仓库：[https://gitee.com/dcloud/uni-captcha](https://gitee.com/dcloud
 ## 目录结构@catalogue
 <pre v-pre="" data-lang="">
     <code class="lang-" style="padding:0">
-├─uni_modules                              			存放[uni_module](/uni_modules)规范的插件。
+├─uni_modules                              			存放[uni_module](https://uniapp.dcloud.net.cn/uni_modules)规范的插件。
 │	└─uni-captcha
 │		├─uniCloud
 │		│	├─cloudfunctions						云函数目录
@@ -36,9 +36,9 @@ GitCode 仓库：[https://gitee.com/dcloud/uni-captcha](https://gitee.com/dcloud
 │		│	 	├─opendb-verify-codes.schema.json	验证码数据表
 │		│		└─db_init.json						初始化数据库文件
 │		└─components								组件目录
-│			├─uni-captcha					   		 
+│			├─uni-captcha
 │			│	└─uni-captcha.vue					普通验证码组件
-│			└─uni-popup-captcha				  		
+│			└─uni-popup-captcha
 │				└─uni-popup-captcha.vue				弹出式验证码组件
     </code>
 </pre>

@@ -63,7 +63,7 @@ const uniIdCo = uniCloud.importObject('uni-id-co')
 
 |字段|说明|
 |--|--|
-|clientInfo|客户端信息; [uni.getSystemInfo](/api/system/info.md#getsysteminfo)返回的字段|
+|clientInfo|客户端信息; [uni.getSystemInfo](https://uniapp.dcloud.net.cn/api/system/info.md#getsysteminfo)返回的字段|
 |uniIdToken|用户Token; 用户登录后必填|
 |params|API接口参数字段|
 
@@ -71,9 +71,9 @@ const uniIdCo = uniCloud.importObject('uni-id-co')
 
 | 字段          | 说明                                                               |
 |-------------|------------------------------------------------------------------|
-| uniPlatform | 应用运行平台，与条件编译平台相同。[详见](/api/system/info.md#uniplatform)           |
+| uniPlatform | 应用运行平台，与条件编译平台相同。[详见](https://uniapp.dcloud.net.cn/api/system/info.md#uniplatform)           |
 | appId       | manifest 中应用appid，即DCloud appid。如没有请手动指定一个，需确保唯一性。               |
-| deviceId    | 设备 id；通过[uni.getSystemInfo](/api/system/info.md#getsysteminfo)获取 |
+| deviceId    | 设备 id；通过[uni.getSystemInfo](https://uniapp.dcloud.net.cn/api/system/info.md#getsysteminfo)获取 |
 
 假设已在uniCloud 控制台已设置URL化域名PATH，以PATH为`/http/uni-id-co`为例，演示登录示例：
 
@@ -1963,10 +1963,10 @@ uni-id-pages已全面支持：app、小程序、web（uni-id-pages 版本号1.0.
 
 #### 回调域名的配置@redirect_uri
 
-- 手机微信扫码登录  
+- 手机微信扫码登录
   微信开放平台 -> 管理中心 -> 网站应用 -> 选择对应的应用名称，点击查看 -> 开发信息，点击修改 -> 填写授权回调域
 
-- 基于微信公众号auth登录  
+- 基于微信公众号auth登录
   登录微信公众号 -> 设置与开发 -> 公众号设置 -> 设置网页授权域名
 
 #### 本地调试
@@ -1979,8 +1979,8 @@ uni-id-pages已全面支持：app、小程序、web（uni-id-pages 版本号1.0.
 > 如果没有启动80端口而是81等，说明你的端口被占用了。你有两个办法1.关闭可疑程序，或直接重启电脑 2.命令行关闭占用的端口[详情查看](https://www.baidu.com/s?&wd=%E5%91%BD%E4%BB%A4%E8%A1%8C%20%E8%A7%A3%E5%86%B3%E7%AB%AF%E5%8F%A3%E8%A2%AB%E5%8D%A0%E7%94%A8)
 
 2. 实现访问域名直接指向你的本地web Server
-   可以通过内网穿透实现，但比较麻烦且可能会影响线上用户。这里推荐直接修改hosts，hosts是一个没有扩展名的系统文件，其基本作用就是将一些常用的网址域名与其对应的 IP 地址建立一个关联“ 数据库 ”。当用户在浏览器中输入一个需要登录的网址时，系统会首先自动从hosts文件中寻找对应的 IP 地址，一旦找到，系统就会立即打开对应网页，如果没有找到，系统才会将网址提交 DNS 域名解析服务器进行 IP 地址的解析。  
-   host文件路径： Windows系统一般为：`C:\Windows\System32\drivers\etc`。mac系统：`/etc/`  
+   可以通过内网穿透实现，但比较麻烦且可能会影响线上用户。这里推荐直接修改hosts，hosts是一个没有扩展名的系统文件，其基本作用就是将一些常用的网址域名与其对应的 IP 地址建立一个关联“ 数据库 ”。当用户在浏览器中输入一个需要登录的网址时，系统会首先自动从hosts文件中寻找对应的 IP 地址，一旦找到，系统就会立即打开对应网页，如果没有找到，系统才会将网址提交 DNS 域名解析服务器进行 IP 地址的解析。
+   host文件路径： Windows系统一般为：`C:\Windows\System32\drivers\etc`。mac系统：`/etc/`
    用HBuilderX打开hosts文件，在末尾添加一行 `127.0.0.1	你的域名`保存即可。
    此时访问域名，如果就能看到和你的项目运行到浏览器一样的效果，说明已经成功了。
 
@@ -2055,7 +2055,7 @@ exports.main = async (event, context) => {
 ## URL化请求鉴权签名@http-reqeust-auth
 
 > `uni-id-co@1.1.10`及以上版本支持使用`uni-cloud-s2s`进行请求签名验证，`uni-cloud-s2s`使用方式[详见](../uni-cloud-s2s.md)
-> 
+>
 > `uni-id-co`请求鉴权签名与`uni-cloud-s2s`不能同时存在，如果存在`uni-cloud-s2s`，则会优先使用`uni-cloud-s2s`进行请求签名验证
 
 uni-id-co 在URL化请求时，会对以下 API 进行调用鉴权验证，
@@ -2162,7 +2162,7 @@ class Sign {
 
         return strtoupper($signature);
     }
-    
+
     private function getParamsString ($params) {
         ksort($params);
 
@@ -2174,7 +2174,7 @@ class Sign {
 
             array_push($paramsStr, $key . '=' . $value);
         }
-        
+
         return join('&', $paramsStr);
     }
 }
@@ -2212,19 +2212,19 @@ class Sign:
   def get_signature (self, params, nonce, timestamp):
     params_str = self.get_params_string(params)
     signature = hmac.new(bytes("%s%s" % (self.requestAuthSecret, nonce), 'utf-8'), bytes("%s%s" % (timestamp, params_str), 'utf-8'), digestmod = hashlib.sha256).hexdigest().upper()
-    
+
     return signature
-  
+
   def get_params_string(self, params):
     params_str = []
     for k in sorted(params):
       if isinstance(params[k], (list, dict)):
-        continue 
+        continue
       params_str.append("%s=%s" % (k, params[k]))
-      
+
     return "&".join(params_str)
 
-if __name__ == "__main__":   
+if __name__ == "__main__":
   requestAuthSecret = "testSecret"
   nonce = "xxxxxxx"
   timestamp = int(round(time.time() * 1000))
@@ -2357,13 +2357,13 @@ public class Sign {
 
         try {
             hmacSha256 = Mac.getInstance(algorithm);
-           
+
             String key = new StringBuilder().append(requestAuthSecret).append(nonce).toString();
             String message = new StringBuilder().append(Long.toString(timestamp)).append(paramsStr).toString();
 
             byte[] keyBytes = key.getBytes("utf-8");
             byte[] messageBytes = message.getBytes("utf-8");
-            
+
             hmacSha256.init(new SecretKeySpec(keyBytes, 0, keyBytes.length, algorithm));
             byte[] digestBytes = hmacSha256.doFinal(messageBytes);
 
@@ -2388,7 +2388,7 @@ public class Sign {
             if (i != 0) {
                 sb.append("&");
             }
-            
+
             sb.append(key).append("=").append(params.get(key));
         }
 

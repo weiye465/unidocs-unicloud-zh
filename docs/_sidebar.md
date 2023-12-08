@@ -78,7 +78,7 @@
   * [业务文档](https://uniapp.dcloud.net.cn/unipush-v2.html)
   * 开发文档
     * [服务端api](uni-cloud-push/api.md)
-    * [uni-app客户端api](https://uniapp.dcloud.net.cn/api/plugins/push.md)
+    * [uni-app客户端api](https://uniapp.dcloud.net.cn/api/plugins/push.html)
     * [uni-app x客户端api](https://uniapp.dcloud.net.cn/uni-app-x/api/push.html)
   * [uni-push、uni-id、uni统计的协作](uni-cloud-push/mate.md)
   * [扩展参数](uni-cloud-push/options.md)
