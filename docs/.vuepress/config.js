@@ -14,6 +14,7 @@ const changeLoaderOptions = (options, key = 'name') => {
 };
 
 const config = {
+  base: '/uniCloud/',
   theme: 'vuepress-theme-uni-app-test',
   title: 'uniCloud',
   description: 'uniCloud Document',

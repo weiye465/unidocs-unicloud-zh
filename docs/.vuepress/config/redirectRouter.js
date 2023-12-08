@@ -5,8 +5,7 @@ const routerMap = {
 	'/uniCloud/uni-id-summary': '/uniCloud/uni-id/summary.html',
 	'/uniCloud/uni-id-pages': '/uniCloud/uni-id/redirect.html',
 	'/uniCloud/uni-id-common': '/uniCloud/uni-id/cloud-common.html',
-	'/uniCloud/uni-id': '/uniCloud/uni-id/old.html',
-	'/uniCloud/': '/'
+	'/uniCloud/uni-id': '/uniCloud/uni-id/old.html'
 };
 
 export default ({ fullPath, path, hash }) => {
