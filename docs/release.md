@@ -21,7 +21,7 @@
 * 修复 uni-app-x 项目 android 6.0 下调用 uniCloud 部分接口报错的Bug
 
 #### 2023-09-27
-* 新增 uni-app x 项目支持 [详情](https://uniapp.dcloud.net.cn/uni-app-x/unicloud.html)
+* 新增 uni-app x 项目支持 [详情](https://doc.dcloud.net.cn/uni-app-x/unicloud.html)
 
 #### 2023-08-03
 * 新增 uni-map-common 聚合多家地图供应商的云能力的公共模块 [详情](https://uniapp.dcloud.net.cn/uniCloud/uni-map-common.html)
