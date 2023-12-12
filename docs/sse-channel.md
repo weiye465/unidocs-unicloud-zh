@@ -11,7 +11,7 @@
 ## 客户端API@client-api
 
 :::warning 注意
-云函数向客户端发送消息时会使用push发送如下格式数据，如果项目中有监听push消息请勿错误的处理此类消息。相关文档请参考：[客户端监听推送消息](../unipush-v2.md#listener)
+云函数向客户端发送消息时会使用push发送如下格式数据，如果项目中有监听push消息请勿错误的处理此类消息。相关文档请参考：[客户端监听推送消息](https://uniapp.dcloud.net.cn/unipush-v2.html#listener)
 
 ```js
 {

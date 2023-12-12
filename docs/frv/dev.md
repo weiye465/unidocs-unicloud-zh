@@ -321,7 +321,7 @@ module.exports = {
 
 #### 错误处理
 
-可以通过try catch捕获接口抛出的错误，接口抛出的错误为标准的[uni错误对象](../../tutorial/err-spec.md)
+可以通过try catch捕获接口抛出的错误，接口抛出的错误为标准的[uni错误对象](https://uniapp.dcloud.net.cn/tutorial/err-spec.html)
 
 具体错误码规范见：[错误码](#err-code)
 

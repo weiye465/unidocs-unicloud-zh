@@ -675,7 +675,7 @@ let result = await uniCloud.deleteFile({
 
 如需下载到客户端请参考：
 
-- [uni.downloadFile()](../api/request/network-file.md#downloadfile)
+- [uni.downloadFile()](https://uniapp.dcloud.net.cn/api/request/network-file.html#downloadfile)
 
 **平台兼容性**
 

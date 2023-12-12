@@ -57,7 +57,7 @@ App和微信两个平台细化说明如下：
 
   ![App云端一体安全网络模块](https://qiniu-web-assets.dcloud.net.cn/unidoc/zh/secure-network-app-manifest.jpg)
 
-  **注意：**打包后生效。测试时需打包[自定义基座](../tutorial/run/run-app.md#customplayground)。
+  **注意：**打包后生效。测试时需打包[自定义基座](https://uniapp.dcloud.net.cn/tutorial/run/run-app.html#customplayground)。
 
 4. 在服务空间创建数据表[opendb-app-client-key](https://gitee.com/dcloud/opendb/tree/master/collection/opendb-app-client-key)用于保存发放给客户端的密钥对。
 
@@ -429,7 +429,7 @@ module.exports = {
 
 ## 错误码@err-code
 
-自HBuilderX 3.6.9起安全网络使用以下错误规范，此前错误码未统一不建议使用。安全网络使用的错误规范参考：[错误规范](../tutorial/err-spec.md)
+自HBuilderX 3.6.9起安全网络使用以下错误规范，此前错误码未统一不建议使用。安全网络使用的错误规范参考：[错误规范](https://uniapp.dcloud.net.cn/tutorial/err-spec.html)
 
 ### 客户端错误
 

@@ -70,7 +70,7 @@
 uni-pay云端一体模板，包含前端页面、云对象、云端公共模块、uni-config-center配置、opendb数据表等内容。以及内置于uni-admin的支付统计报表。
 
 ### uni-pay的uni_modules
-uni-pay的[uni_modules](../plugin/uni_modules.md)中包含了前端页面、云对象和公共模块，目录结构如下：
+uni-pay的[uni_modules](https://uniapp.dcloud.net.cn/plugin/uni_modules.html)中包含了前端页面、云对象和公共模块，目录结构如下：
 
 ```
 ├─uni_modules                                         存放[uni_module](/uni_modules)规范的插件。
