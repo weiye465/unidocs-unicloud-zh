@@ -50,16 +50,16 @@ export default {
 			"prefix": "群4"
 		},
 		{
-			"number": "806429316",
+			"number": "741357947",
 			"state": 1,
-			attendance: 2000,
-			"prefix": "群5"
+			attendance: 1000,
+			"prefix": "群6"
 		},
 		{
-			"number": "741357947",
+			"number": "806429316",
 			"state": 0,
-			"prefix": "群6",
-			joinQQGroupHref: 'https://qm.qq.com/cgi-bin/qm/qr?k=GmOeLLMnc5WcgNllzKEsq7UG0Oq-8DHp&jump_from=webapi&authKey=LL8+4dkOgBwUqJ8aapXJD2/tOSi/PFO5ZAuhr7eD7obfLtXEvGsFvhGjC8pj2PfM'
+			"prefix": "群5",
+			joinQQGroupHref: 'https://qm.qq.com/cgi-bin/qm/qr?k=D2jzH0skhD1HmnlRrwlyBbqxRWStFeMj&jump_from=webapi&authKey=5s8Hm/RQxMRrfmGxRtRr1USy613azNDGuCYj9OqzrTTk8S8qebnM0N3gbLdDn/4l'
 		}
 	]
 }
