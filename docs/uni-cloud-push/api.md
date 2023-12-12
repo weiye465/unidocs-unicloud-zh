@@ -28,7 +28,7 @@
 
 `uni-push`有服务器API和客户端API。
 
-## 客户端API [详情参考](https://uniapp.dcloud.net.cn/api/plugins/push)
+## 客户端API [详情参考](/api/plugins/push)
 
 ## 服务端API @uni-cloud-push
 
@@ -49,7 +49,7 @@
 
 **注意**：`user_id`、`user_tag`、`device_id`、`push_clientid`、`getui_custom_tag`、`getui_big_data_tag`、`getui_alias`不可多选。全为空表示向所有启动过应用的设备推送。
 
-如果用户处于未登录状态，你可以基于`device_id`向用户推送消息，但是推送服务器底层只识别`push_clientid`，需要通过查数据库获得`push_clientid`。而`device_id`与`push_clientid`的映射关系不由`uni-push`提供，而是由[uni统计](https://uniapp.dcloud.io/uni-stat-v2.html)模块内置的功能实现。如果你不使用uni统计，则需要在应用启动时调用[getPushClientId](https://uniapp.dcloud.net.cn/api/plugins/push)获取`push_clientid`，获取成功后（应用未在manifest中启用uni-push2.0则会获取失败）调用服务端云对象的某个方法（参数：`push_clientid`）执行向`opendb-device`表写入或更新（存在时）：[设备信息](https://uniapp.dcloud.io/uniCloud/cloud-obj.html#get-client-info)和`push_clientid`。
+如果用户处于未登录状态，你可以基于`device_id`向用户推送消息，但是推送服务器底层只识别`push_clientid`，需要通过查数据库获得`push_clientid`。而`device_id`与`push_clientid`的映射关系不由`uni-push`提供，而是由[uni统计](https://uniapp.dcloud.io/uni-stat-v2.html)模块内置的功能实现。如果你不使用uni统计，则需要在应用启动时调用[getPushClientId](/api/plugins/push)获取`push_clientid`，获取成功后（应用未在manifest中启用uni-push2.0则会获取失败）调用服务端云对象的某个方法（参数：`push_clientid`）执行向`opendb-device`表写入或更新（存在时）：[设备信息](https://uniapp.dcloud.io/uniCloud/cloud-obj.html#get-client-info)和`push_clientid`。
 
 同理基于`user_id`向用户推送消息，需要`user_id`与`push_clientid`的映射关系，可以直接使用[uni-id-pages](https://ext.dcloud.net.cn/plugin?id=8577)插件内置的功能实现。如果你不使用`uni-id-pages`需要在`App.vue`调用[uniCloud.onRefreshToken](https://uniapp.dcloud.io/uniCloud/client-sdk.html#on-refresh-token) 监听token发生变化（即：用户登录和token续期时），调用服务端云对象的某个方法（参数：`push_clientid`）操作`uni-id-device`表，记录`device_id` 与 `user_id`（防客户端伪造，需校验`token`）的映射关系；完整字段包含`user_id`、`device_id`、`token_expired`、`push_clientid`、`appid`。同时再向`opendb-device`表写入或更新（存在时）：[设备信息](https://uniapp.dcloud.io/uniCloud/cloud-obj.html#get-client-info)和`push_clientid`。
 
@@ -60,10 +60,10 @@
 
 #### 接口形式
 可以向设定的（单个、群组、全体）设备，即时或定时推送消息。支持设置：通知栏消息内容、控制响铃，震动，浮动，闪灯；手机桌面应用右上角的角标等。
-```js
+```js 
 await uniPush.sendMessage(OBJECT)
 ```
-#### 入参说明
+#### 入参说明  
 |名称|类型|必填|默认值|描述|平台特性|
 |--|--|--|--|--|--|
 |user_id|String、Array|否|无|基于uni-id的_id，指定接收消息的用户id。</br>支持多个以数组的形式指定多个用户id，如["user_id-1","user_id-2"]，数组长度不大于500| |
@@ -108,7 +108,7 @@ await uniPush.sendMessage(OBJECT)
 - 不同key之间是交集，同一个key之间是根据`opt_type`操作
 - eg. 需要发送给城市在A,B,C里面，没有设置tagtest标签，手机型号为android的设备，用条件交并补功能可以实现，city(A|B|C) && !tag(tagtest) && phonetype(android)
 
-##### platform 说明
+##### platform 说明  
 |值|解释|
 |:-|:-|
 |app-ios|iOS App|
@@ -241,7 +241,7 @@ await uniPush.sendMessage(OBJECT)
 #### 停止任务
 对正处于推送状态，或者未接收的消息停止下发（只支持批量推和群推任务）
 ##### 接口形式
-```js
+```js 
 await uniPush.stopTaskByTaskid(taskId)
 ```
 ##### 入参说明
@@ -252,7 +252,7 @@ await uniPush.stopTaskByTaskid(taskId)
 ##### 响应体说明
 ```js
  {
-    "errCode":0,
+    "errCode":0, 
     "errMsg":"success"
 }
 ```
@@ -262,7 +262,7 @@ await uniPush.stopTaskByTaskid(taskId)
 #### 查询定时任务
 该接口支持在推送完定时任务之后，查看定时任务状态，定时任务是否发送成功。
 ##### 接口形式
-```js
+```js 
 await uniPush.getTaskScheduleByTaskid(taskId)
 ```
 ##### 入参说明
@@ -301,7 +301,7 @@ await uniPush.getTaskScheduleByTaskid(taskId)
 #### 删除定时任务
 用来删除还未下发的任务，删除后定时任务不再触发(距离下发还有一分钟的任务，将无法删除，后续可以调用停止任务接口。)
 ##### 接口形式
-```js
+```js 
 await uniPush.deleteTaskScheduleByTaskid(taskId)
 ```
 ##### 入参说明
@@ -325,13 +325,13 @@ await uniPush.deleteTaskScheduleByTaskid(taskId)
 调用此接口可以查询某任务下某cid的具体实时推送路径情况
 >使用该接口需要申请权限，若有需要，请点击右侧“技术咨询”了解详情
 ##### 接口形式
-```js
+```js 
 await uniPush.getTaskDetail(OBJECT)
 ```
 ##### 入参说明
-| 名称         |  类型   |是否必须      |    默认值|说明      |
+| 名称         |  类型   |是否必须      |    默认值|说明      |  
 | ------------ | ----------- |-----------|---|--------|
-|taskId         |string | true      |      无|任务id  |
+|taskId         |string | true      |      无|任务id  |         
 |cid         |string |   true      |      无|cid   |
 
 ##### 响应体说明
@@ -374,7 +374,7 @@ await uniPush.getTaskDetail(OBJECT)
 #### 绑定别名
 一个cid只能绑定一个别名，若已绑定过别名的cid再次绑定新别名，则前一个别名会自动解绑，并绑定新别名。
 ##### 接口形式
-```js
+```js 
 await uniPush.cidBindAlias(OBJECT)
 ```
 ##### 入参说明
@@ -416,7 +416,7 @@ await uniPush.cidBindAlias(OBJECT)
 #### 根据cid查询别名
 通过传入的cid查询对应的别名信息
 ##### 接口形式
-```js
+```js 
 await uniPush.getAliasByCid(cid)
 ```
 ##### 入参说明
@@ -449,7 +449,7 @@ await uniPush.getAliasByCid(cid)
 #### 根据别名查询cid
 通过传入的别名查询对应的cid信息
 ##### 接口形式
-```js
+```js 
 await uniPush.getCidByAlias(alias)
 ```
 ##### 入参说明
@@ -480,7 +480,7 @@ await uniPush.getCidByAlias(alias)
 #### 批量解绑别名
 批量解除别名与cid的关系
 ##### 接口形式
-```js
+```js 
 await uniPush.unboundAlias(Array)
 ```
 ##### 入参说明
@@ -522,7 +522,7 @@ await uniPush.unboundAlias(Array)
 #### 解绑所有别名
 解绑所有与该别名绑定的cid
 ##### 接口形式
-```js
+```js 
 await uniPush.unboundAllAlias(alias)
 ```
 ##### 入参说明
@@ -551,7 +551,7 @@ await uniPush.unboundAllAlias(alias)
 一个设备绑定一批标签，此操作为覆盖操作，会删除历史绑定的标签；
 > 此接口对单个cid有频控限制，每天只能修改一次，最多设置100个标签；单个标签长度最大为32字符，标签总长度最大为512个字符，申请修改请点击右侧“技术咨询”了解详情 。
 ##### 接口形式
-```js
+```js 
 await uniPush.cidBindCustomTags(OBJECT)
 ```
 ##### 入参说明
@@ -592,7 +592,7 @@ await uniPush.cidBindCustomTags(OBJECT)
 一批设备绑定一个标签，此接口为增量
 > 此接口有频次控制(每分钟最多100次，每天最多10000次)，申请修改请点击右侧“技术咨询”了解详情
 ##### 接口形式
-```js
+```js 
 await uniPush.cidsBindCustomTag(OBJECT)
 ```
 
@@ -629,7 +629,7 @@ await uniPush.cidsBindCustomTag(OBJECT)
 解绑设备的某个标签属性，不影响其它标签
 >此接口有频次控制(每分钟最多100次，每天最多10000次)，申请修改请点击右侧“技术咨询”了解详情
 ##### 接口形式
-```js
+```js 
 await uniPush.cidsUnboundCustomTag(OBJECT)
 ```
 ##### 入参说明
@@ -665,7 +665,7 @@ await uniPush.cidsUnboundCustomTag(OBJECT)
 根据cid查询客户端标签列表
 >此接口有频次控制(每分钟最多100次，每天最多10000次)，申请修改请点击右侧“技术咨询”了解详情
 ##### 接口形式
-```js
+```js 
 await uniPush.searchCustomTagByCid(cid)
 ```
 ##### 入参说明
@@ -704,7 +704,7 @@ await uniPush.searchCustomTagByCid(cid)
 将单个或多个设备加入黑名单，对于黑名单设备在推送过程中会被过滤掉。
 
 ##### 接口形式
-```js
+```js 
 await uniPush.addCidToBlacklist(push_clientid)
 ```
 ##### 入参说明
@@ -728,7 +728,7 @@ await uniPush.addCidToBlacklist(push_clientid)
 #### 移除黑名单设备
 将单个push_clientid或多个push_clientid设备移出黑名单，对于黑名单设备在推送过程中会被过滤掉的，不会给黑名单设备推送消息
 ##### 接口形式
-```js
+```js 
 await uniPush.removeCidInBlacklist(push_clientid)
 ```
 ##### 入参说明
@@ -756,7 +756,7 @@ await uniPush.removeCidInBlacklist(push_clientid)
 注意：该状态为：`offline`离线时，消息可通过：同设备下其他集成个推SDK的在线应用通道完成推送（iOS不支持，Android受限于手机rom的节点设置策略）
 
 ##### 接口形式
-```js
+```js 
 await uniPush.getClientStatusByCid(push_clientid)
 ```
 ##### 入参说明
@@ -797,7 +797,7 @@ await uniPush.getClientStatusByCid(push_clientid)
 2. 该接口返回设备不在线时，仅表示不存在集成了个推SDK的应用在线
 3. 该接口需要开通权限，如需开通，请联系右侧技术咨询
 ##### 接口形式
-```js
+```js 
 await uniPush.getDeviceStatusByCid(cid)
 ```
 ##### 入参说明
@@ -819,7 +819,7 @@ await uniPush.getDeviceStatusByCid(cid)
             "data": {
                 "cid_status":"offline",
                 "device_status":"online"
-            }
+            }  
         }
     }
 }
@@ -839,7 +839,7 @@ await uniPush.getDeviceStatusByCid(cid)
 #### 设备详细信息
 查询设备的信息
 ##### 接口形式
-```js
+```js 
 await uniPush.getClientDetailByCid(String|Array)
 ```
 ##### 入参说明
@@ -902,7 +902,7 @@ await uniPush.getClientDetailByCid(String|Array)
 #### 查询设备总量
 通过指定查询条件来查询满足条件的设备数量
 ##### 接口形式
-```js
+```js 
 await uniPush.getClientCount(OBJECT)
 ```
 ##### 入参说明
@@ -973,7 +973,7 @@ await uniPush.getClientCount(OBJECT)
 #### 设置应用角标(仅支持IOS)
 通过cid通知个推服务器当前iOS设备的角标情况。
 ##### 接口形式
-```js
+```js 
 await uniPush.setBadgeByCid(OBJECT)
 ```
 ##### 入参说明
@@ -997,14 +997,14 @@ await uniPush.setBadgeByCid(OBJECT)
 查询推送数据，可查询消息可下发数、下发数，接收数、展示数、点击数等结果。支持单个taskId查询和多个taskId查询。
 >此接口调用，仅可以查询toList或toApp的推送结果数据；不能查询toSingle的推送结果数据。
 ##### 接口形式
-```js
+```js 
 await uniPush.getReport(OBJECT)
 ```
 ##### 入参说明
 | 名称 | 类型 | 是否必须 | 默认值| 说明 |
 | ------ | ------ | ------ | ------ | ------ |
 | taskid | String | 是 | 无 | 任务id，推送时返回，多个taskId以英文逗号隔开，一次最多传200个|
-| actionIdList | String | 否 | 无 |
+| actionIdList | String | 否 | 无 |  
 
 ##### 响应体说明
 * content-type:`application/json;charset=utf-8`
@@ -1042,7 +1042,7 @@ await uniPush.getReport(OBJECT)
 
 * 返回参数`data`说明
 
-| 名称 | 类型 | 描述 |
+| 名称 | 类型 | 描述 |                 
 | ------ | ---- | -------- |
 |$taskid|Object|key: 任务编号，value: 统计数据|
 |total|Object|总的统计数据|
@@ -1060,7 +1060,7 @@ await uniPush.getReport(OBJECT)
 根据任务组名查询推送结果，返回结果包括消息可下发数、下发数，接收数、展示数、点击数。
 >此接口调用，仅可以查询toList或toApp的推送结果数据；不能查询toSingle的推送结果数据。
 ##### 接口形式
-```js
+```js 
 await uniPush.getReportByGroupName(group_name)
 ```
 ##### 入参说明
@@ -1121,7 +1121,7 @@ await uniPush.getReportByGroupName(group_name)
 获取推送实时结果，可查询消息下发数，接收数、展示数、点击数和消息折损详情等结果。支持单个taskId查询和多个taskId查询。
 >注意：该接口需要开通权限，如需开通，请联系对应的商务同学开通
 ##### 接口形式
-```js
+```js 
 await uniPush.getReportDetailByTaskid(taskid)
 ```
 ##### 入参说明
@@ -1193,7 +1193,7 @@ await uniPush.getReportDetailByTaskid(taskid)
 
 * 返回参数`data`说明
 
-| 名称 | 类型 | 描述 |
+| 名称 | 类型 | 描述 |                 
 | ------ | ---- | -------- |
 |$taskid|Object|key: 任务编号，value: 统计数据|
 |total|Object|总的统计数据|
@@ -1214,7 +1214,7 @@ await uniPush.getReportDetailByTaskid(taskid)
 
 **折损详情分类如下，`2-14`是折损大类说明，大类说明下面的`7001-8999`是细分的折损原因，total代表各细分原因总和**
 
-| 名称 |  描述 |
+| 名称 |  描述 |                 
 | ------ | -------- |
 |2|参数无效|
 |3|app鉴权信息错误|
@@ -1247,7 +1247,7 @@ await uniPush.getReportDetailByTaskid(taskid)
 #### 获取单日推送数据
 调用此接口可以获取某个应用单日的推送数据(推送数据包括：下发数，接收数、展示数、点击数)(目前只支持查询非当天的数据)
 ##### 接口形式
-```js
+```js 
 await uniPush.getReportByDate(date)
 ```
 ##### 入参说明
@@ -1310,7 +1310,7 @@ await uniPush.getReportByDate(date)
 2.vv返回的是请求量push_num，总限额total_num返回的总的到达量，所以会有请求量push_num超过总限额total_num的情况
 3.该接口做了频控限制，请不要频繁调用
 ##### 接口形式
-```js
+```js 
 await uniPush.getTodayReport()
 ```
 ##### 入参说明
@@ -1385,27 +1385,27 @@ await uniPush.getTodayReport()
 | 名称         | 类型 |描述                          |
 | ------------ | -------------------|-------|
 |**gt**     |         Object   |  个推通道 |
-|gt/app     |Object   | 个推群推接口推送限制|
-|gt/list    |Object   | 个推创建消息接口限制  |
-|gt/app\_with\_tag   | Object     |个推 根据条件筛选设备推送接口推送限制 |
-|**xm**    |Object   | xm通道    |
-|xm/general    |Object   | xm通道 普通消息限制，channel是普通级别消息时推送量限制    |
-|**op**    |Object   | op通道    |
-|op/general    |Object   | op通道 公信消息限制，不带channel或公信channel时推送量限制   |
-|**vv**    |Object   | vv通道    |
-|vv/special    |Object   | vv通道系统类消息限制，即classification=1时推送量限制    |
-|vv/general    |Object   | vv通道运营类消息限制，即classification=0时推送量限制   |
-|vv/grouppush   |Object   | vv群推消息体配置量   |
-| total_num     |  long   | 单日可推送总量    |
-| remain_num     |  long| 单日可推送剩余量   |
-| push_num     |  long| 单日可推送请求量，**仅vv返回该字段**   |
-| limit     |boolean|  是否被限量,当日可推送总量使用完时，该字段更新true|
+|gt/app     |Object   | 个推群推接口推送限制|     
+|gt/list    |Object   | 个推创建消息接口限制  |   
+|gt/app\_with\_tag   | Object     |个推 根据条件筛选设备推送接口推送限制 |  
+|**xm**    |Object   | xm通道    |  
+|xm/general    |Object   | xm通道 普通消息限制，channel是普通级别消息时推送量限制    |    
+|**op**    |Object   | op通道    |  
+|op/general    |Object   | op通道 公信消息限制，不带channel或公信channel时推送量限制   |    
+|**vv**    |Object   | vv通道    |   
+|vv/special    |Object   | vv通道系统类消息限制，即classification=1时推送量限制    |  
+|vv/general    |Object   | vv通道运营类消息限制，即classification=0时推送量限制   |   
+|vv/grouppush   |Object   | vv群推消息体配置量   |  
+| total_num     |  long   | 单日可推送总量    |        
+| remain_num     |  long| 单日可推送剩余量   |   
+| push_num     |  long| 单日可推送请求量，**仅vv返回该字段**   |  
+| limit     |boolean|  是否被限量,当日可推送总量使用完时，该字段更新true|  
 
 
 #### 获取单日设备数据接口
 调用此接口可以获取某个应用单日的设备数据(设备数据包括：新增设备数，累计注册设备总数，在线峰值，日联网设备数)(目前只支持查询非当天的数据)
 ##### 接口形式
-```js
+```js 
 await uniPush.getClientReportByDate(date)
 ```
 ##### 入参说明

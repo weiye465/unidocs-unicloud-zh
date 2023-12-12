@@ -10,6 +10,8 @@
 2. 点击-管理公共模块或扩展库依赖
 3. 勾选uni-cloud-ext-storage扩展库
 
+![](https://qiniu-web-assets.dcloud.net.cn/unidoc/zh/3707/ext-storage/445.png)
+
 ## API
 
 ### 获取扩展存储管理对象@getExtStorageManager
@@ -328,3 +330,16 @@ https://upload.qiniup.com
 
 下载域名就是你开通扩展存储时绑定的自定义域名，将你的自定义域名添加到download合法域名列表中
 
+## 常见问题@question
+
+### 运行报错，当前空间不支持provider:"qiniu"
+
+通常是因为空间没有开通扩展存储导致的，[前往开通教程](./service.md)，如果确定已经开通，则可尝试重启项目并重新上传相关云函数。
+
+### 运行报错，uniCloud.getExtStorageManager is not a function
+
+出现这个错误时，请依次执行以下操作
+
+1. 检查HBuilderX的版本是否 >= 3.99
+2. 右键云函数或云对象，管理公共模块或扩展库依赖，勾选uni-cloud-ext-storage扩展库
+3. 重新上传这个云函数或云对象

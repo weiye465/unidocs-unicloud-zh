@@ -21,8 +21,8 @@
 |参数名			|类型		|必填							|说明																																											|
 |:-:				|:-:		|:-:							|:-:																																											|
 |appid			|String	|是								|DCloud appid，可以在项目manifest.json内看到																							|
-|smsKey			|String	|是								|`HBuilderX 3.91`及之后的版本可不填此参数，调用短信接口的密钥key，从[uniCloud web控制台](https://unicloud.dcloud.net.cn/pages/uni-sms/sms-account)获取															|
-|smsSecret	|String	|是								|`HBuilderX 3.91`及之后的版本可不填此参数，调用短信接口的密钥secret，从[uniCloud web控制台](https://unicloud.dcloud.net.cn/pages/uni-sms/sms-account)获取														|
+|smsKey			|String	|是								|`HBuilderX 3.91`及之后的版本可不填此参数，调用短信接口的密钥key，从[uniCloud web控制台](//unicloud.dcloud.net.cn/pages/uni-sms/sms-account)获取															|
+|smsSecret	|String	|是								|`HBuilderX 3.91`及之后的版本可不填此参数，调用短信接口的密钥secret，从[uniCloud web控制台](//unicloud.dcloud.net.cn/pages/uni-sms/sms-account)获取														|
 |phone			|String	|和phoneList二选一|发送目标手机号，暂仅支持中国大陆手机号																										|
 |phoneList	|Array	|和phone二选一		|发送目标手机号，暂仅支持中国大陆手机号，最多50个手机号码，`HBuilderX 3.3.0`起支持				|
 |templateId	|String	|是								|模版Id，短信内容为固定模板，详见下方说明（应用开发阶段，可以使用 DCloud 提供的测试模板）	|
@@ -82,7 +82,7 @@
 
 **短信测试模板说明**
 
-运营商目前审核比较严格，处于开发阶段的应用可能无法通过运营商的审核。为方便开发者测试短信功能，DCloud 提供了一个测试模板，该模板的templateId为：uni_sms_test，内容为：`【统一应用软件】尊敬的用户，您的验证码是：${code}。5分钟内有效，请尽快验证。请勿泄漏您的验证码。`
+运营商目前审核比较严格，处于开发阶段的应用可能无法通过运营商的审核。为方便开发者测试短信功能，DCloud 提供了一个测试模板，该模板的templateId为：uni_sms_test，内容为：`【统一应用软件】尊敬的用户，您的验证码是：${code}。5分钟内有效，请尽快验证。请勿泄漏您的验证码。` 
 
 使用该模板的限制：
 
@@ -188,9 +188,9 @@ exports.main = async (event, context) => {
 
 ### 发送失败注意@fail
 
-- data内如果有`测试`、`test`等字样，系统可能会被判定为测试用途，不会真正把短信下发到对应手机（此行为由运营商控制，可能真实发送，也可能不发送）
+- data内如果有`测试`、`test`等字样，系统可能会被判定为测试用途，不会真正把短信下发到对应手机（此行为由运营商控制，可能真实发送，也可能不发送） 
 - 短信内容不可包含★、 ※、 →、 ●等特殊符号，可能会导致短信乱码
-- 如果本地运行提示`不支持的模板ID`，请更新到`2.9.9+`版本的HBuilderX
+- 如果本地运行提示`不支持的模板ID`，请更新到`2.9.9+`版本的HBuilderX 
 - 使用同一短信模板给同一个手机号发送短信时，频率不能太高。如果1分钟内超过1次，会被运营商判定为骚扰或短信重发而被拦截，导致短信发送失败
 - 尽量使用企业实名认证，个人实名认证的审核更严格，更容易发送失败
 

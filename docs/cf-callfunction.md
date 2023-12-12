@@ -137,11 +137,11 @@ context对象的属性清单如下：
 
 除了上述属性，如果是uni-app客户端通过callfunction访问云函数，那么context还会追加一批客户端信息。
 - HBuilderX 3.4.9前，context 添加了一批大写属性，如APPID、OS。
-- HBuilderX 3.4.9起，context 的属性包括前端API `uni.getSystemInfo` 的所有属性。比如appId、osName，均以驼峰方式命名。这些属性较多，且可能跟随前端API更新而变化，具体详见 [uni.getSystemInfo](https://uniapp.dcloud.net.cn/api/system/info.html#getsysteminfo)
+- HBuilderX 3.4.9起，context 的属性包括前端API `uni.getSystemInfo` 的所有属性。比如appId、osName，均以驼峰方式命名。这些属性较多，且可能跟随前端API更新而变化，具体详见 [uni.getSystemInfo](/api/system/info.html#getsysteminfo)
 
 为了保持向下兼容，新版并没有去掉老版那些大写属性的客户端信息，但文档标注为以废弃。对于新版HBuilderX用户而言，请使用 `uni.getSystemInfo` 返回的驼峰属性。
 
-HBuilderX 3.4.9起，context 的属性还可以打印出`channel`和`scene`，即App的渠道包标记和小程序场景值。但这个功能属于未完成功能，开发者暂不使用这2个属性，后续会升级完善。目前如开发者需要这2个属性，请自行在客户端使用[uni.getLaunchOptionsSync](https://uniapp.dcloud.net.cn/api/getLaunchOptionsSync.html#getlaunchoptionssync)上传。
+HBuilderX 3.4.9起，context 的属性还可以打印出`channel`和`scene`，即App的渠道包标记和小程序场景值。但这个功能属于未完成功能，开发者暂不使用这2个属性，后续会升级完善。目前如开发者需要这2个属性，请自行在客户端使用[uni.getLaunchOptionsSync](/api/getLaunchOptionsSync.html#getlaunchoptionssync)上传。
 
 示例：
 

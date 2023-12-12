@@ -110,7 +110,7 @@ uniCloud腾讯云版支持云存储的文件权限。当上传的文件不希望
 
 #### 示例代码
 
-<!--
+<!-- 
 cloudPath: 'test-admin.jpeg',
 filePath: filePath,
 onUploadProgress: function(progressEvent) {
@@ -675,7 +675,7 @@ let result = await uniCloud.deleteFile({
 
 如需下载到客户端请参考：
 
-- [uni.downloadFile()https://uniapp.dcloud.net.cn/api/request/network-file.md#downloadfile)
+- [uni.downloadFile()](../api/request/network-file.md#downloadfile)
 
 **平台兼容性**
 

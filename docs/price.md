@@ -14,7 +14,7 @@ uniCloud的定价、套餐内容、服务SLA，是由云厂商直接公布的。
 
 ## 阿里云@aliyun-business
 
-> 阿里云正式版版需要使用HBuilderX 3.6.5+（正式版）或3.6.10+（Alpha版）或与此版本对应的uni-app cli项目才可正常使用。如果是cli创建的项目，可以参考：[更新依赖到指定版本](https://uniapp.dcloud.net.cn/quickstart-cli.html#cliversion)
+> 阿里云正式版版需要使用HBuilderX 3.6.5+（正式版）或3.6.10+（Alpha版）或与此版本对应的uni-app cli项目才可正常使用。如果是cli创建的项目，可以参考：[更新依赖到指定版本](/quickstart-cli.html#cliversion)
 
 阿里云提供1个免费空间，付费空间提供包月、按量计费两种计费方式，具体说明如下：
 
@@ -307,7 +307,7 @@ uniCloud的定价、套餐内容、服务SLA，是由云厂商直接公布的。
 
 ## 支付宝小程序云@alipay
 
-> 支付宝小程序云需要使用3.97+或与此版本对应的uni-app cli项目才可正常使用。如果是cli创建的项目，可以参考：[更新依赖到指定版本](https://uniapp.dcloud.net.cn/quickstart-cli.html#cliversion)
+> 支付宝小程序云需要使用3.97+或与此版本对应的uni-app cli项目才可正常使用。如果是cli创建的项目，可以参考：[更新依赖到指定版本](/quickstart-cli.html#cliversion)
 
 支付宝小程序云采用**基础套餐+按量计费**的模式，开发者可先购买带有一定配额的基础套餐（免费版也可以），超出套餐配额部分按使用量付费。
 

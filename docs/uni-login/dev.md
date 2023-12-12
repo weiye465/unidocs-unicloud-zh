@@ -32,7 +32,7 @@ keyword: 手机号
 
 ## 客户端@client
 
-客户端如何使用一键登录请参考此文档：[univerify 使用指南](https://uniapp.dcloud.net.cn/univerify)
+客户端如何使用一键登录请参考此文档：[univerify 使用指南](/univerify)
 
 ## 云函数@cloud
 
@@ -41,16 +41,16 @@ keyword: 手机号
 客户端调用一键登录接口会获取如下结果
 
 ```js
-{
-    "target": {
-        "id": "univerify",
-        "description": "一键登录",
-        "authResult": {
-            "openid": "xxx",
-            "access_token": "xxx"
-        }
-    }
-}
+{  
+    "target": {  
+        "id": "univerify",  
+        "description": "一键登录",  
+        "authResult": {  
+            "openid": "xxx",  
+            "access_token": "xxx"  
+        }  
+    }  
+}  
 ```
 
 使用上面结果中的`openid`和`access_token`即可在`云函数`内调用接口获取手机号
@@ -140,7 +140,7 @@ xhr.send(JSON.stringify({
   access_token: 'xxx', // 客户端一键登录接口返回的access_token
   openid: 'xxx' // 客户端一键登录接口返回的openid
 }));
-
+  
 // 云函数，下面仅展示客户端使用post方式发送content-type为application/json请求的场景
 exports.main = async function(event){
   let body = event.body
@@ -198,23 +198,23 @@ const sign = hmac.digest('hex')
 // 云函数验证签名，此示例中以接受GET请求为例作演示
 const crypto = require('crypto')
 exports.main = async function (event){
-
+  
   const secret = 'your-secret-string' // 自己的密钥不要直接使用示例值，且注意不要泄露
   const hmac = crypto.createHmac('sha256', secret);
-
+  
   let params = event.queryStringParameters
   const sign = params.sign
   delete params.sign
   const signStr = Object.keys(params).sort().map(key => {
     return `${key}=${params[key]}`
   }).join('&')
-
+  
   hmac.update(signStr);
-
+  
   if(sign!==hmac.digest('hex')){
     throw new Error('非法访问')
   }
-
+  
   const {
     access_token,
     openid
