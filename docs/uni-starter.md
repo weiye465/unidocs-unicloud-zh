@@ -159,10 +159,10 @@ uni-starter集成了这个功能，你只需直接在`项目根目录/uni-starte
 1. 最新的华为应用市场要求，隐私政策提示框上接受按钮的文本，必须为“同意”而不能是其他有歧义的文字。
 2. 配置后提交云端打包后生效。理论上绝大部分和`manifest.json`生效相关的配置均需要提交云打包后生效
 
-### 10.云对象拦截器应用  
+### 10.云对象拦截器应用
 云对象拦截器文档[详情查看](https://uniapp.dcloud.net.cn/uniCloud/client-sdk.html#add-interceptor)
 
-1. 控制调试模式  
+1. 控制调试模式
 配置路径：`uni-starter/uni-starter.config.js`
 云对象请求fail时，开启调试模式将以`showModal`的模式弹出真实错误信息。关闭调试模式，则以`showToast`的模式模糊提示（弹出系统错误请稍后再试！）
 
@@ -171,24 +171,24 @@ uni-starter集成了这个功能，你只需直接在`项目根目录/uni-starte
 云对象拦截器逻辑内部：判断用户的剪切板是否包含`uniInvitationCode:`开头的邀请码，如果存在则在请求时带上此邀请码；实现裂变营销功能的用户关系绑定。
 
 ### 12.关于升级
-- 项目升级  
+- 项目升级
 uni-starter遵循uni-app的插件模块化规范，即：[uni_modules](https://uniapp.dcloud.io/uni_modules) 。它是个项目类型的插件。在项目的根目录下有一个符合uni_modules规范的package.json文件，在这个文件右键-从插件市场更新即可更新该插件。
-	
-- 插件升级  
+
+- 插件升级
 非项目类型的`uni_modules`插件在项目根目录下的`uni_modules`目录下。以插件ID为插件文件夹命名，在该目录右键也会看到“从插件市场更新”选项，点击即可更新该插件。
 
 uni-starter内集成的uni-id-pages、uni-upgrade-center等插件都可以独立升级。
 
-### 13.多语言国际化  
+### 13.多语言国际化
 uni-starter支持多语言国际化，默认关闭，可以在`uni-starter.config.js`->`i18n`->`enable`中配置。
 
 如果你启用了多语言国际化需要先阅读：[uni-app多语言国际化](https://uniapp.dcloud.io/collocation/i18n?id=%e6%a1%86%e6%9e%b6%e5%86%85%e7%bd%ae%e7%bb%84%e4%bb%b6%e5%92%8capi%e5%9b%bd%e9%99%85%e5%8c%96)
 
-### 14.微信登录自动获取头像  
+### 14.微信登录自动获取头像
 当用户首次在微信小程序中通过微信登录应用。uni-starter将获取用户的微信头像，设置为当前账号头像。
 
 **注意：** 保存头像的过程是：先将微信头像的图片下载，再上传到uniCloud云存储。而小程序平台要求在管理后台配置小程序应用的联网服务器域名，否则无法联网。请确认已正确配置download、uploadFile合法域名[详情查看](https://uniapp.dcloud.io/uniCloud/publish.html#useinmp)
-	
+
 ## initApp()做了什么
 1. 读取uni-starter.config并挂载到globalData的config下
 2. 读取应用版本号，并存到globalData下
@@ -196,7 +196,7 @@ uni-starter支持多语言国际化，默认关闭，可以在`uni-starter.confi
 4. 监听设备的网络变化并以uni.showToast APi的方式提醒用户
 5. 使用[拦截器](https://uniapp.dcloud.io/api/interceptor?id=addinterceptor) 实现：自动引导打开`选择图片`所需要的权限。当调用`uni.chooseImage`时检测到无权限则自动开启引导。并不是在每次调用接口时处理这类问题，你可以参考该例子做更多该类场景的处理。uni-starter也会持续完善。
 
-## 配置文件  
+## 配置文件
 uni-starter提供了`uni-starter.config.js`，可配置选择登录注册方式及优先级等，可指定该应用是否强制登录才能进入某个页面。配置项内容如下：
 ```js
 module.exports = {
@@ -249,7 +249,7 @@ module.exports = {
 <pre v-pre="" data-lang="">
 <code class="lang-" style="padding:0">
 uni-starter
-├─uniCloud	
+├─uniCloud
 │	├─cloudfunctions 云函数目录
 │	|	├─common 公共模块
 │	│	|	├─uni-config-center			uni-starter的服务端配置中心，项目所有云函数的配置在这里填写 <a target="_blank" href="https://ext.dcloud.net.cn/plugin?id=4425">详情</a>
@@ -282,7 +282,7 @@ uni-starter
 │		├─uni-id-scores.schema.json	        	用户积分表，表结构文件
 │		└─uni-id-users.schema.json	        	用户表，表结构文件
 ├─pages										业务页面文件存放的目录
-│	├─common						
+│	├─common
 │	│	└─webview							webview目录
 │	│		└─webview.vue					webview页面	用于实现跨端的web页面浏览
 │	├─grid
@@ -300,7 +300,7 @@ uni-starter
 │	│	│	└─read-news-log
 │	│	├─invite							带用户inviteCode参数的应用下载页
 │	│	│	└─invite
-│	│	├─settings						
+│	│	├─settings
 │	│	│	├─dc-push
 │	│	│	│	└─push.js					push权限操作SDK
 │	│	│	└─settings.vue					app设置
@@ -324,7 +324,7 @@ uni-starter
 ├─uni_modules						存放<a target="_blank" href="https://uniapp.dcloud.net.cn/plugin/uni_modules.html">uni_modules</a>规范的插件。
 ├─uni_modules_tools				uni_modules插件上传辅助脚本 <a href="https://ext.dcloud.net.cn/plugin?id=5256">详情</a>。
 ├─main.js							Vue初始化入口文件
-├─App.vue							应用配置，用来配置App全局样式以及监听 <a href="/collocation/frame/lifecycle?id=应用生命周期">应用生命周期</a>
+├─App.vue							应用配置，用来配置App全局样式以及监听 <a href="https://uniapp.dcloud.net.cn/collocation/App.html#applifecycle">应用生命周期</a>
 ├─uni-starter.config				uni-starter的前端的配置文件，项目所有模块的配置在这里填写。详见该文件的代码注释。
 ├─manifest.json	 				配置应用名称、appid、logo、版本等打包信息，<a href="/collocation/manifest">详见</a>
 └─pages.json						配置页面路由、导航条、选项卡等页面类信息，<a href="/collocation/pages">详见</a>
@@ -365,7 +365,7 @@ if (uniCloud.onRefreshToken) {
  })
 }
 ```
-						
+
 
 ## FAQ：常见问题
 1. 提示“公共模块uni-id缺少配置信息”解决方案：在cloudfunctions右键‘上传所有云函数、公共模块及actions’之后，需要在cloudfunctions -> common -> uni-config-center 目录单独上传一次，右键‘上传公共模块’。

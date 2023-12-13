@@ -8,11 +8,11 @@
 
 **插件下载地址：[https://ext.dcloud.net.cn/plugin?name=uni-ai-chat](https://ext.dcloud.net.cn/plugin?name=uni-ai-chat)**
 
-视频效果：  
+视频效果：
 <video controls src="https://qiniu-web-assets.dcloud.net.cn/unidoc/zh/uni-ai-chat/uni-ai-stream.mov" style="max-width: 100%; max-height: 70vh;"></video>
 
 
-## 体验步骤  
+## 体验步骤
 
 1. 如之前未使用过uni-app，那请从头学起。[uni-app官网](https://uniapp.dcloud.net.cn)
 2. 如果你还没有开通uniCloud，需要登录[https://unicloud.dcloud.net.cn/](https://unicloud.dcloud.net.cn/)，创建一个服务空间。
@@ -109,7 +109,7 @@ v1.0.3起提供了商业化能力，与uni-ai对话消耗积分。
 ```
 > 更多uniIdRouter自动路由详情参考：[https://uniapp.dcloud.net.cn/uniCloud/uni-id/summary.html#uni-id-router](https://uniapp.dcloud.net.cn/uniCloud/uni-id/summary.html#uni-id-router)
 
-## 二次开发  
+## 二次开发
 **主要文件目录结构**
 
 <pre v-pre="" data-lang="">
@@ -121,11 +121,11 @@ uni-ai-chat
 │   │   │   ├── uni-config-center          uniCloud 配置中心
 │   │   │   │   ├── uni-ad
 │   │   │   │   │   └── config.json        广告信息配置
-│   │   │   │   ├── uni-ai-chat              
+│   │   │   │   ├── uni-ai-chat
 │   │   │   │   │   └── config.json        ai对话项目配置文件<a target="_blank" href="/#config">详情查看</a>
-│   │   │   │   ├── uni-id              
+│   │   │   │   ├── uni-id
 │   │   │   │   │   ├── config.json        身份信息配置文件
-│   │   │   │   │   └── hooks              
+│   │   │   │   │   └── hooks
 │   │   │   │   │      └── index.js        用户注册钩子文件
 │   │   │   │   └── uni-open-bridge        三方平台认证凭据管理配置
 │   │   │   └── uni-sec-check              内容安全检测公共模块
@@ -134,7 +134,7 @@ uni-ai-chat
 │   │   └── uni-open-bridge                三方平台认证凭据管理模块云对象
 │   └── database
 │       ├── newQuery.jql
-│       └── uni-ai-chat.schema.json         
+│       └── uni-ai-chat.schema.json
 ├── components
 │   ├── uni-ad-rewarded-video               激励视频广告组件
 │   └── uni-ai-msg                          消息内容渲染组件
@@ -152,7 +152,7 @@ uni-ai-chat
 │   ├── uni-open-bridge                     三方平台认证凭据管理模块<a target="_blank" href="https://ext.dcloud.net.cn/plugin?name=uni-id-pages">详情查看</a>
 │   ├── uni-id-pages                        统一身份信息管理模块<a target="_blank" href="https://ext.dcloud.net.cn/plugin?name=uni-id-pages">详情查看</a>
 │   └── uni-sec-check                       内容安全检测模块<a target="_blank" href="https://ext.dcloud.net.cn/plugin?name=uni-sec-check">详情查看</a>
-├─ App.vue                                  应用配置，用来配置App全局样式以及监听 <a href="/collocation/frame/lifecycle?id=应用生命周期">应用生命周期</a>
+├─ App.vue                                  应用配置，用来配置App全局样式以及监听 <a href="https://uniapp.dcloud.net.cn/collocation/App.html#applifecycle">应用生命周期</a>
 ├─ changelog.md                             项目更新日志
 ├─ config.js                                项目配置文件
 ├─ main.js                                  项目初始化入口文件
@@ -166,7 +166,7 @@ uni-ai-chat
 
 ### 实现通过支付获取积分
 二开流程思路如下：
-- 服务端  
+- 服务端
 根据[uni-pay](uni-pay.md)文档集成支付功能，在支付成功异步回调（路径：`uni-pay-co/notify/earnedScore.js`）
 给相关用户加积分示例代码如下：
 ```js
@@ -184,7 +184,7 @@ module.exports = async (obj) => {
 		order_no,
 		out_trade_no
 	} = data; // uni-pay-orders 表内的数据均可获取到
-	
+
 	let score = db.command.inc(uniAiChatConfig.earnedScore.pay * total_fee/100)
 	let res = await db.collection('uni-id-users')
 			.doc(user_id)
@@ -216,16 +216,16 @@ module.exports = async (obj) => {
 	}
 ```
 
-## 常见错误  
+## 常见错误
 - **uni-ai相关错误请参考：**[uni-ai错误码](uni-ai.md#err-code)
 
-- **错误信息："certificate has expired"**  
+- **错误信息："certificate has expired"**
   请参考文档：[云函数通过https访问其他服务器时出现“certificate has expired”](faq.md#lets-encrypt-cert)
 
-- **错误信息："Wx0e203209e27b1e66 插件未授权使用 添加插住(env: Windows,mp,1.06.2303060；1ib: 2.31.1)"**  
+- **错误信息："Wx0e203209e27b1e66 插件未授权使用 添加插住(env: Windows,mp,1.06.2303060；1ib: 2.31.1)"**
   请参考文档：[uniAD微信小程序广告开通指南](https://ask.dcloud.net.cn/article/39928)
 
-## 其他  
+## 其他
 DCloud基于`uni-ai`提供了很多开源模板，除了本项目`uni-ai-chat`，还有：
 
 - [uni-cms](uni-cms.md)，一款集成了ai生成文章内容的开源内容管理系统。
