@@ -138,7 +138,7 @@ async function sum () { //注意方法或生命周期需使用async异步方式
 由于篇幅较长，学习云对象需另见文档[云对象](cloud-obj.md)
 
 clientDB和云对象可以混合使用：
-1. 比如官方提供了[uni-id-pages](uni-id-pages.md)，是基于云对象的登录注册系统，开发者可以导出这个插件处理账户体系，然后剩余的业务如果不算复杂，就可以使用clientDB搞定。
+1. 比如官方提供了[uni-id-pages](uni-id/app.md)，是基于云对象的登录注册系统，开发者可以导出这个插件处理账户体系，然后剩余的业务如果不算复杂，就可以使用clientDB搞定。
 2. 一个业务的用户端和admin端也可以是不同的技术栈。比如业务端有复杂的动态权限，而管理端只有一个admin管理员使用，那么admin端使用[schema2code](schema2code.md)会非常高效，而这些技术都基于clientDB。
 
 ### 普通云函数callFunction方式

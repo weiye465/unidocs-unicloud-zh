@@ -31,7 +31,7 @@
 
 **注意**
 
-- 如果使用uni-id发送短信，无需自行开发，请参考[uni-id-pages](uni-id-pages.md)
+- 如果使用uni-id发送短信，无需自行开发，请参考[uni-id-pages](../uni-id/app.md)
 
 #### 云函数使用短信扩展库@extension
 
@@ -198,8 +198,8 @@ exports.main = async (event, context) => {
 **其他注意事项**
 
 - 在uniCloud控制台-短信服务-[安全配置](https://unicloud.dcloud.net.cn/pages/uni-sms/space-white)绑定`uniCloud`服务空间后，将会只允许绑定的服务空间调用此接口，绑定列表为空时表示不限制服务空间
-- 如果是用于用户注册的短信验证码，那么强烈推荐使用uni-id，这是一套云端一体的、完善的用户管理方案，已经内置封装好的短信验证码功能，详见：[uni-id-pages](uni-id-pages.md)。
-- 发送短信前，如果需要图形验证码来防止机刷，可以使用[uni-captcha图形验证码](https://ext.dcloud.net.cn/plugin?id=4048)。在[uni-id-pages](uni-id-pages.md)模板中已经集成了uni-id、uni-captcha
+- 如果是用于用户注册的短信验证码，那么强烈推荐使用uni-id，这是一套云端一体的、完善的用户管理方案，已经内置封装好的短信验证码功能，详见：[uni-id-pages](../uni-id/app.md)。
+- 发送短信前，如果需要图形验证码来防止机刷，可以使用[uni-captcha图形验证码](https://ext.dcloud.net.cn/plugin?id=4048)。在[uni-id-pages](../uni-id/app.md)模板中已经集成了uni-id、uni-captcha
 - Android手机在App端获取短信验证码，参考：[https://ask.dcloud.net.cn/article/676](https://ask.dcloud.net.cn/article/676)
 - 短信内容超过70个字符时为长短信，需分条发送，每67个字按一条短信计算
 - App平台的短信验证码需求，建议优先通过App一键登陆来替代，更便捷、更便宜。[详见](univerify.md)

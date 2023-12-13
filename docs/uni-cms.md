@@ -77,7 +77,7 @@ uni-cms包括管理端和用户端。
 ### 观看广告解锁全文
 
 > 使用观看广告解锁全文功能需要在uni-ad后台开通[激励视频广告](https://uniapp.dcloud.net.cn/component/ad-rewarded-video.html)。
-> 
+>
 > 目前H5端不支持广告，所以在H5端无法使用观看广告解锁全文功能
 
 观看广告解锁全文功能，是uni-cms的核心功能之一。它可以帮助开发者快速变现，提高内容生产效率。
@@ -136,7 +136,7 @@ uni-cms包括管理端和用户端。
 
 - 如果您的项目单独使用`uni-cms-article`，需要在`unCloud/database`目录上点击“创建Schema”来创建`uni-cms-articles`与`uni-cms-categories`表后运行项目。
 - uni-cms-article使用了[clientDB](clientdb.md)，其权限体系依赖[uni-id](uni-id/summary.md)。
-- 如果您的项目需要账户体系，需将`uni-id-pages`插件导入至项目中，要了解`uni-id-pages` [详见](/uniCloud/uni-id-pages.md)。如果您使用了[uni-starter](uni-starter.md)项目，那么其已经内置了 `uni-id-pages`插件。
+- 如果您的项目需要账户体系，需将`uni-id-pages`插件导入至项目中，要了解`uni-id-pages` [详见](/uniCloud/uni-id/app.md)。如果您使用了[uni-starter](uni-starter.md)项目，那么其已经内置了 `uni-id-pages`插件。
 
 #### 3. 多作者登录
 
@@ -163,7 +163,7 @@ uni-cms包括管理端和用户端。
 #### 4. AI 功能开通与使用
 
 > AI功能基于 `uni-ai-chat` 实现，`uni-ai-chat` 文档请参考[uni-ai-chat](https://uniapp.dcloud.net.cn/uniCloud/uni-ai-chat.html)。
-> 
+>
 > `uni-ai-chat` 支持 stream 流式响应，stream 流式响应基于 `uni-push2.0` 实现，`uni-push2.0` 文档请参考[uni-push](https://uniapp.dcloud.net.cn/unipush-v2.html)。
 
 如果开通了 uni-push 后将默认使用 stream 流式响应返回 AI 结果，如果未开通 uni-push 将使用普通响应返回 AI 结果。
@@ -273,7 +273,7 @@ uni-cms                             // uni-cms 插件
 │   │       ├── qrCode.png
 │   │       └── sound-ing.gif
 │   └── editor                      // 富文本编辑器 (兼容H5, 微信小程序, App, 基于Quill, 详见https://quilljs.com/)
-│       ├── app.scss                
+│       ├── app.scss
 │       ├── editor.vue              // 富文本编辑器组件
 │       ├── h5.scss
 │       ├── tools                   // 富文本编辑器工具栏
@@ -323,7 +323,7 @@ uni-cms                             // uni-cms 插件
 ├── package.json
 ├── changelog.md
 ├── readme.md
-├── pages                   // 页面   
+├── pages                   // 页面
 │   ├── article             // 文章
 │   │   ├── add             // 添加文章
 │   │   │   └── add.vue
@@ -339,14 +339,14 @@ uni-cms                             // uni-cms 插件
 │       └── list            // 分类列表
 │           └── list.vue
 └── uniCloud                // 云函数
-    ├── cloudfunctions       
+    ├── cloudfunctions
     │   ├── uni-cms-co          // uni-cms 云对象
     │   │   ├── index.obj.js    // 云对象入口
     │   │   ├── package.json
     │   │   └── utils.js        // uni-cms云对象工具
     │   └── uni-im-co           // uni-im 云对象
     │       ├── index.obj.js    // 云对象入口
-    │       └── package.json    
+    │       └── package.json
     └── database                // 数据库
         ├── db_init.json        // 数据库初始化配置，初始化uni-ai用户
         ├── uni-cms-articles.schema.ext.js          // uni-cms-articles 云函数扩展
@@ -387,7 +387,7 @@ uni-cms-article                             // uni-cms-article 插件
 │   ├── detail                              // 文章详情
 │   │   └── detail.vue
 │   ├── list                                // 文章列表
-│   │   └── list.nvue   
+│   │   └── list.nvue
 │   ├── search                              // 搜索
 │   │   └── search.nvue
 │   └── webview                             // 加载文章详情中的外链
@@ -475,9 +475,9 @@ uni-cms的云端的配置文件统一使用[uni-config-center](uni-config-center
 ### 富文本编辑器插件扩展
 
 > 目前富文本编辑器支持Web、微信小程序、App。不支持其他平台。底层基于Quill.js，详见https://quilljs.com/
-> 
+>
 > 如果编辑器在微信小程序或App使用，将不支持插件扩展，仅支持基本的富文本编辑功能
-> 
+>
 > 如果需要开发插件，将不能发布至微信小程序或者App，否则会出现编辑器无法使用的情况
 
 :::warning 多端不一致表现说明
@@ -592,7 +592,7 @@ export default {
 
 3. 在 uni-AD Web 控制台，找到广告位，点击配置激励视频，展开当前广告位项，可看到生成的 `Security key` 与`adp id`，复制 `Security key` 与 `adp id`
 
-![](https://qiniu-web-assets.dcloud.net.cn/unidoc/zh/202304121448549.png) 
+![](https://qiniu-web-assets.dcloud.net.cn/unidoc/zh/202304121448549.png)
 
 4. 在 `uni_modules/uni-config-center/uniCloud/cloudfunctions/common/uni-config-center`目录中创建 `uni-cms/config.json` 配置文件，配置文件如下:
 ```json
@@ -603,7 +603,7 @@ export default {
         "watchAdUniqueType": "device"
     }
 }
-``` 
+```
 
 **注意**
 

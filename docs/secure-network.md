@@ -50,7 +50,7 @@ App和微信两个平台细化说明如下：
 2. 在[uniCloud控制台](https://unicloud.dcloud.net.cn/)关联允许发送安全网络请求的应用
 
   ![关联应用到服务空间安全网络](https://qiniu-web-assets.dcloud.net.cn/unidoc/zh/secure-network-unicloud-relate.jpg)
-  
+
   本质上安全网络绑定的是应用的appid、包名、证书等信息。只不过这些信息统一配置在dev中，在uniCloud的web控制台来选择。所以务必注意dev配置的正式版、测试版的包名、签名是否正确。
 
 3. 在项目根目录manifest.json文件内为app平台开启安全网络模块
@@ -63,7 +63,7 @@ App和微信两个平台细化说明如下：
 
   - 如果在[uniCloud控制台](https://unicloud.dcloud.net.cn/)，新建表界面在opendb表的其他分类中
   - 如果在HBuilderX的database目录点右键新建，可直接搜索`opendb-app-client-key`。新建后记得上传到uniCloud服务空间。
-  
+
   参考文档：[创建一个表](https://uniapp.dcloud.net.cn/uniCloud/hellodb.html#create-collection)
 
   - 切勿删除或修改此集合内容，否则会导致部分客户端不能发送安全网络请求（重新安装客户端或清除客户端数据后才能正常使用）
@@ -85,7 +85,7 @@ App和微信两个平台细化说明如下：
 1. 在[开发者中心](https://dev.dcloud.net.cn/)`应用详情 --> 【名称待定】`内填写微信小程序的appId。一个应用只能有一个发行配置，但是可以有多个开发配置
 
   ![微信小程序AppId绑定](https://qiniu-web-assets.dcloud.net.cn/unidoc/zh/secure-network-dev-wx-appid.jpg)
-  
+
 2. 在uniCloud控制台关联允许发送安全网络请求的应用
 
   ![关联应用到服务空间安全网络](https://qiniu-web-assets.dcloud.net.cn/unidoc/zh/secure-network-unicloud-relate.jpg)
@@ -167,9 +167,9 @@ App和微信两个平台细化说明如下：
 ```
 
 注意：此方法内部会调用一次微信小程序的login，然后使用返回的code调用`uni-id-co`的`secureNetworkHandshakeByWeixin`方法（新增于uni-id-pages 1.0.27）
-  
+
 7. 在项目根目录manifest.json文件内为微信小程序平台开启`云端一体安全网络模块`
-  
+
   ![微信小程序云端一体安全网络模块](https://qiniu-web-assets.dcloud.net.cn/unidoc/zh/secure-network-wx-manifest.jpg)
 
 #### 不使用uni-id-pages时如何使用微信小程序安全网络@mp-weixin-without-uni-id-pages
@@ -200,7 +200,7 @@ App和微信两个平台细化说明如下：
 云函数内需要调用[uni-open-bridge-common](uni-open-bridge.md#uni-open-bridge-common)将微信应用级access_token及登录用户的session_key同步到uniCloud数据库，以便安全网络云端能从微信获取解密用参数。
 
 ::: warning uni-open-bridge-common使用注意事项
-uni-open-bridge-common仍依赖uni-id的配置获取微信小程序appid，如何配置请参考：[uni-id config](uni-id-pages.md#config)
+uni-open-bridge-common仍依赖uni-id的配置获取微信小程序appid，如何配置请参考：[uni-id config](uni-id/app.md#config)
 :::
 
 如果从自有服务器同步access_token和session_key到uniCloud数据库内可以使用uni-open-bridge提供的url化调用方式，请参考：[uni-open-bridge url化调用](uni-open-bridge.md#cloudurl)
