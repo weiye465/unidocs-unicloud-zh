@@ -322,7 +322,7 @@ getClientInfo().source，返回云函数调用来源，它的值域为：
 **注意事项**
 - 客户端上报的信息在理论上存在被篡改可能，实际业务中应验证前端传来的数据的合法性
 - 除了clientIP外，其他客户端信息只有使用uni-app客户端以云对象的方式调用才能获取
-- 云对象与云函数内获取客户端platform稍有不同，云函数未拉齐vue2、vue3版本app平台的platform值，vue2为`app-plus`，vue3为`app`。云对象无论客户端是vue2还是vue3，在app平台获取的platform均为`app`。这一点在使用uni-id时需要特别注意，详情见：[uni-id文档 preferedAppPlatform](uni-id.md?id=prefered-app-platform)
+- 云对象与云函数内获取客户端platform稍有不同，云函数未拉齐vue2、vue3版本app平台的platform值，vue2为`app-plus`，vue3为`app`。云对象无论客户端是vue2还是vue3，在app平台获取的platform均为`app`。这一点在使用uni-id时需要特别注意，详情见：[uni-id文档 preferedAppPlatform](uni-id/old.md?id=prefered-app-platform)
 
 ### 获取云端信息@get-cloud-info
 

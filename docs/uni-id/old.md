@@ -116,7 +116,7 @@ uni-id的云端配置文件在`uniCloud/cloudfunctions/common/uni-config-center/
 注意：
 
 - **config.json是一个标准json文件，不支持注释**
-- 如果不希望使用config.json初始化而是想自行传入参数（一般不推荐这么做），可以使用`createInstance`方法[uniID.createInstance](../uni-id.md?id=create-instance)
+- 如果不希望使用config.json初始化而是想自行传入参数（一般不推荐这么做），可以使用`createInstance`方法[uniID.createInstance](#create-instance)
 
 > 在云函数URL化的场景无法获取客户端平台信息，可以在调用uni-id相关接口之前（推荐在云函数入口）通过修改context.PLATFORM手动传入客户端平台信息
 

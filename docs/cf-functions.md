@@ -699,7 +699,7 @@ getClientInfos返回的信息，是在客户端的[uni.getSystemInfo](https://un
 
 - 客户端上报的信息在理论上存在被篡改可能，实际业务中应验证前端传来的数据的合法性
 - 除了clientIP外，其他客户端信息只有使用uni-app客户端以callFunction或者importObject方式访问云函数或云对象时才有
-- 云对象与云函数内获取客户端platform稍有不同，云函数未拉齐vue2、vue3版本app平台的platform值，vue2为`app-plus`，vue3为`app`。云对象无论客户端是vue2还是vue3，在app平台获取的platform均为`app`。这一点在使用uni-id时需要特别注意，详情见：[uni-id文档 preferedAppPlatform](uni-id.md?id=prefered-app-platform)
+- 云对象与云函数内获取客户端platform稍有不同，云函数未拉齐vue2、vue3版本app平台的platform值，vue2为`app-plus`，vue3为`app`。云对象无论客户端是vue2还是vue3，在app平台获取的platform均为`app`。这一点在使用uni-id时需要特别注意，详情见：[uni-id文档 preferedAppPlatform](uni-id/old.md?id=prefered-app-platform)
 
 除了`uniCloud.getClientInfos()`API，在云函数context和云对象this中，也可以直接获取当前客户端信息。
 - 云对象通过`this.getClientInfo()`。[详情](cloud-obj.md#get-client-info)
@@ -1132,7 +1132,7 @@ uniCloud.getRequestList()
 
 **关于旧版本uni-id公共模块的特殊说明**
 
-旧版本uni-id公共模块指uni-id-common推出之前的版本。[详见](uni-id.md)
+旧版本uni-id公共模块指uni-id-common推出之前的版本。[详见](uni-id/old.md)
 
 ```js
 // 开启单实例多并发前的uni-id用法
