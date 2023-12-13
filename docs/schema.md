@@ -1002,7 +1002,7 @@ enum支持3种数据格式来描述候选：
 
 在`resume`表中，有一个city字段，其合理的字段规则应该是从`opendb-city-china`表取值，
 
-设置`enumType`为"tree"，代表enum里的数据为树形结构，比如下面的例子，代表opendb-city-china表以getTree方式查询。在schema2code时，可自动生成多级级联选择组件，[详见](/uniCloud/schema2code?id=schema2picker)
+设置`enumType`为"tree"，代表enum里的数据为树形结构，比如下面的例子，代表opendb-city-china表以getTree方式查询。在schema2code时，可自动生成多级级联选择组件，[详见](./schema2code?id=schema2picker)
 ```json
 {
   "schema": {
@@ -1270,9 +1270,9 @@ rule表达式里支持：
 	* 如果要连接外网，要调用[uniCloud.httpclient](cf-functions.md#id=httpclient)；
 	* 如果要调用数据库，需使用云函数里操作数据库的方式，即不支持JQL，[详见](cf-database.md)
 
-但是，在[schema2code](/uniCloud/schema?id=autocode)中，`扩展校验函数`也会被生成到前端页面的校验规则里。
+但是，在[schema2code](./schema?id=autocode)中，`扩展校验函数`也会被生成到前端页面的校验规则里。
 
-也就是说，如果使用[schema2code](/uniCloud/schema?id=autocode)生成前端页面，那么写`扩展校验函数`需要多一层注意。
+也就是说，如果使用[schema2code](./schema?id=autocode)生成前端页面，那么写`扩展校验函数`需要多一层注意。
 
 比如调用了uniCloud.httpclient这样在前端并不存在的API时，前端的表单校验会出错。
 
@@ -1349,7 +1349,7 @@ errorMessage支持字符串，也支持json object。类型为object时，可定
 
 **其他注意事项**
 
-“数据库中某字段值不能在多条记录中重复”，这个需求一般不是在字段值域校验里实现，而是在数据库索引里配置该字段为唯一索引。[详见](/uniCloud/hellodb?id=dbindex)
+“数据库中某字段值不能在多条记录中重复”，这个需求一般不是在字段值域校验里实现，而是在数据库索引里配置该字段为唯一索引。[详见](./hellodb?id=dbindex)
 
 可以在web控制台配置索引，db_init.json也可以创建索引。注意如果数据库中多条记录中该字段已经有重复内容，那么设该字段为唯一索引时会报错，需先把重复数据去掉。
 
@@ -1627,7 +1627,7 @@ forceDefaultValue属于数据校验的范畴，在数据写入时生效，但是
 
 这样用户登录后，uniCloud会自动分析它的permission和role，在schema里编写的关于permission和role的限制也可以一一对应上，进行有效管理。
 
-admin中创建权限、角色和用户授权，另见[文档](/uniCloud/admin?id=mutiladmin)
+admin中创建权限、角色和用户授权，另见[文档](./admin?id=mutiladmin)
 
 
 ### 权限规则内的数据库查询get方法
