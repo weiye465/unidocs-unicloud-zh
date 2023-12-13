@@ -2,7 +2,7 @@
 
 > 2021年11月18日，腾讯云和阿里云均支持
 
-> 使用腾讯云node12和redis，务必仔细阅读此文档：[keepRunningAfterReturn](uniCloud/cf-functions.md?id=keep-running)
+> 使用腾讯云node12和redis，务必仔细阅读此文档：[keepRunningAfterReturn](cf-functions.md?id=keep-running)
 
 Redis是一个基于key/value的内存数据库。在项目中通常作为MongoDB等磁盘数据库的补充来搭配使用。
 相对于磁盘数据库，Redis的核心优势是快。因为操作内存要比磁盘快的多，并且Redis只支持key/value数据，读写都很快。但Redis没有磁盘数据库丰富的查询等功能。
@@ -19,7 +19,7 @@ Redis常见使用场景：
 
 ## 开通Redis服务@buy
 
-参考[开通redis](uniCloud/redis-buy.md)
+参考[开通redis](redis-buy.md)
 
 ## 为云函数启用redis扩展库@use-in-function
 
@@ -48,7 +48,7 @@ exports.main = async (event, context) => {
 - 以`uni:`、`dcloud:`、`unicloud:`为前缀的redis的key，为**官方前缀**。开发者自己的业务所需的key应避免使用这些前缀。
 - 调用`uniCloud.redis()`时返回的redis实例对应着一个连接，多次调用时如果存在未断开连接的redis实例则返回此实例。如果不存在redis实例或之前的redis实例已断开连接则返回新的redis实例。
 - redis实例创建时并未建立与redis的连接，而是在第一次调用redis方法时才会与redis建立连接。在实际业务中的表现就是一个云函数实例第一次调用redis方法会慢上几毫秒
-- 为云函数开启redis扩展会影响云函数固定ip功能，详情参考：[云函数固定出口IP](uniCloud/cf-functions.md?id=eip)
+- 为云函数开启redis扩展会影响云函数固定ip功能，详情参考：[云函数固定出口IP](cf-functions.md?id=eip)
 
 ## Redis本地运行@local-function
 
@@ -3084,7 +3084,7 @@ await redis.quit()
 
   和传统开发不同，云函数实例之间是不互通的，也就是说每个使用redis的函数实例都会和redis建立一个连接，在云函数实例复用时此连接也会复用。
 
-  
+
 ## 最佳实践
 
 ### 高并发下抢购/秒杀/防超卖示例@snap-over-sell
@@ -3139,9 +3139,9 @@ exports.main = async function (event, context) {
 	* 使用redis的eval方法执行lua脚本判断各个商品库存能否满足购物车购买的数量
 	* 如果不满足，返回库存不足的商品id
 	* 如果满足，返回一个空数组
-	* 
+	*
 	* eval为原子操作可以在高并发下保证不出错
-	**/ 
+	**/
 	let checkAndSetStock = `
 	local cart = {${cart.map(item => `{id='${item.id}',amount=${item.amount}}`).join(',')}}
 	local amountList = redis.call('mget',${cart.map(item => `'${stockKeyPrefix}${item.id}'`).join(',')})

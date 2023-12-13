@@ -25,4 +25,4 @@ HBuilderX 3.0之前版本，项目下没有`uniCloud`目录，直接在`cloudfun
 
 云函数修改后，可以本地运行。只有上传到云端，方可在云端生效。
 
-更多云函数介绍参考[规范](uniCloud/cf-functions)。
+更多云函数介绍参考[规范](../cf-functions)。

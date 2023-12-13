@@ -309,8 +309,8 @@ schema 国际化方案 [详见](https://uniapp.dcloud.net.cn/tutorial/i18n?id=sc
 
 复杂格式说明：
 - timestamp是一串数字的时间戳，一般通过如下js获取`var timestamp = new Date().getTime()；`。它的好处是屏蔽了时区差异。阿里云和腾讯云的云端时区是0，但在HBuilderX本地运行云函数时，如果是中国的电脑，时区则会变成8，导致显示错乱。所以推荐使用时间戳。但时间戳是一串记录毫秒的数字，不合适直接渲染到前端界面上。推荐的做法是在前端渲染时使用[`<uni-dateformat>`组件](https://ext.dcloud.net.cn/plugin?id=3279)。
-- 日期和地理位置在web控制台的数据库管理界面上无法直接在引号里录入值，需参考[文档](uniCloud/quickstart?id=editdb)
-- double类型慎重，由于js不能精准处理浮点运算，0.1+0.2=0.30000000000000004。所以涉及金额时，建议使用int而不是double，以分为单位而不是以元为单位存储。比如微信支付默认就是以分为单位。如果使用[uniPay](uniCloud/unipay)处理支付的话，它的默认单位也是分。
+- 日期和地理位置在web控制台的数据库管理界面上无法直接在引号里录入值，需参考[文档](quickstart?id=editdb)
+- double类型慎重，由于js不能精准处理浮点运算，0.1+0.2=0.30000000000000004。所以涉及金额时，建议使用int而不是double，以分为单位而不是以元为单位存储。比如微信支付默认就是以分为单位。如果使用[uniPay](unipay)处理支付的话，它的默认单位也是分。
 - file的json object格式存储文件的基本信息和路径，如下：
 ```json
 {
@@ -1141,7 +1141,7 @@ rule表达式里支持：
 **注意**
 
 - 扩展校验函数不能有其他依赖。有相关需求需使用schema.ext.js来替代。
-- 尽量不要在扩展校验函数中使用全局变量，如果一定要用请务必确保自己已经阅读并理解了[云函数的启动模式](uniCloud/cf-functions.md?id=launchtype)
+- 尽量不要在扩展校验函数中使用全局变量，如果一定要用请务必确保自己已经阅读并理解了[云函数的启动模式](cf-functions.md?id=launchtype)
 
 如何使用
 

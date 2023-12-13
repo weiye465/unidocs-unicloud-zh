@@ -71,4 +71,4 @@ test()
 
 ### 异步行为@async-process
 
-阿里云、腾讯云nodejs8在云函数return之后其余逻辑会被冻结不再执行。腾讯云nodejs12表现恰好相反，云函数return之后还会等待其余逻辑执行后才会将此云函数实例空闲出来。详情见：[keepRunningAfterReturn](uniCloud/cf-functions.md?id=keep-running)
+阿里云、腾讯云nodejs8在云函数return之后其余逻辑会被冻结不再执行。腾讯云nodejs12表现恰好相反，云函数return之后还会等待其余逻辑执行后才会将此云函数实例空闲出来。详情见：[keepRunningAfterReturn](cf-functions.md?id=keep-running)

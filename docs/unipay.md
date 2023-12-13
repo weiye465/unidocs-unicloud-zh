@@ -1,5 +1,5 @@
 > 本文档为`uni-pay 1.x`版本文档。适用于老项目。
-> 新项目请另行查阅 [uni-pay 2.x 版本文档](uniCloud/uni-pay.md)。
+> 新项目请另行查阅 [uni-pay 2.x 版本文档](uni-pay.md)。
 
 ## 简介
 
@@ -71,7 +71,7 @@ const unipayIns = unipay.initWeixinV3({
   mchId: 'your mchId',
   v3Key: 'you parterner key',
   appCertPath: path.resolve(__dirname, 'your appCertPath'),
-  // appCertContent: "", 
+  // appCertContent: "",
   appPrivateKeyPath: path.resolve(__dirname, 'your appPrivateKeyPath'),
   // appPrivateKeyContent: "",
 })
@@ -118,13 +118,13 @@ const unipayIns = unipay.initWeixin({
 
 
 // 以证书放在云函数index.js同级的cert目录下为例，index.js内可以按照下面这个写
-const fs  = require('fs');  
-const path = require('path');  
+const fs  = require('fs');
+const path = require('path');
 const unipayIns = unipay.initWeixin({
   appId: 'your appId',
   mchId: 'your mchId',
   key: 'you parterner key',
-  pfx: fs.readFileSync(path.resolve(__dirname, 'cert/xxx.p12'))  
+  pfx: fs.readFileSync(path.resolve(__dirname, 'cert/xxx.p12'))
 })
 ```
 
@@ -325,7 +325,7 @@ uniCloud.callFunction({
 
 **订单状态**
 
-微信支付： 
+微信支付：
 SUCCESS—支付成功
 REFUND—转入退款
 NOTPAY—未支付
@@ -697,7 +697,7 @@ exports.main = async function (event) {
   let res = await unipayIns.verifyPaymentNotify(event)
   // 处理完毕其他业务
   // 注意如果处理成功需要严格按照下面的格式进行返回，否则厂商会持续通知
-  // 微信支付V3处理成功之后 
+  // 微信支付V3处理成功之后
   return {
     mpserverlessComposedResponse: true,
     statusCode: 200,
@@ -709,22 +709,22 @@ exports.main = async function (event) {
         message: '成功'
     })
   }
-  // 微信支付V2处理成功之后 
+  // 微信支付V2处理成功之后
   return {
-    mpserverlessComposedResponse: true, 
+    mpserverlessComposedResponse: true,
     statusCode: 200,
     headers: {
       'content-type': 'text/xml;charset=utf-8'
     },
     body: `<xml><return_code><![CDATA[SUCCESS]]></return_code><return_msg><![CDATA[OK]]></return_msg></xml>`
   }
-  // 支付宝处理成功后  
+  // 支付宝处理成功后
   return {
     mpserverlessComposedResponse: true,
     statusCode: 200,
-    headers: {  
-      'content-type': 'text/plain'  
-    },  
+    headers: {
+      'content-type': 'text/plain'
+    },
     body: "success"
   }
 }
@@ -764,21 +764,21 @@ exports.main = async function (event) {
 exports.main = async function (event) {
   let res = await unipayIns.verifyRefundNotify(event)
   // 注意如果处理成功需要严格按照下面的格式进行返回，否则厂商会持续通知
-  // 微信处理成功之后 
-  return {
-    mpserverlessComposedResponse: true,
-    statusCode: 200,  
-    headers: {  
-        'content-type': 'text/xml;charset=utf-8'  
-    },  
-    body: `<xml><return_code><![CDATA[SUCCESS]]></return_code><return_msg><![CDATA[OK]]></return_msg></xml>`  
-  }
-  // 支付宝处理成功后  
+  // 微信处理成功之后
   return {
     mpserverlessComposedResponse: true,
     statusCode: 200,
     headers: {
-      'content-type': 'text/plain'  
+        'content-type': 'text/xml;charset=utf-8'
+    },
+    body: `<xml><return_code><![CDATA[SUCCESS]]></return_code><return_msg><![CDATA[OK]]></return_msg></xml>`
+  }
+  // 支付宝处理成功后
+  return {
+    mpserverlessComposedResponse: true,
+    statusCode: 200,
+    headers: {
+      'content-type': 'text/plain'
     },
     body: "success"
   }

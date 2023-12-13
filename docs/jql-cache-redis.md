@@ -1,4 +1,4 @@
-> 新增于HBuilderX 3.5.2，需先开通[redis](uniCloud/redis-introduction.md)
+> 新增于HBuilderX 3.5.2，需先开通[redis](redis-introduction.md)
 
 ## JQL Cache Redis
 
@@ -49,15 +49,15 @@ uniCloud 提供了 MongoDB 和 Redis 2种数据库。并且提供了联动机制
 命中缓存时，clientDB或使用了jql扩展的云函数/云对象会输出以下日志
 
 ```js
-"当前请求需使用Redis缓存" 
-"返回Redis内缓存的结果" 
+"当前请求需使用Redis缓存"
+"返回Redis内缓存的结果"
 ```
 
 未命中缓存时，clientDB或使用了jql扩展的云函数/云对象会输出以下日志
 
 ```js
-"当前请求需使用Redis缓存" 
-"未命中Redis缓存，设置Redis缓存" 
+"当前请求需使用Redis缓存"
+"未命中Redis缓存，设置Redis缓存"
 ```
 
 `JQL Cache Redis`会将缓存配置对应的查询结果缓存到key为`unicloud:jql-cache:${id}:string`的redis缓存内。可以在uniCloud web控制台的redis视图中找到。

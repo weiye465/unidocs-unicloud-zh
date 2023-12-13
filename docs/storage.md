@@ -45,7 +45,7 @@ uniCloud腾讯云版支持云存储的文件权限。当上传的文件不希望
 
 在uni-app前端进行云存储的操作（不是在云函数里操作），包括在前端上传、删除文件。
 
-腾讯云支持配置云存储权限，需搭配腾讯云自定义登录使用，详情：[自定义登录](uniCloud/authentication.md)
+腾讯云支持配置云存储权限，需搭配腾讯云自定义登录使用，详情：[自定义登录](authentication.md)
 
 支付宝小程序云与阿里云不支持控制前端访问云储存的权限
 
@@ -110,7 +110,7 @@ uniCloud腾讯云版支持云存储的文件权限。当上传的文件不希望
 
 #### 示例代码
 
-<!-- 
+<!--
 cloudPath: 'test-admin.jpeg',
 filePath: filePath,
 onUploadProgress: function(progressEvent) {
@@ -757,7 +757,7 @@ let result = await uniCloud.downloadFile({
 
 使用阿里云作为服务商时，云存储支持直接使用**restful api**对资源进行处理，下表列出支持的操作类型。
 
-如果你的数据库及云函数使用腾讯云，也是可以使用阿里云云存储的。详细用法参考：[连接多个服务空间](uniCloud/init.md)
+如果你的数据库及云函数使用腾讯云，也是可以使用阿里云云存储的。详细用法参考：[连接多个服务空间](init.md)
 
 |功能			|操作参数	|参考文档																													|
 |:-:			|:-:		|:-:																														|

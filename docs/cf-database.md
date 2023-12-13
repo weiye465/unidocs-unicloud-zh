@@ -1,4 +1,4 @@
-云函数中支持对云数据库的全部功能的操作。本章节主要讲解如何在云函数内通过传统api操作数据库，如需在云函数内使用JQL语法操作数据库，请参考：[云函数内使用JQL语法](uniCloud/jql-cloud.md)
+云函数中支持对云数据库的全部功能的操作。本章节主要讲解如何在云函数内通过传统api操作数据库，如需在云函数内使用JQL语法操作数据库，请参考：[云函数内使用JQL语法](jql-cloud.md)
 
 ## 获取集合的引用@get-collection
 
@@ -191,7 +191,7 @@ let res = await db.collection('goods').where({
     memory: 8,
   }
 }).get()
-  
+
 // 正确示例
 let res = await db.collection('goods').where([{
   category: 'computer',
@@ -352,7 +352,7 @@ collection.skip(value)
 let res = await collection.skip(4).get()
 ```
 
-**注意：数据量很大的情况下，skip性能会很差，尽量使用其他方式替代，参考：[skip性能优化](uniCloud/db-performance.md?id=skip)**
+**注意：数据量很大的情况下，skip性能会很差，尽量使用其他方式替代，参考：[skip性能优化](db-performance.md?id=skip)**
 
 ### 对结果排序@order-by
 
@@ -851,7 +851,7 @@ db.collection('articles').where({
   version: new db.RegExp({
     regex: '^\\ds',   // 正则表达式为 /^\ds/，转义后变成 '^\\ds'
     options: 'i'    // i表示忽略大小写
-  }) 
+  })
 })
 ```
 
@@ -1030,7 +1030,7 @@ db.collection("table1").doc("5f79fdb337d16d0001899566").remove()
 		console.log( err.message )
 	})
 	.finally(() => {
-		
+
 	})
 ```
 
@@ -1950,7 +1950,7 @@ exports.main = async (event) => {
       const updateBBBRes = await transaction.collection('account').doc('bbb').update({
         amount: dbCmd.inc(10)
       })
-      
+
       const aaaEndRes = await transaction.collection('account').doc('aaa').get()
       if (aaaEndRes.data.amount < 0) { // 请注意transaction.doc().get()返回的data不是数组形式
         await transaction.rollback(-100)

@@ -277,21 +277,21 @@ return {
 
 |API						|描述																																			|
 |--							|--																																				|
-|uniCloud.database()		|云数据库对象 [详情](uniCloud/cf-database.md)																									|
-|uniCloud.databaseJQL()		|云函数中使用JQL语法操作数据库 [详见](uniCloud/jql-cloud.md)，需添加扩展库																			|
-|uniCloud.redis()			|使用redis [详见](uniCloud/redis.md)，需添加扩展库
-|uniCloud.uploadFile()		|云函数上传文件到云存储 [详情](uniCloud/storage?id=clouduploadfile)																				|
-|uniCloud.downloadFile()	|云函数下载云存储的文件到云函数运行环境 [详情](uniCloud/storage?id=clouddownloadfile)															|
-|uniCloud.deleteFile()		|云函数删除云存储的文件 [详情](uniCloud/storage?id=clouddeletefile)																				|
-|uniCloud.getTempFileURL()	|获取云存储文件的临时路径 [详情](uniCloud/storage?id=cloudgettempfileurl)																		|
-|uniCloud.customAuth()		|使用云厂商自定义登录，仅腾讯云支持[详情](uniCloud/authentication.md?id=cloud-custom-auth)														|
+|uniCloud.database()		|云数据库对象 [详情](cf-database.md)																									|
+|uniCloud.databaseJQL()		|云函数中使用JQL语法操作数据库 [详见](jql-cloud.md)，需添加扩展库																			|
+|uniCloud.redis()			|使用redis [详见](redis.md)，需添加扩展库
+|uniCloud.uploadFile()		|云函数上传文件到云存储 [详情](storage?id=clouduploadfile)																				|
+|uniCloud.downloadFile()	|云函数下载云存储的文件到云函数运行环境 [详情](storage?id=clouddownloadfile)															|
+|uniCloud.deleteFile()		|云函数删除云存储的文件 [详情](storage?id=clouddeletefile)																				|
+|uniCloud.getTempFileURL()	|获取云存储文件的临时路径 [详情](storage?id=cloudgettempfileurl)																		|
+|uniCloud.customAuth()		|使用云厂商自定义登录，仅腾讯云支持[详情](authentication.md?id=cloud-custom-auth)														|
 |uniCloud.callFunction()	|云函数/云对象中调用另一个云函数 [见下](#callbyfunction)	|
 |uniCloud.importObject()	|云函数/云对象中调用另一个云对象 [详情](cloud-obj.md?id=call-by-cloud)	|
 |uniCloud.httpclient		|云函数中通过http访问其他系统 [见下](#httpclient)																		|
 |uniCloud.httpProxyForEip	|使用云厂商代理访问http服务（阿里云的解决微信需要固定IP的方案），仅阿里云云端环境支持 [详见](#aliyun-eip)，新增于`HBuilderX 3.5.5`|
-|uniCloud.sendSms()			|发送短信，需添加扩展库 [详见](uniCloud/send-sms.md)																											|
-|uniCloud.getPhoneNumber()	|获取一键登录手机号，需添加扩展库 [详见](uniCloud/univerify.md?id=cloud)																						|
-|uniCloud.init()			|获取指定服务空间的uniCloud实例 [详见](uniCloud/concepts/space.md?id=multi-space)														|
+|uniCloud.sendSms()			|发送短信，需添加扩展库 [详见](send-sms.md)																											|
+|uniCloud.getPhoneNumber()	|获取一键登录手机号，需添加扩展库 [详见](univerify.md?id=cloud)																						|
+|uniCloud.init()			|获取指定服务空间的uniCloud实例 [详见](concepts/space.md?id=multi-space)														|
 |uniCloud.logger			|云函数中打印日志到[uniCloud web控制台](https://unicloud.dcloud.net.cn/)的日志系统（非HBuilderX控制台）[详情](rundebug.md?id=uniCloudlogger)															|
 |uniCloud.getRequestList	|获取当前云函数实例内正在处理的请求Id列表 [详见](#get-request-list)，新增于`HBuilderX 3.5.5`|
 |uniCloud.getClientInfos	|获取当前云函数实例内正在处理的请求对应的客户端信息列表 [详见](#get-client-infos)，新增于`HBuilderX 3.5.5`|
@@ -314,8 +314,8 @@ return {
 
 云函数中支持访问本服务空间下的、或经授权的其他服务空间下的，数据库。
 
-- 使用 JQL 语法操作数据库，另见[文档](uniCloud/jql-cloud.md)
-- 使用 MongoDB 语法操作数据库，另见[文档](uniCloud/cf-database.md)
+- 使用 JQL 语法操作数据库，另见[文档](jql-cloud.md)
+- 使用 MongoDB 语法操作数据库，另见[文档](cf-database.md)
 
 ## 访问其他HTTP服务@httpclient
 
@@ -699,7 +699,7 @@ getClientInfos返回的信息，是在客户端的[uni.getSystemInfo](https://un
 
 - 客户端上报的信息在理论上存在被篡改可能，实际业务中应验证前端传来的数据的合法性
 - 除了clientIP外，其他客户端信息只有使用uni-app客户端以callFunction或者importObject方式访问云函数或云对象时才有
-- 云对象与云函数内获取客户端platform稍有不同，云函数未拉齐vue2、vue3版本app平台的platform值，vue2为`app-plus`，vue3为`app`。云对象无论客户端是vue2还是vue3，在app平台获取的platform均为`app`。这一点在使用uni-id时需要特别注意，详情见：[uni-id文档 preferedAppPlatform](uniCloud/uni-id.md?id=prefered-app-platform)
+- 云对象与云函数内获取客户端platform稍有不同，云函数未拉齐vue2、vue3版本app平台的platform值，vue2为`app-plus`，vue3为`app`。云对象无论客户端是vue2还是vue3，在app平台获取的platform均为`app`。这一点在使用uni-id时需要特别注意，详情见：[uni-id文档 preferedAppPlatform](uni-id.md?id=prefered-app-platform)
 
 除了`uniCloud.getClientInfos()`API，在云函数context和云对象this中，也可以直接获取当前客户端信息。
 - 云对象通过`this.getClientInfo()`。[详情](cloud-obj.md#get-client-info)
@@ -758,11 +758,11 @@ uniCloud的api中，有些api对应的实现，其代码体积较大，且这些
 
 **目前支持的扩展库如下**
 
-- JQL扩展库[uni-cloud-jql]：用于在云函数内使用JQL语法操作数据库，详见：[JQL扩展库](uniCloud/jql-cloud.md)
-- redis扩展库[uni-cloud-redis]：云函数内使用redis，详见：[redis扩展库](uniCloud/redis.md)
-- 发送短信扩展[uni-cloud-sms]：云函数中发送短信，详见：[sms扩展](uniCloud/send-sms?id=extension)
-- 一键登录与实人认证扩展[uni-cloud-verify]：手机App调用运营商一键登录服务时，云函数中获取到真实手机号， 详见：[一键登录扩展库](uniCloud/univerify?id=extension)。核验终端操作者的真实身份，详见：[uni实人认证](frv/intro.md)
-- 统一推送服务扩展库[uni-cloud-push]：云函数内使用uni-push，详见：[统一推送服务扩展库](uniCloud/uni-cloud-push/api.md)
+- JQL扩展库[uni-cloud-jql]：用于在云函数内使用JQL语法操作数据库，详见：[JQL扩展库](jql-cloud.md)
+- redis扩展库[uni-cloud-redis]：云函数内使用redis，详见：[redis扩展库](redis.md)
+- 发送短信扩展[uni-cloud-sms]：云函数中发送短信，详见：[sms扩展](send-sms?id=extension)
+- 一键登录与实人认证扩展[uni-cloud-verify]：手机App调用运营商一键登录服务时，云函数中获取到真实手机号， 详见：[一键登录扩展库](univerify?id=extension)。核验终端操作者的真实身份，详见：[uni实人认证](frv/intro.md)
+- 统一推送服务扩展库[uni-cloud-push]：云函数内使用uni-push，详见：[统一推送服务扩展库](uni-cloud-push/api.md)
 
 以下是一个开启了redis扩展库的云函数package.json示例，注意此文件不支持注释，下方示例中的注释仅为演示
 
@@ -780,7 +780,7 @@ uniCloud的api中，有些api对应的实现，其代码体积较大，且这些
 
 ## 公共模块@common
 
-云函数支持公共模块。多个云函数/云对象的共享部分，可以抽离为公共模块，然后被多个云函数引用。由于篇幅较长，[详见](uniCloud/cf-common)
+云函数支持公共模块。多个云函数/云对象的共享部分，可以抽离为公共模块，然后被多个云函数引用。由于篇幅较长，[详见](cf-common)
 
 ## 使用npm
 
@@ -927,7 +927,7 @@ exports.main = async (event, context) => {
 
 > 仅支付宝小程序云与腾讯云支持
 
-在支付宝小程序云与腾讯云服务空间的云函数内支持获取**同账号**下其他服务空间的uniCloud实例，参考：[一个应用访问多个服务空间](uniCloud/concepts/space.md?id=multi-space)，并使用此实例调用对应服务空间的云函数。
+在支付宝小程序云与腾讯云服务空间的云函数内支持获取**同账号**下其他服务空间的uniCloud实例，参考：[一个应用访问多个服务空间](concepts/space.md?id=multi-space)，并使用此实例调用对应服务空间的云函数。
 
 ```javascript
 //开发者创建了多个服务空间，则需手动初始化。注意这是前端代码，不是云函数代码
@@ -1248,7 +1248,7 @@ exports.main = async function() {
 - 运行环境在云端云函数创建时设定，不可通过更新云函数来修改。
 	也就是第一次上传云函数的时候，package.json里配了什么，就是什么。如果需要修改node环境，需先删除云端云函数，重新上传。
 
-node版本可以在云函数的package.json文件的`cloudfunction-config->runtime`字段进行配置，详情参考：[云函数package.json](uniCloud/cf-functions.md?id=packagejson)
+node版本可以在云函数的package.json文件的`cloudfunction-config->runtime`字段进行配置，详情参考：[云函数package.json](cf-functions.md?id=packagejson)
 
 
 ### 时区
@@ -1281,7 +1281,7 @@ node版本可以在云函数的package.json文件的`cloudfunction-config->runti
 
 腾讯云定时任务触发最大支持900秒超时时间。非定时触发时超时时间为30秒，客户端请求云函数时如果超出30秒云函数断开链接后会继续运行，最大能运行到配置的超时时间。
 
-如果超时时间仍然不够用，可以参考云函数递归调用，连续执行多个云函数处理一个任务[详情查看](uniCloud/cf-functions.md?id=recurrence)
+如果超时时间仍然不够用，可以参考云函数递归调用，连续执行多个云函数处理一个任务[详情查看](cf-functions.md?id=recurrence)
 
 ### 固定出口IP@eip
 
@@ -1487,7 +1487,7 @@ package.json是一个标准json文件，不可带注释。下面是一个package
 
 支付宝小程序云与阿里云定时触发的cron表达式不支持代表年的第七位，但是在package.json内配置时仍需将第七位设置为*。
 
-**在web控制台配置trigger请参考：[定时触发](uniCloud/trigger.md)**
+**在web控制台配置trigger请参考：[定时触发](trigger.md)**
 
 package.json内统一了支付宝小程序云、腾讯云、阿里云三家厂商的配置，三个平台都需要配置为如下形式
 

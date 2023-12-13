@@ -93,7 +93,7 @@
 
 ## 在云函数中使用
 
-如何在云函数中使用redis，请参考[扩展能力Redis](uniCloud/redis.md)
+如何在云函数中使用redis，请参考[扩展能力Redis](redis.md)
 
 ## FAQ
 

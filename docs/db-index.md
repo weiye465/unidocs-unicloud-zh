@@ -18,10 +18,10 @@
 1. 进入 [uniCloud 控制台](https://console.cloud.tencent.com/tcb)。
 2. 切换到【云数据库】标签页，并选择需要添加索引的集合，进入索引管理 tab 页，如下图。
 
-  ![web控制台添加索引](https://qiniu-web-assets.dcloud.net.cn/unidoc/zh/unicloud-web-index.jpg)  
-  
+  ![web控制台添加索引](https://qiniu-web-assets.dcloud.net.cn/unidoc/zh/unicloud-web-index.jpg)
+
 3. 添加索引。
-  
+
   ![添加索引](https://qiniu-web-assets.dcloud.net.cn/unidoc/zh/composed-index.jpg)
 
 注意：
@@ -73,16 +73,16 @@
 组合索引即一个索引包含多个字段。当查询条件使用的字段包含在索引定义的所有字段或前缀字段里时，会命中索引，优化查询性能。
 
 > 索引前缀即组合索引的字段中定义的前 1 到多个字段，例如对集合 **students** 中 **name**, **age**, **score** 三个字段按顺序定义了组合索引，那么该索引的前缀包含
-> 
+>
 > - **name**
 > - **name, age**
-> 
+>
 > 能命中索引的查询字段组合包含
-> 
+>
 > - **name**
 > - **name, age**
 > - **name, age, score**
-> 
+>
 
 ```json
 {
@@ -139,7 +139,7 @@ ttl索引用于设置数据过期时间，并在数据过期后进行删除。**
 
 假如**记录中不存在某个字段，则对索引字段来说其值默认为 null**。如果索引有唯一性限制，则不允许存在两个或以上的该字段为空 / 不存在该字段的记录。
 
-针对上述问题，阿里云支持将索引设置为[稀疏索引](uniCloud/db-index.md?id=sparse)，腾讯云暂不支持稀疏索引。
+针对上述问题，阿里云支持将索引设置为[稀疏索引](db-index.md?id=sparse)，腾讯云暂不支持稀疏索引。
 
 ### 稀疏索引@sparse
 

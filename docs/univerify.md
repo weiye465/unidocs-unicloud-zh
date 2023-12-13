@@ -17,7 +17,7 @@ keyword: 手机号
 
 自`HBuilderX 3.4.0`起，一键登录相关功能移至扩展库`uni-cloud-verify`内。在一段时间内无论开发者是否使用扩展库云函数都可以正常使用`uniCloud.getPhoneNumber`。HBuilderX 3.4.0及之后的版本上传云函数时如果没有指定使用`uni-cloud-verify`扩展库的云函数将无法调用uniCloud.getPhoneNumber接口。
 
-关于扩展库的说明见：[云函数扩展库](uniCloud/cf-functions.md?id=extension)
+关于扩展库的说明见：[云函数扩展库](cf-functions.md?id=extension)
 
 在云函数的package.json内添加`uni-cloud-verify`的引用即可为云函数启用此扩展，无需做其他调整，完整的package.json示例如下：
 
@@ -41,16 +41,16 @@ keyword: 手机号
 客户端调用一键登录接口会获取如下结果
 
 ```js
-{  
-    "target": {  
-        "id": "univerify",  
-        "description": "一键登录",  
-        "authResult": {  
-            "openid": "xxx",  
-            "access_token": "xxx"  
-        }  
-    }  
-}  
+{
+    "target": {
+        "id": "univerify",
+        "description": "一键登录",
+        "authResult": {
+            "openid": "xxx",
+            "access_token": "xxx"
+        }
+    }
+}
 ```
 
 使用上面结果中的`openid`和`access_token`即可在`云函数`内调用接口获取手机号
@@ -142,7 +142,7 @@ xhr.send(JSON.stringify({
   access_token: 'xxx', // 客户端一键登录接口返回的access_token
   openid: 'xxx' // 客户端一键登录接口返回的openid
 }));
-  
+
 // 云函数，下面仅展示客户端使用post方式发送content-type为application/json请求的场景
 exports.main = async function(event){
   let body = event.body
@@ -202,23 +202,23 @@ const sign = hmac.digest('hex')
 // 云函数验证签名，此示例中以接受GET请求为例作演示
 const crypto = require('crypto')
 exports.main = async function (event){
-  
+
   const secret = 'your-secret-string' // 自己的密钥不要直接使用示例值，且注意不要泄露
   const hmac = crypto.createHmac('sha256', secret);
-  
+
   let params = event.queryStringParameters
   const sign = params.sign
   delete params.sign
   const signStr = Object.keys(params).sort().map(key => {
     return `${key}=${params[key]}`
   }).join('&')
-  
+
   hmac.update(signStr);
-  
+
   if(sign!==hmac.digest('hex')){
     throw new Error('非法访问')
   }
-  
+
   const {
     access_token,
     openid
@@ -267,7 +267,7 @@ exports.main = async function (event){
 ```
 云函数费用（天） = 资源使用量 * 0.000110592  + 调用次数 * 0.0133 / 10000 + 出网流量 * 0.8
 			  = 云函数内存（单位为G） * 云函数平均单次执行时长（单位为秒） * 调用次数 + 调用次数 * 0.0133 / 10000 + 出网流量 * 0.8
-			  = 0.5G * 0.2S * 10000 * 0.000110592 + 10000 * 0.0133/10000 + 10000 * 2 * 0.8 / (1024 * 1024) 
+			  = 0.5G * 0.2S * 10000 * 0.000110592 + 10000 * 0.0133/10000 + 10000 * 2 * 0.8 / (1024 * 1024)
 			  = 0.110592 + 0.0133 + 0.0152587890625
 			  = 0.1391507890625（元）
 			  ≈ 0.139（元）

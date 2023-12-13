@@ -158,7 +158,7 @@ HBuilderX自带的uniCloud环境内扩展库的能力仅支持到此HBuilderX发
 
 ### 公用模块使用注意@diff-common-module
 
-- `HBuilderX 3.0.0`之前需要在云函数内执行`npm install ../common/xxx`安装公共模块，详细请参考[云函数公用模块](uniCloud/cf-common.md)
+- `HBuilderX 3.0.0`之前需要在云函数内执行`npm install ../common/xxx`安装公共模块，详细请参考[云函数公用模块](cf-common.md)
 - 如果使用`HBuilderX 3.0.0`及以上版本，可以直接在云函数目录右键选择“管理公共模块依赖”进行公共模块的引入
 - 如果使用到加密的公共模块则此云函数不可本地运行
 - `HBuilderX 3.0.0`版本运行uniCloud项目时，uniCloud本地调试插件会自动进行云函数依赖安装（包括公共模块和package.json里面的其他依赖）

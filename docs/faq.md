@@ -15,7 +15,7 @@
 - 更完善的工具链。前端uni-app、云端uniCloud、还有ide端的HBuilderX，互相紧密搭配，打造闭环的优秀开发体验
 - 更丰富的生态。插件市场有大量现成的轮子和资源 [详见](https://ext.dcloud.net.cn/?cat1=7&orderBy=TotalDownload)
 
-如果你已经使用过微信小程序云开发，想进一步了解对比差异或如何从微信小程序云迁移到uniCloud，[详见](uniCloud/wx2unicloud.md)
+如果你已经使用过微信小程序云开发，想进一步了解对比差异或如何从微信小程序云迁移到uniCloud，[详见](wx2unicloud.md)
 
 ### uniCloud稳定吗？DCloud服务器异常会影响我的线上业务吗？
 
@@ -218,7 +218,7 @@ uniCloud的每个云函数是一个独立进程，不存在云函数级别的多
 
 1. 参考[阿里云全球加速](https://help.aliyun.com/document_detail/153198.html)文档，开通服务并对`自有域名`进行加速
 2. 将上述域名CNAME到`api.next.bspapp.com`
-3. [自行初始化uniCloud](uniCloud/init.md)传入endpoint参数，其值为开通全球加速的自有域名
+3. [自行初始化uniCloud](init.md)传入endpoint参数，其值为开通全球加速的自有域名
 
 ### 腾讯云提示当前实名主体已经有三个账号怎么办@tencent-exceed-account-limit
 
@@ -233,7 +233,7 @@ uniCloud的每个云函数是一个独立进程，不存在云函数级别的多
 
 ### 高并发下简单的防止超卖
 
-> uniCloud阿里云现已支持redis，开通并使用redis请参考:[redis开通和使用](uniCloud/redis.md)，如何使用redis防止超卖请参考：[redis高并发抢购](uniCloud/redis.md?id=snap-over-sell)（推荐使用）。如下方式针对无redis场景比较不灵活（不推荐使用）
+> uniCloud阿里云现已支持redis，开通并使用redis请参考:[redis开通和使用](redis.md)，如何使用redis防止超卖请参考：[redis高并发抢购](redis.md?id=snap-over-sell)（推荐使用）。如下方式针对无redis场景比较不灵活（不推荐使用）
 
 高并发时很多用户同时对一条数据读写，很容易造成数据混乱，表现在秒杀抢购等场景就是超卖。以秒杀为例，开发者可以从扣除库存这步入手对超卖进行很大程度的限制，下面是一个简单的示例（**注意以下代码未使用事务**）
 
@@ -270,7 +270,7 @@ exports.main = async function(event){
 
 ### 部署网站到前端网页托管报“The requested file was not found on this server.”
 
-- 部署history模式的uni-app项目时，如果未修改前端网页托管的配置，直接访问子页面时就会遇到上面的错误。如何配置请参考[部署uni-app项目](uniCloud/hosting.md?id=host-uni-app)
+- 部署history模式的uni-app项目时，如果未修改前端网页托管的配置，直接访问子页面时就会遇到上面的错误。如何配置请参考[部署uni-app项目](hosting.md?id=host-uni-app)
 
 ### 使用腾讯云报未登录Cloudbase
 
@@ -281,7 +281,7 @@ exports.main = async function(event){
 1. 错误信息：`该域名已经被添加过，不能重复添加`
 
   前端网页托管会和阿里云上其他的CDN业务（包括但不限于CDN）冲突，如需绑定到前端网页托管请先将此域名与其他业务解除关联。
-  
+
 2. 错误信息：`The root domain of your domain is reserved by another account`
 
   当前域名有在阿里云开通全站加速相关业务（可能配置了泛域名加速），与前端网页托管冲突。可以考虑使用三级域名或去除泛域名加速改为单独配置需要加速的域名。
