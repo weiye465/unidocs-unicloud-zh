@@ -62,8 +62,8 @@ exports.main = async function(event, context){
   const res = await uniCloud.getPhoneNumber({
     provider: 'univerify',
     appid: context.APPID, // 客户端callFunction时携带的AppId信息
-    apiKey: 'xxx', // HBuilderX 3.94及以上版本可以不传此参数，在uniCloud控制台开通一键登录服务并获取apiKey
-    apiSecret: 'xxx', // HBuilderX 3.94及以上版本可以不传此参数，在uniCloud控制台开通一键登录服务并获取apiSecret
+    apiKey: 'xxx', // HBuilderX 3.94及以上版本可以不传此参数，部分模板/插件的旧版本仍会检查配置，请阅读注意事项
+    apiSecret: 'xxx', // HBuilderX 3.94及以上版本可以不传此参数，部分模板/插件的旧版本仍会检查配置，请阅读注意事项
     access_token: event.access_token,
     openid: event.openid
   })
@@ -79,6 +79,11 @@ exports.main = async function(event, context){
 **相关文档**
 - [uniCloud快速上手](https://uniapp.dcloud.net.cn/uniCloud/quickstart)
 - [云函数URL化](https://uniapp.dcloud.net.cn/uniCloud/http)
+
+**注意**
+
+- 由于历史原因，如果未关联uni-cloud-verify扩展库也可能会在不填写apiKey时提示缺少apiKey，请主动为云函数关联uni-cloud-verify扩展库
+- 如下插件需要升级后才不会检查smsKey、smsSecret必填，如果使用uni-id公共模块需要更新到3.3.31版本，如果使用uni-id-pages需要更新到1.1.17版本，如果使用了uni-starter需要更新到2.1.6版本
 
 ### uni-app项目@uni-app
 

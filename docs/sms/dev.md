@@ -21,8 +21,8 @@
 |参数名			|类型		|必填							|说明																																											|
 |:-:				|:-:		|:-:							|:-:																																											|
 |appid			|String	|是								|DCloud appid，可以在项目manifest.json内看到																							|
-|smsKey			|String	|是								|`HBuilderX 3.91`及之后的版本可不填此参数，调用短信接口的密钥key，从[uniCloud web控制台](//unicloud.dcloud.net.cn/pages/uni-sms/sms-account)获取															|
-|smsSecret	|String	|是								|`HBuilderX 3.91`及之后的版本可不填此参数，调用短信接口的密钥secret，从[uniCloud web控制台](//unicloud.dcloud.net.cn/pages/uni-sms/sms-account)获取														|
+|smsKey			|String	|是								|`HBuilderX 3.91`及之后的版本可不填此参数，调用短信接口的密钥key，部分模板/插件的旧版本仍会检查配置，请阅读注意事项															|
+|smsSecret	|String	|是								|`HBuilderX 3.91`及之后的版本可不填此参数，调用短信接口的密钥secret，部分模板/插件的旧版本仍会检查配置，请阅读注意事项														|
 |phone			|String	|和phoneList二选一|发送目标手机号，暂仅支持中国大陆手机号																										|
 |phoneList	|Array	|和phone二选一		|发送目标手机号，暂仅支持中国大陆手机号，最多50个手机号码，`HBuilderX 3.3.0`起支持				|
 |templateId	|String	|是								|模版Id，短信内容为固定模板，详见下方说明（应用开发阶段，可以使用 DCloud 提供的测试模板）	|
@@ -32,6 +32,8 @@
 **注意**
 
 - 如果使用uni-id发送短信，无需自行开发，请参考[uni-id-pages](../uni-id/app.md)
+- 由于历史原因，如果未关联uni-cloud-sms扩展库也可能会在不填写smsKey时提示缺少smsKey，请主动为云函数关联uni-cloud-sms扩展库
+- 如下插件需要升级后才不会检查smsKey、smsSecret必填，如果使用uni-id公共模块需要更新到3.3.31版本，如果使用uni-id-pages需要更新到1.1.17版本，如果使用了uni-starter需要更新到2.1.6版本
 
 #### 云函数使用短信扩展库@extension
 
