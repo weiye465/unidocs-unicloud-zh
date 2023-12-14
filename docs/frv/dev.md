@@ -434,7 +434,7 @@ sequenceDiagram
 
 #### 项目文件说明
 ```text
-├── uni_modules                                     存放[uni_module](/uni_modules)规范的插件。
+├── uni_modules                                     存放[uni_module](https://uniapp.dcloud.net.cn/plugin/uni_modules.html)规范的插件。
 │    ├── uni-frv-external
 │    │   ├── changelog.md
 │    │   ├── common                                     页面公共逻辑

@@ -32,7 +32,7 @@ keyword: 手机号
 
 ## 客户端@client
 
-客户端如何使用一键登录请参考此文档：[univerify 使用指南](/univerify)
+客户端如何使用一键登录请参考此文档：[univerify 使用指南](https://uniapp.dcloud.net.cn/univerify.html)
 
 ## 云函数@cloud
 
