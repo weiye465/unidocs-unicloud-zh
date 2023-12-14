@@ -13,8 +13,10 @@ const changeLoaderOptions = (options, key = 'name') => {
 	return options;
 };
 
+const base = '/uniCloud/'
+
 const config = {
-  base: '/uniCloud/',
+  base,
   theme: 'vuepress-theme-uni-app-test',
   title: 'uniCloud',
   description: 'uniCloud Document',
@@ -115,6 +117,9 @@ const config = {
         .end()
         .plugin('markdown-it-raw-table')
         .use(require('markdown-it-raw-table'))
+        .end()
+        .plugin('add-base-to-md')
+        .use(require('./markdown/add-base-to-md'), [{ base }])
     }
   },
   chainWebpack (config, isServer) {
