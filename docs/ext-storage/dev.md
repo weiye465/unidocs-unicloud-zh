@@ -122,11 +122,11 @@ uni.chooseImage({
 });
 ```
 
-### 云端直传文件@uploadFile
+### 云端上传文件@uploadFile
 
 接口名：uploadFile
 
-调用此接口可在云端直传文件到云存储
+调用此接口可在云端上传文件到云存储
 
 **云端代码**
 
