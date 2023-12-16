@@ -42,10 +42,16 @@
     * [数据库操作符](cf-database-dbcmd.md)
     * [数据库运算方法](cf-database-aggregate-operator.md)
 * 云存储
-  * [云存储API](storage.md)
-  * [腾讯云自定义登录](authentication.md)
-  * [腾讯云权限管理](policy-tcb.md)
-  * [阿里云CDN安全策略](cdn-security-policy.md)
+  * 内置存储
+    * [云存储API](storage.md)
+    * [腾讯云自定义登录](authentication.md)
+    * [腾讯云权限管理](policy-tcb.md)
+    * [阿里云CDN安全策略](cdn-security-policy.md)
+  * 扩展存储
+    * [简介](ext-storage/intro.md)
+    * [费用说明](ext-storage/price.md)
+    * [开通服务](ext-storage/service.md)
+    * [开发文档](ext-storage/dev.md)
 * uni-id用户体系
   * [综述](./uni-id/summary.md)
   * [客户端-uni-app](./uni-id/app.md)
