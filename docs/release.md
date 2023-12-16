@@ -1,3 +1,19 @@
+#### 2023-12-16
+* 【重要】新增 七牛云扩展存储 价格更优、权限更灵活 [详情](https://uniapp.dcloud.net.cn/uniCloud/ext-storage/intro.html)
+* 新增 uni-app-x 项目支持 uniIdRouter [详情](https://uniapp.dcloud.net.cn/uniCloud/uni-id/summary.html#uni-id-router)
+* 补齐 支付宝小程序云 支持ide中运行JQL文件
+* 修复 支付宝小程序云 doc get 未兼容返回值为 null 的Bug [详情](https://ask.dcloud.net.cn/question/182457)
+* 修复 支付宝小程序云 数据库 where、match 查询对象时结果不正确的Bug
+* 修复 支付宝小程序云 云存储上传失败时，失败原因未在前端展示的Bug
+* 修复 支付宝小程序云 uni.getTempFileURL API 返回只有文件名的Bug
+* 修复 项目存在多个云厂商时，上传云函数识别云厂商错误的Bug
+* 修复 database 目录右击菜单“上传Schema扩展Js的配置”提示“请绑定服务空间”的Bug [详情](https://ask.dcloud.net.cn/question/182971)
+* 修复 创建 Schema 时，存在数据量大的 init_data.json 会导致无法正确下载的Bug
+* 修复 单独上传 uni-clientDB-actions 文件时会导致覆盖之前上传的 action 的Bug [详情](https://ask.dcloud.net.cn/question/182598)
+* 修复 上传云函数、创建schema、上传/下载校验函数时，如果存在时在弹窗中选择跳过将会跳过所有的Bug
+* 修复 初始化向导删除 db_init.json 文案的Bug
+* 优化 关联服务空间时可以跨不同云厂商切换服务空间
+
 #### 2023-12-13
 * 新增 支付宝小程序云 支持云函数URL化
 
