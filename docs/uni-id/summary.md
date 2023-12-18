@@ -103,8 +103,8 @@ uni-app框架内置了uni-id的token管理。
 uni-app与uniCloud搭配且使用uni-id，登录后自动下发token、网络传输层自动传输token（uni-app 2.7.13+版本）、token临近过期会自动续期（uni-app 3.4.13 +版本），也就是说开发者无需自己管理token了。
 
 uni-app客户端还有一批uni-id相关的内置API：
-- uniIDHasRole：判断当前用户是否拥有某角色。[详情](https://uniapp.dcloud.net.cn/api/global.md#uniidhasrole)
-- uniIDHasPermission：判断当前用户是否拥有某权限。[详情](https://uniapp.dcloud.net.cn/api/global.md#uniidhaspermission)
+- uniIDHasRole：判断当前用户是否拥有某角色。[详情](https://uniapp.dcloud.net.cn/api/global#uniidhasrole)
+- uniIDHasPermission：判断当前用户是否拥有某权限。[详情](https://uniapp.dcloud.net.cn/api/global#uniidhaspermission)
 - uniCloud.getCurrentUserInfo()：客户端获取当前用户信息。[详情](../client-sdk.md#client-getcurrentuserinfo)
 
 5. 云端一体页面模板 [uni-id-pages](redirect.md)（含uni-id-co）

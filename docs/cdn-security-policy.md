@@ -102,7 +102,7 @@ User-Agent是HTTP请求头的一部分，包含用户访问时所使用的操作
 
 uni-app的app端，有默认UA，也可以自定义UA。
 
-如需指定某个特殊UA才能访问cdn，需在manifest.json中配置。详见[App的默认UA和自定义UA教程](https://uniapp.dcloud.net.cn/tutorial/app-useragent.md)
+如需指定某个特殊UA才能访问cdn，需在manifest.json中配置。详见[App的默认UA和自定义UA教程](https://uniapp.dcloud.net.cn/tutorial/app-useragent)
 
 **补充**
 

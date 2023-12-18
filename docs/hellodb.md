@@ -588,7 +588,7 @@ web控制台导出时默认不包括`_id`字段，在导入时，数据库插入
       "Direction": "1" // 索引方向，1：ASC-升序，-1：DESC-降序，2dsphere：地理位置
     }],
     "MgoIsUnique": false, // 索引是否唯一
-    "MgoIsSparse": false // 是否为稀疏索引，请参考 https://uniapp.dcloud.net.cn/uniCloud/db-index.md?id=sparse
+    "MgoIsSparse": false // 是否为稀疏索引，请参考 https://uniapp.dcloud.net.cn/uniCloud/db-index?id=sparse
   }
 }]
 ```
@@ -639,7 +639,7 @@ web控制台导出时默认不包括`_id`字段，在导入时，数据库插入
           "Direction": "1" // 索引方向，1：ASC-升序，-1：DESC-降序，2dsphere：地理位置
         }],
         "MgoIsUnique": false, // 索引是否唯一
-        "MgoIsSparse": false // 是否为稀疏索引，请参考 https://uniapp.dcloud.net.cn/uniCloud/db-index.md?id=sparse
+        "MgoIsSparse": false // 是否为稀疏索引，请参考 https://uniapp.dcloud.net.cn/uniCloud/db-index?id=sparse
       }
     }],
     "schema": { // HBuilderX 3.0.0以上版本schema不在此处，而是放在database目录下单独的`表名.schema.json`文件内

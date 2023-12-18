@@ -63,7 +63,7 @@ const uniIdCo = uniCloud.importObject('uni-id-co')
 
 |字段|说明|
 |--|--|
-|clientInfo|客户端信息; [uni.getSystemInfo](https://uniapp.dcloud.net.cn/api/system/info.md#getsysteminfo)返回的字段|
+|clientInfo|客户端信息; [uni.getSystemInfo](https://uniapp.dcloud.net.cn/api/system/info#getsysteminfo)返回的字段|
 |uniIdToken|用户Token; 用户登录后必填|
 |params|API接口参数字段|
 
@@ -71,9 +71,9 @@ const uniIdCo = uniCloud.importObject('uni-id-co')
 
 | 字段          | 说明                                                               |
 |-------------|------------------------------------------------------------------|
-| uniPlatform | 应用运行平台，与条件编译平台相同。[详见](https://uniapp.dcloud.net.cn/api/system/info.md#uniplatform)           |
+| uniPlatform | 应用运行平台，与条件编译平台相同。[详见](https://uniapp.dcloud.net.cn/api/system/info#uniplatform)           |
 | appId       | manifest 中应用appid，即DCloud appid。如没有请手动指定一个，需确保唯一性。               |
-| deviceId    | 设备 id；通过[uni.getSystemInfo](https://uniapp.dcloud.net.cn/api/system/info.md#getsysteminfo)获取 |
+| deviceId    | 设备 id；通过[uni.getSystemInfo](https://uniapp.dcloud.net.cn/api/system/info#getsysteminfo)获取 |
 
 假设已在uniCloud 控制台已设置URL化域名PATH，以PATH为`/http/uni-id-co`为例，演示登录示例：
 
