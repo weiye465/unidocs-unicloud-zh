@@ -37,6 +37,18 @@ export default {
 					url: 'https://im.dcloud.net.cn/#/?joinGroup=658160eb3e585b555acebfd7',
 				},
 			]
+		},
+		{
+			type: 'links',
+			name: 'uniCloud的uni-im交流群',
+			imageUrl:
+				'https://qiniu-web-assets.dcloud.net.cn/unidoc/zh/chat-icon-r.png',
+			items: [
+				{
+					name: '点击加入',
+					url: 'https://im.dcloud.net.cn/#/?joinGroup=6581841e3e585b555acec05c',
+				}
+			],
 		}
 	],
 	qq_group: [
