@@ -219,9 +219,7 @@ exports.main = async (event, context) => {
       "smsSecret": "your sms secret" // 短信密钥secret，开通短信服务处可以看到
     },
     "univerify": {
-      "appid": "your appid", // 当前应用的appid，使用云函数URL化，此项必须配置
-      "apiKey": "your apiKey", // apiKey 和 apiSecret 在开发者中心获取，开发者中心：https://dev.dcloud.net.cn/uniLogin/index?type=0，文档：https://ask.dcloud.net.cn/article/37965
-      "apiSecret": "your apiSecret"
+      "appid": "your appid" // 当前应用的appid，使用云函数URL化，此项必须配置
     }
   }
 }
