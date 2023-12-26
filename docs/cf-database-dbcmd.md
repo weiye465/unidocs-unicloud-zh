@@ -302,7 +302,7 @@ let res = await db.collection('articles').where({
 
      
 #### 使用说明
- 表示字段不等于某个值，和 [eq](Command.eq.html) 相反
+ 表示字段不等于某个值，和 [eq](Command.eq.md) 相反
 
 ### lt
 

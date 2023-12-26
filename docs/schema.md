@@ -1267,7 +1267,7 @@ rule表达式里支持：
 **扩展校验函数 的运行环境注意事项**
 
 `扩展校验函数`的默认运行环境与普通云函数的环境相同，可以调用云函数里可用的各种API。
-	* 如果要连接外网，要调用[uniCloud.httpclient](cf-functions.md#id=httpclient)；
+	* 如果要连接外网，要调用[uniCloud.httpclient](cf-functions.md#httpclient)；
 	* 如果要调用数据库，需使用云函数里操作数据库的方式，即不支持JQL，[详见](cf-database.md)
 
 但是，在[schema2code](./schema?id=autocode)中，`扩展校验函数`也会被生成到前端页面的校验规则里。

@@ -120,7 +120,7 @@
 |字段									|类型						|描述																						|
 |--										|--							|--																							|
 |debug								|Boolean				|调试模式[详情](#debug)														|
-|loginTypes						|Array					|登录方式[详情](#loginTypes)											|
+|loginTypes						|Array					|登录方式[详情](#logintypes)											|
 |agreements						|Array					|隐私政策[详情](#agreements)											|
 |passwordStrength			|Object					|密码配置	[详情](#strength)												|
 |needLogin      			|Array					|配置需要登录才可访问的页面列表，支持正则语法。注意：此配置项不再维护，HBuilderX3.99+ 已支持使用更强大[uni-id-router](./summary.md#uni-id-router)替代。|

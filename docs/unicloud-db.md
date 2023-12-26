@@ -325,7 +325,7 @@ export default {
 </script>
 ```
 
-再次强调，where条件内容较多，组件和api用法相同，完整的where条件文档在api文档中，另见：[JQL文档](./jql.html#where)
+再次强调，where条件内容较多，组件和api用法相同，完整的where条件文档在api文档中，另见：[JQL文档](./jql.md#where)
 
 ## orderby
 

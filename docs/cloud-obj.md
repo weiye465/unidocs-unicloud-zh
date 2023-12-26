@@ -263,7 +263,7 @@ interface ImportObjectOptions {
 
 云对象作为云函数的一种，可以调用所有node的API和uniCloud的API。
 
-uniCloud有众多API，另见：[uniCloud的API清单](cf-functions.html#unicloud-api%E5%88%97%E8%A1%A8)
+uniCloud有众多API，另见：[uniCloud的API清单](cf-functions.md#unicloud-api%E5%88%97%E8%A1%A8)
 
 除上述API之外，云对象的this对象还有一批专用方法来获取当前请求的上下文信息。
 

@@ -140,7 +140,7 @@
 |字段		|类型	|描述											|
 |--			|--		|--												|
 |debug		|Boolean|调试模式[详情](#debug)							|
-|loginTypes	|Array	|登录方式[详情](#loginTypes)						|
+|loginTypes	|Array	|登录方式[详情](#logintypes)						|
 |agreements	|Array	|隐私政策[详情](#agreements)						|
 |appid		|Object	|接入各类服务（如微信登录服务）的应用id[详情](#appid)	|
 |passwordStrength	|Object	|密码配置	[详情](#strength)	|

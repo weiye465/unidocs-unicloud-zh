@@ -3214,7 +3214,7 @@ let res = await db.collection('sales').aggregate()
 
 ### objectToArray
 
-见[objectToArray](#objectToArray)
+见[objectToArray](#objecttoarray)
 
 ## 集合操作符
 
@@ -3620,11 +3620,11 @@ db
 
 ### dateFromString
 
-见[dateFromString](#dateFromString)
+见[dateFromString](#datefromstring)
 
 ### dateToString
 
-见[dateToString](#dateToString)
+见[dateToString](#datetostring)
 
 ### indexOfBytes
 
@@ -4442,7 +4442,7 @@ let res = await db
 
 ### mergeObjects
 
-见[mergeObjects](#mergeObjects)
+见[mergeObjects](#mergeobjects)
 
 ### min
 

@@ -195,7 +195,7 @@ module.exports = {
 
 ## url化返回值@output
 
-云函数、云对象可以返回`string`、`object`、`number`等类型的数据，或者返回 [集成响应](#Integrationresponse)，uniCloud会将返回值转化为正常的 HTTP 响应。
+云函数、云对象可以返回`string`、`object`、`number`等类型的数据，或者返回 [集成响应](#integrationresponse)，uniCloud会将返回值转化为正常的 HTTP 响应。
 
 ### 返回字符串或数字
 

@@ -1780,11 +1780,11 @@ exports.main = async function(event,context) {
 
 ### 设置验证码
 
-见[设置验证码](#setVerifyCode)
+见[设置验证码](#setverifycode)
 
 ### 校验验证码
 
-见[校验验证码](#verifyCode)
+见[校验验证码](#verifycode)
 
 ### 绑定邮箱
 

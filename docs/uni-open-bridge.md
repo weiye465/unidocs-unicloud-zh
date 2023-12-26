@@ -68,10 +68,10 @@
 
 |凭据									|微信小程序				|微信公众号H5	|微信外的web站	|非微信的App|
 |:-:									|:-:					|:-:			|:-:			|:-:		|
-|[access_token](#access_token)			|定时刷新				|定时刷新		|开发者操作		|开发者操作	|
-|[user_access_token](#user_access_token)|-					|开发者操作		|-				|-			|
-|[session_key](#session_key)			|uni-id维护或开发者操作	|-				|-				|-			|
-|[encrypt_key](#encrypt_key)			|[uni云端一体安全网络](secret-net)或开发者操作				|-				|-				|-			|
+|[access_token](#access-token)			|定时刷新				|定时刷新		|开发者操作		|开发者操作	|
+|[user_access_token](#user-access-token)|-					|开发者操作		|-				|-			|
+|[session_key](#session-key)			|uni-id维护或开发者操作	|-				|-				|-			|
+|[encrypt_key](#encrypt-key)			|[uni云端一体安全网络](secret-net)或开发者操作				|-				|-				|-			|
 |[ticket](#ticket)						|-						|定时刷新		|-				|-			|
 
 - `定时刷新`：指由云对象 `uni-open-bridge` 的定时任务触发，自动从微信服务器获取凭据，通过调用 `uni-open-bridge-common` 写入到Redis或数据库
@@ -102,13 +102,13 @@
 
 - 微信小程序
 
-1. 客户端登陆需要保存 [session_key](#session_key)
-2. 解密用户敏感数据需要 [access_token](#access_token)、[session_key](#session_key)，例如：获取用户授权的手机号、用户敏感资料
-3. 解密[uni云端一体安全网络](secret-net)通道使用的加密数据需要 [access_token](#access_token)、[session_key](#session_key) 、[encrypt_key](#encrypt_key)
+1. 客户端登陆需要保存 [session_key](#session-key)
+2. 解密用户敏感数据需要 [access_token](#access-token)、[session_key](#session-key)，例如：获取用户授权的手机号、用户敏感资料
+3. 解密[uni云端一体安全网络](secret-net)通道使用的加密数据需要 [access_token](#access-token)、[session_key](#session-key) 、[encrypt_key](#encrypt-key)
 
 - 微信公众号
 
-1. 微信内公众号H5页面用户登陆需要用到 [user_access_token](#user_access_token)、[ticket](#ticket)
+1. 微信内公众号H5页面用户登陆需要用到 [user_access_token](#user-access-token)、[ticket](#ticket)
 
 微信凭据分应用级、用户级、一次性等凭据，如果你之前未接触过微信这些凭据，请务必阅读下面的**每个凭据的详细介绍**
 
@@ -244,7 +244,7 @@
 }
 ```
 
-- 在 `weixin-mp`、`weixin-h5` 平台，通过调用 [uni-open-bridge-common](#uni-open-bridge-common) 的get相关方法可自动从微信服务器获取 [access_token](#access_token)、[encrypt_key](#encrypt_key)、[ticket](#ticket) 时需要用到配置文件中的 `appid`、`appsecret`
+- 在 `weixin-mp`、`weixin-h5` 平台，通过调用 [uni-open-bridge-common](#uni-open-bridge-common) 的get相关方法可自动从微信服务器获取 [access_token](#access-token)、[encrypt_key](#encrypt-key)、[ticket](#ticket) 时需要用到配置文件中的 `appid`、`appsecret`
 - 暂时不需要配置 `weixin-web`、`weixin-app`、`qq-mp`、`qq-app`，后续支持这些平台时需要再次补充配置，但仍然可通过调用 [uni-open-bridge-common](#uni-open-bridge-common) 的方法传入设置值
 
 
@@ -302,7 +302,7 @@
 
 > `云函数公共模块`是不同云函数共享代码的一种方式。如果你不了解什么是`云函数公共模块`，请另读文档[公共模块](https://uniapp.dcloud.io/uniCloud/cf-common)
 
-`uni-open-bridge-common` 公共模块，提供了 [access_token](#access_token)、[user_access_token](#user_access_token)、[session_key](#session_key)、[encrypt_key](#encrypt_key)、[ticket](#ticket) 的读取、写入、删除操作。
+`uni-open-bridge-common` 公共模块，提供了 [access_token](#access-token)、[user_access_token](#user-access-token)、[session_key](#session-key)、[encrypt_key](#encrypt-key)、[ticket](#ticket) 的读取、写入、删除操作。
 
 `uni-open-bridge-common` 支持多层 读取 / 写入 机制，`redis -> database -> fallback`，优先级如下:
 
@@ -360,7 +360,7 @@ uobc.getEncryptKey(userKey)
 
 |参数					|类型		|描述									|
 |:-:					|:-:		|:-:									|
-|access_token	|String	|[详情](#access_token)|
+|access_token	|String	|[详情](#access-token)|
 
 **expiresIn**
 
@@ -433,7 +433,7 @@ exports.main = async (event, context) => {
 
 |参数					|类型		|描述																									|
 |:-:					|:-:		|:-:																									|
-|access_token	|String	|微信公众平台用户会话密钥，[详情](#user_access_token)	|
+|access_token	|String	|微信公众平台用户会话密钥，[详情](#user-access-token)	|
 
 **expiresIn**
 
@@ -505,7 +505,7 @@ exports.main = async (event, context) => {
 
 |参数				|类型		|描述																			|
 |:-:				|:-:		|:-:																			|
-|session_key|String	|微信小程序会话密钥，[详情](#session_key)	|
+|session_key|String	|微信小程序会话密钥，[详情](#session-key)	|
 
 **expiresIn**
 
@@ -580,7 +580,7 @@ exports.main = async (event, context) => {
 
 |参数				|类型		|描述														|
 |:-:				|:-:		|:-:														|
-|encrypt_key|String	|加密 key，[详情](#encrypt_key)	|
+|encrypt_key|String	|加密 key，[详情](#encrypt-key)	|
 |iv					|String	|加密 iv												|
 
 **expiresIn**

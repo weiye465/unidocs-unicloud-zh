@@ -1957,7 +1957,7 @@ uni-id-pages已全面支持：app、小程序、web（uni-id-pages 版本号1.0.
 3. 回到应用页面，拿到code值调用`uni-id-co`云对象的`loginByWeiXin`方法，得到`token`完成登录
 
 - `appid`说明：微信app内打开的网页，为公众号的appid。其他场景则为在`微信开放平台`创建的`网站应用`的appid。
-- `redirect_uri`说明：进入授权页面后返回的网站链接，此链接的域名需要先在服务后台配置，详情查看:[回调域名的配置](#redirect_uri)
+- `redirect_uri`说明：进入授权页面后返回的网站链接，此链接的域名需要先在服务后台配置，详情查看:[回调域名的配置](#redirect-uri)
 
 示例代码已经在uni-id-pages插件中提供。
 
