@@ -377,7 +377,7 @@ module.exports = {
 }
 ```
 
-获取的token是一个加密的字符串，如需解开token，拿到用户的uid、role、permission，则需要导入 uni-id-common 公共模块调用 checkToken 方法。[详见](uni-id-common.md#checktoken)
+获取的token是一个加密的字符串，如需解开token，拿到用户的uid、role、permission，则需要导入 uni-id-common 公共模块调用 checkToken 方法。[详见](uni-id/cloud-common.md#checktoken)
 
 ### 获取当前调用的方法名@get-method-name
 

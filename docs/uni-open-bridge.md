@@ -36,7 +36,7 @@
 
 云对象`uni-open-bridge`默认是定时运行的，在package.json中配置了每小时定时运行一次（部署到线上服务空间后生效）。
 
-该云对象根据在 `uni-config-center` 中[配置](#uni-id-config)固定凭据，从而有权定时向微信服务器发请求，将获取到的 `access_token`或`ticket` 保存到数据库 `opendb-open-data` 表中。
+该云对象根据在 `uni-config-center` 中[配置](uni-id/summary.md?id=config)固定凭据，从而有权定时向微信服务器发请求，将获取到的 `access_token`或`ticket` 保存到数据库 `opendb-open-data` 表中。
 
 当所在服务空间开通redis时，还会缓存在redis的key。这会让系统性能更好。
 
@@ -49,7 +49,7 @@
 从微信获取到各种凭据后，当各个业务代码需要这些凭据时，通过如下方式获取。
 
 - 云函数/云对象获取这些临时凭据，可引用公共模块 `uni-open-bridge-common` ，通过该模块的API获取，比如getAccessToken。[见下](#uni-open-bridge-common)
-- 非uniCloud系统，比如传统云，获取这些凭据，需要将云对象`uni-open-bridge`进行URL化，通过Http方式请求凭据。[见下](#http)
+- 非uniCloud系统，比如传统云，获取这些凭据，需要将云对象`uni-open-bridge`进行URL化，通过Http方式请求凭据。[见下](#nouseuniopenbridge)
 
 
 流程图如下：
@@ -71,14 +71,14 @@
 |[access_token](#access-token)			|定时刷新				|定时刷新		|开发者操作		|开发者操作	|
 |[user_access_token](#user-access-token)|-					|开发者操作		|-				|-			|
 |[session_key](#session-key)			|uni-id维护或开发者操作	|-				|-				|-			|
-|[encrypt_key](#encrypt-key)			|[uni云端一体安全网络](secret-net)或开发者操作				|-				|-				|-			|
+|[encrypt_key](#encrypt-key)			|[uni云端一体安全网络](secure-network.md)或开发者操作				|-				|-				|-			|
 |[ticket](#ticket)						|-						|定时刷新		|-				|-			|
 
 - `定时刷新`：指由云对象 `uni-open-bridge` 的定时任务触发，自动从微信服务器获取凭据，通过调用 `uni-open-bridge-common` 写入到Redis或数据库
 - `开发者操作`：指由开发者引入公共模块 `uni-open-bridge-common`，调用相关读写[方法](#uni-open-bridge-common)
 
 - `session_key`： 如果使用了uni-id，则uni-id用户登陆时会自动读写该凭据。一般无需开发者维护。
-- `encrypt_key` 依赖 `access_token`、`session_key`，如果依赖的值已存在，可直接读取 `encrypt_key`，如果不存在自动向微信服务器获取、开发者应该仅读取该值，如果使用了[uni云端一体安全网络](secret-net)由其维护，如果有不使用 `uni-open-bridge` 托管的[情况](#nouseuniopenbridge)，则有外部系统操作
+- `encrypt_key` 依赖 `access_token`、`session_key`，如果依赖的值已存在，可直接读取 `encrypt_key`，如果不存在自动向微信服务器获取、开发者应该仅读取该值，如果使用了[uni云端一体安全网络](secure-network.md)由其维护，如果有不使用 `uni-open-bridge` 托管的[情况](#nouseuniopenbridge)，则有外部系统操作
 - `ticket` 依赖 `access_token`，直接获取 `ticket` 会检查 `access_token`，如果不存在默认先请求微信服务器获取并保存，继续请求 `ticket`
 
 还有一些不常用的凭据暂不列出，例如：非微信的App平台的 access_token。
@@ -104,7 +104,7 @@
 
 1. 客户端登陆需要保存 [session_key](#session-key)
 2. 解密用户敏感数据需要 [access_token](#access-token)、[session_key](#session-key)，例如：获取用户授权的手机号、用户敏感资料
-3. 解密[uni云端一体安全网络](secret-net)通道使用的加密数据需要 [access_token](#access-token)、[session_key](#session-key) 、[encrypt_key](#encrypt-key)
+3. 解密[uni云端一体安全网络](secure-network.md)通道使用的加密数据需要 [access_token](#access-token)、[session_key](#session-key) 、[encrypt_key](#encrypt-key)
 
 - 微信公众号
 
@@ -206,7 +206,7 @@
 
 ## uni-open-bridge的使用流程
 
-### 1. **下载插件[uni-open-bridge](https://ext.dcloud.net.cn/plugin?id=9002)到项目中。
+### 1. **下载插件[uni-open-bridge](https://ext.dcloud.net.cn/plugin?id=9002)到项目中**。
 
 ### 2. `uni-config-center`的 `uni-id` 下配置固定凭据
 
@@ -713,7 +713,7 @@ exports.main = async (event, context) => {
 }
 ```
 
-为了简化调用 `getAccessToken()`、`getTicket()` 已内置 `fallback` 到微信的服务器，需要在 `config-center` 中配置 `appid` `appsecret`，[详情](#uni-id-config)
+为了简化调用 `getAccessToken()`、`getTicket()` 已内置 `fallback` 到微信的服务器，需要在 `config-center` 中配置 `appid` `appsecret`，[详情](uni-id/summary.md?id=config)
 
 #### 注意事项
 

@@ -6,7 +6,7 @@
 
 简单来说，uniCloud和微信小程序云开发、支付宝小程序云开发一样稳定健壮，但有更多优势：
 - 跨平台。不管你在uniCloud里选择了阿里还是腾讯的serverless，均可以跨uni-app的全端使用。从pc到h5，从Android到iOS，以及各家小程序快应用，十几个平台全端支持
-- uniCloud提供了`clientDB`神器，减少90%的服务器开发工作量，且保障数据安全。[详见](./database)
+- uniCloud提供了`clientDB`神器，减少90%的服务器开发工作量，且保障数据安全。[详见](clientDB.md)
 - uniCloud提供了[uni-id](uni-id/summary.md)、[uniPay](./unipay)等重要框架，大幅减少开发者的相应功能开发量。
 - uniCloud提供了[uni-starter](https://ext.dcloud.net.cn/plugin?id=5057)，客户端开发工作量大幅减少。
 - uniCloud提供了[uniCloud admin](./admin)，管理端开发工作量大幅减少。

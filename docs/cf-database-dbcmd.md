@@ -250,7 +250,7 @@ function nor(...expressions: Expression[]): Command
 
 ## 查询·比较操作符@dbcmd-compare
 
-### eq
+### eq@eq
 
 查询筛选条件，表示字段等于某个值。`eq` 指令接受一个字面量 (literal)，可以是 `number`, `boolean`, `string`, `object`, `array`, `Date`。  
 
@@ -302,7 +302,7 @@ let res = await db.collection('articles').where({
 
      
 #### 使用说明
- 表示字段不等于某个值，和 [eq](Command.eq.md) 相反
+ 表示字段不等于某个值，和 [eq](#eq) 相反
 
 ### lt
 

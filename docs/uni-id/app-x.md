@@ -1,6 +1,6 @@
 # uni-id-pages-x
 
-> uni-id-pages-x 是 uni-id-pages 的[uni-app x](uni-app-x/README.md)版，目前 uni-app x仅支持Android 端  
+> uni-id-pages-x 是 uni-id-pages 的[uni-app x](https://doc.dcloud.net.cn/uni-app-x/)版，目前 uni-app x仅支持Android 端  
 
 `uni-id-pages-x`，是`uni-id`体系的一部分。
 
@@ -217,7 +217,7 @@ export default {
 }
 ```
 
-以上配置仅开启前端登录入口，实现功能还需：开通对应登录方式服务，获得服务密钥，并在服务端`uni-id`模块的配置文件中完成配置。详情查看：[登录服务开通与配置](#登录服务开通与配置)
+以上配置仅开启前端登录入口，实现功能还需：开通对应登录方式服务，获得服务密钥，并在服务端`uni-id`模块的配置文件中完成配置。详情查看：[登录服务开通与配置](cloud-object.md?id=openAndConfig)
 
 #### 隐私政策@agreements
 |字段				|类型		|描述								|

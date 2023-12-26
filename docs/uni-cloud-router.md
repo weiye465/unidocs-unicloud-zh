@@ -112,7 +112,7 @@ sayHello() {
 
 ## 深入学习
 
-### 控制器（Controller）
+### 控制器（Controller）@controller
 
 负责解析用户的输入，处理后返回相应的结果。
 
@@ -190,7 +190,7 @@ class PostController extends Controller {
 }
 ```
 
-Service 的具体写法，请查看 [Service](#服务service) 章节。
+Service 的具体写法，请查看 [Service](#service) 章节。
 
 #### 定制 URL 化返回的状态码
 
@@ -285,7 +285,7 @@ module.exports = class Instance extends Controller
 ```
 
 
-### 服务（Service）
+### 服务（Service）@service
 
 业务逻辑封装的一个抽象层，有以下几个好处：
 
@@ -325,7 +325,7 @@ module.exports = class PostService extends Service {
 
 [在 Controller 中调用 Service](#调用-service)
 
-### 中间件（Middleware）
+### 中间件（Middleware）@middleware
 
 在路由请求前，后添加处理逻辑，实现一些特定功能，如：用户登录，权限校验等
 
@@ -397,7 +397,7 @@ Context 是一个请求级别的对象，在每一次收到用户请求时，会
 
 #### 获取方式
 
-最常见的 Context 实例获取方式是在 [Middleware](#中间件middleware), [Controller](#控制器controller) 以及 [Service](#服务service) 中。
+最常见的 Context 实例获取方式是在 [Middleware](#middleware), [Controller](#controller) 以及 [Service](#service) 中。
 
 ```js
 // 在 Controller 中通过 this.ctx 获取 Context 实例

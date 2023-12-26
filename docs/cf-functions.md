@@ -652,7 +652,7 @@ uniCloud.getRequestList()
 - 云对象通过`this.getUniCloudRequestId()`。[详情](cloud-obj.md#get-request-id)
 - 云函数通过函数自带参数context。[详情](cf-callfunction.md#context)
 
-### 获取客户端信息列表#get-client-infos
+### 获取客户端信息列表@get-client-infos
 
 同理，考虑到单实例多并发，`uniCloud.getClientInfos()`获取客户端信息也是一个数组。
 

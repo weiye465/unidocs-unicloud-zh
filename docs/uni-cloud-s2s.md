@@ -41,7 +41,7 @@ uni-cloud-s2s仅能在云函数内使用，开发者需要按照uni-cloud-s2s的
 
 接收方仅要求请求方在请求头的`Unicloud-S2s-Authorization`内携带`CONNECTCODE ${connectCode}`，其中connectCode为配置文件内的connectCode值。
 
-如果请求发起方是uniCloud云函数，可以调用uni-cloud-s2s提供的[getSecureHeaders](#get-secure-headers)方法传入数据直接获取安全请求头信息。如果请求接收方是uniCloud云函数，可以调用uni-cloud-s2s提供的[verifyHttpInfo](#verify-http-info)方法传入云函数收到的httpInfo信息直接获取验证结果。
+如果请求发起方是uniCloud云函数，可以调用uni-cloud-s2s提供的[getSecureHeaders](#get-secure-headers)方法传入数据直接获取安全请求头信息。如果请求接收方是uniCloud云函数，可以调用uni-cloud-s2s提供的[verifyHttpInfo](#verify)方法传入云函数收到的httpInfo信息直接获取验证结果。
 
 **示例**
 
@@ -83,7 +83,7 @@ uni-cloud-s2s仅能在云函数内使用，开发者需要按照uni-cloud-s2s的
 - 使用POST方法，content-type为`application/json`，取body内的json转化后的对象内的基础类型值（字符串、数字、布尔值）进行校验
 
 
-如果请求发起方是uniCloud云函数，可以调用uni-cloud-s2s提供的[getSecureHeaders](#get-secure-headers)方法传入数据直接获取签名后的请求头信息。如果请求接收方是uniCloud云函数，可以调用uni-cloud-s2s提供的[verifyHttpInfo](#verify-http-info)方法传入云函数收到的httpInfo信息直接获取验证结果。
+如果请求发起方是uniCloud云函数，可以调用uni-cloud-s2s提供的[getSecureHeaders](#get-secure-headers)方法传入数据直接获取签名后的请求头信息。如果请求接收方是uniCloud云函数，可以调用uni-cloud-s2s提供的[verifyHttpInfo](#verify)方法传入云函数收到的httpInfo信息直接获取验证结果。
 
 对于非云函数场景，请求发起方需要按如下规则进行签名，接收方也需要按照如下规则重新生成签名以验证签名真伪。
 

@@ -654,7 +654,7 @@ module.exports = {
 
 schema扩展依赖的公共模块和扩展库同样可以被action、validateFunction使用。
 
-内置依赖：目前schema扩展依赖了`uni-id`或[uni-id-common](uni-id-common.md)，uni-id 3.0.7及以上版本又依赖了[uni-config-center](uni-config-center.md)，这两个公共模块是可以在触发器内直接使用的。如果所在服务空间开通了redis，schema扩展内可直接使用redis扩展。
+内置依赖：目前schema扩展依赖了`uni-id`或[uni-id-common](uni-id/cloud-common.md)，uni-id 3.0.7及以上版本又依赖了[uni-config-center](uni-config-center.md)，这两个公共模块是可以在触发器内直接使用的。如果所在服务空间开通了redis，schema扩展内可直接使用redis扩展。
 
 自`HBuilderX 3.7.0`起，可以在项目的`uniCloud/database`目录上右键管理schema扩展依赖的公共模块和扩展库。同样在此目录右键选择`上传schema扩展Js的配置`将配置的依赖同步到云端。
 

@@ -1993,7 +1993,7 @@ exports.main = async (event) => {
 <!-- ## 数据库实时推送
 
 监听指定集合中符合查询条件的文档，通过onchange回调获得文档的变化详情
-(where参数为查询条件 参考 [查询文档](#查询文档))
+(where参数为查询条件 参考 [查询文档](#query))
 
 ```js
   const uniCloud =  uniCloud.init({

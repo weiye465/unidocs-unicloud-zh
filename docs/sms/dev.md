@@ -39,7 +39,7 @@
 
 自HBuilderX 3.4.0起，短信相关功能移至扩展库`uni-cloud-sms`内。在一段时间内无论开发者是否使用扩展库云函数都可以正常使用`uniCloud.sendSms`。HBuilderX 3.4.0及之后的版本上传云函数时如果没有指定使用`uni-cloud-sms`扩展库的云函数将无法调用uniCloud.sendSms接口。
 
-关于扩展库的说明见：[云函数扩展库](cf-functions.md#extension)
+关于扩展库的说明见：[云函数扩展库](../cf-functions.md#extension)
 
 在云函数的package.json内添加`uni-cloud-sms`的引用即可为云函数启用此扩展，无需做其他调整，完整的package.json示例如下：
 
@@ -204,7 +204,7 @@ exports.main = async (event, context) => {
 - 发送短信前，如果需要图形验证码来防止机刷，可以使用[uni-captcha图形验证码](https://ext.dcloud.net.cn/plugin?id=4048)。在[uni-id-pages](../uni-id/app.md)模板中已经集成了uni-id、uni-captcha
 - Android手机在App端获取短信验证码，参考：[https://ask.dcloud.net.cn/article/676](https://ask.dcloud.net.cn/article/676)
 - 短信内容超过70个字符时为长短信，需分条发送，每67个字按一条短信计算
-- App平台的短信验证码需求，建议优先通过App一键登陆来替代，更便捷、更便宜。[详见](univerify.md)
+- App平台的短信验证码需求，建议优先通过App一键登陆来替代，更便捷、更便宜。[详见](../univerify.md)
 
 更多问题：欢迎加入<a class="join-group-chat" target="_blank" href="https://qiniu-web-assets.dcloud.net.cn/unidoc/zh/Dcloud-%E7%9F%AD%E4%BF%A1.png">DCloud短信技术交流群	<img src="https://qiniu-web-assets.dcloud.net.cn/unidoc/zh/Dcloud-%E7%9F%AD%E4%BF%A1.png">
 </a>咨询

@@ -1322,7 +1322,7 @@ await uniIdCo.sendSmsCode({
 |--		|--		|--		|--										|
 |mobile	|string	|是		|手机号码								|
 |captcha|string	|是		|图形验证码								|
-|scene	|string	|是		|短信验证码使用场景，务必确保使用验证码的场景和发送验证码时传的场景参数相匹配，否则会校验不通过，参考：[短信验证码使用场景](summary.md#sms-scene)	|
+|scene	|string	|是		|短信验证码使用场景，务必确保使用验证码的场景和发送验证码时传的场景参数相匹配，否则会校验不通过，参考：[短信验证码使用场景](summary.md?id=sms-scene)	|
 
 **返回值**
 
@@ -1351,7 +1351,7 @@ await uniIdCo.sendEmailCode({
 |--		|--		|--		|--										|
 |email	|string	|是		|邮箱								|
 |captcha|string	|是		|图形验证码								|
-|scene	|string	|是		|使用场景，参考：[手机、邮箱验证码使用场景](#sms-scene)	|
+|scene	|string	|是		|使用场景，参考：[手机、邮箱验证码使用场景](summary.md?id=sms-scene)	|
 
 **返回值**
 
@@ -1897,7 +1897,7 @@ module.exports = {
 }
 ```
 
-## 登录服务开通与配置
+## 登录服务开通与配置@openAndConfig
 服务端`uni-id`的密钥信息统一在`uni-config-center`中配置，路径：`uni_modules/uni-config-center/uniCloud/cloudfunctions/common/uni-config-center/uni-id/config.json`
 以下简称：`uni-id配置文件`，完整的配置信息[详情查看](summary.md#config)
 
