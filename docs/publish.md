@@ -104,6 +104,8 @@ app、小程序、web统一发布页面。[详见](uni-publish.md)
 
 ## cli发行
 
+> 支付宝小程序云暂不支持cli发行
+
 规模化的开发时，经常需要通过命令行发行，做持续集成。
 
 HBuilderX提供了cli，[详见](https://hx.dcloud.net.cn/cli/README)
