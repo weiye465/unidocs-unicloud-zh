@@ -1,6 +1,7 @@
 #### 2023-12-16
 * 【重要】新增 七牛云扩展存储 价格更优、权限更灵活 [详情](https://uniapp.dcloud.net.cn/uniCloud/ext-storage/intro.html)
 * 新增 uni-app-x 项目支持 uniIdRouter [详情](https://uniapp.dcloud.net.cn/uniCloud/uni-id/summary.html#uni-id-router)
+* 新增 支付宝小程序云 支持云函数URL化
 * 补齐 支付宝小程序云 支持ide中运行JQL文件
 * 修复 支付宝小程序云 doc get 未兼容返回值为 null 的Bug [详情](https://ask.dcloud.net.cn/question/182457)
 * 修复 支付宝小程序云 数据库 where、match 查询对象时结果不正确的Bug
