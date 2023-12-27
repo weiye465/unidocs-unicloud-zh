@@ -57,7 +57,7 @@ App和微信两个平台细化说明如下：
 
   ![App云端一体安全网络模块](https://qiniu-web-assets.dcloud.net.cn/unidoc/zh/secure-network-app-manifest.jpg)
 
-  **注意：**打包后生效。测试时需打包[自定义基座](https://uniapp.dcloud.net.cn/tutorial/run/run-app.html#customplayground)。
+  **注意：** 打包后生效。测试时需打包[自定义基座](https://uniapp.dcloud.net.cn/tutorial/run/run-app.html#customplayground)。
 
 4. 在服务空间创建数据表[opendb-app-client-key](https://gitee.com/dcloud/opendb/tree/master/collection/opendb-app-client-key)用于保存发放给客户端的密钥对。
 
@@ -68,7 +68,7 @@ App和微信两个平台细化说明如下：
 
   - 切勿删除或修改此集合内容，否则会导致部分客户端不能发送安全网络请求（重新安装客户端或清除客户端数据后才能正常使用）
   - 如果服务空间开通了redis，会自动在redis内存储一份客户端密钥对，以加速安全网络请求的处理。所使用的键为`unicloud:secure:app-client-key:{appId}:{deviceId}:string`
-  - **强烈强烈建议开启redis功能、且在云函数package.json中关联redis扩展，**会大幅加快访问速度并减少数据库请求次数。因安全网络的加密行为已经导致比普通网络多耗时，所以商用项目请务必开通redis以保障速度。在[uniCloud控制台](https://unicloud.dcloud.net.cn/)点redis即可开通。
+  - **强烈强烈建议开启redis功能、且在云函数package.json中关联redis扩展，** 会大幅加快访问速度并减少数据库请求次数。因安全网络的加密行为已经导致比普通网络多耗时，所以商用项目请务必开通redis以保障速度。在[uniCloud控制台](https://unicloud.dcloud.net.cn/)点redis即可开通。
 
 5. 上传任意schema文件到服务空间以触发一次clientDB云端模块的更新
 

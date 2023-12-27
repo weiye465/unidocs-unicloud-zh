@@ -112,7 +112,7 @@
 
 微信凭据分应用级、用户级、一次性等凭据，如果你之前未接触过微信这些凭据，请务必阅读下面的**每个凭据的详细介绍**
 
-### access_token(应用级)@access_token
+### access_token(应用级)@access-token
 
 - 微信小程序 `access_token` 是微信小程序全局唯一后台接口调用凭据，调用绝大多数后台接口时都需使用。[详情](https://developers.weixin.qq.com/miniprogram/dev/framework/server-ability/backend-api.html#access_token)
 
@@ -134,7 +134,7 @@
 
 如公众号管理员第一次拒绝该 IP 调用，用户在1个小时内将无法使用该 IP 再次发起调用，如公众号管理员多次拒绝该 IP 调用，该 IP 将可能长期无法发起调用。平台建议开发者在发起调用前主动与管理员沟通确认调用需求，或请求管理员开启 IP 白名单功能并将该 IP 加入 IP 白名单列表。
 
-### user_access_token(用户级)@user_access_token
+### user_access_token(用户级)@user-access-token
 
 微信公众号H5平台有两个相同名字 `access_token`，分别用于
 
@@ -168,7 +168,7 @@
 
 可通过 `uni-id-co` 获取，[详情](https://uniapp.dcloud.net.cn/uniCloud/uni-id/summary.html#save-user-token)
 
-### session_key(用户级)@session_key
+### session_key(用户级)@session-key
 
 平台对应的值
 
@@ -190,7 +190,7 @@
 
 当开发者在实现自定义登录态时，可以考虑以 `session_key` 有效期作为自身登录态有效期，也可以实现自定义的时效性策略。
 
-### encrypt_key(用户级)@encrypt_key
+### encrypt_key(用户级)@encrypt-key
 
 为了避免微信小程序与开发者后台通信时数据被截取和篡改，微信侧维护了一个用户维度的可靠key，用于小程序和后台通信时进行加密和签名。[详情](https://developers.weixin.qq.com/miniprogram/dev/framework/open-ability/user-encryptkey.html)
 
