@@ -42,11 +42,12 @@
     * [数据库操作符](cf-database-dbcmd.md)
     * [数据库运算方法](cf-database-aggregate-operator.md)
 * 云存储
+  <!-- * [综述](storage/README.md) -->
   * 内置存储
-    * [云存储API](storage.md)
-    * [腾讯云自定义登录](authentication.md)
-    * [腾讯云权限管理](policy-tcb.md)
-    * [阿里云CDN安全策略](cdn-security-policy.md)
+    * [云存储API](storage/dev.md)
+    * [腾讯云自定义登录](storage/authentication.md)
+    * [腾讯云权限管理](storage/policy-tcb.md)
+    * [阿里云CDN安全策略](storage/cdn-security-policy.md)
   * 扩展存储
     * [简介](ext-storage/intro.md)
     * [费用说明](ext-storage/price.md)
