@@ -1,8 +1,6 @@
 ## 概述
 
-开发者使用`uniCloud`的云存储，无需再像传统模式那样单独去购买存储空间、CDN映射、流量采购等；
-
-云存储的上传方式有3种：
+内置云存储的上传方式有3种：
 1. web界面：即在[https://unicloud.dcloud.net.cn/](https://unicloud.dcloud.net.cn/) web控制台，点击云存储，通过web界面进行文件上传。该管理界面同时提供了资源浏览、删除等操作界面。
 2. 客户端API或组件上传：在前端js中编写`uniCloud.uploadFile`，或者使用uni ui的[FilePicker组件](https://ext.dcloud.net.cn/plugin?id=4079)，文件选择+上传均封装完毕。
 3. 云函数上传文件到云存储：即在云函数js中编写`uniCloud.uploadFile`
@@ -16,7 +14,7 @@
 阿里云的云存储有一些限制：
 - 文件没有读权限控制，任意人知道路径都可以读。
 
-腾讯云没有上述限制。
+腾讯云、支付宝小程序云则没有上述限制。
 
 ### 文件权限
 
@@ -25,6 +23,8 @@ uniCloud腾讯云版支持云存储的文件权限。当上传的文件不希望
 首先在uniCloud web控制台，腾讯云的服务空间中，可以配置云存储的权限。如果是隐私文件，应该配置为仅管理员可访问。
 
 在云函数中，通过`uniCloud.getTempFileURL`（[见下](#cloudgettempfileurl)），获取该文件的临时URL。然后将临时URL发给客户端，客户端根据临时URL请求云存储的文件。
+
+扩展存储支持文件级别的公有、私有权限设置，详见[updateFileStatus](../ext-storage/dev.md#updatefilestatus)
 
 ### 目录支持@storage-dir
 

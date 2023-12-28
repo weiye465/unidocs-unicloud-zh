@@ -42,7 +42,7 @@
     * [数据库操作符](cf-database-dbcmd.md)
     * [数据库运算方法](cf-database-aggregate-operator.md)
 * 云存储
-  <!-- * [综述](storage/README.md) -->
+  * [综述](storage/README.md)
   * 内置存储
     * [云存储API](storage/dev.md)
     * [腾讯云自定义登录](storage/authentication.md)
