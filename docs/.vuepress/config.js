@@ -28,6 +28,7 @@ const config = {
       name: 'keywords', content: '数字天堂,前端开发,web开发,小程序开发,跨平台,跨平台开发,跨端开发,混合开发,serverless,云开发,云函数'
     }],
     ['script', { src: 'https://hm.baidu.com/hm.js?fe3b7a223fc08c795f0f4b6350703e6f' }],
+    ['script', { src: '/miku-delivery-1.2.1.js' }],
     ['script', { src: `/js/miku.js?${Date.now()}&v=${Date.now()}&version=${Date.now()}` }]
   ],
   locales: {
