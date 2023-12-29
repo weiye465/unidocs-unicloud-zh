@@ -11,19 +11,22 @@
 - 在使用腾讯云时如果访问云存储文件提示`The requested URL '/1123.jpg' was not found on this server`这种错误，一般是cdn流量用尽导致的，可以升级套餐或转为按量计费。
 - 在允许用户上传图片的应用里，违规检测是必不可少的，为此uniCloud提供了内容安全检测模块，可以很方便的实现图片鉴黄等功能。详情参考：[内容安全](https://ext.dcloud.net.cn/plugin?id=5460)
 
-阿里云的云存储有一些限制：
-- 文件没有读权限控制，任意人知道路径都可以读。
-
-腾讯云、支付宝小程序云则没有上述限制。
-
 ### 文件权限
 
-uniCloud腾讯云版支持云存储的文件权限。当上传的文件不希望被其他人访问时，需配置权限。比如身份证照片。
+uniCloud阿里云版的云存储，不支持对文件设置读权限，任意人知道路径都可以读取。腾讯云、支付宝小程序云则没有上述限制。
 
-首先在uniCloud web控制台，腾讯云的服务空间中，可以配置云存储的权限。如果是隐私文件，应该配置为仅管理员可访问。
+**腾讯云**
 
-在云函数中，通过`uniCloud.getTempFileURL`（[见下](#cloudgettempfileurl)），获取该文件的临时URL。然后将临时URL发给客户端，客户端根据临时URL请求云存储的文件。
+uniCloud腾讯云版支持云存储的文件权限。当上传的文件不希望被其他人访问时（比如身份证照片），需配置权限：
 
+1. 登录[uniCloud web控制台](https://unicloud.dcloud.net.cn/)，选择腾讯云服务空间，配置云存储的权限。如果是隐私文件，应该配置为仅云函数可读写。
+2. 在云函数中，通过`uniCloud.getTempFileURL`（[见下](#cloudgettempfileurl)），获取该文件的临时URL。然后将临时URL发给客户端，客户端根据临时URL请求云存储的文件。
+
+**支付宝小程序云**
+
+uniCloud支付宝小程序云版支持云存储的文件夹权限，可以通过创建`私有权限`的文件夹，来保证改文件夹下的所有文件无法被公开读取，而必须通过[uniCloud.getTempFileURL](#cloudgettempfileurl)获取的临时URL来进行访问。
+
+**扩展存储**
 扩展存储支持文件级别的公有、私有权限设置，详见[updateFileStatus](../ext-storage/dev.md#updatefilestatus)
 
 ### 目录支持@storage-dir
