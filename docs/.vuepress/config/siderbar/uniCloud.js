@@ -29,13 +29,7 @@ export default {
 					url: 'https://tongji.dcloud.net.cn/',
 					imageUrl:
 						'https://qiniu-web-assets.dcloud.net.cn/unidoc/zh/uni-tongji-icon.png',
-				},
-				{
-					name: 'uni-im交流群',
-					imageUrl:
-						'https://qiniu-web-assets.dcloud.net.cn/unidoc/zh/chat-icon-r.png',
-					url: 'https://im.dcloud.net.cn/#/?joinGroup=658160eb3e585b555acebfd7',
-				},
+				}
 			]
 		},
 		{
