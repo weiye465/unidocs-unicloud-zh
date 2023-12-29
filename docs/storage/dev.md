@@ -610,6 +610,7 @@ let result = await uniCloud.uploadFile({
 | 字段	| 类型		| 必填| 说明						|
 | ---		| ---			| ---	| ---							|
 | fileID| string	| 是	| 文件 ID。				|
+
 <!-- | maxAge| Integer	| 是	| 文件链接有效期。| -->
 
 #### 响应参数
