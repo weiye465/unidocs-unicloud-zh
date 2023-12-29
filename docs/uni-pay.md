@@ -798,12 +798,12 @@ module.exports = {
 				this.out_trade_no = `${this.order_no}-1`; // 模拟生成插件支付单号
 				// 打开支付收银台
 				this.$refs.pay.open({
-					total_fee: this.total_fee, // 支付金额，单位分 100 = 1元
+					total_fee: this.total_fee, // 支付金额，单位分 100 = 1元（注意：因为是前端传的，此参数可能会被伪造，回调时需要再校验下是否和自己业务订单金额一致）
 					order_no: this.order_no, // 业务系统订单号（即你自己业务系统的订单表的订单号）
 					out_trade_no: this.out_trade_no, // 插件支付单号
 					description: this.description, // 支付描述
 					type: this.type, // 支付回调类型
-					custom: this.custom, // 自定义数据
+					custom: this.custom, // 自定义数据（此参数不推荐使用，因为是前端传的，此参数可能会被伪造，建议通过order_no查询自己业务订单表来获取自定义业务数据）
 				});
 			}
 		}
@@ -904,7 +904,7 @@ module.exports = async (obj) => {
 		order_no,
 		out_trade_no,
 		total_fee,
-		custom = {}
+		custom = {},
 	} = data; // uni-pay-orders 表内的数据均可获取到
 
 	// 此处写你自己的支付成功逻辑开始-----------------------------------------------------------
@@ -1295,14 +1295,14 @@ public class CryptoUtil {
 				this.out_trade_no = `${this.order_no}-1`;
 				// 打开支付收银台
 				this.$refs.pay.open({
-					total_fee: this.total_fee, // 支付金额，单位分 100 = 1元
+					total_fee: this.total_fee, // 支付金额，单位分 100 = 1元（注意：因为是前端传的，此参数可能会被伪造，回调时需要再校验下是否和自己业务订单金额一致）
 					order_no: this.order_no, // 业务系统订单号（即你自己业务系统的订单表的订单号）
 					out_trade_no: this.out_trade_no, // 插件支付单号
 					description: this.description, // 支付描述
 					type: this.type, // 支付回调类型
 					qr_code: this.qr_code, // 是否强制使用扫码支付
 					openid: this.openid, // 微信公众号需要
-					custom: this.custom, // 自定义数据
+					custom: this.custom, // 自定义数据（此参数不推荐使用，因为是前端传的，此参数可能会被伪造，建议通过order_no查询自己业务订单表来获取自定义业务数据）
 				});
 			},
 			/**
@@ -1315,14 +1315,14 @@ public class CryptoUtil {
 				// 发起支付
 				this.$refs.pay.createOrder({
 					provider: provider, // 支付供应商
-					total_fee: this.total_fee, // 支付金额，单位分 100 = 1元
+					total_fee: this.total_fee, // 支付金额，单位分 100 = 1元（注意：因为是前端传的，此参数可能会被伪造，回调时需要再校验下是否和自己业务订单金额一致）
 					order_no: this.order_no, // 业务系统订单号（即你自己业务系统的订单表的订单号）
 					out_trade_no: this.out_trade_no, // 插件支付单号
 					description: this.description, // 支付描述
 					type: this.type, // 支付回调类型
 					qr_code: this.qr_code, // 是否强制使用扫码支付
 					openid: this.openid, // 微信公众号需要
-					custom: this.custom, // 自定义数据
+					custom: this.custom, // 自定义数据（此参数不推荐使用，因为是前端传的，此参数可能会被伪造，建议通过order_no查询自己业务订单表来获取自定义业务数据）
 				});
 			},
 			/**
@@ -1335,7 +1335,7 @@ public class CryptoUtil {
 				// 发起支付
 				this.$refs.pay.createOrder({
 					provider: provider, // 支付供应商
-					total_fee: this.total_fee, // 支付金额，单位分 100 = 1元
+					total_fee: this.total_fee, // 支付金额，单位分 100 = 1元（注意：因为是前端传的，此参数可能会被伪造，回调时需要再校验下是否和自己业务订单金额一致）
 					order_no: this.order_no, // 业务系统订单号（即你自己业务系统的订单表的订单号）
 					out_trade_no: this.out_trade_no, // 插件支付单号
 					description: this.description, // 支付描述
@@ -1343,7 +1343,7 @@ public class CryptoUtil {
 					qr_code: true, // 是否强制使用扫码支付
 					cancel_popup: true, // 配合qr_code:true使用，是否只生成支付二维码，没有二维码弹窗
 					openid: this.openid, // 微信公众号需要
-					custom: this.custom, // 自定义数据
+					custom: this.custom, // 自定义数据（此参数不推荐使用，因为是前端传的，此参数可能会被伪造，建议通过order_no查询自己业务订单表来获取自定义业务数据）
 				});
 			},
 			// 查询支付状态
@@ -1634,15 +1634,15 @@ await uniPayCo.createOrder({
 | 参数名          | 类型     | 必填 |             说明          |
 |-----------------|---------|------|---------------------------|
 | provider        | string  |  是  |  支付供应商 如 wxpay alipay   |
-| total_fee       | int     |  是  |  订单总金额，单位为分，100等于1元   |
+| total_fee       | int     |  是  |  订单总金额，单位为分，100等于1元（注意：因为是前端传的，此参数可能会被伪造，回调时需要再校验下是否和自己业务订单金额一致）   |
 | type            | string  |  是  |  订单类型 goods：订单付款 recharge：余额充值付款 vip：vip充值付款 等等，可自定义，主要用于判断走哪个回调逻辑（如商品付款和余额充值的回调逻辑肯定是不一样的） |
 | order_no        | string  |  是  |  业务系统订单号 建议控制在20-28位(不可以是24位,24位在阿里云空间可能会有问题)(可重复,代表1个业务订单会有多次付款的情况)   |
 | out_trade_no    | string  |  否  |  支付插件订单号（需控制唯一，不传则由插件自动生成）   |
 | description     | string  |  否  |  支付描述，如：uniCloud个人版包月套餐   |
 | qr_code         | boolean |  否  |  若设置为 true 则强制开启二维码支付模式   |
 | openid          | string  |  否  |  发起支付的用户openid（微信公众号支付必填，小程序支付等插件会自动获取，无需填写  |
-| custom          | object  |  否  | 自定义参数（不会发送给第三方支付服务器）     |
-| other           | object  |  否  |  其他请求参数（会发送给第三方支付服务器）   |
+| custom          | object  |  否  | 自定义参数（不会发送给第三方支付服务器）此参数不推荐使用，因为是前端传的，此参数可能会被伪造，建议通过order_no查询自己业务订单表来获取自定义业务数据 |
+| other           | object  |  否  |  其他请求参数（会发送给第三方支付服务器） |
 
 **返回值**
 
@@ -1963,8 +1963,7 @@ this.$refs.pay.createOrder({
 	out_trade_no: "2022102701100010100101001", // 插件支付单号
 	type: "appleiap", // 支付回调类型（可自定义，建议填写appleiap）
 	productid: "io_dcloud_hellouniapp_pay_like6", // ios内购产品id（仅ios内购生效）
-	// 自定义数据
-	custom: {}
+	custom: {}, // 自定义数据（此参数不推荐使用，因为是前端传的，此参数可能会被伪造，建议通过order_no查询自己业务订单表来获取自定义业务数据）
 });
 ```
 
@@ -2059,8 +2058,7 @@ this.$refs.pay.createOrder({
 					out_trade_no: this.out_trade_no, // 插件支付单号
 					type: "appleiap", // 支付回调类型（可自定义，建议填写appleiap）
 					productid: this.productid, // ios内购产品id（仅ios内购生效）
-					// 自定义数据
-					custom: {}
+					custom: {}, // 自定义数据（此参数不推荐使用，因为是前端传的，此参数可能会被伪造，建议通过order_no查询自己业务订单表来获取自定义业务数据）
 				});
 			},
 			// 监听事件 - 支付成功
