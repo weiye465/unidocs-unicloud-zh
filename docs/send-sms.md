@@ -1,1 +1,1 @@
-文档已移至：[短信服务](sms/service.md)
+文档已移至：[短信服务](./sms/service.md)
