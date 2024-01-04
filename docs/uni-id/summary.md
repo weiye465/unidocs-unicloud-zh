@@ -1688,7 +1688,7 @@ uni-id-pages-x: `uni-id-pages-x/pages/userinfo/realnameAuth/realnameAuth`。
 注意：文件不是图片不可直接下载打开。
 
 
-## 常见问题
+## 常见问题@qa
 
 ### Invalid uni-id config file
 
