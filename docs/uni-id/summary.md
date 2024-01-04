@@ -1688,6 +1688,12 @@ uni-id-pages-x: `uni-id-pages-x/pages/userinfo/realnameAuth/realnameAuth`。
 注意：文件不是图片不可直接下载打开。
 
 
+## 常见问题
 
+### Invalid uni-id config file
+
+- 检查uni-id 配置文件是否存在，不存在请创建 uni-id 配置文件，uni-id 配置[参考](#config)
+- 如果云函数在云端运行，请检查 uni-id 配置文件是否上传至云端
+- uni-id 配置文件为标准的 json 文件，文件内不允许添加 js 注释，请检查是否添加了 js 注释
 
 
