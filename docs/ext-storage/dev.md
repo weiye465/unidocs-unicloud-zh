@@ -352,11 +352,11 @@ https://upload.qiniup.com
 
 ## 常见问题@question
 
-### 运行报错，当前空间不支持provider:"qiniu"
+### 运行报错，当前空间不支持provider:"qiniu"@q1
 
 通常是因为空间没有开通扩展存储导致的，[前往开通教程](./service.md)，如果确定已经开通，则可尝试重启项目并重新上传相关云函数。
 
-### 运行报错，uniCloud.getExtStorageManager is not a function
+### 运行报错，uniCloud.getExtStorageManager is not a function@q2
 
 出现这个错误时，请依次执行以下操作
 
@@ -364,7 +364,7 @@ https://upload.qiniup.com
 2. 右键云函数或云对象，管理公共模块或扩展库依赖，勾选uni-cloud-ext-storage扩展库
 3. 重新上传这个云函数或云对象
 
-## 外部系统如何上传文件到扩展存储
+### 外部系统如何上传文件到扩展存储@q3
 
 可以通过云函数或云对象开启URL化的方式来获取前端上传参数，拿到上传参数后即可通过uni.uploadFile（或其他三方请求库）上传文件
 
