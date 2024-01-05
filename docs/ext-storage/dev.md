@@ -343,3 +343,13 @@ https://upload.qiniup.com
 1. 检查HBuilderX的版本是否 >= 3.99
 2. 右键云函数或云对象，管理公共模块或扩展库依赖，勾选uni-cloud-ext-storage扩展库
 3. 重新上传这个云函数或云对象
+
+## 外部系统如何上传文件到扩展存储
+
+可以通过云函数或云对象开启URL化的方式来获取前端上传参数，拿到上传参数后即可通过uni.uploadFile（或其他三方请求库）上传文件
+
+相关文档：
+
+[获取前端上传参数](https://doc.dcloud.net.cn/uniCloud/ext-storage/dev.html#getuploadfileoptions)
+
+[云函数URL化](https://doc.dcloud.net.cn/uniCloud/http.html)
