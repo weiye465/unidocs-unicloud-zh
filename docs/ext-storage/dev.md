@@ -84,6 +84,26 @@ module.exports = {
 |fileID						|String	|文件ID																										|
 |fileURL					|String	|文件URL（如果是私有权限的文件，则此URL是无法直接访问的）	|
 
+响应参数 uploadFileOptions 详情
+
+```json
+{
+	"expTime": 1704459639, // 过期时间，已秒为单位的时间戳
+	"cloudPath": "public/test/1704456039122.jpg", // 文件云端路径
+	"fileID": "qiniu://public/test/1704456039122.jpg", // 文件ID	
+	"fileURL": "https://cdn.example.com/public/test/1704456039122.jpg", // 文件URL（如果是私有权限的文件，则此URL是无法直接访问的）
+	"uploadFileOptions": {
+		"url": "https://upload.qiniup.com", // 上传网关地址，对应uni.uploadFile的url参数
+		"name": "file", // 文件对应的 key，对应uni.uploadFile的name参数
+		// HTTP 请求中其他额外的 form data，对应uni.uploadFile的formData参数
+		"formData": {
+			"token": "xxxxxxxx",
+			"key": "public/test/1704456039122.jpg",
+		}
+	}
+}
+```
+
 **前端上传代码**
 
 ```js
