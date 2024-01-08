@@ -17,7 +17,7 @@ export const navbar = [
   },
   {
     text: 'uni-app x',
-    link: 'https://uniapp.dcloud.io/uni-app-x/',
+    link: 'https://doc.dcloud.net.cn/uni-app-x/',
     type: "link",
     target: '_blank',
     needOutbound: false
