@@ -1485,10 +1485,13 @@ package.json是一个标准json文件，不可带注释。下面是一个package
   "keepRunningAfterReturn": true // 是否在云函数return之后继续执行，仅腾讯云nodejs12生效，详情见下方说明
 }
 ```
+**runtime 支持情况**
 
-**Nodejs14 仅阿里云云支持**
+阿里云：Nodejs8、Nodejs12、Nodejs14
 
-**Nodejs16、Nodejs18 仅支付宝小程序云支持**
+腾讯云：Nodejs8、Nodejs12
+
+支付宝小程序云：Nodejs16、Nodejs18
 
 **使用腾讯云Nodejs12版本时，务必仔细阅读此文档：[keepRunningAfterReturn](#keep-running)**
 
