@@ -14,7 +14,7 @@
 |InvalidSpace.Deleted						|服务空间已销毁												|404		|The space is already deleted.																|																																															|
 |InvalidSpace.NotInService			|服务空间不在服务中										|404		|The space is not in service.																	|																																															|
 |Throttling.Api									|QPS流控															|400		|Request was denied due to api flow control.									|云函数、固定ip代理等由QPS系统限制的服务超出了限制																						|
-|Throttling.Api.Concurrency			|并发流控															|400		|Request was denied due to api concurrency control.						|																																															|
+|Throttling.Api.Concurrency			|并发流控															|400		|Request was denied due to api concurrency control.						|一分钟内慢日志数量大于500条或者扫描的文档数大于5000万条																																															|
 |InvalidCustomDomain.NotFound		|云函数url化自定义域名不存在					|400		|The specified CustomDomain does not exist.										|																																															|
 |HttpCustomDomainCnameNotAllowed|云函数url化不允许直接使用cname访问		|400		|Http custom domain cname can not be used for http trigger.		|																																															|
 |ClientIpNotAllowed							|前端网页托管默认域名clientIP禁止访问	|403		|Your clientIp %s does not in the whitelist.									|前端网页托管默认域名白名单未配置，或当天访问默认域名的ip过多																	|
