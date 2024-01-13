@@ -275,27 +275,27 @@ return {
 
 除了标准API外，云函数环境中内置了`uniCloud`对象，扩展了一批新API，实际开发中更常用的是uniCloud的扩展API。见下：
 
-|API						|描述																																			|
-|--							|--																																				|
-|uniCloud.database()		|云数据库对象 [详情](cf-database.md)																									|
-|uniCloud.databaseJQL()		|云函数中使用JQL语法操作数据库 [详见](jql-cloud.md)，需添加扩展库																			|
-|uniCloud.redis()			|使用redis [详见](redis.md)，需添加扩展库
-|uniCloud.uploadFile()		|云函数上传文件到云存储 [详情](storage?id=clouduploadfile)																				|
-|uniCloud.downloadFile()	|云函数下载云存储的文件到云函数运行环境 [详情](storage?id=clouddownloadfile)															|
-|uniCloud.deleteFile()		|云函数删除云存储的文件 [详情](storage?id=clouddeletefile)																				|
-|uniCloud.getTempFileURL()	|获取云存储文件的临时路径 [详情](storage?id=cloudgettempfileurl)																		|
-|uniCloud.customAuth()		|使用云厂商自定义登录，仅腾讯云支持[详情](authentication.md?id=cloud-custom-auth)														|
-|uniCloud.callFunction()	|云函数/云对象中调用另一个云函数 [见下](#callbyfunction)	|
-|uniCloud.importObject()	|云函数/云对象中调用另一个云对象 [详情](cloud-obj.md?id=call-by-cloud)	|
-|uniCloud.httpclient		|云函数中通过http访问其他系统 [见下](#httpclient)																		|
-|uniCloud.httpProxyForEip	|使用云厂商代理访问http服务（阿里云的解决微信需要固定IP的方案），仅阿里云云端环境支持 [详见](#aliyun-eip)，新增于`HBuilderX 3.5.5`|
-|uniCloud.sendSms()			|发送短信，需添加扩展库 [详见](send-sms.md)																											|
-|uniCloud.getPhoneNumber()	|获取一键登录手机号，需添加扩展库 [详见](univerify.md?id=cloud)																						|
-|uniCloud.init()			|获取指定服务空间的uniCloud实例 [详见](concepts/space.md?id=multi-space)														|
-|uniCloud.logger			|云函数中打印日志到[uniCloud web控制台](https://unicloud.dcloud.net.cn/)的日志系统（非HBuilderX控制台）[详情](rundebug.md?id=uniCloudlogger)															|
-|uniCloud.getRequestList	|获取当前云函数实例内正在处理的请求Id列表 [详见](#get-request-list)，新增于`HBuilderX 3.5.5`|
-|uniCloud.getClientInfos	|获取当前云函数实例内正在处理的请求对应的客户端信息列表 [详见](#get-client-infos)，新增于`HBuilderX 3.5.5`|
-|uniCloud.getCloudInfos		|获取当前云函数实例内正在处理的请求对应的云端信息列表 [详见](#get-cloud-infos)，新增于`HBuilderX 3.5.5`|
+|API						| 描述																																			                                                                                             |
+|--							|-----------------------------------------------------------------------------------------------------------------------------------|
+|uniCloud.database()		| 云数据库对象 [详情](cf-database.md)																									                                                                              |
+|uniCloud.databaseJQL()		| 云函数中使用JQL语法操作数据库 [详见](jql-cloud.md)，需添加扩展库																			                                                                     |
+|uniCloud.redis()			| 使用redis [详见](redis.md)，需添加扩展库                                                                                                     
+|uniCloud.uploadFile()		| 云函数上传文件到云存储 [详情](storage?id=clouduploadfile)																				                                                                  |
+|uniCloud.downloadFile()	| 云函数下载云存储的文件到云函数运行环境 [详情](storage?id=clouddownloadfile)															                                                             |
+|uniCloud.deleteFile()		| 云函数删除云存储的文件 [详情](storage?id=clouddeletefile)																				                                                                  |
+|uniCloud.getTempFileURL()	| 获取云存储文件的临时路径 [详情](storage?id=cloudgettempfileurl)																		                                                               |
+|uniCloud.customAuth()		| 使用云厂商自定义登录，仅腾讯云支持[详情](storage/authentication.md?id=cloud-custom-auth)														                                               |
+|uniCloud.callFunction()	| 云函数/云对象中调用另一个云函数 [见下](#callbyfunction)	                                                                                           |
+|uniCloud.importObject()	| 云函数/云对象中调用另一个云对象 [详情](cloud-obj.md?id=call-by-cloud)	                                                                             |
+|uniCloud.httpclient		| 云函数中通过http访问其他系统 [见下](#httpclient)																		                                                                              |
+|uniCloud.httpProxyForEip	| 使用云厂商代理访问http服务（阿里云的解决微信需要固定IP的方案），仅阿里云云端环境支持 [详见](#aliyun-eip)，新增于`HBuilderX 3.5.5`                                              |
+|uniCloud.sendSms()			| 发送短信，需添加扩展库 [详见](send-sms.md)																											                                                                          |
+|uniCloud.getPhoneNumber()	| 获取一键登录手机号，需添加扩展库 [详见](univerify.md?id=cloud)																						                                                                |
+|uniCloud.init()			| 获取指定服务空间的uniCloud实例 [详见](concepts/space.md?id=multi-space)														                                                          |
+|uniCloud.logger			| 云函数中打印日志到[uniCloud web控制台](https://unicloud.dcloud.net.cn/)的日志系统（非HBuilderX控制台）[详情](rundebug.md?id=uniCloudlogger)															 |
+|uniCloud.getRequestList	| 获取当前云函数实例内正在处理的请求Id列表 [详见](#get-request-list)，新增于`HBuilderX 3.5.5`                                                                |
+|uniCloud.getClientInfos	| 获取当前云函数实例内正在处理的请求对应的客户端信息列表 [详见](#get-client-infos)，新增于`HBuilderX 3.5.5`                                                          |
+|uniCloud.getCloudInfos		| 获取当前云函数实例内正在处理的请求对应的云端信息列表 [详见](#get-cloud-infos)，新增于`HBuilderX 3.5.5`                                                            |
 
 ## 错误对象@uni-cloud-error
 
