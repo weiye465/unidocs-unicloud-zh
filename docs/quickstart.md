@@ -18,8 +18,8 @@ Hello uniCloud部署了2套，分别连接uniCloud的阿里云版和腾讯云版
 
 - apk地址（发布在uniCloud的云存储上）
 	* Hello uniCloud 支付宝小程序云版地址：[apk下载](https://env-00jx4sbgbkj5.normal.cloudstatic.cn/apk/__UNI__HelloUniCloud_0113194553.apk)
-	* Hello uniCloud 阿里云版地址：[apk下载](https://mp-1a10688c-0b30-4aaa-bbc1-7f4948cc562a.cdn.bspapp.com/cloudstorage/__UNI__HelloUniCloud_20240112151429.apk)
-	* Hello uniCloud 腾讯云版地址：[apk下载](https://mp-1a10688c-0b30-4aaa-bbc1-7f4948cc562a.cdn.bspapp.com/cloudstorage/__UNI__HelloUniCloud_20240113174921.apk )
+	* Hello uniCloud 阿里云版地址：[apk下载](https://mp-1a10688c-0b30-4aaa-bbc1-7f4948cc562a.cdn.bspapp.com/apk/__UNI__HelloUniCloud_0113204611.apk)
+	* Hello uniCloud 腾讯云版地址：[apk下载](https://756e-unicloud-demo-eb8ec0-1302284157.tcb.qcloud.la/apk/__UNI__HelloUniCloud_20240113174921.apk)
 
 ### 运行 Hello uniCloud 源码
 
