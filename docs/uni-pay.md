@@ -117,7 +117,7 @@ uni-pay的[uni_modules](https://uniapp.dcloud.net.cn/plugin/uni_modules.html)中
 
 ### uni-pay的opendb数据表@database
 
-支付插件需要创建以下表后才能正常运行，可以右键执行插件自带的 `db_init.json` 的初始化数据库功能来创建表。
+支付插件需要创建以下表后才能正常运行，可以右键 `database` 目录，初始化数据库功能来创建表。
 
 - 支付订单表 [uni-pay-orders](https://gitee.com/dcloud/opendb/blob/master/collection/uni-pay-orders/collection.json)
 
@@ -135,7 +135,9 @@ uni-pay的[uni_modules](https://uniapp.dcloud.net.cn/plugin/uni_modules.html)中
 5. 上传云对象 `uni-pay-co`（右键，上传部署。当然对uniCloud目录点右键批量上传也可以）
 6. 数据库初始化
 
-![](https://qiniu-web-assets.dcloud.net.cn/unidoc/zh/uni-pay-28.png)
+![](https://web-ext-storage.dcloud.net.cn/unicloud/uni-pay/462.png)
+
+![](https://web-ext-storage.dcloud.net.cn/unicloud/uni-pay/463.png)
 
 7. 运行启动项目，**在HBuilderX的运行控制台里选择使用云端云函数环境**
 
