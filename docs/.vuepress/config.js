@@ -37,7 +37,7 @@ const config = {
     }
   },
   themeConfig: {
-    titleLogo: 'https://qiniu-web-assets.dcloud.net.cn/unidoc/zh/uni-app.png',
+    titleLogo: 'https://qiniu-web-assets.dcloud.net.cn/unidoc/zh/unicloudlogo.png',
     logo: 'https://qiniu-web-assets.dcloud.net.cn/unidoc/zh/logo.png',
     sidebar: createSidebar(tabs),
     sidebarDepth: 0,
