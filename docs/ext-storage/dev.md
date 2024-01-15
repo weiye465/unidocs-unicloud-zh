@@ -373,3 +373,272 @@ https://upload.qiniup.com
 [获取前端上传参数](https://doc.dcloud.net.cn/uniCloud/ext-storage/dev.html#getuploadfileoptions)
 
 [云函数URL化](https://doc.dcloud.net.cn/uniCloud/http.html)
+
+### 扩展存储上传方式与内置存储不一样，那么老项目如何在不改变原有代码的情况下使用扩展存储@q4
+
+由于扩展存储不支持前端直传，而是需要先通过云函数或云对象来获取上传凭证，具有较高的安全性，但也因此导致上传代码与内置存储不同，老项目想使用扩展存储就要改动原有上传代码，那么有没有方案可以做到在不改原有上传代码的基础上，老项目也能很方便的使用扩展存储呢?
+
+答案是可以的，按如下步骤操作。
+
+1. 开通扩展存储 [开通教程](./service.md)
+
+2. 在你的项目根目录的 `/js_sdk/ext-storage/` 目录新建文件 `uploadFileForExtStorage.js`（没有 `/js_sdk/ext-storage/` 目录就新建目录）
+
+![](https://web-ext-storage.dcloud.net.cn/unicloud/ext-storage/465.png)
+
+uploadFileForExtStorage.js 文件复制下方的代码
+
+```js
+/**
+ * 设置 uniCloud.uploadFile 默认上传到扩展存储
+ * @param {String} provider 云储存供应商
+ * 	@value unicloud				内置存储
+ * 	@value extStorage 		扩展存储
+ * @param {String} domain 自定义域名，仅扩展存储有效
+ * @param {Boolean} fileID2fileURL 是否将fileID转为fileURL
+ * @param {Function} uploadFileOptions 获取上传参数的函数，仅扩展存储有效
+ */
+function init(options = {}) {
+	let {
+		provider: defaultProvider,
+	} = options;
+	let originalDefaultProvider = defaultProvider;
+	let extStorage = new ExtStorage(options);
+
+	const uploadFile = uniCloud.uploadFile;
+	uniCloud.uploadFile = (...e) => {
+		let options = e[0] || {};
+		let {
+			provider = defaultProvider
+		} = options;
+		if (provider === "extStorage") {
+			return extStorage.uploadFile(...e);
+		} else {
+			return uploadFile(...e);
+		}
+	}
+
+	const getTempFileURL = uniCloud.getTempFileURL;
+	uniCloud.getTempFileURL = (...e) => {
+		let options = e[0] || {};
+		let {
+			provider = defaultProvider
+		} = options;
+		if (provider === "extStorage") {
+			return extStorage.getTempFileURL(...e);
+		} else {
+			return getTempFileURL(...e);
+		}
+	}
+
+	const deleteFile = uniCloud.deleteFile;
+	uniCloud.deleteFile = (...e) => {
+		let options = e[0] || {};
+		let {
+			provider = defaultProvider
+		} = options;
+		if (provider === "extStorage") {
+			return extStorage.deleteFile(...e);
+		} else {
+			return deleteFile(...e);
+		}
+	}
+
+	uniCloud.setCloudStorage = (data={}) => {
+		let {
+			provider,
+			domain,
+			fileID2fileURL,
+		} = data;
+		if (provider === null) {
+			defaultProvider = originalDefaultProvider;
+		} else if (provider) {
+			defaultProvider = provider;
+		}
+		if (domain) extStorage.domain = domain;
+		if (fileID2fileURL) extStorage.fileID2fileURL = fileID2fileURL;
+	}
+
+}
+
+export default {
+	init
+}
+
+class ExtStorage {
+	constructor(data = {}) {
+		let {
+			uploadFileOptions,
+			domain,
+			fileID2fileURL
+		} = data;
+		this.uploadFileOptions = uploadFileOptions;
+		this.domain = domain;
+		this.fileID2fileURL = fileID2fileURL;
+	}
+
+	// 上传文件
+	uploadFile(options) {
+		let {
+			filePath,
+			cloudPath,
+		} = options;
+		const promiseRes = new Promise(async (resolve, reject) => {
+			try {
+				const uploadFileOptionsRes = await this.uploadFileOptions({
+					cloudPath,
+					domain: this.domain
+				});
+				const uploadTask = uni.uploadFile({
+					...uploadFileOptionsRes.uploadFileOptions, // 上传文件所需参数
+					filePath, // 本地文件路径
+					success: () => {
+						const res = {
+							cloudPath: uploadFileOptionsRes.cloudPath, // 文件云端路径
+							fileID: uploadFileOptionsRes.fileID, // 文件ID
+							fileURL: uploadFileOptionsRes.fileURL, // 文件URL（如果是私有权限，则此URL是无法直接访问的）
+						};
+						if (this.fileID2fileURL) {
+							res.fileID = `https://${this.domain}/${res.cloudPath}`;
+						}
+						if (typeof options.success === "function") options.success(res);
+						resolve(res);
+					},
+					fail: (err) => {
+						if (typeof options.fail === "function") options.fail(err);
+						reject(err);
+					},
+					complete: () => {
+						if (typeof options.complete === "function") options.complete();
+					}
+				});
+				// 监听上传进度
+				uploadTask.onProgressUpdate((progressEvent) => {
+					if (typeof options.onUploadProgress === "function") {
+						const total = progressEvent.totalBytesExpectedToSend;
+						const loaded = progressEvent.totalBytesSent;
+						const progress = Math.round(loaded * 100 / total);
+						options.onUploadProgress({
+							total,
+							loaded,
+							progress
+						});
+					}
+				});
+			} catch (err) {
+				if (typeof options.fail === "function") options.fail(err);
+				reject(err);
+				if (typeof options.complete === "function") options.complete();
+			}
+		});
+		promiseRes.catch(() => {
+
+		});
+		return promiseRes;
+	}
+
+	// 获取临时文件下载地址
+	getTempFileURL(options = {}) {
+		let {
+			fileList
+		} = options;
+
+		return new Promise((resolve, reject) => {
+			let res = {
+				fileList: fileList.map((item, index) => {
+					let cloudPath = getCloudPath(item);
+					return {
+						fileID: item,
+						tempFileURL: `https://${this.domain}/${cloudPath}`
+					}
+				})
+			}
+			if (typeof options.success === "function") options.success(res);
+			resolve(res);
+			if (typeof options.complete === "function") options.complete();
+		});
+	}
+
+	// 删除文件
+	deleteFile(options = {}) {
+		// 扩展存储不允许前端删除文件（故此处直接返回）
+		return new Promise((resolve, reject) => {
+			let res = {
+				fileList: []
+			};
+			if (typeof options.success === "function") options.success(res);
+			resolve(res);
+			if (typeof options.complete === "function") options.complete();
+		});
+	}
+
+}
+
+function getCloudPath(cloudPath) {
+	const qiniuPrefix = 'qiniu://';
+	if (cloudPath.indexOf(qiniuPrefix) === 0) {
+		cloudPath = cloudPath.substring(qiniuPrefix.length);
+	} else if (cloudPath.indexOf('http://') === 0 || cloudPath.indexOf('https://') === 0) {
+		let startIndex = cloudPath.indexOf('://') + 3;
+		startIndex = cloudPath.indexOf('/', startIndex);
+		let endIndex = cloudPath.indexOf('?') === -1 ? cloudPath.length : cloudPath.indexOf('?');
+		endIndex = cloudPath.indexOf('#') !== -1 && cloudPath.indexOf('#') < endIndex ? cloudPath.indexOf('#') : endIndex;
+		cloudPath = cloudPath.substring(startIndex + 1, endIndex);
+	}
+	return cloudPath
+}
+```
+
+3. 在 `App.vue` 的 `onLaunch` 函数中新增以下代码
+
+```js
+// 设置 uniCloud.uploadFile 默认上传的云存储供应商
+uploadFileForExtStorage.init({
+	provider: "extStorage", // provider代表默认上传到哪，可选项 "unicloud" 内置存储; "extStorage" 扩展存储;
+	domain: "cdn.example.com", //【重要】这里需要改成你开通扩展存储时绑定的自定义域名）
+	fileID2fileURL: true, // 将fileID转成fileURL，方便兼容老项目
+	// 获取上传参数的函数
+	uploadFileOptions: async (event) => {
+		// ext-storage-co 是你自己写的云对象，参考代码：https://doc.dcloud.net.cn/uniCloud/ext-storage/dev.html#getuploadfileoptions
+		const uniCloudStorageExtCo = uniCloud.importObject("ext-storage-co");
+		return await uniCloudStorageExtCo.getUploadFileOptions(event);
+	}
+});
+```
+
+4. 新建一个云对象 `ext-storage-co`，其中 `index.obj.js` 代码如下
+
+![](https://web-ext-storage.dcloud.net.cn/unicloud/ext-storage/464.png)
+
+```js
+const provider = "qiniu";
+module.exports = {
+	_before: function() {
+
+	},
+	getUploadFileOptions(data = {}) {
+		let {
+			cloudPath,
+			domain,
+		} = data;
+		// 可以在此先判断下此路径是否允许上传等逻辑
+		// ...
+
+		// 然后获取 extStorageManager 对象实例
+		const extStorageManager = uniCloud.getExtStorageManager({
+			provider, // 扩展存储供应商
+			domain, // 自定义域名
+		});
+		// 最后调用 extStorageManager.getUploadFileOptions
+		let uploadFileOptionsRes = extStorageManager.getUploadFileOptions({
+			cloudPath: `public/${cloudPath}`, // 强制在public目录下
+			allowUpdate: false, // 是否允许覆盖更新，如果返回前端，建议设置false，代表仅新增，不可覆盖
+		});
+		return uploadFileOptionsRes;
+	}
+}
+```
+
+5. 重新启动项目，测试原本上传到内置存储的代码现在是否变成上传到扩展存储了
+
+如依然有问题，可进群反馈 [扩展存储技术支持群](https://im.dcloud.net.cn/#/?joinGroup=65436862cc41b0763842cfc9)
