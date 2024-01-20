@@ -30,7 +30,7 @@
 
 - 云函数：通过传统json接口方式和客户端通信，客户端使用`uniCloud.callfunction("")`调用云函数
 - 云对象：是通过前端导入对象来操作的，客户端使用`uniCloud.importObject("")`导入云对象。详见[云对象](./cloud-obj)
-- 公共模块：用于不同的云函数/云对象，抽取和共享相同代码，详见[公共模块文档](./cf-functions?id=公共模块)
+- 公共模块：用于不同的云函数/云对象，抽取和共享相同代码，详见[公共模块文档](#common)
 - action云函数（不推荐使用）：为了弥补clientDB客户端直接操作数据库的局限而设计的，详见[clientDB action文档](./clientdb?id=action)。从HBuilderX 3.6.11开始，推荐使用[数据库触发器](jql-schema-ext.md)替代action云函数。
 - uniCloud扩展库：为了裁剪和控制云函数体积而设计的，一些不太常用的功能比如Redis，独立为可选扩展库，避免增大每个云函数的体积，详见[uniCloud扩展库](./cf-functions?id=扩展库)
 
@@ -279,7 +279,7 @@ return {
 |--							|-----------------------------------------------------------------------------------------------------------------------------------|
 |uniCloud.database()		| 云数据库对象 [详情](cf-database.md)																									                                                                              |
 |uniCloud.databaseJQL()		| 云函数中使用JQL语法操作数据库 [详见](jql-cloud.md)，需添加扩展库																			                                                                     |
-|uniCloud.redis()			| 使用redis [详见](redis.md)，需添加扩展库                                                                                                     
+|uniCloud.redis()			| 使用redis [详见](redis.md)，需添加扩展库
 |uniCloud.uploadFile()		| 云函数上传文件到云存储 [详情](storage?id=clouduploadfile)																				                                                                  |
 |uniCloud.downloadFile()	| 云函数下载云存储的文件到云函数运行环境 [详情](storage?id=clouddownloadfile)															                                                             |
 |uniCloud.deleteFile()		| 云函数删除云存储的文件 [详情](storage?id=clouddeletefile)																				                                                                  |
