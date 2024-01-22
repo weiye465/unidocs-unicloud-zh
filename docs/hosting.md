@@ -314,4 +314,4 @@ uni-app项目根据路由模式不同需要做不同的配置
 
 ## 阿里云CDN安全策略
 
-阿里云前端网页托管在绑定自定义域名后，支持配置CDN安全策略：[https://uniapp.dcloud.net.cn/uniCloud/cdn-security-policy.html](cdn-security-policy.md)
+阿里云前端网页托管在绑定自定义域名后，支持配置CDN安全策略：[https://uniapp.dcloud.net.cn/uniCloud/cdn-security-policy.html](storage/cdn-security-policy.md)
