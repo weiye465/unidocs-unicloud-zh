@@ -2380,3 +2380,10 @@ https://api.next.bspapp.com;https://api.bspapp.com;https://tcb-api.tencentclouda
 </div>
 
 **添加完域名后，一定要重启微信开发者工具，然后去手机微信里删除最近使用的小程序（这一步很关键），最后重新扫二维码进入小程序。**
+
+### 支付宝小程序云执行微信v2退款接口失败,报Error: unsupported, POST https://api.mch.weixin.qq.com/secapi/pay/refund -1@question-alipay-weixin-v2-refund
+
+有2个方案可以解决
+
+1. 使用微信支付v3版本
+2. 将云函数的node版本切换成node16（支付宝小程序云默认是node18，而node18不再支持微信支付v2证书pfx的加密算法导致的）
