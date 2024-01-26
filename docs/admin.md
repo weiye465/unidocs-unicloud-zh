@@ -150,24 +150,27 @@ uni-admin的`一键部署`，会自动上传云函数、创建数据库，并将
 ## 目录结构
 
 ```bash
-┌── cloudfunctions                      # 云函数
+┌── uniCloud                            # 云端文件
+│   │── cloudfunctions                  # 云函数相关文件
+│   └── database                        # 数据库相关文件
 ├── common
 │   │── admin-icons.css                 # admin-icons 图标样式
 │   │── theme.scss                      # 换肤功能样式
 │   │── uni.css                         # 公共样式
 │   └── uni-icons.css                   # icon样式
 ├── components                          # 自定义组件
-├── js_sdk                              # js sdk
-│   └── uni-stat
-│       └── util.js                     # uni统计相关工具方法
+├── i18n                                # 国际化语言包目录
+├── js_sdk                              # js sdk目录
 ├── pages                               # 页面
+│   │── demo                            # demo相关的页面
+│   │── error                           # 404页面
 │   │── index                           # 首页
-│   │── login                           # 登录页
 │   │── system                          # 系统管理
 │   │   │── app                         # 应用管理
 │   │   │── menu                        # 菜单管理
 │   │   │── permission                  # 权限管理
 │   │   │── role                        # 角色管理
+│   │   │── safety                      # 安全审计
 │   │   │── tag                         # 标签管理
 │   │   └── user                        # 用户管理
 │   └── uni-stat                        # uni统计
@@ -196,11 +199,11 @@ uni-admin的`一键部署`，会自动上传云函数、创建数据库，并将
 │       │── error                       # 错误分析
 │       │   │── error.vue
 │       │   └── fieldsMap.js
+│       │── page-content                # 内容统计
+│       │   │── page-content.vue
+│       │   └── fieldsMap.js
 │       │── event                       # 事件分析
 │       │   │── event.vue
-│       │   └── fieldsMap.js
-│       │── index                       # 统计首页
-│       │   │── index.vue
 │       │   └── fieldsMap.js
 │       │── page-ent                    # 入口页
 │       │   │── page-ent.vue
@@ -208,6 +211,19 @@ uni-admin的`一键部署`，会自动上传云函数、创建数据库，并将
 │       │── page-res                    # 受访页
 │       │   │── page-res.vue
 │       │   └── fieldsMap.js
+│       │── page-rule                   # 页面规则
+│       │   └── page-rule.vue
+│       │── pay-order                   # 支付统计
+│       │   │── funnel                  # 支付/漏斗分析
+│       │   │   │── funnel.vue
+│       │   │   └── fieldsMap.js
+│       │   │── list                    # 支付/订单明细
+│       │   │   │── list.vue
+│       │   │── overview                # 支付/订单概况
+│       │   │   │── overview.vue
+│       │   │   └── fieldsMap.js
+│       │   └── ranking                 # 支付/用户价值排行
+│       │       └── ranking.vue
 │       │── scene                       # 场景值（小程序）
 │       │   │── scene.vue
 │       │   └── fieldsMap.js
@@ -232,17 +248,21 @@ uni-admin的`一键部署`，会自动上传云函数、创建数据库，并将
 │               └── fieldsMap.js
 ├── static
 ├── store                               # vuex
+├── uni_modules                         # uni_modules 插件目录
 ├── windows
 │   │── component                       # 项目中使用的组件
 │   │── leftWindow.vue                  # 左侧窗口（菜单栏）
 │   └── topWindow.vue                   # 顶部窗口（导航栏）
 ├── admin.config.js                     # 系统配置（配置导航，菜单等）
 ├── App.vue
+├── changelog.md                        # 更新日志
 ├── main.js
 ├── mainfest.json
-├── pages.json
+├── package.json
+├── pages.json                          # 页面配置
 ├── postcss.config.js                   # postcss 配置（浏览器兼容性）
-└── uni.scss
+├── uni.scss
+└── vue.config.js                       # vue配置文件
 ```
 
 ## 登录页
