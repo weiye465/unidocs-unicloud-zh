@@ -2383,7 +2383,8 @@ https://api.next.bspapp.com;https://api.bspapp.com;https://tcb-api.tencentclouda
 
 ### 支付宝小程序云执行微信v2退款接口失败,报Error: unsupported, POST https://api.mch.weixin.qq.com/secapi/pay/refund -1@question-alipay-weixin-v2-refund
 
-有2个方案可以解决
+有两个方案可以解决
 
-1. 使用微信支付v3版本
-2. 将云函数的node版本切换成node16（支付宝小程序云默认是node18，而node18不再支持微信支付v2证书pfx的加密算法导致的）
+方案一：使用微信支付v3版本
+
+方案二：将云函数的node版本切换成node16（支付宝小程序云默认是node18，而node18不再支持微信支付v2证书pfx的加密算法导致的）
