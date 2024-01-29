@@ -1,3 +1,17 @@
+#### 2024-01-27
+* 新增 支付宝小程序云 云数据库支持地理位置查询
+* 新增 运行云函数时控制台可以点击云函数名称跳转到对应的云函数
+* 新增 云函数本地node和云端node版本不一致时，上传云函数将提示本地node版本与云端node版本
+* 修复 JQL管理器 不执行选中的语句的Bug [详情](https://issues.dcloud.net.cn/pages/issues/detail?id=534)
+* 修复 云函数只能关联 uni_modules 下的公共函数的Bug [详情](https://ask.dcloud.net.cn/question/184434)
+* 修复 前端网页托管 上传没有自动选择当前项目绑定的服务空间的Bug
+* 修复 关联服务空间切换云厂商时存在关联项目仍然可以切换的Bug
+* 修复 "上传schema扩展js的配置"超时时间太短，导致上传失败的Bug
+* 修复 cli 创建的项目无法上传schema的Bug [详情](https://issues.dcloud.net.cn/pages/issues/detail?id=592)
+* 修复 支付宝小程序云 云数据库JQL连表查询报错的Bug [详情](https://ask.dcloud.net.cn/question/185177)
+* 修复 支付宝小程序云 云数据库使用原生MongoDB $查询无效的Bug [详情](https://ask.dcloud.net.cn/question/183811)
+* 修复 支付宝小程序云 Redis本地调试无法运行的Bug
+
 #### 2023-12-16
 * 【重要】新增 七牛云扩展存储 价格更优、权限更灵活 [详情](https://uniapp.dcloud.net.cn/uniCloud/ext-storage/intro.html)
 * 新增 uni-app-x 项目支持 uniIdRouter [详情](https://uniapp.dcloud.net.cn/uniCloud/uni-id/summary.html#uni-id-router)
