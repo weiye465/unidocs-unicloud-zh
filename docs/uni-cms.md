@@ -439,7 +439,7 @@ uni-cms的云端的配置文件统一使用[uni-config-center](uni-config-center
 
 ```json
 {
-  "clientAppIds": ["__UNI__XXXxx"], // 配置用户端appId，目前用于看广告解锁全文，可配置多个appId。
+  "clientAppIds": ["__UNI__XXXxx"], // 配置用户端appId（必须），可配置多个appId。
   "contentSecurity": { // 内容安全配置
     "allowCheckType": ["content", "image"] // 配置可检测的内容；可选值仅为 content 或 image，content 表示检测文字，image 表示检测图片
   },
