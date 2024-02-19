@@ -4,7 +4,7 @@
 
 为帮助开发者降低费用，DCloud联合业内其它主流CDN厂商，单独提供了价格更便宜、功能更强大的uniCloud扩展存储。
 
-> 问题反馈群：[扩展存储技术支持群](https://im.dcloud.net.cn/#/?joinGroup=65436862cc41b0763842cfc9)
+> 欢迎加入[扩展存储技术交流群](https://im.dcloud.net.cn/#/?joinGroup=65436862cc41b0763842cfc9)
 
 ## 产品优势
 
