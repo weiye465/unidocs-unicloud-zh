@@ -77,6 +77,7 @@
   * [简介](uni-ai-intro.md)
   * [开发文档](uni-ai.md)
   * [计费网关](uni-ai-buy.md)
+* [uni-cdn](uni-cdn/intro.md)
 * Redis扩展库
   * [简介](redis-introduction.md)
   * [费用说明](redis-buy.md)
