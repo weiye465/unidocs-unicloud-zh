@@ -135,9 +135,9 @@ this.$refs.citySelect.open();
 
 ### unicloud-city-select的opendb数据表@database
 
-unicloud-city-select需要创建以下表后才能正常运行，可以右键插件database目录下的opendb-city-china.schema上传Schema（会自动添加城市数据）
+unicloud-city-select需要创建以下表后才能正常运行，可以右键database目录，初始化数据库（如果opendb-city-china表已经存在，但没数据，则需要先删除opendb-city-china表）
 
-![](https://qiniu-web-assets.dcloud.net.cn/unidoc/zh/3707/418.png)
+![](https://web-ext-storage.dcloud.net.cn/unicloud/uni-map/509.png)
 
 - 中国城市表 [opendb-city-china](https://gitee.com/dcloud/opendb/blob/master/collection/opendb-city-china/collection.json)
 
@@ -145,7 +145,9 @@ unicloud-city-select需要创建以下表后才能正常运行，可以右键插
 
 #### 城市列表没有数据？
 
-右键插件database目录下的opendb-city-china.schema上传Schema（会自动添加城市数据）
+unicloud-city-select需要创建以下表后才能正常运行，可以右键database目录，初始化数据库（如果opendb-city-china表已经存在，但没数据，则需要先删除opendb-city-china表）
+
+![](https://web-ext-storage.dcloud.net.cn/unicloud/uni-map/509.png)
 
 #### 无法获取我当前定位的城市？
 
