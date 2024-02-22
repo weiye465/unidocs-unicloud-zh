@@ -78,10 +78,10 @@ export default {
 		},
 		{
 			number: '806429316',
-			state: 0,
+			state: 1,
+			attendance: 2000,
 			prefix: '群5',
-			joinQQGroupHref:
-				'https://qm.qq.com/cgi-bin/qm/qr?k=D2jzH0skhD1HmnlRrwlyBbqxRWStFeMj&jump_from=webapi&authKey=5s8Hm/RQxMRrfmGxRtRr1USy613azNDGuCYj9OqzrTTk8S8qebnM0N3gbLdDn/4l',
+			// joinQQGroupHref: 'https://qm.qq.com/cgi-bin/qm/qr?k=D2jzH0skhD1HmnlRrwlyBbqxRWStFeMj&jump_from=webapi&authKey=5s8Hm/RQxMRrfmGxRtRr1USy613azNDGuCYj9OqzrTTk8S8qebnM0N3gbLdDn/4l',
 		},
 	],
 };
