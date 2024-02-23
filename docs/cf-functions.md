@@ -901,8 +901,6 @@ exports.main = async (event, context) => {
 		let sendSmsRes = await uniCloud.sendSms({
 			phoneList,
 			appid: '__UNI__xxxxxxx',
-			smsKey: '****************',
-			smsSecret: '****************',
 			templateId: '100**', // 请替换为自己申请的模板id
 			data: {
 				text1: 'xxx',

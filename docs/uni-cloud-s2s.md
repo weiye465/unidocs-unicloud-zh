@@ -432,8 +432,6 @@ exports.main = async function(event, context) {
   } = JSON.parse(event.body)
   const res = await uniCloud.sendSms({
     appid: '__UNI__xxxxxxx', // DCloud AppId
-    smsKey: '****************', // 短信服务smsKey
-    smsSecret: '****************', // 短信服务smsSecret
     phone: phone,
     templateId: templateId, // 请替换为自己申请的模板id
     data: data // 短信模板字段

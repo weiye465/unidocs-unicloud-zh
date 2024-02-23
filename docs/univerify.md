@@ -62,8 +62,6 @@ exports.main = async function(event, context){
   const res = await uniCloud.getPhoneNumber({
     provider: 'univerify',
     appid: context.APPID, // 客户端callFunction时携带的AppId信息
-    apiKey: 'xxx', // 在开发者中心开通服务并获取apiKey
-    apiSecret: 'xxx', // 在开发者中心开通服务并获取apiSecret
     access_token: event.access_token,
     openid: event.openid
   })
@@ -106,8 +104,6 @@ exports.main = async function (event, context){
   const res = await uniCloud.getPhoneNumber({
     appid: context.APPID, // 客户端callFunction时携带的AppId信息
   	provider: 'univerify',
-  	apiKey: 'xxx', // 在开发者中心开通服务并获取apiKey
-  	apiSecret: 'xxx', // 在开发者中心开通服务并获取apiSecret
   	access_token: event.access_token,
   	openid: event.openid
   })
@@ -156,8 +152,6 @@ exports.main = async function(event){
   const res = await uniCloud.getPhoneNumber({
     provider: 'univerify',
     appid: 'xxx', // DCloud appid
-    apiKey: 'xxx', // 在开发者中心开通服务并获取apiKey
-    apiSecret: 'xxx', // 在开发者中心开通服务并获取apiSecret
     access_token: access_token,
     openid: openid
   })
@@ -226,8 +220,6 @@ exports.main = async function (event){
   const res = await uniCloud.getPhoneNumber({
   	provider: 'univerify',
     appid: 'xxx', // DCloud appid
-  	apiKey: 'xxx', // 在开发者中心开通服务并获取apiKey
-  	apiSecret: 'xxx', // 在开发者中心开通服务并获取apiSecret
   	access_token: access_token,
   	openid: openid
   })

@@ -285,8 +285,6 @@ uni-id的云端配置文件在`uniCloud/cloudfunctions/common/uni-config-center/
     "sms": {
       "name": "", // 应用名称，对应短信模版的name
       "codeExpiresIn": 180, // 验证码过期时间，单位为秒，注意一定要是60的整数倍
-      "smsKey": "", // uni-id-co 1.1.17及以上版本无需填写，短信密钥key，开通短信服务处可以看到
-      "smsSecret": "", // uni-id-co 1.1.17及以上版本无需填写，短信密钥secret，开通短信服务处可以看到
       "scene": {
         "bind-mobile-by-sms": { // 对绑定手机号场景的配置，短信验证码场景值参考：https://uniapp.dcloud.net.cn/uniCloud/uni-id/summary.html#sms-scene
           "templateId": "", // 绑定手机号使用的短信验证码模板
@@ -295,9 +293,7 @@ uni-id的云端配置文件在`uniCloud/cloudfunctions/common/uni-config-center/
       }
     },
     "univerify": {
-      "appid": "", // uni-id-co 1.1.17及以上版本无需填写，当前应用的appid，使用云函数URL化，此项必须配置
-      "apiKey": "", // uni-id-co 1.1.17及以上版本无需填写，apiKey 和 apiSecret 在开发者中心获取，开发者中心：https://dev.dcloud.net.cn/pages/uniLogin/index，文档：https://ask.dcloud.net.cn/article/37965
-      "apiSecret": ""
+      "appid": "" // uni-id-co 1.1.17及以上版本无需填写，当前应用的appid，使用云函数URL化，此项必须配置
     }
   }
 }
