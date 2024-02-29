@@ -187,7 +187,7 @@ const unipayIns = unipay.initAppleIapPayment({
 
 ### 获取支付参数
 
-`unipayIns.getOrderInfo`，此接口仅支持微信小程序、支付宝小程序、App 平台
+`unipayIns.getOrderInfo`
 
 **入参说明**
 
