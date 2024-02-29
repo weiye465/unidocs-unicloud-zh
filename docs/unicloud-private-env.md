@@ -141,6 +141,15 @@ server {
 	}
 }
 
+//注意，上述配置中用到的$clientRealIp变量并非是内置变量，需在nginx.conf文件的http模块定义后才可使用，以下为配置示例：
+http {
+	## Get Client Real IP
+	map $http_x_forwarded_for  $clientRealIp {
+			""      $remote_addr;
+			~^(?P<firstAddr>[0-9\.]+),?.*$  $firstAddr;
+	}
+}
+
 ```
 
 
