@@ -202,8 +202,6 @@ exports.main = async (event, context) => {
 - 短信内容超过70个字符时为长短信，需分条发送，每67个字按一条短信计算
 - App平台的短信验证码需求，建议优先通过App一键登陆来替代，更便捷、更便宜。[详见](../univerify.md)
 
-更多问题：欢迎加入<a class="join-group-chat" target="_blank" href="https://qiniu-web-assets.dcloud.net.cn/unidoc/zh/Dcloud-%E7%9F%AD%E4%BF%A1.png">DCloud短信技术交流群	<img src="https://qiniu-web-assets.dcloud.net.cn/unidoc/zh/Dcloud-%E7%9F%AD%E4%BF%A1.png">
-</a>咨询
 
 
 ## 群发短信@batch-sms
@@ -221,6 +219,19 @@ exports.main = async (event, context) => {
 
 如何使用？查看[群发短信配置](../admin.md#batch-sms)
 
+## 常见问题@question
+ **发送短信方法(uniCloud.sendSms) 遇到的常见的错误**
+ 
+ | 错误描述 | 解决方案 |
+ | --- | --- |
+ | smsKey值不可为空 |1.检查HBuilderX版本为3.94及以上 2.  如下插件需要升级后才不会检查smsKey、smsSecret必填，如果使用uni-id公共模块需要更新到3.3.31版本，如果使用uni-id-pages需要更新到1.1.17版本，如果使用了uni-starter需要更新到2.1.6版本|
+ | 短信发送失败、收不到短信|请加群反馈，加群方式见“其他问题”下方|
+ 
+ **其他问题**
+
+更多问题：欢迎加入<a class="join-group-chat" target="_blank" href="https://qiniu-web-assets.dcloud.net.cn/unidoc/zh/Dcloud-%E7%9F%AD%E4%BF%A1.png">DCloud短信技术交流群	<img src="https://qiniu-web-assets.dcloud.net.cn/unidoc/zh/Dcloud-%E7%9F%AD%E4%BF%A1.png">
+</a>咨询
+ 
 <style>
 	.join-group-chat{
 		position: relative;
