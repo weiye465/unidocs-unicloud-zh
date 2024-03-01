@@ -233,3 +233,35 @@ exports.main = async function (event){
 }
 ```
 
+## 常见问题@question
+ **关于Android应用签名问题**
+ 
+ Android 应用签名MD5如何获取？[查看详情](https://ask.dcloud.net.cn/article/38778)
+ 
+ Android应用签名变更 需要注意什么？
+- 未审核通过的一键登录应用可以直接修改签名信息，待审核通过后自动生效。
+- 已经审核通过的应用要修改签名，需要删除一键登录应用，然后重新添加应用。待重新审核通过后，变更的签名才能生效。 [查看详情](https://ask.dcloud.net.cn/question/186683)
+
+**一键登录应用个数超过限制 如何申请解除限制？**
+
+每个账号均有开通一键登录应用个数的限制(默认为20个)，请合理安排使用。如需提升限额，需先完成企业认证(仅支持面向企业用户提升额度)，然后发邮件到 service@dcloud.io 申请。发送提额邮件时，需说明unicloud.dcloud.net.cn的登录账号，同时需解释公司主营业务，以及为何需要更多的一键登录的额度。
+
+**一键登录应用转让问题**
+
+[查看详情](https://ask.dcloud.net.cn/article/40934)
+
+**新添加的一键登录应用要多久审核通过？**
+
+应用信息需要运营商审核周期约为1-3个工作日。
+
+**获号方法(uniCloud.getPhoneNumber) 遇到的常见的错误**
+
+| 错误描述 | 解决方案 |
+| --- | --- |
+| 应用所有者账号信息异常，请检查账号uni一键登录服务是否正常| 包含了不必要的参数（apiKey、apiSecret），请删除这两个参数 |
+| apiKey值不可为空 |1.检查HBuilderX版本为3.94及以上 2.  如下插件需要升级后才不会检查apiKey、apiSecret必填，如果使用uni-id公共模块需要更新到3.3.31版本，如果使用uni-id-pages需要更新到1.1.17版本，如果使用了uni-starter需要更新到2.1.6版本|
+| 获取手机号失败，请稍后重试| 请加群反馈，[加群方式见“常见问题”下方](https://uniapp.dcloud.net.cn/univerify.html#question)| 
+
+**其他问题**
+
+[查看详情](https://uniapp.dcloud.net.cn/univerify.html#question)
