@@ -249,7 +249,7 @@ DCloud为开发者提供了`uni发布平台`，包括网站发布、App发布和
 
 当访问IP超限或不在白名单时，前端网页托管将拒绝访问请求，并在页面输出错误码为`ClientIpNotAllowed`的提示：Your clientIp xxx does not in the whitelist.
 
-您可以通过[配置域名](hosting.md#domain)来解除默认域名的访问限制。
+您可以通过[配置自定义域名](hosting.md#domain)并使用自定义域名访问来规避此问题。
 
 ### IP访问限频配置@ip-freq
 
