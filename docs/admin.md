@@ -136,7 +136,7 @@ uni-admin的`一键部署`，会自动上传云函数、创建数据库，并将
 
 ![download-admin](https://web-ext-storage.dcloud.net.cn/unicloud/uni-admin/514.png)
 
-5. 右键 `uniCloud/database` 目录 初始化数据库（HBX的版本需要≥3.99)
+5. 右键 `uniCloud/database` 目录 初始化数据库（HBX的版本需要≥3.9)
 
 ![download-admin](https://web-ext-storage.dcloud.net.cn/unicloud/uni-admin/513.png)
 
@@ -709,7 +709,7 @@ _使用步骤:_
 
 1. 从[插件市场](https://ext.dcloud.net.cn/)导入插件
 2. 在 HBuilder X 3.1+ 中选择添加插件的项目
-3. 右键项目根目录的 database 目录，点击“初始化云数据库”（HBX的版本需要≥3.99)
+3. 右键项目根目录的 database 目录，点击“初始化云数据库”（HBX的版本需要≥3.9)
 4. 在菜单管理中的添加【待添加菜单】
 5. 刷新 admin 即可在菜单栏看到新增的菜单
 
