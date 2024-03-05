@@ -127,15 +127,21 @@ uni-admin的`一键部署`，会自动上传云函数、创建数据库，并将
 
 ![download-admin](https://qiniu-web-assets.dcloud.net.cn/unidoc/zh/cloud-init.png)
 
-<!-- 除了可视化向导外，也可以从[https://github.com/dcloudio/uni-admin](https://github.com/dcloudio/uni-admin)获取代码。 -->
-
 #### 运行
 
 1. 进入 admin 项目
-2. 在 `uniCloud/cloudfunctions/common/uni-config-center/uni-id/config.json` 文件中填写自己的 `passwordSecret` 字段 (用于加密密码入库的密钥) 和 `tokenSecret` 字段 (为生成 token 需要的密钥，测试期间跳过本条也可以)
-3. 右键 uniCloud目录 运行云服务空间初始化向导，初始化数据库和上传部署云函数（如已创建并绑定云服务空间，则跳过此步）
-4. 点击HBuilderX工具栏的运行【Ctrl+r / cmd+r】 -> 运行到浏览器。如果是连接本地云函数调试环境，上一步可以不上传云函数，但数据库仍需初始化。
-5. 从启动后的登录页面的底部，进入创建管理员页面（仅允许注册一次管理员账号）
+2. 右键 `uniCloud` 目录关联空间（如果已经关联则跳过第2步）
+3. 在 `uniCloud/cloudfunctions/common/uni-config-center/uni-id/config.json` 文件中填写自己的 `passwordSecret` 字段 (用于加密密码入库的密钥) 和 `tokenSecret` 字段 (为生成 token 需要的密钥，测试期间跳过本条也可以)
+4. 右键 `uniCloud/cloudfunctions` 目录 上传部署云函数、公共模块
+
+![download-admin](https://web-ext-storage.dcloud.net.cn/unicloud/uni-admin/514.png)
+
+5. 右键 `uniCloud/database` 目录 初始化数据库
+
+![download-admin](https://web-ext-storage.dcloud.net.cn/unicloud/uni-admin/513.png)
+
+6. 点击HBuilderX工具栏的运行【Ctrl+r / cmd+r】 -> 运行到浏览器。
+7. 从启动后的登录页面的底部，进入创建管理员页面（仅允许注册一次管理员账号）
 
 **注意**：
 
@@ -703,7 +709,7 @@ _使用步骤:_
 
 1. 从[插件市场](https://ext.dcloud.net.cn/)导入插件
 2. 在 HBuilder X 3.1+ 中选择添加插件的项目
-3. 在插件的 db_init.json 文件上右键，点击“初始化云数据库”
+3. 右键项目根目录的 database 目录，点击“初始化云数据库”
 4. 在菜单管理中的添加【待添加菜单】
 5. 刷新 admin 即可在菜单栏看到新增的菜单
 
@@ -726,8 +732,7 @@ _admin 插件的目录结构：_
 ├── uniCloud
 │   ├── cloudfunctions          # 云函数
 │   └── database
-│       ├── xxx.schema.json     # 数据库schema文件
-│       └── db_init.json        # 数据库初始化文件
+│       └── xxx.schema.json     # 数据库schema文件
 ├── js_sdk                      # js sdk
 ├── pages                       # 页面
 │   └── your-page               # 你的页面
@@ -765,7 +770,7 @@ pluginId 为你上传插件市场时填的插件id（插件市场每个插件都
 
 包含%pluginId%-menu.json的插件导入项目后，运行起来uni-admin，菜单管理模块会自动读取这个json文件中的菜单配置，生成【待添加菜单】，配置与 admin【管理动态菜单】同理。插件作者可以在界面上可视化的点击确认添加，即可把菜单加入到他的项目下。
 
-虽然也可以通过`db_init.json`来进行菜单初始化，但不建议这么操作。很容易发生和用户的数据库的冲突。仍然推荐使用%pluginId%-menu.json方式。
+虽然也可以通过`database`目录来进行菜单初始化，但不建议这么操作。很容易发生和用户的数据库的冲突。仍然推荐使用%pluginId%-menu.json方式。
 
 **关于uni-admin和uni-cloud-router公共模块**
 uni-admin自带了一个单路由框架，uni-cloud-router，然后自带了一个uni-admin云函数使用了这个uni-cloud-router。但插件作者的插件，不能写在uni-admin的目录下。插件的云函数，要有插件id前缀，如果你想把你的插件的所有云函数合并成一个云函数，可以新建一个你自己的云函数，在里面引用uni-cloud-router公共模块。
