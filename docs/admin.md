@@ -136,7 +136,7 @@ uni-admin的`一键部署`，会自动上传云函数、创建数据库，并将
 
 ![download-admin](https://web-ext-storage.dcloud.net.cn/unicloud/uni-admin/514.png)
 
-5. 右键 `uniCloud/database` 目录 初始化数据库（HBX的版本需要≥3.9)
+5. 右键 `uniCloud/database` 目录 初始化数据库（HBX的版本需要≥3.9，同时自HBX4.2版本起，执行初始化向导时就会初始化数据库，故如果数据库里已有数据，则不需要再执行数据库初始化)
 
 ![download-admin](https://web-ext-storage.dcloud.net.cn/unicloud/uni-admin/513.png)
 
