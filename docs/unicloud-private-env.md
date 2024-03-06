@@ -39,17 +39,6 @@ tar -zxvf [version].tar.gz -C unicloud-private
 
 ![](https://web-ext-storage.dcloud.net.cn/unicloud/docs202403051539516.png)
 
-**注意**
-
-保存时请勿在文件末尾添加\n换行符，如果自动添加可执行以下命令移除换行符
-```
-vim key.txt
-
-:set bin noeol
-:wq
-```
-末尾存在\n换行符时，可能导致 uniCloud 私有云服务无法运行
-
 ### 获取 license (必须)
 
 > license 授权将与服务器进行绑定，一台服务器仅可以绑定一个 license 授权
@@ -70,18 +59,7 @@ vim key.txt
 
 复制凭证后，在私有化服务根目录下新建文件，将复制的凭证保存为 license.txt”。
 
-**注意**
-
-保存时请勿在文件末尾添加\n换行符，如果自动添加可执行以下命令移除换行符
-```
-vim license.txt
-
-:set bin noeol
-:wq
-```
-末尾存在\n换行符时，可能导致 uniCloud 私有云服务无法运行
-
-### 4. 私有化环境启动/停止
+### 私有化环境启动/停止
 
 > 所有命令请在私有云环境根目录运行
 
