@@ -89,7 +89,9 @@ module.exports = {
 | ---							| ---		| ---	| ---								|
 | token							| String	| 是	|客户端callFunction带上的token		|
 | options						| object	| 否	|checkToken方法的选项				|
-| &nbsp;&#124;-&nbsp;autoRefresh| boolean	| 否	|是否需要自动判断刷新token，默认true	|
+->|参数名称|类型|必填|说明|
+->| ---| ---| ---	| ---|
+->| autoRefresh| boolean	| 否	|是否需要自动判断刷新token，默认true	|
 
 **说明**
 
