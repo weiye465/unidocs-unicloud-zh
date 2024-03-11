@@ -103,8 +103,10 @@
   * [uni-admin](admin.md)
   * [uni-upgrade-center App升级中心](upgrade-center.md)
   * uni-pay 统一支付```{"collapsable": true}```
-  * * [uni-pay 云端一体页面模板](uni-pay.md)
-  * * [uni-pay 公共模块](unipay.md)
+  * * [uni-pay 云端一体页面模板 uni-app](uni-pay/uni-app.md)
+  * * [uni-pay 云端一体页面模板 uni-app-x](uni-pay/uni-app-x.md)
+  * * [uni-pay 公共模块](uni-pay/uni-pay-common.md)
+  * * [uni-pay 微信小程序虚拟支付](uni-pay/wxpay-virtual.md)
   * [uni-cms 内容管理](uni-cms.md)
   * [uni-ai-chat ai聊天示例](uni-ai-chat.md)
   * [uni-im 即时通信](uni-im.md)
