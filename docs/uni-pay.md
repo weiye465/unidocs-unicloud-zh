@@ -1,7 +1,7 @@
 
 文件已搬家，[前往新文档](./uni-pay/uni-app.md)
 
-<script>
+<!-- <script>
 	export default {
 		data() {
 			return {
@@ -23,4 +23,4 @@
 			}
 		}
 	};
-</script>
+</script> -->
