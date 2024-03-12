@@ -93,9 +93,9 @@ spaceId可在[uniCloud控制台](https://unicloud.dcloud.net.cn/)查看。
   "spaceId": "pvt-xxx",//私有云服务空间编号，可在uniCloud控制台查看
   "startAsDaemon": true, // 是否在后台运行; 默认 true
   "port": 7001, //端口号，可自定义，同一台服务器下，各服务空间的端口号不可重复
-  "clientSecret": "ba461799-fde8-429f-8cc4-4b6d306e2339",//客户端通讯密钥
+  "clientSecret": "xxx",//客户端通讯密钥
   "mongodb": { //mongo数据库连接配置
-    "url": "mongodb://127.0.0.1:27017",//数据库连接
+    "url": "mongodb://username:password@127.0.0.1:7001",//数据库连接
     "database": "test", //数据库名称
     "maxPoolSize": 30, //最大连接数
     "minPoolSize": 10 //最小连接数
@@ -172,8 +172,8 @@ server {
 http {
 	## Get Client Real IP
 	map $http_x_forwarded_for  $clientRealIp {
-			""      $remote_addr;
-			~^(?P<firstAddr>[0-9\.]+),?.*$  $firstAddr;
+		""   $remote_addr;
+		~^(?P<firstAddr>[0-9\.]+),?.*$  $firstAddr;
 	}
 }
 
