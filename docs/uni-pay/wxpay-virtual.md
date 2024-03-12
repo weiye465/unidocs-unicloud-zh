@@ -158,7 +158,7 @@ let res = await uniPayCo.requestWxpayVirtualApi({
 console.log('res: ', res);
 ```
 
-### 代币赠送（currencyPay接口的逆操作）@presentCurrency
+### 代币赠送@presentCurrency
 
 **接口名**
 
