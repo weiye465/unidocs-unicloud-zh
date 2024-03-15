@@ -1,3 +1,7 @@
+#### 2024-03-11
+* 【重要】uni-pay 支持微信小程序虚拟支付 [详情](https://doc.dcloud.net.cn/uniCloud/uni-pay/wxpay-virtual.html)
+* 新增 插件 uni-pay-x，uni-app x 版本的 uni-pay [详情](https://doc.dcloud.net.cn/uniCloud/uni-pay/uni-app-x.html)
+
 #### 2024-03-06
 * 新增 `uniCloud.httpProxyForEip.get` API支持 headers 字段
 * 修复 上传云函数时安装依赖失败后仍然会上传云函数的Bug
