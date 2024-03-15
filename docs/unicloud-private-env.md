@@ -1,4 +1,16 @@
-# 私有云环境项目调试部署说明文档
+# uniCloud 私有化部署
+
+## 产品介绍
+
+uniCloud提供了私有化部署策略，用户可购买私有云环境，并将uniCloud服务部署至自有服务器上。私有云环境可简单的理解为：nodejs环境 + 私有服务空间运行框架。需要注意的是，私有云环境目前只支持，部署在Linux系统的服务器上。
+
+## 产品计费
+
+私有云环境单套参考价格为：`98000`元，且部署不同数量的服务器价格不尽相同。
+
+> 具体购买方式和价格请联系邮箱：bd@dcloud.io
+
+
 
 ## 私有云环境部署说明
 
@@ -75,8 +87,7 @@ tar -zxvf [version].tar.gz -C unicloud-private
 
 #### 创建服务空间目录
 
-在`私有云环境根目录/spaces`目录下创建目录，并将目录命名为SpaceId。
-spaceId可在[uniCloud控制台](https://unicloud.dcloud.net.cn/)查看。
+在[uniCloud控制台](https://unicloud.dcloud.net.cn/) 创建私有云服务空间，然后在`私有云环境根目录/spaces`目录下创建目录，并将目录命名为SpaceId。
 
 #### 上传云函数及数据库schema文件
 
@@ -95,7 +106,7 @@ spaceId可在[uniCloud控制台](https://unicloud.dcloud.net.cn/)查看。
   "port": 7001, //端口号，可自定义，同一台服务器下，各服务空间的端口号不可重复
   "clientSecret": "xxx",//客户端通讯密钥
   "mongodb": { //mongo数据库连接配置
-    "url": "mongodb://username:password@127.0.0.1:7001",//数据库连接
+    "url": "mongodb://username:password@127.0.0.1:7001",//mongo数据库连接
     "database": "test", //数据库名称
     "maxPoolSize": 30, //最大连接数
     "minPoolSize": 10 //最小连接数
@@ -110,7 +121,7 @@ spaceId可在[uniCloud控制台](https://unicloud.dcloud.net.cn/)查看。
     "storageSecret": "xxxxxxxxxx",//本地存储服务访问密钥
   },
   "logger": { //日志服务配置
-    "customLogDir": "C:\\logs\\test-space" //日志存储路径
+    "customLogDir": "/private-cloud-env/logs" //私有云环境日志存储路径
   },
   "redis": {//redis库配置，如项目未使用redis服务可不配置此项
     "host": "127.0.0.1",//redis连接
