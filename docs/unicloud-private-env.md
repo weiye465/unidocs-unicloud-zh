@@ -40,17 +40,6 @@ tar -zxvf [version].tar.gz -C unicloud-private
 
 ![](https://web-ext-storage.dcloud.net.cn/unicloud/docs202403051530127.png)
 
-### 获取环境Key (必须)
-
-> 环境 Key 是 uniCloud 私有化环境运行的必要文件
->
-> 请确保环境 Key 与 环境一一对应，请勿复制错误
-
-在 uniCloud 控制台找到对应环境，点击“复制环境Key，在私有化服务根目录下新建文件，
-将复制的环境 Key 保存为 “key.txt”。
-
-![](https://web-ext-storage.dcloud.net.cn/unicloud/docs202403051539516.png)
-
 ### 获取 license (必须)
 
 > license 授权将与服务器进行绑定，一台服务器仅可以绑定一个 license 授权
