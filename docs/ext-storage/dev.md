@@ -1839,11 +1839,229 @@ let base64 = urlsafeBase64Encode("test/a.jpg");
 console.log('base64: ', base64);
 ```
 
-## 音视频转码@transcode
+## 视频处理@videoshandle
+
+### 音视频转码@transcode
 
 扩展存储支持上传的音视频自动进行转码（无需调用API），[查看音视频转码费用](./price.md#transcode)
 
 开启音视频转码功能需要进 [扩展存储技术交流群](https://im.dcloud.net.cn/#/?joinGroup=65436862cc41b0763842cfc9) 申请发送文字：我想申请开通扩展存储音视频转码功能，我的转码类型是“普通转码（H.264）”
+
+### 视频单帧缩略图
+
+**简介**
+
+视频单帧缩略图接口(vframe)用于从视频流中截取指定时刻的单帧画面并按指定大小缩放成图片。
+
+
+**接口规格**
+
+```
+vframe/<Format>
+      /offset/<Second>
+      /w/<Width>
+      /h/<Height>
+      /rotate/<Degree>
+```
+
+注意：
+
+1. 当指定 `w` 而不指定 `h` 时，缩略图的高度将等比缩放；当指定 `h` 而不指定 `w` 时，缩略图的宽度将等比缩放。
+2. `w` 与 `h` 中，长边取值范围 [20,3840]，短边取值范围 [20,2160]。
+
+**参数说明**
+
+|参数名称					|必填	|说明																														|
+|:-							|:-	|:-																														|
+| `<Format>`					|是		|输出的目标截图格式，支持jpg、png等。														|
+| `/offset/<Second>`	|是		|指定截取视频的时刻，单位：秒，精确到毫秒。											|
+| `/w/<Width>`				|否		|缩略图宽度，单位：像素（px）																		|
+| `/h/<Height>`			|否		|缩略图高度，单位：像素（px）																		|
+| `/rotate/<Degree>`	|否		|指定顺时针旋转的度数，可取值为90、180、270、auto，默认为不旋转	|
+
+注意：建议视频文件不能太大，举例用户设置该接口的超时时间为10s，那么同步处理的视频文件最好不超过450MB ，否则可能会超时导致处理失败。
+
+原视频
+
+```
+https://web-ext-storage.dcloud.net.cn/unicloud/ext-storage/test.mp4
+```
+
+[](https://web-ext-storage.dcloud.net.cn/unicloud/ext-storage/test.mp4)
+
+取视频第2秒的图
+
+```
+https://web-ext-storage.dcloud.net.cn/unicloud/ext-storage/test.mp4?vframe/jpg/offset/2/
+```
+
+![](https://web-ext-storage.dcloud.net.cn/unicloud/ext-storage/test.mp4?vframe/jpg/offset/2/)
+
+取视频第2秒的图，宽度为480px，高度为360px：
+
+```
+https://web-ext-storage.dcloud.net.cn/unicloud/ext-storage/test.mp4?vframe/jpg/offset/2/w/480/h/360
+```
+
+![](https://web-ext-storage.dcloud.net.cn/unicloud/ext-storage/test.mp4?vframe/jpg/offset/2/w/480/h/360)
+
+取视频第60秒的图
+
+```
+https://web-ext-storage.dcloud.net.cn/unicloud/ext-storage/test.mp4?vframe/jpg/offset/60/
+```
+
+[](https://web-ext-storage.dcloud.net.cn/unicloud/ext-storage/test.mp4?vframe/jpg/offset/60/)
+
+### 音视频元信息
+
+**简介**
+
+音视频元信息接口(avinfo)用于获取指定音频、视频资源的元信息
+
+**接口规格**
+
+```
+avinfo
+```
+
+原视频
+
+```
+https://web-ext-storage.dcloud.net.cn/unicloud/ext-storage/test.mp4
+```
+
+[](https://web-ext-storage.dcloud.net.cn/unicloud/ext-storage/test.mp4)
+
+获取音视频元信息
+
+```
+https://web-ext-storage.dcloud.net.cn/unicloud/ext-storage/test.mp4?avinfo
+```
+
+返回结果
+
+```js
+{
+    "streams": [
+        {
+            "index": 0,
+            "codec_name": "h264",
+            "codec_long_name": "H.264 / AVC / MPEG-4 AVC / MPEG-4 part 10",
+            "profile": "Baseline",
+            "codec_type": "video",
+            "codec_time_base": "1/60",
+            "codec_tag_string": "avc1",
+            "codec_tag": "0x31637661",
+            "width": 1280,
+            "height": 720,
+            "coded_width": 1280,
+            "coded_height": 720,
+            "has_b_frames": 0,
+            "sample_aspect_ratio": "1:1",
+            "display_aspect_ratio": "16:9",
+            "pix_fmt": "yuv420p",
+            "level": 41,
+            "color_range": "tv",
+            "chroma_location": "left",
+            "refs": 1,
+            "is_avc": "true",
+            "nal_length_size": "4",
+            "r_frame_rate": "30/1",
+            "avg_frame_rate": "30/1",
+            "time_base": "1/30000",
+            "start_pts": 0,
+            "start_time": "0.000000",
+            "duration_ts": 22526000,
+            "duration": "750.866667",
+            "bit_rate": "89992",
+            "bits_per_raw_sample": "8",
+            "nb_frames": "22526",
+            "disposition": {
+                "default": 1,
+                "dub": 0,
+                "original": 0,
+                "comment": 0,
+                "lyrics": 0,
+                "karaoke": 0,
+                "forced": 0,
+                "hearing_impaired": 0,
+                "visual_impaired": 0,
+                "clean_effects": 0,
+                "attached_pic": 0,
+                "timed_thumbnails": 0
+            },
+            "tags": {
+                "creation_time": "2020-03-15T13:54:39.000000Z",
+                "language": "eng",
+                "handler_name": "Mainconcept MP4 Video Media Handler",
+                "encoder": "AVC Coding"
+            }
+        },
+        {
+            "index": 1,
+            "codec_name": "aac",
+            "codec_long_name": "AAC (Advanced Audio Coding)",
+            "profile": "LC",
+            "codec_type": "audio",
+            "codec_time_base": "1/44100",
+            "codec_tag_string": "mp4a",
+            "codec_tag": "0x6134706d",
+            "sample_fmt": "s16p",
+            "sample_rate": "44100",
+            "channels": 2,
+            "channel_layout": "stereo",
+            "bits_per_sample": 0,
+            "r_frame_rate": "0/0",
+            "avg_frame_rate": "0/0",
+            "time_base": "1/44100",
+            "start_pts": 0,
+            "start_time": "0.000000",
+            "duration_ts": 33115136,
+            "duration": "750.910113",
+            "bit_rate": "125663",
+            "max_bit_rate": "236003",
+            "nb_frames": "32339",
+            "disposition": {
+                "default": 1,
+                "dub": 0,
+                "original": 0,
+                "comment": 0,
+                "lyrics": 0,
+                "karaoke": 0,
+                "forced": 0,
+                "hearing_impaired": 0,
+                "visual_impaired": 0,
+                "clean_effects": 0,
+                "attached_pic": 0,
+                "timed_thumbnails": 0
+            },
+            "tags": {
+                "creation_time": "2020-03-15T13:54:39.000000Z",
+                "language": "eng",
+                "handler_name": "Mainconcept MP4 Sound Media Handler"
+            }
+        }
+    ],
+    "format": {
+        "nb_streams": 2,
+        "nb_programs": 0,
+        "format_name": "mov,mp4,m4a,3gp,3g2,mj2",
+        "format_long_name": "QuickTime / MOV",
+        "start_time": "0.000000",
+        "duration": "750.910111",
+        "size": "20503129",
+        "bit_rate": "218434",
+        "probe_score": 100,
+        "tags": {
+            "major_brand": "mp42",
+            "minor_version": "0",
+            "compatible_brands": "isommp42",
+            "creation_time": "2020-03-15T13:54:38.000000Z"
+        }
+    }
+}
+```
 
 ## 常见问题@question
 
