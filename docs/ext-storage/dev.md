@@ -1887,8 +1887,6 @@ vframe/<Format>
 https://web-ext-storage.dcloud.net.cn/unicloud/ext-storage/test.mp4
 ```
 
-[](https://web-ext-storage.dcloud.net.cn/unicloud/ext-storage/test.mp4)
-
 取视频第2秒的图
 
 ```
@@ -1908,10 +1906,10 @@ https://web-ext-storage.dcloud.net.cn/unicloud/ext-storage/test.mp4?vframe/jpg/o
 取视频第60秒的图
 
 ```
-https://web-ext-storage.dcloud.net.cn/unicloud/ext-storage/test.mp4?vframe/jpg/offset/60/
+https://web-ext-storage.dcloud.net.cn/unicloud/ext-storage/test.mp4?vframe/jpg/offset/60
 ```
 
-[](https://web-ext-storage.dcloud.net.cn/unicloud/ext-storage/test.mp4?vframe/jpg/offset/60/)
+[](https://web-ext-storage.dcloud.net.cn/unicloud/ext-storage/test.mp4?vframe/jpg/offset/60)
 
 ### 音视频元信息
 
@@ -1930,8 +1928,6 @@ avinfo
 ```
 https://web-ext-storage.dcloud.net.cn/unicloud/ext-storage/test.mp4
 ```
-
-[](https://web-ext-storage.dcloud.net.cn/unicloud/ext-storage/test.mp4)
 
 获取音视频元信息
 
