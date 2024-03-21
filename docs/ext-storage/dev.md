@@ -2063,6 +2063,58 @@ https://web-ext-storage.dcloud.net.cn/unicloud/ext-storage/test.mp4?avinfo
 }
 ```
 
+## 文件处理@fileshandle
+
+### 资源下载二维码
+
+**简介**
+
+资源下载二维码生成功能(qrcode)，用于为存放在七牛云存储上的资源的下载URL或资源内容生成二维码图片，方便用户在各种客户端之间传播资源。
+
+所生成的二维码图片格式为png。
+
+**接口规格**
+
+```
+qrcode/level/<Level>
+```
+
+|参数名称	|说明						|必填																																																																																	|
+|:-|:-						|:-																																																																																	|
+| `/level/<Level>`	|冗余度，可选值L（7%）、M（15%）、Q（25%），H（30%），默认为L。																																																				|
+
+其中 `<DownloadURL>` 代表资源的原始下载 URL
+
+注意：L是最低级别的冗余度，H最高。提高冗余度，较大可能会使生成图片总像素变多。
+
+原视频文件
+
+```
+https://web-ext-storage.dcloud.net.cn/unicloud/ext-storage/test.mp4
+```
+
+生成文件对应的二维码，扫码二维码即可直接观看视频
+
+```
+https://web-ext-storage.dcloud.net.cn/unicloud/ext-storage/test.mp4?qrcode
+```
+
+[](https://web-ext-storage.dcloud.net.cn/unicloud/ext-storage/test.mp4?qrcode)
+
+原图片文件
+
+```
+https://web-ext-storage.dcloud.net.cn/unicloud/ext-storage/gogopher.png
+```
+
+扫码二维码查看图片内容
+
+```
+https://web-ext-storage.dcloud.net.cn/unicloud/ext-storage/gogopher.png?qrcode
+```
+
+![](https://web-ext-storage.dcloud.net.cn/unicloud/ext-storage/gogopher.png?qrcode)
+
 ## 常见问题@question
 
 ### 运行报错，当前空间不支持provider:"qiniu"@q1
