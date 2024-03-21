@@ -1494,7 +1494,7 @@ watermark/1
 |参数名称																																																								|必填	|说明																																																																								|
 |:-																																																										|:-	|:-																																																																								|
 | `/format/<Format>`																																																				|			|图片输出格式	<br/>1、取值：heic 或 avif ，属于 图片高级压缩 格式，按照图片高级压缩收费，当前仅支持 持久化处理 来使用。<br/>2、取值：copy，保持原图格式输出。<br/>注意：<br/>● 当原图为heic 或 avif 时，设置format/copy 会保持原图格式不变，且不按照图片高级压缩收费；如果不指定 format 参数，将会输出jpeg 。																																																																											|
-| `/image/<encodedkodocheme>`																																															|是		|水印的源路径，目前支持 kodo 资源。kodo 资源可由 `kodo://<bucketname>/<key>` 表示（此时 bucketname 需要与输入源在同一区域），均需要经过[URL安全的Base64编码](#urlsafeBase64Encode)。<br/>注意：更换图片水印时，建议更换图片的文件名。					|
+| `/image/<encodedkodocheme>`																																															|是		|水印的源路径，目前支持 kodo 资源。kodo 资源可由 `kodo://<bucketname>/<key>` 表示（此时 bucketname 需要与输入源在同一区域），均需要经过[URL安全的Base64编码](#urlsafebase64encode)。<br/>注意：更换图片水印时，建议更换图片的文件名。					|
 | `/dissolve/<dissolve>`																																																		|			|透明度，取值范围1-100，默认值为100（完全不透明）。																																																			|
 | `/gravity/<gravity>`																																																			|			|水印位置，参考水印锚点参数表，默认值为SouthEast（右下角）。																																															|
 | `/dx/<distanceX>`																																																|			|横轴边距，单位:像素(px)，默认值为10。																																																									|
@@ -1592,7 +1592,7 @@ version 为1或2时，请求参数说明如下：
 |:-																																				|:-	|:-																																									|
 | `/version/<version>`																													|N		|接口版本值为1或2 , 默认为 1。																														|
 | `/method/<method>`																														|Y		|盲水印标志位，编码（添加水印）为encode。																									|
-| `/imageKey/<encodedImageKey>`																								|N		|水印图片（经过[URL安全的Base64编码](#urlsafeBase64Encode)）<br/>例如：imageKey=upload.png，encodedImageKey=urlsafe_base64_encode(imageKey)。<br/>注意：水印图片宽高分别不超过原图宽高的二分之一，图片为黑底白字效果更佳。		|
+| `/imageKey/<encodedImageKey>`																								|N		|水印图片（经过[URL安全的Base64编码](#urlsafebase64encode)）<br/>例如：imageKey=upload.png，encodedImageKey=urlsafe_base64_encode(imageKey)。<br/>注意：水印图片宽高分别不超过原图宽高的二分之一，图片为黑底白字效果更佳。		|
 
 version 为3时，请求参数说明如下：
 
@@ -1600,7 +1600,7 @@ version 为3时，请求参数说明如下：
 |:-|:-|:-																																																	|
 | `/version/<version>`	|N	|接口版本值为3，注意：<br/>1）原图的宽高都需大于512。<br/>2）水印图片的限制，必须是二值图像，且水印的大小为64x64，如果不符合条件， 会缩放和处理图片到服务要求。																																														|
 |`/method/<method>`	|Y	|盲水印标志位，编码（即添加水印）为encode。																														|
-|`/imageKey/<encodedImageKey>`	|N	|水印图片（经过[URL安全的Base64编码](#urlsafeBase64Encode)）<br/>例如：imageKey=upload.png，encodedImageKey=urlsafe_base64_encode(imageKey)						|
+|`/imageKey/<encodedImageKey>`	|N	|水印图片（经过[URL安全的Base64编码](#urlsafebase64encode)）<br/>例如：imageKey=upload.png，encodedImageKey=urlsafe_base64_encode(imageKey)						|
 
 **提取水印**
 
@@ -1610,7 +1610,7 @@ version 为1或2时，请求参数说明如下：
 |:-										|:-	|:-																																														|
 | `/version/<version>`			|N		|接口版本值为1或2 , 默认为 1。																																	|
 | `/method/<method>`				|Y		|盲水印标志位，解码（即提取水印）为decode。																											|
-| `/orignal/<encodedImage>`|N		|解码对比原图（经过[URL安全的Base64编码](#urlsafeBase64Encode)）|
+| `/orignal/<encodedImage>`|N		|解码对比原图（经过[URL安全的Base64编码](#urlsafebase64encode)）|
 
 version 为3时，请求参数说明如下：
 
@@ -1681,7 +1681,7 @@ version 为1或2时，请求参数说明如下：
 |:-																																				|:-	|:-																																									|
 | `/version/<version>`																													|N		|接口版本值为1或2 , 默认为 1。																														|
 | `/method/<method>`																														|Y		|盲水印标志位，编码（添加水印）为encode。																									|
-| `/text/<encodedText>`																								|N		|水印文字（经过[URL安全的Base64编码](#urlsafeBase64Encode)）。只支持英文数字字符，不支持中文字符，数量上限分别为 10。	|
+| `/text/<encodedText>`																								|N		|水印文字（经过[URL安全的Base64编码](#urlsafebase64encode)）。只支持英文数字字符，不支持中文字符，数量上限分别为 10。	|
 
 version 为3时，请求参数说明如下：
 
@@ -1778,7 +1778,7 @@ animate/duration/<duration>
 |名称									|必填	|说明																																		|
 |:-									|:-	|:-																																		|
 | `<duration>`				|Y		|GIF动图的每帧间隔时间(单位: 0.01s)，取值要求为大于0的整数。									|
-| `<encodedImageKey>`	|N		|合成GIF动图的源图片key需要经过 [URL安全的Base64编码](#urlsafeBase64Encode) ，且保证所有的源图都来源于同一个bucket。	|
+| `<encodedImageKey>`	|N		|合成GIF动图的源图片key需要经过 [URL安全的Base64编码](#urlsafebase64encode) ，且保证所有的源图都来源于同一个bucket。	|
 | `<effectType>`			|N		|定义播放顺序，取值：0，1。（0:正序循环播放；1:倒序循环播放；）默认为0					|
 
 第一张图
@@ -1811,7 +1811,7 @@ https://web-ext-storage.dcloud.net.cn/unicloud/ext-storage/3.png
 https://web-ext-storage.dcloud.net.cn/unicloud/ext-storage/1.png?animate/duration/10/merge/key/dW5pY2xvdWQvZXh0LXN0b3JhZ2UvMi5wbmc=/key/dW5pY2xvdWQvZXh0LXN0b3JhZ2UvMy5wbmc=
 ```
 
-### URL安全的Base64编码@urlsafeBase64Encode
+### URL安全的Base64编码@urlsafebase64encode
 
 图片处理部分API会涉及到 `经过URL安全的Base64编码`，具体算法如下
 
