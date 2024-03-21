@@ -30,7 +30,7 @@ const extStorageManager = uniCloud.getExtStorageManager({
 #### 请求参数
 
 |参数名	|类型		|必填	|默认值	|说明																				|
-|:-:		|:-:		|:-:	|:-:		|:-:																				|
+|:-:		|:-:		|:-:	|:-:		|:-																				|
 |provider	|String	|是		|-			|扩展存储供应商，可选<br/>qiniu: 七牛云|
 |domain	|String	|是		|-			|扩展储存域名（域名地址）如：example.com	|
 
@@ -71,14 +71,14 @@ module.exports = {
 #### 请求参数
 
 |参数名						|类型			|必填	|默认值	|说明																														|
-|:-:							|:-:			|:-:	|:-:		|:-:																														|
+|:-:							|:-:			|:-:	|:-:		|:-																														|
 |cloudPath				|String		|否		|-			|云端文件路径（不填会自动生成）																	|
 |allowUpdate			|Boolean	|否		| false	|是否允许覆盖更新 true：可覆盖 false：仅新增，不可覆盖							|
 
 #### 响应参数
 
 |字段							|类型		|说明																											|
-|:-:							|:-:		|:-:																											|
+|:-:							|:-:		|:-																											|
 |uploadFileOptions|Object	|uni.uploadFile所需的参数																	|
 |cloudPath				|String	|文件云端路径																							|
 |fileID						|String	|文件ID																										|
@@ -174,7 +174,7 @@ console.log('uploadFile: ', res);
 #### 请求参数
 
 |参数名			|类型		|必填	|默认值	|说明																							|
-|:-:				|:-:		|:-:	|:-:		|:-:																							|
+|:-:				|:-:		|:-:	|:-:		|:-																							|
 |fileContent|Buffer	|是		|-			|文件内容																					|
 |cloudPath	|String	|否		|-			|云端文件路径（不填会自动生成）										|
 |allowUpdate			|Boolean|否		| false	|是否允许覆盖更新 true：可覆盖 false：仅新增，不可覆盖|
@@ -182,7 +182,7 @@ console.log('uploadFile: ', res);
 #### 响应参数
 
 |字段							|类型		|说明																											|
-|:-:							|:-:		|:-:																											|
+|:-:							|:-:		|:-																											|
 |cloudPath				|String	|文件云端路径																							|
 |fileID						|String	|文件ID																										|
 |fileURL					|String	|文件URL（如果是私有权限的文件，则此URL是无法直接访问的）	|
@@ -212,19 +212,19 @@ return res;
 #### 请求参数
 
 |参数名		|类型		|必填	|默认值	|说明																														|
-|:-:			|:-:		|:-:	|:-:		|:-:																														|
+|:-:			|:-:		|:-:	|:-:		|:-																														|
 |fileList	|Array	|是		|-			|文件地址列表，数组内元素值类型支持（fileID、cloudPath、fileURL）<br/>如："qiniu://test.jpg" "test.jpg" "https://example.com/test.jpg" 均表示同一个文件		|
 
 #### 响应参数
 
 |字段							|类型		|说明																											|
-|:-:							|:-:		|:-:																											|
+|:-:							|:-:		|:-																											|
 |fileList				|Array	|存储下载链接的数组																				|
 
 响应参数中的fileList
 
 |字段				|类型		|说明						|
-|:-:				|:-:		|:-:						|
+|:-:				|:-:		|:-						|
 |tempFileURL|String	|临时文件URL地址|
 |fileID			|String	|文件ID					|
 |cloudPath	|String	|文件云端路径		|
@@ -254,13 +254,13 @@ return res;
 #### 请求参数
 
 |参数名		|类型		|必填	|默认值	|说明																														|
-|:-:			|:-:		|:-:	|:-:		|:-:																														|
+|:-:			|:-:		|:-:	|:-:		|:-																														|
 |fileID		|String	|是		|-			|待下载的文件，该字段支持的值类型：fileID、cloudPath、fileURL <br/>如："qiniu://test.jpg" "test.jpg" "https://example.com/test.jpg" 均表示同一个文件	|
 
 #### 响应参数
 
 |字段							|类型		|说明																											|
-|:-:							|:-:		|:-:																											|
+|:-:							|:-:		|:-																											|
 |fileContent				|Buffer	|下载的文件的内容															|
 
 
@@ -287,13 +287,13 @@ return res;
 #### 请求参数
 
 |参数名		|类型		|必填	|默认值	|说明																														|
-|:-:			|:-:		|:-:	|:-:		|:-:																														|
+|:-:			|:-:		|:-:	|:-:		|:-																													|
 |fileList	|Array	|是		|-			|文件地址列表，数组内元素值类型支持（fileID、cloudPath、fileURL）<br/>如："qiniu://test.jpg" "test.jpg" "https://example.com/test.jpg" 均表示同一个文件	|
 
 #### 响应参数
 
 |字段			|类型	|说明									|
-|:-:			|:-:	|:-:									|
+|:-:			|:-:	|:-									|
 |fileList	|Array|删除结果组成的数组。	|
 
 ### 修改文件状态@updateFileStatus
@@ -322,7 +322,7 @@ return res;
 #### 请求参数
 
 |参数名		|类型		|必填	|默认值	|说明																							|
-|:-:			|:-:		|:-:	|:-:		|:-:																							|
+|:-:			|:-:		|:-:	|:-:		|:-																							|
 |fileID		|String	|是		|-			|待修改的文件，该字段支持的值类型：fileID、cloudPath、fileURL <br/>如："qiniu://test.jpg" "test.jpg" "https://example.com/test.jpg" 均表示同一个文件	|
 |isPrivate|Boolean|是		|-			|true 设为私有权限 false 设为公共读权限						|
 
@@ -330,7 +330,7 @@ return res;
 #### 响应参数
 
 |字段	|类型		|说明								|
-|:-:	|:-:		|:-:								|
+|:-:	|:-:		|:-								|
 |errCode	|Number	|0 成功 其他均为失败|
 |errMsg	|String	|失败描述|
 
@@ -349,6 +349,1501 @@ https://upload.qiniup.com
 ### 下载域名
 
 下载域名就是你开通扩展存储时绑定的自定义域名，将你的自定义域名添加到download合法域名列表中
+
+## 图片处理@imageshandle
+
+### 图片瘦身@imageslim
+
+**简介**
+
+图片瘦身服务（imageslim）在尽可能不影响画质的情况下，将JPEG、PNG格式的图片实时压缩，瘦身后画质基本没有变化，分辨率不变，格式不变，大幅缩小文件体积：
+
+- 降低CDN分发成本
+- 加快客户端图片的加载速度，提升用户体验
+
+**使用限制**
+
+- 原图限制
+	- 格式支持： JPEG、PNG 格式
+	- 对图片大小/分辨率没有限制，处理异常（处理超时、处理后图片大小大于原图、处理出错等）则返回原图
+- jpeg 图片瘦身
+	- 同步请求超时限制为 1s
+	- 异步请求的超时限制为 10s
+- png 图片瘦身
+	- 同步请求超时限制为 3s
+	- 异步请求的超时限制为 30s
+- 建议「图片瘦身」操作放在所有其他图片处理操作之后
+- 如果原图本身大小并不大，使用图片瘦身后可能没有瘦身效果，反而会增大
+
+**接口规格**
+
+```
+imageslim/zlevel/<zlevel>
+```
+
+|参数名称					|必填	|说明																																		|
+|:-							|:-	|:-																																		|
+| `/zlevel/<zlevel>`	|否		|图片质量损失控制，值越小，质量越好，压缩率越低。默认值为3，取值范围：[0-10]。	|
+
+**使用示例**
+
+原图
+
+```
+http://7xkv1q.com1.z0.glb.clouddn.com/grape.jpg
+```
+
+瘦身后
+
+```
+http://7xkv1q.com1.z0.glb.clouddn.com/grape.jpg?imageslim
+```
+
+瘦身后并控制质量损失
+
+```
+http://7xkv1q.com1.z0.glb.clouddn.com/grape.jpg?imageslim/zlevel/2
+```
+
+**瘦身前后图片对比**
+
+- 画质基本不变
+- 格式不变
+- 分辨率不变
+- 图片文件体积大幅减少，有助于节省 CDN 流量、提升用户体验
+
+![](https://web-ext-storage.dcloud.net.cn/unicloud/ext-storage/500.png)
+
+### 图片基本处理@imageView2
+
+|功能			|说明																	|
+|:-			|:-																	|
+|缩略			|等比缩放、设定目标宽高缩放等多种方式	|
+|格式转换	|格式转换、GIF 颜色控制								|
+|渐进显示	|图片渐进显示													|
+|质量变换	|对图片质量进行调节										|
+
+**限制说明**
+
+使用服务时有如下限制：
+
+- 原图格式支持： psd、jpeg、png、gif、webp、tiff、bmp、avif、heic
+	- webp动图，仅支持持久化处理
+- 输出限制
+	- 输出为 `gif`，一般处理时间比较长，建议优先使用持久化处理
+	- 输出为 `webp` 时，宽或高不能超过16383
+- 同步处理
+	- 原图只支持 20MB 以内的图片，超过 20MB 的图片请使用持久化处理
+	- 理前的 `gif` 最大帧数为 200
+	- 处理前的图片 `w` 和 `h` 参数不能超过3万像素，总像素不能超过1.5亿像素
+	- 处理后的图片 `w` 和 `h` 参数不能超过9999像素，总像素不得超过24999999（2500w-1）像素
+- 持久化处理
+	- 图片文件大小没有限制
+	- 处理前的 `gif`、`webp动图`，最大帧数为 500
+	- 处理前的图片 `w` 和 `h` 不能超过3万像素，总像素不能超过1.5亿像素
+	- 处理后的图片 `w` 和 `h` 不能超过14999像素，总像素不得超过59999999（6000w-1）像素
+
+
+**接口规格**
+
+注意：接口规格不含任何空格与换行符
+
+```
+imageView2/<mode>/w/<LongEdge>
+								 /h/<ShortEdge>
+								 /format/<Format>
+								 /interlace/<Interlace>
+								 /q/<Quality>
+								 /colors/<colors>
+								 /ignore-error/<ignoreError>
+```
+
+**参数说明**
+
+|参数名称																																																																																												|必填						|说明																																	|
+|:-																																																																																														|:-						|:-																																	|
+|/mode 	#{rowspan=7}																																																																																						|是#{rowspan=7}	|定义等比缩放、设定目标宽高缩放的多种不同方式，取值范围：[0,5]的整数，必填项。分为如下几种情况：		|
+|mode=0，使用姿势：`/0/w/<LongEdge>/h/<ShortEdge>`<br/> 1、限定缩略图的长边最多为`<LongEdge>`，短边最多为 `<ShortEdge>`，进行等比缩放，不裁剪。<br/>	2、如果只指定 w 参数则表示限定长边（短边自适应），只指定 h 参数则表示限定短边（长边自适应）。				 |
+|mode=1，使用姿势：`/1/w/<LongEdge>/h/<ShortEdge>	`<br/>1、限定缩略图的宽最少为`<LongEdge>`，高最少为`<ShortEdge>`，进行等比缩放，居中裁剪。<br/>2、转后的缩略图通常恰好是 `<LongEdge>x<ShortEdge>` 的大小（有一个边缩放的时候会因为超出矩形框而被裁剪掉多余部分）。<br/>3、如果只指定 w 参数或只指定 h 参数，代表限定为长宽相等的正方图。																																																																										| |
+|mode=2，使用姿势：`/2/w/<LongEdge>/h/<ShortEdge>`<br/>	1、限定缩略图的长边最少为`<LongEdge>`，短边最少为`<ShortEdge>`，进行等比缩放，不裁剪。<br/>2、如果只指定 w 参数则表示限定宽（高自适应），只指定 h 参数则表示限定高（宽自适应）。<br/>3、它和模式0类似，区别只是限定宽和高，不是限定长边和短边。从应用场景来说，模式0适合移动设备上做缩略图，模式2适合PC上做缩略图。																																																																									| |
+|mode=3，使用姿势：`/3/w/<LongEdge>/h/<ShortEdge>	`<br/>1、限定缩略图的长边最少为`<LongEdge>`，短边最少为`<ShortEdge>`，进行等比缩放，不裁剪。<br/>2、如果只指定 w 参数或只指定 h 参数，代表长宽限定为同样的值。你可以理解为模式1是模式3的结果再做居中裁剪得到的。																																																																													| |
+|mode=4，使用姿势：`/4/w/<LongEdge>/h/<ShortEdge>`<br/>1、限定缩略图的长边最少为`<LongEdge>`，短边最少为`<ShortEdge>`，进行等比缩放，不裁剪。<br/>2、如果只指定 w 参数或只指定 h 参数，表示长边短边限定为同样的值。这个模式很适合在手持设备做图片的全屏查看（把这里的长边短边分别设为手机屏幕的分辨率即可），生成的图片尺寸刚好充满整个屏幕（某一个边可能会超出屏幕）。																																																																											| |
+|mode=5，使用姿势：`/5/w/<LongEdge>/h/<ShortEdge>	`<br/>1、限定缩略图的长边最少为`<LongEdge>`，短边最少为`<ShortEdge>`，进行等比缩放，居中裁剪。<br/>2、如果只指定 w 参数或只指定 h 参数，表示长边短边限定为同样的值。同上模式4，但超出限定的矩形部分会被裁剪。																																																																										| |
+| `/format/<Format>`																																																																																								|否							|图片输出格式	 <br/>1、取值：copy，保持原图格式输出。<br/>2、取值：jpg，gif，png，webp等，参考支持转换的图片格式。<br/>3、取值：heic 或 avif ，属于 图片高级压缩 格式，按照图片高级压缩收费，当前仅支持 持久化处理 来使用。	 <br/>注意：<br/>● 必须指定mode参数，否则不生效。<br/>● 当原图为heic 或 avif 时，设置format/copy 会保持原图格式不变，且不按照图片高级压缩收费；如果不指定 format 参数，将会输出jpeg 。																																				|
+| `/colors/<colors>`																																																																																								|否							|控制图片颜色数量	<br/>● 源图片为 GIF 时，控制输出 GIF 中不同颜色的数量，取值可为2、4、8、16、32、64、128、256，不使用该参数时的默认值为128。<br/>● 输出图片为 PNG 时，控制输出 PNG 中不同颜色的数量，取值可为2、4、8、16、32、64、128、256，不使用该参数时默认关闭。<br/>注意：<br/>● 必须指定mode参数，否则不生效。<br/>● 如果只设置图片颜色数量，不做其他缩放处理，建议使用 图片高级处理-格式转换																													|
+| `/interlace/<Interlace>`																																																																																					|否							|是否支持渐进显示	<br/>取值范围：1 支持渐进显示，0不支持渐进显示(默认为0)。<br/>适用目标格式：jpg	<br/>效果：网速慢时，图片显示由模糊到清晰。新图的输出格式，必须指定mode参数，否则不生效。<br/>注意：		<br/>● 必须指定mode参数，否则不生效。<br/>● 如果只设置渐渐显示，不做其他缩放处理，建议使用 图片高级处理-渐进显示																													|
+| `/q/<Quality>`																																																																																										|否							|新图的图片质量	<br/>● 取值范围是[1, 100]<br/>● 输入是 jpeg，且不强制指定质量条件下，七牛会根据原图质量算出一个修正值，取修正值和指定值中的小值。<br/>注意：<br/>● 必须指定mode参数，否则不生效。<br/>● 指定值后面可以增加 !，表示强制使用指定值，如100!。<br/>● heic：默认值35	<br/>● avif：默认值50	<br/>● 其他格式：默认值75	<br/>● 如果只设置图片质量，不做其他缩放处理，建议使用 图片高级处理-质量变换																														|
+| `/ignore-error/<ignoreError>`	|否	|主要针对图片兼容性的问题导致无法处理，取值为1时，则处理失败时返回原图；<br/>不设置此参数，默认处理失败时返回错误信息。<br/>注意：<br/>● 必须指定mode参数，否则不生效。																																																																																				|
+
+**注意：**
+
+- 所有模式都可以只指定w参数或只指定h参数，并获得合理结果。在w、h为限定最大值时，未指定某参数等价于将该参数设置为无穷大（自适应）；在w、h为限定最小值时，未指定参数等于给定的参数，也就限定的矩形是正方形。
+- 新图的宽/高/长边/短边，不会比原图大，即本接口总是 缩小图片。
+- 如果原图带有EXIF信息且包含Orientation字段且不能被识别出来，imageView2默认根据此字段的值进行自动旋转修正。
+- 当一张含有透明区域的图片，转换成不支持透明的格式jpg,bmp等时，透明区域填充白色。
+- `<Quality>`修正值算法：
+	- 原图 quality <= 90：min[90, 原图quality*sqrt（原图长宽乘积/结果图片长宽乘积）]
+	- 原图 quality > 90： 原图quality*sqrt（原图长宽乘积/结果图片长宽乘积)
+
+**使用示例**
+
+原图
+
+```
+https://dora-doc.qiniu.com/gogopher.jpg
+```
+
+![](https://web-ext-storage.dcloud.net.cn/unicloud/ext-storage/gogopher.png)
+
+裁剪正中部分，等比缩小生成200x200缩略图：
+
+```
+https://dora-doc.qiniu.com/gogopher.jpg?imageView2/1/w/200/h/200
+```
+
+![](https://web-ext-storage.dcloud.net.cn/unicloud/ext-storage/17109358584645tjjceskb3.png)
+
+宽度固定为200px，高度等比缩小，生成200x133缩略图：
+
+```
+https://dora-doc.qiniu.com/gogopher.jpg?imageView2/2/w/200
+```
+
+![](https://web-ext-storage.dcloud.net.cn/unicloud/ext-storage/17110086294401t8kfttnl9.png)
+
+高度固定为200px，宽度等比缩小，生成300x200缩略图：
+
+```
+https://dora-doc.qiniu.com/gogopher.jpg?imageView2/2/h/200
+```
+
+![](https://web-ext-storage.dcloud.net.cn/unicloud/ext-storage/1710935922984avaq0pgbshg.png)
+
+设置图片质量为55：
+
+```
+https://dora-doc.qiniu.com/gogopher.jpg?imageView2/1/w/200/h/200/q/55
+```
+
+![](https://web-ext-storage.dcloud.net.cn/unicloud/ext-storage/1710935960936r3a3aa4ge88.png)
+
+### 图片高级处理@imageMogr2 
+
+#### 缩放
+
+**接口规格**
+
+注意：接口规格不含任何空格与换行符。
+
+```
+imageMogr2/thumbnail/!<Scale>p 
+          /thumbnail/!<Scale>px
+          /thumbnail/!x<Scale>p
+          /thumbnail/<Width>x
+          /thumbnail/x<Height>
+          /thumbnail/<Width>x<Height>
+          /thumbnail/!<Width>x<Height>r
+          /thumbnail/<Width>x<Height>!
+          /thumbnail/<Width>x<Height>>
+          /thumbnail/<Width>x<Height><
+          /thumbnail/<Area>@
+          /ignore-error/<ignoreError>
+```
+
+|参数名称	|必填	|说明																										|
+|:-|:-|:-																										|
+| `/thumbnail/!<Scale>p`	|	|基于原图的长宽，按指定百分比缩放。Scale取值范围1-999。	|
+| `/thumbnail/!<Scale>px`	|	|以百分比形式指定目标图片宽度，高度不变。Scale取值范围1-999。|
+| `/thumbnail/!x<Scale>p`	|	|以百分比形式指定目标图片高度，宽度不变。Scale取值范围1-999。|
+| `/thumbnail/<Width>x`	|	|指定目标图片宽度，高度等比缩放，Width取值范围1-9999。	|
+| `/thumbnail/x<Height>`	|	|指定目标图片高度，宽度等比缩放，Height取值范围1-9999。	|
+| `/thumbnail/<Width>x<Height>`	|	|等比缩放，比例值为宽缩放比和高缩放比的较小值，Width 和 Height 取值范围1-9999。<br/>注意： 宽缩放比：目标宽/原图宽 高缩放比：目标高/原图高|
+| `/thumbnail/!<Width>x<Height>r`	|	|等比缩放，比例值为宽缩放比和高缩放比的较大值，Width 和 Height 取值范围1-9999。<br/>注意： 宽缩放比：目标宽/原图宽 高缩放比：目标高/原图高|
+| `/thumbnail/<Width>x<Height>!`	|	|按指定宽高值强行缩略，可能导致目标图片变形，width和height取值范围1-9999。|
+| `/thumbnail/<Width>x<Height>>`	|	|等比缩小，比例值为宽缩放比和高缩放比的较小值。如果目标宽和高都大于原图宽和高，则不变，Width 和 Height 取值范围1-9999。<br/>注意： 宽缩放比：目标宽/原图宽 高缩放比：目标高/原图高;|
+| `/thumbnail/<Width>x<Height><`	|	|等比放大，比例值为宽缩放比和高缩放比的较小值。如果目标宽(高)小于原图宽(高)，则不变，Width 和 Height 取值范围1-9999。<br/>注意： 宽缩放比：目标宽/原图宽 高缩放比：目标高/原图高;|
+| `/thumbnail/<Area>@`										||按原图高宽比例等比缩放，缩放后的像素数量不超过指定值，Area取值范围1-24999999。	|
+| `/ignore-error/<ignoreError>`					||主要针对图片兼容性的问题导致无法处理，取值为1时，则处理失败时返回原图；<br/>不设置此参数，默认处理失败时返回错误信息				|
+
+**使用示例**
+
+原图
+
+```
+https://dora-doc.qiniu.com/gogopher.jpg
+```
+
+![](https://web-ext-storage.dcloud.net.cn/unicloud/ext-storage/gogopher.png)
+
+等比缩小至 20%
+
+```
+https://dora-doc.qiniu.com/gogopher.jpg?imageMogr2/thumbnail/!20p
+```
+
+![](https://web-ext-storage.dcloud.net.cn/unicloud/ext-storage/gogopher.png?imageMogr2/thumbnail/!20p)
+
+等比缩小到宽为200px
+
+```
+https://dora-doc.qiniu.com/gogopher.jpg?imageMogr2/thumbnail/200x
+```
+
+![](https://web-ext-storage.dcloud.net.cn/unicloud/ext-storage/gogopher.png?imageMogr2/thumbnail/200x)
+
+等比缩小到高为200px
+
+```
+https://dora-doc.qiniu.com/gogopher.jpg?imageMogr2/thumbnail/x200
+```
+
+![](https://web-ext-storage.dcloud.net.cn/unicloud/ext-storage/gogopher.png?imageMogr2/thumbnail/x200)
+
+限定长边，生成不超过 200x200 的缩略图
+
+```
+https://dora-doc.qiniu.com/gogopher.jpg?imageMogr2/thumbnail/200x200
+```
+
+![](https://web-ext-storage.dcloud.net.cn/unicloud/ext-storage/gogopher.png?imageMogr2/thumbnail/200x200)
+
+限定短边，生成不小于 200x200 的缩略图
+
+```
+https://dora-doc.qiniu.com/gogopher.jpg?imageMogr2/thumbnail/!200x200r
+```
+
+![](https://web-ext-storage.dcloud.net.cn/unicloud/ext-storage/gogopher.png?imageMogr2/thumbnail/!200x200r)
+
+强制生成 200x200 的缩略图
+
+```
+https://dora-doc.qiniu.com/gogopher.jpg?imageMogr2/thumbnail/200x200!
+```
+
+![](https://web-ext-storage.dcloud.net.cn/unicloud/ext-storage/gogopher.png?imageMogr2/thumbnail/200x200!)
+
+原图大于指定长宽矩形，按长边自动缩小为 200x200 缩略图
+
+```
+https://dora-doc.qiniu.com/gogopher.jpg?imageMogr2/thumbnail/200x200>
+```
+
+![](https://web-ext-storage.dcloud.net.cn/unicloud/ext-storage/gogopher.png?imageMogr2/thumbnail/200x200)
+
+原图小于指定长宽矩形，按长边自动拉伸为 700x600 放大图
+
+```
+https://dora-doc.qiniu.com/gogopher.jpg?imageMogr2/thumbnail/700x600<
+```
+
+![](https://web-ext-storage.dcloud.net.cn/unicloud/ext-storage/gogopher.png?imageMogr2/thumbnail/700x600<)
+
+生成图的像素总数小于指定值
+
+```
+https://dora-doc.qiniu.com/gogopher.jpg?imageMogr2/thumbnail/350000@
+```
+
+![](https://web-ext-storage.dcloud.net.cn/unicloud/ext-storage/gogopher.png?imageMogr2/thumbnail/350000@)
+
+#### 裁剪
+
+**接口规格**
+
+注意：接口规格不含任何空格与换行符。
+
+```
+imageMogr2/crop
+```
+
+裁剪操作参数表 (cropsize)
+
+|参数名称	|必填	|说明																				|
+|:-|:-|:-																				|
+| `/crop/<Width>x`	|	|指定目标图片宽度，高度不变。取值范围为0-10000。|
+| `/crop/x<Height>`	|	|指定目标图片高度，宽度不变。取值范围为0-10000。|
+| `/crop/<Width>x<Height>`	|	|同时指定目标图片宽高。取值范围为0-10000。	|
+| `/ignore-error/<ignoreError>`	|	|主要针对图片兼容性的问题导致无法处理，取值为1时，则处理失败时返回原图；<br/>不设置此参数，默认处理失败时返回错误信息。|
+
+裁剪偏移参数表 (cropoffset)
+
+|参数名称										|必填	|说明																																																			|
+|:-												|:-	|:-																																																			|
+| `/crop/!{cropsize}a<dx>a<dy>`|			|相对于偏移锚点，向右偏移dx个像素，同时向下偏移dy个像素。取值范围不限，小于原图宽高即可。									|
+| `/crop/!{cropsize}-<dx>a<dy>`|			|相对于偏移锚点，从指定宽度中减去dx个像素，同时向下偏移dy个像素。取值范围不限，小于原图宽高即可。					|
+| `/crop/!{cropsize}a<dx>-<dy>`|			|相对于偏移锚点，向右偏移dx个像素，同时从指定高度中减去dy个像素。取值范围不限，小于原图宽高即可。					|
+| `/crop/!{cropsize}-<dx>-<dy>`|			|相对于偏移锚点，从指定宽度中减去dx个像素，同时从指定高度中减去dy个像素。取值范围不限，小于原图宽高即可。	|
+
+示例
+
+- /crop/!300x400a10a10 表示从源图坐标为 x:10,y:10 处截取 300x400 的子图片。
+- /crop/!300x400-10a10 表示从源图坐标为 x:0,y:10 处截取 290x400 的子图片。
+
+注意
+
+- 必须同时指定横轴偏移和纵轴偏移。
+- thumbnail 和 crop 之间的操作可以管道处理，即可以先对图进行缩略再裁剪，或者先裁剪再缩略。
+- gravity 会使其后的裁剪偏移 cropoffset 受到影响，建议放在 /crop 参数之前。
+- 计算偏移值会受到位置偏移指示符 /gravity/ 的影响。默认为相对于左上角 NorthWest 计算偏移值，参考 重心参数表。
+
+重心参数表
+
+在图片高级处理现有的功能中只影响其后的裁剪操作参数表，即裁剪操作以 gravity 为原点开始偏移后，进行裁剪操作。
+
+```
+NorthWest     |     North      |     NorthEast
+              |                |    
+              |                |    
+--------------+----------------+--------------
+              |                |    
+West          |     Center     |          East 
+              |                |    
+--------------+----------------+--------------
+              |                |    
+              |                |    
+SouthWest     |     South      |     SouthEast
+```
+
+转义说明
+
+部分参数以 ! 开头，表示参数将被转义。为便于阅读，我们采用特殊转义方法，如下所示：
+
+```
+p => % (percent)
+r => ^ (reverse)
+a => + (add)
+```
+
+即!50x50r 实际代表 50x50^ 这样一个字符串。而!50x50实际代表 50x50 这样一个字符串（该字符串并不需要转义）。 中的 OffsetGeometry 部分可以省略，默认为 +0+0。即 /crop/50x50 等价于 /crop/!50x50a0a0，执行 -crop 50x50+0+0 语义。
+
+**使用示例**
+
+原图
+
+```
+https://dora-doc.qiniu.com/gogopher.jpg
+```
+
+![](https://web-ext-storage.dcloud.net.cn/unicloud/ext-storage/gogopher.png)
+
+限定宽最大300，生成裁剪图
+
+```
+https://dora-doc.qiniu.com/gogopher.jpg?imageMogr2/crop/300x
+```
+
+![](https://web-ext-storage.dcloud.net.cn/unicloud/ext-storage/gogopher.png?imageMogr2/crop/300x)
+
+限定高最大300，生成裁剪图
+
+```
+https://dora-doc.qiniu.com/gogopher.jpg?imageMogr2/thumbnail/200x
+```
+
+![](https://web-ext-storage.dcloud.net.cn/unicloud/ext-storage/gogopher.png?imageMogr2/thumbnail/200x)
+
+等比缩小到高为200px
+
+```
+https://dora-doc.qiniu.com/gogopher.jpg?imageMogr2/thumbnail/x200
+```
+
+![](https://web-ext-storage.dcloud.net.cn/unicloud/ext-storage/gogopher.png?imageMogr2/thumbnail/x200)
+
+生成固定 300x300 裁剪图
+
+```
+https://dora-doc.qiniu.com/gogopher.jpg?imageMogr2/crop/300x300
+```
+
+![](https://web-ext-storage.dcloud.net.cn/unicloud/ext-storage/gogopher.png?imageMogr2/crop/300x300)
+
+生成 300x300 裁剪图，偏移距离 30x100
+
+```
+https://dora-doc.qiniu.com/gogopher.jpg?imageMogr2/crop/!300x300a30a100
+```
+
+![](https://web-ext-storage.dcloud.net.cn/unicloud/ext-storage/gogopher.png?imageMogr2/crop/!300x300a30a100)
+
+生成 300x200 裁剪图，偏移距离 30x0
+
+```
+https://dora-doc.qiniu.com/gogopher.jpg?imageMogr2/crop/!300x300a30-100
+```
+
+![](https://web-ext-storage.dcloud.net.cn/unicloud/ext-storage/gogopher.png?imageMogr2/crop/!300x300a30-100)
+
+生成 270x300 裁剪图，偏移距离 0x100
+
+```
+https://dora-doc.qiniu.com/gogopher.jpg?imageMogr2/crop/!300x300-30a100
+```
+
+![](https://web-ext-storage.dcloud.net.cn/unicloud/ext-storage/gogopher.png?imageMogr2/crop/!300x300-30a100)
+
+生成 270x200 裁剪图，偏移距离 0x0
+
+```
+https://dora-doc.qiniu.com/gogopher.jpg?imageMogr2/crop/!300x300-30-100
+```
+
+![](https://web-ext-storage.dcloud.net.cn/unicloud/ext-storage/gogopher.png?imageMogr2/crop/!300x300-30-100)
+
+锚点在左上角 (NorthWest)，生成 300x300 裁剪图
+
+```
+https://dora-doc.qiniu.com/gogopher.jpg?imageMogr2/gravity/NorthWest/crop/300x300
+```
+
+![](https://web-ext-storage.dcloud.net.cn/unicloud/ext-storage/gogopher.png?imageMogr2/gravity/NorthWest/crop/300x300)
+
+锚点在正上方 (North)，生成 300x300 裁剪图
+
+```
+https://dora-doc.qiniu.com/gogopher.jpg?imageMogr2/gravity/North/crop/300x300
+```
+
+![](https://web-ext-storage.dcloud.net.cn/unicloud/ext-storage/gogopher.png?imageMogr2/gravity/North/crop/300x300)
+
+锚点在右上角 (NorthEast)，生成 300x300 裁剪图
+
+```
+https://dora-doc.qiniu.com/gogopher.jpg?imageMogr2/gravity/NorthEast/crop/300x300
+```
+
+![](https://web-ext-storage.dcloud.net.cn/unicloud/ext-storage/gogopher.png?imageMogr2/gravity/NorthEast/crop/300x300)
+
+锚点在正左方 (West)，生成 300x300 裁剪图
+
+```
+https://dora-doc.qiniu.com/gogopher.jpg?imageMogr2/gravity/West/crop/300x300
+```
+
+![](https://web-ext-storage.dcloud.net.cn/unicloud/ext-storage/gogopher.png?imageMogr2/gravity/West/crop/300x300)
+
+锚点在正中 (Center)，生成 300x300 裁剪图
+
+```
+https://dora-doc.qiniu.com/gogopher.jpg?imageMogr2/gravity/Center/crop/300x300
+```
+
+![](https://web-ext-storage.dcloud.net.cn/unicloud/ext-storage/gogopher.png?imageMogr2/gravity/Center/crop/300x300)
+
+锚点在正右方 (East)，生成 300x300 裁剪图
+
+```
+https://dora-doc.qiniu.com/gogopher.jpg?imageMogr2/gravity/East/crop/300x300
+```
+
+![](https://web-ext-storage.dcloud.net.cn/unicloud/ext-storage/gogopher.png?imageMogr2/gravity/East/crop/300x300)
+
+锚点在左下角 (SouthWest)，生成 300x300 裁剪图
+
+```
+https://dora-doc.qiniu.com/gogopher.jpg?imageMogr2/gravity/SouthWest/crop/300x300
+```
+
+![](https://web-ext-storage.dcloud.net.cn/unicloud/ext-storage/gogopher.png?imageMogr2/gravity/SouthWest/crop/300x300)
+
+锚点在正下方 (South)，生成 300x300 裁剪图
+
+```
+https://dora-doc.qiniu.com/gogopher.jpg?imageMogr2/gravity/South/crop/300x300
+```
+
+![](https://web-ext-storage.dcloud.net.cn/unicloud/ext-storage/gogopher.png?imageMogr2/gravity/South/crop/300x300)
+
+锚点在右下角 (SouthEast)，生成 300x300 裁剪图
+
+```
+https://dora-doc.qiniu.com/gogopher.jpg?imageMogr2/gravity/SouthEast/crop/300x300
+```
+
+![](https://web-ext-storage.dcloud.net.cn/unicloud/ext-storage/gogopher.png?imageMogr2/gravity/SouthEast/crop/300x300)
+
+#### 格式转换
+
+**接口规格**
+
+注意：接口规格不含任何空格与换行符。
+
+```
+imageMogr2/format/<Format>
+          /colors/<colors>
+          /ignore-error/<ignoreError>
+```
+
+参数说明
+
+|参数名称	|必填	|说明																																																									|
+|:-|:-|:-																																																									|
+|`/format/<Format>`	|	|新图的输出格式<br/>1、取值：jpg，gif，png，webp等，参考 支持转换的图片格式。<br/>2、取值：heic 或 avif ，属于 图片高级压缩 格式，按照图片高级压缩收费，当前仅支持 持久化处理 来使用。<br/>3、取值：缺省，默认保持原图格式输出。<br/>注意：<br/>● 必须指定mode参数，否则不生效。<br/>● 当原图为heic 或 avif 时，如果 format 值缺省，会输出jpeg 。																																																																												|
+| `/colors/<colors>`	|	|1、源图片为 GIF 时，控制输出 GIF 中不同颜色的数量，取值可为2、4、8、16、32、64、128或256，不使用该参数时的默认值为128。<br/>2、输出图片为 PNG 时，控制输出 PNG 中不同颜色的数量，取值可为2、4、8、16、32、64、128或256，不使用该参数时默认关闭。	|
+| `/ignore-error/<ignoreError>`	|	|主要针对图片兼容性的问题导致无法处理，取值为1时，则处理失败时返回原图；<br/>不设置此参数，默认处理失败时返回错误信息。																								|
+
+注意
+
+- 当一张含有透明区域的图片，转换成不支持透明区域的图片格式 jpg、bmp 等时，透明区域填充白色。
+
+**使用示例**
+
+转为png格式
+
+```
+https://dora-doc.qiniu.com/gogopher.jpg?imageMogr2/format/png
+```
+
+#### 渐进显示
+
+**接口规格**
+
+注意：接口规格不含任何空格与换行符。
+
+```
+imageMogr2/interlace/<Interlace>
+          /ignore-error/<ignoreError>
+```
+
+参数说明
+
+|参数名称	|必填	|说明																									|
+|:-|:-|:-																									|
+| `/interlace/<Interlace>`	|	|是否支持渐进显示<br/>取值范围：1 支持渐进显示，0不支持渐进显示(默认为0)。<br/>适用目标格式：jpg	<br/>效果：网速慢时，图片显示由模糊到清晰。																												|
+|`/ignore-error/<ignoreError>`	|	|主要针对图片兼容性的问题导致无法处理，取值为1时，则处理失败时返回原图；<br/>不设置此参数，默认处理失败时返回错误信息。|
+
+**使用示例**
+
+原图
+
+```
+https://dora-doc.qiniu.com/gogopher.jpg
+```
+
+![](https://web-ext-storage.dcloud.net.cn/unicloud/ext-storage/gogopher.png)
+
+原图转为png后，并渐进显示图片：
+
+```
+https://dora-doc.qiniu.com/gogopher.jpg?imageMogr2/format/png/interlace/1
+```
+
+![](https://web-ext-storage.dcloud.net.cn/unicloud/ext-storage/gogopher.png?imageMogr2/format/png/interlace/1)
+
+原图缩放后，并渐进显示图片：
+
+```
+https://dora-doc.qiniu.com/gogopher.jpg?imageMogr2/thumbnail/300x300/interlace/1
+```
+
+![](https://web-ext-storage.dcloud.net.cn/unicloud/ext-storage/gogopher.png?imageMogr2/thumbnail/300x300/interlace/1)
+
+#### 背景色填充
+
+**接口规格**
+
+注意：接口规格不含任何空格与换行符。
+
+```
+imageMogr2/background/<background>
+          /ignore-error/<ignoreError>           
+```
+
+**参数说明**
+
+|参数名称	|必填	|说明																																																		|
+|:-|:-|:-																																																		|
+| `/background/<background>`	|	|填充背景颜色，可以是颜色名称（比如red）或十六进制颜色（比如#FF0000）的URL安全的Base64编码。我们支持的颜色名称有transparent（#00000000）、none（#00000000）、white（#FFFFFF）、black（#000000）、red（#FF0000）、orange（#FFA500）、yellow（#FFFF00）、green（#008000）、blue（#0000FF）、purple（#800080）、gray（#7E7E7E）、pink（#FFC0CB），其中none与transparent均为透明背景色，另外十六进制颜色不区分大小写，具体颜色请参考颜色编码表。缺省背景色为white（#FFFFFF）。|
+| `/extent/<extent>`	|	|背景颜色填充的大小和偏移，即 {size}{offset}。																													<br/>注意：dx、dy 取值范围不限，小于原图宽高即可。示例如下：																								|<br/>1、/extent/!642x492a10a10 ，表示相对原图左上角，向右偏移10，向下偏移10，填充 642x492 大小的背景颜色。	|<br/>2、/extent/!642x492-10-10 ，表示相对原图左上角，向左偏移10，向上偏移10，填充 642x492大小的背景颜色。		|<br/>注意：dx、dy 取值范围不限，小于原图宽高即可。示例如下：																								|<br/>1、/extent/!642x492a10a10 ，表示相对原图左上角，向右偏移10，向下偏移10，填充 642x492 大小的背景颜色。	|<br/>2、/extent/!642x492-10-10 ，表示相对原图左上角，向左偏移10，向上偏移10，填充 642x492大小的背景颜色。		|<br/>具体参数如下：																																													|
+|`/extent/<Width>x<height>`	|	|相对于原图中心位置，填充指定大小的背景颜色。																														|
+|`/extent/<Width>x<height>a<dx>a<dy>`	|	|相对于原图左上角，向右偏移dx个像素，同时向下偏移dy个像素，填充指定大小的背景颜色。											|
+|`/extent/!<Width>x<height>-<dx>-<dy>`	|	|相对于原图左上角，向左偏移dx个像素，同时向上偏移dy个像素，填充指定大小的背景颜色。											|
+|`/extent/!<Width>x<height>-<dx>a<dy>`	|	|相对于原图左上角，向左偏移dx个像素，同时向下偏移dy个像素，填充指定大小的背景颜色。											|
+|`/extent/!<Width>x<height>a<dx>-<dy>`	|	|相对于原图左上角，向右偏移dx个像素，同时向上偏移dy个像素，填充指定大小的背景颜色。											|
+|`/extent/!-<dx>a<dy>`	|	|相对于原图左上角，向左偏移dx个像素，同时向下偏移dy个像素，填充指定大小的背景颜色。											|
+|`/extent/!a<dx>-<dy>`	|	|相对于原图左上角，向右偏移dx个像素，同时向上偏移dy个像素，填充指定大小的背景颜色。											|
+|`/bordercolor/<bordercolor>`	|	|填充背景颜色，可以是颜色名称（比如red）或十六进制颜色（比如#FF0000）的URL安全的Base64编码。我们支持的颜色名称有transparent（#00000000）、none（#00000000）、white（#FFFFFF）、black（#000000）、red（#FF0000）、orange（#FFA500）、yellow（#FFFF00）、green（#008000）、blue（#0000FF）、purple（#800080）、gray（#7E7E7E）、pink（#FFC0CB），其中none与transparent均为透明背景色，另外十六进制颜色不区分大小写，具体颜色请参考颜色编码表。缺省背景色为white（#FFFFFF）。|
+|`/border/<width>x<height>`	|	|相对于原图中心位置，填充指定大小的背景颜色。输出图像宽高为(OriWidth+2width) x（OriHeight + 2 height）<br/>使用示例：http://rnjirg2hf.sabkt.gdipper.com/gogopher111.jpeg?imageMogr2/border/10x10/bordercolor/cmVk		|
+|`/ignore-error/<ignoreError>`	|	|主要针对图片兼容性的问题导致无法处理，取值为1时，则处理失败时返回原图；<br/>不设置此参数，默认处理失败时返回错误信息。																|
+
+**转义说明**
+
+部分参数以 ! 开头，表示参数将被转义。为便于阅读，我们采用特殊转义方法，如下所示：
+
+```
+p => % (percent)
+r => ^ (reverse)
+a => + (add)
+```
+
+即 `!50x50r` 实际代表 50x50 这样一个字符串。而 `!50x50`实际代表 50x50 这样一个字符串（该字符串并不需要转义）。 `<ImageSizeAndOffsetGeometry>` 中的 OffsetGeometry 部分可以省略，默认为 +0+0。即 /extent/50x50 等价于 /extent/!50x50a0a0。
+
+**使用示例**
+
+原图
+
+```
+https://dora-doc.qiniu.com/gogopher.jpg
+```
+
+![](https://web-ext-storage.dcloud.net.cn/unicloud/ext-storage/gogopher.png)
+
+旋转并添加背景色：
+
+```
+https://dora-doc.qiniu.com/gogopher.jpg?imageMogr2/auto-orient/thumbnail/!256x256r/gravity/center/crop/!256x256/blur/3x9/quality/80/rotate/45/background/b3Jhbmdl
+```
+
+![](https://web-ext-storage.dcloud.net.cn/unicloud/ext-storage/gogopher.png?imageMogr2/auto-orient/thumbnail/!256x256r/gravity/center/crop/!256x256/blur/3x9/quality/80/rotate/45/background/b3Jhbmdl)
+
+添加1像素的红色边框：
+
+```
+https://dora-doc.qiniu.com/gogopher.jpg?imageMogr2/extent/!642x429/background/cmVk
+```
+
+![](https://web-ext-storage.dcloud.net.cn/unicloud/ext-storage/gogopher.png?imageMogr2/extent/!642x429/background/cmVk)
+
+左边填充3像素的红色边框：
+
+```
+https://dora-doc.qiniu.com/gogopher.jpg?imageMogr2/extent/!-3a0/background/cmVk
+```
+
+![](https://web-ext-storage.dcloud.net.cn/unicloud/ext-storage/gogopher.png?imageMogr2/extent/!-3a0/background/cmVk)
+
+自适应填充背景色：
+
+```
+http://rnjirg2hf.sabkt.gdipper.com/gogopher111.jpeg?imageMogr2/border/10x10/bordercolor/cmVk
+```
+
+![](https://web-ext-storage.dcloud.net.cn/unicloud/ext-storage/gogopher.png?imageMogr2/border/10x10/bordercolor/cmVk)
+
+图片右边填充3像素的红色边框：
+
+```
+https://dora-doc.qiniu.com/gogopher.jpg?imageMogr2/extent/!a3-0/background/cmVk
+```
+
+![](https://web-ext-storage.dcloud.net.cn/unicloud/ext-storage/gogopher.png?imageMogr2/extent/!a3-0/background/cmVk)
+
+图片上方填充3像素的红色边框：
+
+```
+https://dora-doc.qiniu.com/gogopher.jpg?imageMogr2/extent/!a0-3/background/cmVk
+```
+
+![](https://web-ext-storage.dcloud.net.cn/unicloud/ext-storage/gogopher.png?imageMogr2/extent/!a0-3/background/cmVk)
+
+图片下方填充3像素的红色边框：
+
+```
+https://dora-doc.qiniu.com/gogopher.jpg?imageMogr2/extent/!-0a3/background/cmVk
+```
+
+![](https://web-ext-storage.dcloud.net.cn/unicloud/ext-storage/gogopher.png?imageMogr2/extent/!-0a3/background/cmVk)
+
+#### 旋转
+
+**限制说明**
+
+- 原图格式支持：psd、jpeg、png、gif、webp、tiff、bmp、avif、heic
+	- webp动图，仅支持持久化处理
+- 输出限制
+	- 输出为 gif，一般处理时间比较长，建议优先使用持久化处理
+	- 输出为 webp 时，宽或高不能超过16383
+- 同步处理
+	- 原图只支持 20MB 以内的图片，超过 20MB 的图片请使用持久化处理
+	- 理前的 `gif` 最大帧数为 200
+	- 处理前的图片 `w` 和 `h` 参数不能超过3万像素，总像素不能超过1.5亿像素
+	- 处理后的图片 `w` 和 `h` 参数不能超过9999像素，总像素不得超过24999999（2500w-1）像素
+- 持久化处理
+	- 图片文件大小没有限制
+	- 处理前的 `gif`、`webp动图`，最大帧数为 500
+	- 处理前的图片 `w` 和 `h` 不能超过3万像素，总像素不能超过1.5亿像素
+	- 处理后的图片 `w` 和 `h` 不能超过14999像素，总像素不得超过59999999（6000w-1）像素
+	
+**接口规格**
+
+注意：接口规格不含任何空格与换行符。
+
+```
+imageMogr2/auto-orient
+          /rotate/<rotate>
+          /ignore-error/<ignoreError>           
+```
+
+**参数说明**
+
+|参数名称	|必填	|说明																			|
+|:-|:-|:-																			|
+| `/auto-orient`	|	|自适应旋转：与图像处理顺序相关，建议放在首位，根据原图EXIF信息自动旋正，便于后续处理。|
+| `/rotate/<rotate>`	|	|普通旋转：图片顺时针旋转角度，取值范围为1-360，默认为不旋转。|
+| `/ignore-error/<ignoreError>`	|	|主要针对图片兼容性的问题导致无法处理，取值为1时，则处理失败时返回原图；<br/>不设置此参数，默认处理失败时返回错误信息	|
+
+**使用示例**
+
+原图
+
+```
+https://dora-doc.qiniu.com/gogopher.jpg
+```
+
+![](https://web-ext-storage.dcloud.net.cn/unicloud/ext-storage/gogopher.png)
+
+顺时针旋转 45 度：
+
+```
+ https://dora-doc.qiniu.com/gogopher.jpg?imageMogr2/rotate/45
+```
+
+![](https://dora-doc.qiniu.com/gogopher.jpg?imageMogr2/rotate/45)
+
+#### 高斯模糊
+
+**限制说明**
+
+- 原图格式支持：psd、jpeg、png、gif、webp、tiff、bmp、avif、heic
+	- webp动图，仅支持持久化处理
+- 输出限制
+	- 输出为 gif，一般处理时间比较长，建议优先使用持久化处理
+	- 输出为 webp 时，宽或高不能超过16383
+- 同步处理
+	- 原图只支持 20MB 以内的图片，超过 20MB 的图片请使用持久化处理
+	- 理前的 `gif` 最大帧数为 200
+	- 处理前的图片 `w` 和 `h` 参数不能超过3万像素，总像素不能超过1.5亿像素
+	- 处理后的图片 `w` 和 `h` 参数不能超过9999像素，总像素不得超过24999999（2500w-1）像素
+- 持久化处理
+	- 图片文件大小没有限制
+	- 处理前的 `gif`、`webp动图`，最大帧数为 500
+	- 处理前的图片 `w` 和 `h` 不能超过3万像素，总像素不能超过1.5亿像素
+	- 处理后的图片 `w` 和 `h` 不能超过14999像素，总像素不得超过59999999（6000w-1）像素
+
+**接口规格**
+
+注意：接口规格不含任何空格与换行符。
+
+```
+imageMogr2/blur/<blur>
+          /ignore-error/<ignoreError>            
+```
+
+**参数说明**
+
+|参数名称	|必填	|说明																			|
+|:-|:-|:-																			|
+| `/blur/<blur>`	|	|高斯模糊参数。radius是模糊半径，取值范围为1-50。sigma是正态分布的标准差，必须大于0。图片格式为gif时，不支持该参数。|
+| `/ignore-error/<ignoreError>`	|	|主要针对图片兼容性的问题导致无法处理，取值为1时，则处理失败时返回原图；<br/> 不设置此参数，默认处理失败时返回错误信息	|
+
+**使用示例**
+
+原图
+
+```
+https://dora-doc.qiniu.com/gogopher.jpg
+```
+
+![](https://web-ext-storage.dcloud.net.cn/unicloud/ext-storage/gogopher.png)
+
+半径为 3，Sigma 值为 5：
+
+```
+https://dora-doc.qiniu.com/gogopher.jpg?imageMogr2/blur/3x5
+```
+
+![](https://web-ext-storage.dcloud.net.cn/unicloud/ext-storage/gogopher.png?imageMogr2/blur/3x5)
+
+#### 锐化
+
+**限制说明**
+
+- 原图格式支持：psd、jpeg、png、gif、webp、tiff、bmp、avif、heic
+	- webp动图，仅支持持久化处理
+- 输出限制
+	- 输出为 gif，一般处理时间比较长，建议优先使用持久化处理
+	- 输出为 webp 时，宽或高不能超过16383
+- 同步处理
+	- 原图只支持 20MB 以内的图片，超过 20MB 的图片请使用持久化处理
+	- 理前的 `gif` 最大帧数为 200
+	- 处理前的图片 `w` 和 `h` 参数不能超过3万像素，总像素不能超过1.5亿像素
+	- 处理后的图片 `w` 和 `h` 参数不能超过9999像素，总像素不得超过24999999（2500w-1）像素
+- 持久化处理
+	- 图片文件大小没有限制
+	- 处理前的 `gif`、`webp动图`，最大帧数为 500
+	- 处理前的图片 `w` 和 `h` 不能超过3万像素，总像素不能超过1.5亿像素
+	- 处理后的图片 `w` 和 `h` 不能超过14999像素，总像素不得超过59999999（6000w-1）像素
+
+**接口规格**
+
+注意：接口规格不含任何空格与换行符。
+
+```
+imageMogr2/sharpen/<sharpen>
+          /ignore-error/<ignoreError>           
+```
+
+**参数说明**
+
+|参数名称	|必填	|说明																			|
+|:-|:-|:-																			|
+|`/sharpen/<sharpen>`	|	|图片是否锐化，当设置值为1时打开锐化效果。|
+| `/ignore-error/<ignoreError>`	|	|主要针对图片兼容性的问题导致无法处理，取值为1时，则处理失败时返回原图；<br/>不设置此参数，默认处理失败时返回错误信息	|
+
+**使用示例**
+
+原图
+
+```
+https://dora-doc.qiniu.com/gogopher.jpg
+```
+
+![](https://web-ext-storage.dcloud.net.cn/unicloud/ext-storage/gogopher.png)
+
+设置锐化参数为1，进行锐化处理
+
+```
+https://dn-odum9helk.qbox.me/resource/gogopher.jpg?imageMogr2/sharpen/1
+```
+
+![](https://web-ext-storage.dcloud.net.cn/unicloud/ext-storage/gogopher.png?imageMogr2/sharpen/1)
+
+#### 图像DPI
+
+**限制说明**
+
+- 原图格式支持：psd、jpeg、png、gif、webp、tiff、bmp
+	- webp动图，仅支持持久化处理
+- 输出限制
+	- 输出为 gif，一般处理时间比较长，建议优先使用持久化处理
+	- 输出为 webp 时，宽或高不能超过16383
+- 同步处理
+	- 原图只支持 20MB 以内的图片，超过 20MB 的图片请使用持久化处理
+	- 理前的 `gif` 最大帧数为 200
+	- 处理前的图片 `w` 和 `h` 参数不能超过3万像素，总像素不能超过1.5亿像素
+	- 处理后的图片 `w` 和 `h` 参数不能超过9999像素，总像素不得超过24999999（2500w-1）像素
+- 持久化处理
+	- 图片文件大小没有限制
+	- 处理前的 `gif`、`webp动图`，最大帧数为 500
+	- 处理前的图片 `w` 和 `h` 不能超过3万像素，总像素不能超过1.5亿像素
+	- 处理后的图片 `w` 和 `h` 不能超过14999像素，总像素不得超过59999999（6000w-1）像素
+
+
+**接口规格**
+
+注意：接口规格不含任何空格与换行符。
+
+```
+imageMogr2/density/<density>
+          /ignore-error/<ignoreError>           
+```
+
+**参数说明**
+
+|参数名称	|必填	|说明																			|
+|:-|:-|:-																			|
+| `density/<density>`	|	|图像DPI值的修改值范围：1-1200，默认为原图DPI值。|
+| `/ignore-error/<ignoreError>`	|	|主要针对图片兼容性的问题导致无法处理，取值为1时，则处理失败时返回原图；<br/>不设置此参数，默认处理失败时返回错误信息	|
+
+**使用示例**
+
+原图
+
+```
+https://dora-doc.qiniu.com/gogopher.jpg
+```
+
+![](https://web-ext-storage.dcloud.net.cn/unicloud/ext-storage/gogopher.png)
+
+设置输出分辨率为300DPI，进行处理。
+
+```
+https://dora-doc.qiniu.com/gogopher.jpg?imageMogr2/density/300
+```
+
+![](https://web-ext-storage.dcloud.net.cn/unicloud/ext-storage/gogopher.png?imageMogr2/density/300)
+
+### 图片基本信息
+
+**简介**
+
+图片基本信息包括图片格式、图片大小、色彩模型。
+
+**限制说明**
+
+- 原图支持20MB以内的图片
+
+**接口规格**
+
+```
+imageInfo
+```
+
+**使用示例**
+
+原图
+
+```
+https://dora-doc.qiniu.com/gogopher.jpg
+```
+
+![](https://web-ext-storage.dcloud.net.cn/unicloud/ext-storage/gogopher.png)
+
+获取图片基本信息
+
+```
+https://dora-doc.qiniu.com/gogopher.jpg?imageInfo
+```
+
+返回结果（内容经过格式化以便阅读）：
+
+```js
+{
+	size: 214513,
+	format: "jpeg",
+	width: 640,
+	height: 427,
+	colorModel: "ycbcr",
+	orientation: "Top-left"
+}
+```
+
+|字段名称		|必填	|说明																|
+|:-				|:-	|:-																|
+|size				|是		|文件大小，单位：Bytes							|
+|format			|是		|图片类型，如png、jpeg、gif、bmp等。|
+|width			|是		|图片宽度，单位：像素(px)。					|
+|height			|是		|图片高度，单位：像素(px)。					|
+|colorModel	|是		|色彩模型，如palette16、ycbcr等。		|
+|frameNumber|			|帧数，gif 图片会返回此项						|
+
+### 图片 EXIF 信息
+
+**简介**
+
+EXIF(EXchangeable Image File Format) 是专门为数码相机的照片设定的可交换图像文件格式。
+
+**限制说明**
+
+- 缩略图等经过云处理的新图片不支持EXIF
+- 原图格式为avif、heif不支持EXIF
+- 原图只支持 20MB 以内的图片
+
+
+**接口规格**
+
+```
+exif
+```
+
+**使用示例**
+
+原图
+
+```
+https://dora-doc.qiniu.com/gogopher.jpg
+```
+
+![](https://web-ext-storage.dcloud.net.cn/unicloud/ext-storage/gogopher.png)
+
+获取图片 EXIF 信息
+
+```
+https://dora-doc.qiniu.com/gogopher.jpg?exif
+```
+
+返回结果（内容经过格式化以便阅读）：
+
+```js
+{
+	 "DateTime" : {
+			"type" : 2,
+			"val" : "2011:11:19 17:09:23"
+	 },
+	 "ExposureBiasValue" : {
+			"type" : 10,
+			"val" : "0.33 EV"
+	 },
+	 "ExposureTime" : {
+			"type" : 5,
+			"val" : "1/50 sec."
+	 },
+	 "Model" : {
+			"type" : 2,
+			"val" : "Canon EOS 600D"
+	 },
+	 "ISOSpeedRatings" : {
+			"type" : 3,
+			"val" : "3200"
+	 },
+	 "ResolutionUnit" : {
+			"type" : 3,
+			"val" : " 英寸"
+	 },
+	 ...后续内容已省略...
+}
+```
+
+### 图片圆角
+
+**简介**
+
+将图片生成圆角图片，并且可以指定图片的圆角大小。
+
+**限制说明**
+
+- 原图格式支持：png、jpg，处理后的图片格式为png
+- 同步处理
+	- 原图只支持 20MB 以内的图片，超过 20MB 的图片请使用持久化处理
+	- 理前的 `gif` 最大帧数为 200
+	- 处理前的图片 `w` 和 `h` 参数不能超过3万像素，总像素不能超过1.5亿像素
+	- 处理后的图片 `w` 和 `h` 参数不能超过9999像素，总像素不得超过24999999（2500w-1）像素
+- 持久化处理
+	- 图片文件大小没有限制
+	- 处理前的 `gif`、`webp动图`，最大帧数为 500
+	- 处理前的图片 `w` 和 `h` 不能超过3万像素，总像素不能超过1.5亿像素
+	- 处理后的图片 `w` 和 `h` 不能超过14999像素，总像素不得超过59999999（6000w-1）像素
+​
+**接口规格**
+
+处理后图片文件大小没有限制
+​
+```
+roundPic/radius/<radius>
+        /radiusx/<radiusx>
+        /radiusy/<radiusy>
+```
+
+|参数名称						|必填	|说明																																																						|
+|:-								|:-	|:-																																																						|
+|`/radius/<radius>`		|否		|圆角大小的参数，水平和垂直的值相同，可以使用像素数（如200）或百分比（如!25p）。不能与radiusx和radiusy同时使用。|
+|`/radiusx/<radiusx>`	|否		|圆角水平大小的参数，可以使用像素数（如200）或百分比（如!25p）。需要与radiusy同时使用。													|
+|`/radiusy/<radiusy>`	|否		|圆角垂直大小的参数，可以使用像素数（如200）或百分比（如!25p）。需要与radiusx同时使用														|
+
+注意：
+
+1. 其中当像素数大于宽（高）的1/2时取其1/2，百分比大于!50p时，取!50p；
+2. 像素数与百分比均需为非负值，命令roundPic/radius/!50p可使方形图片变圆
+
+**使用示例**
+
+原图
+
+```
+https://dora-doc.qiniu.com/gogopher.jpg
+```
+
+![](https://web-ext-storage.dcloud.net.cn/unicloud/ext-storage/gogopher.png)
+
+把一张图片变成50度圆角：
+
+```
+https://dora-doc.qiniu.com/gogopher.jpg?roundPic/radius/50
+```
+
+![](https://dora-doc.qiniu.com/gogopher.jpg?roundPic/radius/50)
+
+把一张图片变成圆形：
+
+```
+https://dora-doc.qiniu.com/gogopher.jpg?roundPic/radius/99999999999
+```
+
+![](https://dora-doc.qiniu.com/gogopher.jpg?roundPic/radius/99999999999)
+
+### 图片水印处理
+
+**简介**
+
+给图片添加水印
+
+**限制说明**
+
+- 原图格式支持： psd、jpeg、png、gif、webp、tiff、bmp、avif、heic
+	- webp动图，适用于watermark/1、watermark/2、watermark/3 接口，仅支持持久化处理
+- 输出限制
+	- 输出为gif，一般处理时间比较长，建议优先使用 持久化处理
+- 同步处理
+	- 原图只支持 20MB 以内的图片，超过 20MB 的图片请使用持久化处理
+	- 理前的 `gif` 最大帧数为 200
+	- 处理前的图片 `w` 和 `h` 参数不能超过3万像素，总像素不能超过1.5亿像素
+	- 处理后的图片 `w` 和 `h` 参数不能超过9999像素，总像素不得超过24999999（2500w-1）像素
+- 持久化处理
+	- 图片文件大小没有限制
+	- 处理前的 `gif`、`webp动图`，最大帧数为 500
+	- 处理前的图片 `w` 和 `h` 不能超过3万像素，总像素不能超过1.5亿像素
+	- 处理后的图片 `w` 和 `h` 不能超过14999像素，总像素不得超过59999999（6000w-1）像素
+​
+**接口规格**
+
+处理后图片文件大小没有限制
+​
+```
+watermark/1
+         /format/<Format>
+         /image/<encodedkodocheme>
+         /dissolve/<dissolve>
+         /gravity/<gravity>
+         /dx/<distanceX>
+         /dy/<distanceY>
+         /ws/<watermarkScale>
+         /wst/<watermarkScaleType>
+```
+
+|参数名称																																																								|必填	|说明																																																																								|
+|:-																																																										|:-	|:-																																																																								|
+| `/format/<Format>`																																																				|			|图片输出格式	<br/>1、取值：heic 或 avif ，属于 图片高级压缩 格式，按照图片高级压缩收费，当前仅支持 持久化处理 来使用。<br/>2、取值：copy，保持原图格式输出。<br/>注意：<br/>● 当原图为heic 或 avif 时，设置format/copy 会保持原图格式不变，且不按照图片高级压缩收费；如果不指定 format 参数，将会输出jpeg 。																																																																											|
+| `/image/<encodedkodocheme>`																																															|是		|水印的源路径，目前支持 kodo 资源。kodo 资源可由 `kodo://<bucketname>/<key>` 表示（此时 bucketname 需要与输入源在同一区域），均需要经过[URL安全的Base64编码](#urlsafeBase64Encode)。<br/>注意：更换图片水印时，建议更换图片的文件名。					|
+| `/dissolve/<dissolve>`																																																		|			|透明度，取值范围1-100，默认值为100（完全不透明）。																																																			|
+| `/gravity/<gravity>`																																																			|			|水印位置，参考水印锚点参数表，默认值为SouthEast（右下角）。																																															|
+| `/dx/<distanceX>`																																																|			|横轴边距，单位:像素(px)，默认值为10。																																																									|
+| `/dy/<distanceY>`																																																				|			|纵轴边距，单位:像素(px)，默认值为10。																																																									|
+| `/ws/<watermarkScale>`																																																		|			|水印图片自适应原图的比例，ws的取值范围为0-1。具体是指水印图片保持原比例，按照自适应原图的类型wst，比如默认是按照短边，则水印图片短边=原图短边＊ws。								|
+| `/wst/<watermarkScaleType>`																																															|			|水印图片自适应原图的类型，取值0、1、2、3分别表示为自适应原图的短边、长边、宽、高，默认值为0。																																|
+
+例如：
+
+1. 原图大小为250x250，水印图片大小为91x61，如果wst=0、ws=0.1，那么最终水印图片的大小为：37.2x25
+2. 原图大小为250x250，水印图片大小为91x61，如果wst=1、ws=0.1，那么最终水印图片的大小为：25x16.8
+
+水印锚点参数表
+
+```
+NorthWest     |     North      |     NorthEast
+              |                |    
+              |                |    
+--------------+----------------+--------------
+              |                |    
+West          |     Center     |          East 
+              |                |    
+--------------+----------------+--------------
+              |                |    
+              |                |    
+SouthWest     |     South      |     SouthEast
+```
+
+**使用示例**
+
+原图
+
+```
+https://dora-doc.qiniu.com/gogopher.jpg
+```
+
+![](https://web-ext-storage.dcloud.net.cn/unicloud/ext-storage/gogopher.png)
+
+- 水印图片
+	- kodocheme = kodo://developer-documents-image/qiniuyun.png
+	- encodedkodocheme = a29kbzovL2RldmVsb3Blci1kb2N1bWVudHMtaW1hZ2UvcWluaXV5dW4ucG5n
+- 水印透明度: 50% (dissolve=50)
+- 水印位置: 右下角 (gravity=SouthEast)
+- 横向边距: 20px
+- 纵向边距: 20px
+- 水印图片自适应短边比例：0.2
+
+```
+https://dora-doc.qiniu.com/gogopher.jpg?watermark/1/image/a29kbzovL2RldmVsb3Blci1kb2N1bWVudHMtaW1hZ2UvcWluaXV5dW4ucG5n/dissolve/50/gravity/SouthEast/dx/20/dy/20/ws/0.2
+```
+
+![](https://dora-doc.qiniu.com/gogopher.jpg?watermark/1/image/a29kbzovL2RldmVsb3Blci1kb2N1bWVudHMtaW1hZ2UvcWluaXV5dW4ucG5n/dissolve/50/gravity/SouthEast/dx/20/dy/20/ws/0.2)
+
+### 图片盲水印处理
+
+**简介**
+
+肉眼可见的水印方式，一般用于标志图片的出处或者用于声明版权，会破坏原图，且影响美观。扩展存储提供盲水印功能，隐蔽性强，在不破坏原始作品的情况下，实现版权的防护与追踪。当图片被盗用后，您可对图片进行盲水印解码，验证版权归属。
+
+**限制说明**
+
+- 原图限制：
+	- 原图格式支持： jpg、png
+	- 宽高限制为：4096x4096
+	- version为3时，原图的尺寸宽高都需大于512
+- 编码、解码的 version 要相同
+- 盲水印主要为CPU密集型任务，处理时间会随着图片文件的增大而增大
+- 建议使用 version/3，相较于之前的版本有以下优化：
+	- 解水印不需要对比原图，去除对原图的依赖
+	- 抗大面积涂抹&裁剪攻击
+​
+**应用场景**
+
+- 隐形美观：盲水印是一种肉眼不可见的水印方式，可以保持图片美观的同时，保护您的资源版权。
+- 版权保护：对图片资源使用图片盲水印或者文字水印，借此避免数字媒体未经授权的复制和拷贝，可通过对原图进行解码操作，得到水印图来证明版权归属。
+- 防泄漏：对于内部分享的图片资源，您可使用盲水印功能，加上不同标识，如果资料被复制、传播可根据解码出的唯一标识得出泄露方信息。
+
+#### 图片盲水印
+
+**接口规格**
+
+```
+watermark/5
+         /version/<version>
+         /method/<method>
+         /imageKey/<encodedImageKey>
+         /orignal/<encodedImage>
+```
+
+**添加水印**
+
+version 为1或2时，请求参数说明如下：
+
+|名称																																				|必填	|说明																																									|
+|:-																																				|:-	|:-																																									|
+| `/version/<version>`																													|N		|接口版本值为1或2 , 默认为 1。																														|
+| `/method/<method>`																														|Y		|盲水印标志位，编码（添加水印）为encode。																									|
+| `/imageKey/<encodedImageKey>`																								|N		|水印图片（经过[URL安全的Base64编码](#urlsafeBase64Encode)）<br/>例如：imageKey=upload.png，encodedImageKey=urlsafe_base64_encode(imageKey)。<br/>注意：水印图片宽高分别不超过原图宽高的二分之一，图片为黑底白字效果更佳。		|
+
+version 为3时，请求参数说明如下：
+
+|名称	|必填	|说明																																																	|
+|:-|:-|:-																																																	|
+| `/version/<version>`	|N	|接口版本值为3，注意：<br/>1）原图的宽高都需大于512。<br/>2）水印图片的限制，必须是二值图像，且水印的大小为64x64，如果不符合条件， 会缩放和处理图片到服务要求。																																														|
+|`/method/<method>`	|Y	|盲水印标志位，编码（即添加水印）为encode。																														|
+|`/imageKey/<encodedImageKey>`	|N	|水印图片（经过[URL安全的Base64编码](#urlsafeBase64Encode)）<br/>例如：imageKey=upload.png，encodedImageKey=urlsafe_base64_encode(imageKey)						|
+
+**提取水印**
+
+version 为1或2时，请求参数说明如下：
+
+|名称										|必填	|说明																																														|
+|:-										|:-	|:-																																														|
+| `/version/<version>`			|N		|接口版本值为1或2 , 默认为 1。																																	|
+| `/method/<method>`				|Y		|盲水印标志位，解码（即提取水印）为decode。																											|
+| `/orignal/<encodedImage>`|N		|解码对比原图（经过[URL安全的Base64编码](#urlsafeBase64Encode)）|
+
+version 为3时，请求参数说明如下：
+
+|名称								|必填	|说明																					|
+|:-								|:-	|:-																					|
+|`/version/<version>`	|N		|接口版本值为3，注意：原图的宽高都需大于512。	|
+|`/method/<method>`		|Y		|盲水印标志位，解码（即提取水印）为decode			|
+
+**使用示例**
+
+原图
+
+```
+https://dora-doc.qiniu.com/gogopher.jpg
+```
+
+![](https://web-ext-storage.dcloud.net.cn/unicloud/ext-storage/gogopher.png)
+
+编码/ 添加盲水印（version/3)
+
+```
+https://web-ext-storage.dcloud.net.cn/unicloud/ext-storage/gogopher1.png?watermark/5/version/3/method/encode/imageKey/dW5pY2xvdWQvZXh0LXN0b3JhZ2UvdW5pQ2xvdWQucG5n
+```
+
+![](https://web-ext-storage.dcloud.net.cn/unicloud/ext-storage/gogopher1.png?watermark/5/version/3/method/encode/imageKey/dW5pY2xvdWQvZXh0LXN0b3JhZ2UvdW5pQ2xvdWQucG5n)
+
+解码/ 提取盲水印（version/3)
+
+```
+https://web-ext-storage.dcloud.net.cn/unicloud/ext-storage/gogopher1.png?watermark/5/version/3/method/encode/imageKey/dW5pY2xvdWQvZXh0LXN0b3JhZ2UvdW5pQ2xvdWQucG5n|watermark/5/version/3/method/decode
+```
+
+![](https://web-ext-storage.dcloud.net.cn/unicloud/ext-storage/gogopher1.png?watermark/5/version/3/method/encode/imageKey/dW5pY2xvdWQvZXh0LXN0b3JhZ2UvdW5pQ2xvdWQucG5n|watermark/5/version/3/method/decode)
+
+编码/ 添加盲水印（version/2)
+
+```
+https://web-ext-storage.dcloud.net.cn/unicloud/ext-storage/gogopher1.png?watermark/5/version/2/method/encode/imageKey/dW5pY2xvdWQvZXh0LXN0b3JhZ2UvdS5wbmc=
+```
+
+![](https://web-ext-storage.dcloud.net.cn/unicloud/ext-storage/gogopher1.png?watermark/5/version/2/method/encode/imageKey/dW5pY2xvdWQvZXh0LXN0b3JhZ2UvdS5wbmc=)
+
+解码/ 提取盲水印（version/2)
+
+```
+https://web-ext-storage.dcloud.net.cn/unicloud/ext-storage/gogopher1.png?watermark/5/version/2/method/encode/imageKey/dW5pY2xvdWQvZXh0LXN0b3JhZ2UvdS5wbmc=|watermark/5/version/2/method/decode/orignal/dW5pY2xvdWQvZXh0LXN0b3JhZ2UvZ29nb3BoZXIxLnBuZw==
+```
+
+![](https://web-ext-storage.dcloud.net.cn/unicloud/ext-storage/gogopher1.png?watermark/5/version/2/method/encode/imageKey/dW5pY2xvdWQvZXh0LXN0b3JhZ2UvdS5wbmc=|watermark/5/version/2/method/decode/orignal/dW5pY2xvdWQvZXh0LXN0b3JhZ2UvZ29nb3BoZXIxLnBuZw==)
+
+#### 文字盲水印
+
+**接口规格**
+
+```
+watermark/6
+         /version/<version>
+         /method/<method>
+         /text/<encodedText>
+         /orignal/<encodedImage>
+```
+
+**添加水印**
+
+version 为1或2时，请求参数说明如下：
+
+|名称																																				|必填	|说明																																									|
+|:-																																				|:-	|:-																																									|
+| `/version/<version>`																													|N		|接口版本值为1或2 , 默认为 1。																														|
+| `/method/<method>`																														|Y		|盲水印标志位，编码（添加水印）为encode。																									|
+| `/text/<encodedText>`																								|N		|水印文字（经过[URL安全的Base64编码](#urlsafeBase64Encode)）。只支持英文数字字符，不支持中文字符，数量上限分别为 10。	|
+
+version 为3时，请求参数说明如下：
+
+|名称	|必填	|说明																																																	|
+|:-|:-|:-																																																	|
+| `/version/<version>`	|N	|接口版本值为3，注意：<br/>1）原图的宽高都需大于512。<br/>2）水印图片的限制，必须是二值图像，且水印的大小为64x64，如果不符合条件， 会缩放和处理图片到服务要求。																																														|
+|`/method/<method>`	|Y	|盲水印标志位，编码（即添加水印）为encode。																														|
+|`/text/<encodedText>`	|N	|水印文字（经过URL安全的Base64编码）。只支持英文数字字符，不支持中文字符，数量上限分别为 15。			|
+
+**提取水印**
+
+version 为1或2时，请求参数说明如下：
+
+|名称										|必填	|说明																																														|
+|:-										|:-	|:-																																														|
+| `/version/<version>`			|N		|接口版本值为1或2 , 默认为 1。																																	|
+| `/method/<method>`				|Y		|盲水印标志位，解码（即提取水印）为decode。																											|
+| `/orignal/<encodedImage>`|N		|解码对比原图（经过URL安全的Base64编码）|
+
+version 为3时，请求参数说明如下：
+
+|名称								|必填	|说明																					|
+|:-								|:-	|:-																					|
+|`/version/<version>`	|N		|接口版本值为3，注意：原图的宽高都需大于512。	|
+|`/method/<method>`		|Y		|盲水印标志位，解码（即提取水印）为decode			|
+
+**使用示例**
+
+原图
+
+```
+https://web-ext-storage.dcloud.net.cn/unicloud/ext-storage/gogopher1.png
+```
+
+![](https://web-ext-storage.dcloud.net.cn/unicloud/ext-storage/gogopher1.png)
+
+编码/ 添加盲水印（version/3)
+
+```
+https://web-ext-storage.dcloud.net.cn/unicloud/ext-storage/gogopher1.png?watermark/6/version/3/method/encode/text/MTIzNDU2Nzg5
+```
+
+![](https://web-ext-storage.dcloud.net.cn/unicloud/ext-storage/gogopher1.png?watermark/6/version/3/method/encode/text/MTIzNDU2Nzg5)
+
+解码/ 提取盲水印（version/3)
+
+```
+https://web-ext-storage.dcloud.net.cn/unicloud/ext-storage/gogopher1.png?watermark/6/version/3/method/encode/text/MTIzNDU2Nzg5|watermark/6/version/3/method/decode
+```
+
+![](https://web-ext-storage.dcloud.net.cn/unicloud/ext-storage/gogopher1.png?watermark/6/version/3/method/encode/text/MTIzNDU2Nzg5|watermark/6/version/3/method/decode)
+
+编码/ 添加盲水印（version/2)
+
+```
+https://dora-doc.qiniu.com/gogopher.jpg?watermark/6/version/2/method/encode/text/OTAyR0h3cmM=
+```
+
+![](https://web-ext-storage.dcloud.net.cn/unicloud/ext-storage/gogopher1.png?watermark/6/version/2/method/encode/text/OTAyR0h3cmM=)
+
+解码/ 提取盲水印（version/2)
+
+```
+https://web-ext-storage.dcloud.net.cn/unicloud/ext-storage/gogopher1.png?watermark/6/version/2/method/encode/text/OTAyR0h3cmM=|watermark/6/version/2/method/decode/orignal/dW5pY2xvdWQvZXh0LXN0b3JhZ2UvZ29nb3BoZXIxLnBuZw==
+```
+
+![](https://web-ext-storage.dcloud.net.cn/unicloud/ext-storage/gogopher1.png?watermark/6/version/2/method/encode/text/OTAyR0h3cmM=|watermark/6/version/2/method/decode/orignal/dW5pY2xvdWQvZXh0LXN0b3JhZ2UvZ29nb3BoZXIxLnBuZw==)
+
+### 动图合成
+
+**简介**
+
+动图合成接口（animate）用于将多张图片合成 GIF 动图。
+
+**限制说明**
+
+- 原图限制：
+	- 支持的格式有 jpeg 和 png
+	- 支持的最大帧数为 20
+	- 支持的最大图片尺寸为 1080*1080
+
+**接口规格**
+
+```
+animate/duration/<duration>
+       /merge/key/<encodedImageKey>
+             /key/<encodedImageKey>
+             ...
+       /effect/<effectType>
+```
+
+**参数说明**
+
+|名称									|必填	|说明																																		|
+|:-									|:-	|:-																																		|
+| `<duration>`				|Y		|GIF动图的每帧间隔时间(单位: 0.01s)，取值要求为大于0的整数。									|
+| `<encodedImageKey>`	|N		|合成GIF动图的源图片key需要经过 [URL安全的Base64编码](#urlsafeBase64Encode) ，且保证所有的源图都来源于同一个bucket。	|
+| `<effectType>`			|N		|定义播放顺序，取值：0，1。（0:正序循环播放；1:倒序循环播放；）默认为0					|
+
+第一张图
+
+```
+https://web-ext-storage.dcloud.net.cn/unicloud/ext-storage/1.png
+```
+
+![](https://web-ext-storage.dcloud.net.cn/unicloud/ext-storage/1.png)
+
+第二张图
+
+```
+https://web-ext-storage.dcloud.net.cn/unicloud/ext-storage/2.png
+```
+
+![](https://web-ext-storage.dcloud.net.cn/unicloud/ext-storage/2.png)
+
+第三张图
+
+```
+https://web-ext-storage.dcloud.net.cn/unicloud/ext-storage/3.png
+```
+
+![](https://web-ext-storage.dcloud.net.cn/unicloud/ext-storage/3.png)
+
+三张图合成一张动图
+
+```
+https://web-ext-storage.dcloud.net.cn/unicloud/ext-storage/1.png?animate/duration/10/merge/key/dW5pY2xvdWQvZXh0LXN0b3JhZ2UvMi5wbmc=/key/dW5pY2xvdWQvZXh0LXN0b3JhZ2UvMy5wbmc=
+```
+
+### URL安全的Base64编码@urlsafeBase64Encode
+
+图片处理部分API会涉及到 `经过URL安全的Base64编码`，具体算法如下
+
+**云端代码示例**
+
+```js
+function urlsafeBase64Encode(text) {
+	let encoded = Buffer.from(text).toString('base64');
+	return encoded.replace(/\//g, '_').replace(/\+/g, '-');
+};
+let base64 = urlsafeBase64Encode("test/a.jpg");
+console.log('base64: ', base64);
+```
+
+**前端代码示例（仅H5端可用）**
+
+```js
+function urlsafeBase64Encode(text) {
+	// 使用window.btoa进行Base64编码，得到的是URL安全的Base64字符串
+	let encoded = window.btoa(text);
+	// 由于window.btoa已经使用_和-代替了+和/，所以不需要额外替换
+	return encoded;
+};
+let base64 = urlsafeBase64Encode("test/a.jpg");
+console.log('base64: ', base64);
+```
+
+## 音视频转码@transcode
+
+扩展存储支持上传的音视频自动进行转码（无需调用API），[查看音视频转码费用](./price.md#transcode)
+
+开启音视频转码功能需要进 [扩展存储技术交流群](https://im.dcloud.net.cn/#/?joinGroup=65436862cc41b0763842cfc9) 申请发送文字：我想申请开通扩展存储音视频转码功能，我的转码类型是“普通转码（H.264）”
 
 ## 常见问题@question
 
