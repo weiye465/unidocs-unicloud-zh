@@ -1609,7 +1609,7 @@ uni-id-pages / uni-id-pages-x 中内置了实名认证页面
 
 #### 开通与使用
 
-1. 开通uni实人认证，开通指南[详见](../frv/service.md.md)
+1. 开通uni实人认证，开通指南[详见](../frv/service.md)
 2. 开通完成后，在插件市场中导入[uni-id-pages](https://ext.dcloud.net.cn/plugin?id=8577)至项目中。
 3. 参考[配置项说明](#frv-config)完成配置设置，详细的uni-id配置文件[参考](#config)。
 4. 将`uni-config-center`与`uni-id-co`模块上传至云端。

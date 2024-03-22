@@ -32,7 +32,13 @@
 `uni-open-bridge` 包括：
 1. 一个同名云对象 `uni-open-bridge`，插件下载地址：[https://ext.dcloud.net.cn/plugin?id=9002](https://ext.dcloud.net.cn/plugin?id=9002)。（其依赖了下面的公共模块，但不是一个插件）
 2. 一个公共模块 `uni-open-bridge-common` ，插件下载地址：[https://ext.dcloud.net.cn/plugin?id=9177](https://ext.dcloud.net.cn/plugin?id=9177)。它独立为单独插件，是为了方便其他业务模块引用。事实上uni-id就引用了这个common插件。
-3. 配套的数据库，保存这些凭据，表名为 [opendb-open-data](https://gitee.com/dcloud/opendb/blob/master/collection/opendb-open-data/collection.json)。在redis中的key格式为 `uni-id:[dcloudAppid]:[platform]:[openid]:[access-token|user-access-token|session-key|encrypt-key-version|ticket]`
+3. 配套的数据库，保存这些凭据，表名为 [opendb-open-data](https://gitee.com/dcloud/opendb/blob/master/collection/opendb-open-data/collection.json)。
+
+这些凭据在redis中的key格式为
+
+```
+uni-id:[dcloudAppid]:[platform]:[openid]:[access-token|user-access-token|session-key|encrypt-key-version|ticket]
+```
 
 云对象`uni-open-bridge`默认是定时运行的，在package.json中配置了每小时定时运行一次（部署到线上服务空间后生效）。
 

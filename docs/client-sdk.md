@@ -9,14 +9,14 @@ uniCloud分为客户端和云端两部分，有些接口名称相同，参数也
 
 |API							|描述																			|
 |--								|--																				|
-|uniCloud.importObject()		|获取云对象引用以调用云对象接口 [详情](cloud-obj.md)					|
-|uniCloud.callFunction()		|客户端调用云函数 [详情](cf-functions.md#clientcallfunction)		|
+|uniCloud.importObject()		|获取云对象引用以调用云对象接口 [详情](./cloud-obj.md)					|
+|uniCloud.callFunction()		|客户端调用云函数 [详情](./cf-functions.md#clientcallfunction)		|
 |uniCloud.database()			|客户端访问云数据库，获取云数据库对象引用 [详情](clientdb.md)			|
-|uniCloud.uploadFile()			|客户端直接上传文件到云存储 [详情](storage.md#uploadfile)			|
-|uniCloud.getTempFileURL()		|客户端获取云存储文件的临时路径 [详情](storage.md#gettempfileurl)	|
-|uniCloud.chooseAndUploadFile()	|客户端选择文件并上传 [详情](storage.md#chooseanduploadfile)		|
+|uniCloud.uploadFile()			|客户端直接上传文件到云存储 [详情](./storage/dev.md#uploadfile)			|
+|uniCloud.getTempFileURL()		|客户端获取云存储文件的临时路径 [详情](./storage/dev.md#gettempfileurl)	|
+|uniCloud.chooseAndUploadFile()	|客户端选择文件并上传 [详情](./storage/dev.md#chooseanduploadfile)		|
 |uniCloud.getCurrentUserInfo()	|获取当前用户信息 [详情](#client-getcurrentuserinfo)							|
-|uniCloud.init()				|同时使用多个服务空间时初始化额外服务空间 [详情](init.md)				|
+|uniCloud.init()				|同时使用多个服务空间时初始化额外服务空间 [详情](./init.md)				|
 |uniCloud.addInterceptor()		|新增拦截器 [详情](#add-interceptor)											|
 |uniCloud.removeInterceptor()	|移除拦截器 [详情](#remove-interceptor)											|
 |uniCloud.interceptObject()	|拦截云对象请求 [详情](#intercept-object)											|
@@ -27,7 +27,7 @@ uniCloud分为客户端和云端两部分，有些接口名称相同，参数也
 |uniCloud.onRefreshToken()		|监听token更新事件 [详情](#on-refresh-token)									|
 |uniCloud.offRefreshToken()		|移除监听token更新事件 [详情](#off-refresh-token)								|
 |uniCloud.initSecureNetworkByWeixin()		|在微信小程序安全网络请求发送之前与云函数握手 [详情](#init-secure-network-by-weixin)								|
-|uniCloud.getFileInfo()		|阿里云迁移服务空间到商用版时，使用公测版云存储链接获取商用版云存储链接 [详情](storage.md#get-file-info)								|
+|uniCloud.getFileInfo()		|阿里云迁移服务空间到商用版时，使用公测版云存储链接获取商用版云存储链接 [详情](./storage/dev.md#get-file-info)								|
 
 ### 获取当前用户信息getCurrentUserInfo@client-getcurrentuserinfo
 
