@@ -2350,7 +2350,13 @@ function getCloudPath(cloudPath) {
 }
 ```
 
-3. 在 `App.vue` 的 `onLaunch` 函数中新增以下代码
+3. 在 `App.vue` 的 `<script>` 下面且是 `export default {` 的上面，新增以下代码
+
+```js
+import uploadFileForExtStorage from "@/js_sdk/uploadFileForExtStorage.js"
+```
+
+4. 在 `App.vue` 的 `onLaunch` 函数中新增以下代码
 
 ```js
 // 设置 uniCloud.uploadFile 默认上传的云存储供应商
@@ -2367,7 +2373,43 @@ uploadFileForExtStorage.init({
 });
 ```
 
-4. 新建一个云对象 `ext-storage-co`，其中 `index.obj.js` 代码如下
+`App.vue` 完整示例
+
+```vue
+<script>
+	import uploadFileForExtStorage from "@/js_sdk/uploadFileForExtStorage.js"
+	export default {
+		onLaunch: function() {
+			console.log('App Launch');
+			// 设置 uniCloud.uploadFile 默认上传到扩展存储
+			uploadFileForExtStorage.init({
+				provider: "extStorage", // provider代表默认上传到哪，可选项 "unicloud" 内置存储; "extStorage" 扩展存储;
+				domain: "cdn.example.com", //【重要】这里需要改成你开通扩展存储时绑定的自定义域名）
+				fileID2fileURL: true, // 将fileID转成fileURL，方便兼容老项目
+				// 获取上传参数的函数
+				uploadFileOptions: async (event) => {
+					// ext-storage-co 是你自己写的云对象，参考代码：https://doc.dcloud.net.cn/uniCloud/ext-storage/dev.html#getuploadfileoptions
+					const uniCloudStorageExtCo = uniCloud.importObject("ext-storage-co");
+					return await uniCloudStorageExtCo.getUploadFileOptions(event);
+				}
+			});
+		},
+		onShow: function() {
+			console.log('App Show');
+		},
+		onHide: function() {
+			console.log('App Hide');
+		}
+	}
+</script>
+
+<style>
+	
+</style>
+```
+
+
+5. 新建一个云对象 `ext-storage-co`，其中 `index.obj.js` 代码如下
 
 ![](https://web-ext-storage.dcloud.net.cn/unicloud/ext-storage/464.png)
 
@@ -2400,7 +2442,7 @@ module.exports = {
 }
 ```
 
-5. 重新启动项目，测试原本上传到内置存储的代码现在是否变成上传到扩展存储了
+6. 重新启动项目，测试原本上传到内置存储的代码现在是否变成上传到扩展存储了
 
 如依然有问题，可进群反馈 [扩展存储技术支持群](https://im.dcloud.net.cn/#/?joinGroup=65436862cc41b0763842cfc9)
 
