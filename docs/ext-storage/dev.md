@@ -12,9 +12,9 @@
 
 ![](https://qiniu-web-assets.dcloud.net.cn/unidoc/zh/3707/ext-storage/445.png)
 
-## API
+## API@api
 
-### 获取扩展存储管理对象@getExtStorageManager
+### 获取扩展存储管理对象@getextstoragemanager
 
 云端在操作扩展存储前，需要先获取 extStorageManager 对象实例，然后再通过 extStorageManager.xxx 调用对应的API
 
@@ -27,14 +27,14 @@ const extStorageManager = uniCloud.getExtStorageManager({
 });
 ```
 
-#### 请求参数
+#### 请求参数@getextstoragemanager-params
 
 |参数名	|类型		|必填	|默认值	|说明																				|
 |:-:		|:-:		|:-:	|:-:		|:-																				|
 |provider	|String	|是		|-			|扩展存储供应商，可选<br/>qiniu: 七牛云|
 |domain	|String	|是		|-			|扩展储存域名（域名地址）如：example.com	|
 
-### 获取前端上传参数@getUploadFileOptions
+### 获取前端上传参数@getuploadfileoptions
 
 接口名：getUploadFileOptions
 
@@ -68,14 +68,14 @@ module.exports = {
 }
 ```
 
-#### 请求参数
+#### 请求参数@getuploadfileoptions-params
 
 |参数名						|类型			|必填	|默认值	|说明																														|
 |:-:							|:-:			|:-:	|:-:		|:-																														|
 |cloudPath				|String		|否		|-			|云端文件路径（不填会自动生成）																	|
 |allowUpdate			|Boolean	|否		| false	|是否允许覆盖更新 true：可覆盖 false：仅新增，不可覆盖							|
 
-#### 响应参数
+#### 响应参数@getuploadfileoptions-result
 
 |字段							|类型		|说明																											|
 |:-:							|:-:		|:-																											|
@@ -142,7 +142,7 @@ uni.chooseImage({
 });
 ```
 
-### 云端上传文件@uploadFile
+### 云端上传文件@uploadfile
 
 接口名：uploadFile
 
@@ -171,7 +171,7 @@ let res = await extStorageManager.uploadFile({
 console.log('uploadFile: ', res);
 ```
 
-#### 请求参数
+#### 请求参数@uploadfile-params
 
 |参数名			|类型		|必填	|默认值	|说明																							|
 |:-:				|:-:		|:-:	|:-:		|:-																							|
@@ -179,7 +179,7 @@ console.log('uploadFile: ', res);
 |cloudPath	|String	|否		|-			|云端文件路径（不填会自动生成）										|
 |allowUpdate			|Boolean|否		| false	|是否允许覆盖更新 true：可覆盖 false：仅新增，不可覆盖|
 
-#### 响应参数
+#### 响应参数@uploadfile-result
 
 |字段							|类型		|说明																											|
 |:-:							|:-:		|:-																											|
@@ -187,7 +187,7 @@ console.log('uploadFile: ', res);
 |fileID						|String	|文件ID																										|
 |fileURL					|String	|文件URL（如果是私有权限的文件，则此URL是无法直接访问的）	|
 
-### 获取临时下载链接@getTempFileURL
+### 获取临时下载链接@gettempfileurl
 
 接口名：getTempFileURL
 
@@ -209,13 +209,13 @@ console.log('getTempFileURL: ', res);
 return res;
 ```
 
-#### 请求参数
+#### 请求参数@gettempfileurl-params
 
 |参数名		|类型		|必填	|默认值	|说明																														|
 |:-:			|:-:		|:-:	|:-:		|:-																														|
 |fileList	|Array	|是		|-			|文件地址列表，数组内元素值类型支持（fileID、cloudPath、fileURL）<br/>如："qiniu://test.jpg" "test.jpg" "https://example.com/test.jpg" 均表示同一个文件		|
 
-#### 响应参数
+#### 响应参数@gettempfileurl-result
 
 |字段							|类型		|说明																											|
 |:-:							|:-:		|:-																											|
@@ -229,7 +229,7 @@ return res;
 |fileID			|String	|文件ID					|
 |cloudPath	|String	|文件云端路径		|
 
-### 下载文件@downloadFile
+### 下载文件@downloadfile
 
 接口名：downloadFile
 
@@ -251,20 +251,20 @@ console.log('getTempFileURL: ', res);
 return res;
 ```
 
-#### 请求参数
+#### 请求参数@downloadfile-params
 
 |参数名		|类型		|必填	|默认值	|说明																														|
 |:-:			|:-:		|:-:	|:-:		|:-																														|
 |fileID		|String	|是		|-			|待下载的文件，该字段支持的值类型：fileID、cloudPath、fileURL <br/>如："qiniu://test.jpg" "test.jpg" "https://example.com/test.jpg" 均表示同一个文件	|
 
-#### 响应参数
+#### 响应参数@downloadfile-result
 
 |字段							|类型		|说明																											|
 |:-:							|:-:		|:-																											|
 |fileContent				|Buffer	|下载的文件的内容															|
 
 
-### 删除文件@deleteFile
+### 删除文件@deletefile
 
 接口名：deleteFile
 
@@ -284,19 +284,19 @@ console.log('deleteFile: ', res);
 return res;
 ```
 
-#### 请求参数
+#### 请求参数@deletefile-params
 
 |参数名		|类型		|必填	|默认值	|说明																														|
 |:-:			|:-:		|:-:	|:-:		|:-																													|
 |fileList	|Array	|是		|-			|文件地址列表，数组内元素值类型支持（fileID、cloudPath、fileURL）<br/>如："qiniu://test.jpg" "test.jpg" "https://example.com/test.jpg" 均表示同一个文件	|
 
-#### 响应参数
+#### 响应参数@deletefile-result
 
 |字段			|类型	|说明									|
 |:-:			|:-:	|:-									|
 |fileList	|Array|删除结果组成的数组。	|
 
-### 修改文件状态@updateFileStatus
+### 修改文件状态@updatefilestatus
 
 接口名：updateFileStatus
 
@@ -319,7 +319,7 @@ console.log('updateFileStatus: ', res);
 return res;
 ```
 
-#### 请求参数
+#### 请求参数@updatefilestatus-params
 
 |参数名		|类型		|必填	|默认值	|说明																							|
 |:-:			|:-:		|:-:	|:-:		|:-																							|
@@ -327,18 +327,18 @@ return res;
 |isPrivate|Boolean|是		|-			|true 设为私有权限 false 设为公共读权限						|
 
 
-#### 响应参数
+#### 响应参数@updatefilestatus-result
 
 |字段	|类型		|说明								|
 |:-:	|:-:		|:-								|
 |errCode	|Number	|0 成功 其他均为失败|
 |errMsg	|String	|失败描述|
 
-## 小程序域名白名单
+## 小程序域名白名单@mp-whitelist
 
 小程序需要添加域名白名单，否则无法正常使用
 
-### 上传域名
+### 上传域名@mp-whitelist-uploadfile
 
 将下方域名添加到小程序的uploadFile合法域名列表中
 
@@ -346,7 +346,7 @@ return res;
 https://upload.qiniup.com
 ```
 
-### 下载域名
+### 下载域名@mp-whitelist-download
 
 下载域名就是你开通扩展存储时绑定的自定义域名，将你的自定义域名添加到download合法域名列表中
 
@@ -414,7 +414,7 @@ http://7xkv1q.com1.z0.glb.clouddn.com/grape.jpg?imageslim/zlevel/2
 
 ![](https://web-ext-storage.dcloud.net.cn/unicloud/ext-storage/500.png)
 
-### 图片基本处理@imageView2
+### 图片基本处理@imageview2
 
 |功能			|说明																	|
 |:-			|:-																	|
@@ -527,9 +527,9 @@ https://dora-doc.qiniu.com/gogopher.jpg?imageView2/1/w/200/h/200/q/55
 
 ![](https://web-ext-storage.dcloud.net.cn/unicloud/ext-storage/1710935960936r3a3aa4ge88.png)
 
-### 图片高级处理@imageMogr2 
+### 图片高级处理@imagemogr2
 
-#### 缩放
+#### 缩放@imagemogr2-thumbnail
 
 **接口规格**
 
@@ -647,7 +647,7 @@ https://dora-doc.qiniu.com/gogopher.jpg?imageMogr2/thumbnail/350000@
 
 ![](https://web-ext-storage.dcloud.net.cn/unicloud/ext-storage/gogopher.png?imageMogr2/thumbnail/350000@)
 
-#### 裁剪
+#### 裁剪@imagemogr2-crop
 
 **接口规格**
 
@@ -863,7 +863,7 @@ https://dora-doc.qiniu.com/gogopher.jpg?imageMogr2/gravity/SouthEast/crop/300x30
 
 ![](https://web-ext-storage.dcloud.net.cn/unicloud/ext-storage/gogopher.png?imageMogr2/gravity/SouthEast/crop/300x300)
 
-#### 格式转换
+#### 格式转换@imagemogr2-format
 
 **接口规格**
 
@@ -895,7 +895,7 @@ imageMogr2/format/<Format>
 https://dora-doc.qiniu.com/gogopher.jpg?imageMogr2/format/png
 ```
 
-#### 渐进显示
+#### 渐进显示@imagemogr2-interlace
 
 **接口规格**
 
@@ -939,7 +939,7 @@ https://dora-doc.qiniu.com/gogopher.jpg?imageMogr2/thumbnail/300x300/interlace/1
 
 ![](https://web-ext-storage.dcloud.net.cn/unicloud/ext-storage/gogopher.png?imageMogr2/thumbnail/300x300/interlace/1)
 
-#### 背景色填充
+#### 背景色填充@imagemogr2-background
 
 **接口规格**
 
@@ -1045,7 +1045,7 @@ https://dora-doc.qiniu.com/gogopher.jpg?imageMogr2/extent/!-0a3/background/cmVk
 
 ![](https://web-ext-storage.dcloud.net.cn/unicloud/ext-storage/gogopher.png?imageMogr2/extent/!-0a3/background/cmVk)
 
-#### 旋转
+#### 旋转@imagemogr2-rotate
 
 **限制说明**
 
@@ -1101,7 +1101,7 @@ https://dora-doc.qiniu.com/gogopher.jpg
 
 ![](https://dora-doc.qiniu.com/gogopher.jpg?imageMogr2/rotate/45)
 
-#### 高斯模糊
+#### 高斯模糊@imagemogr2-blur
 
 **限制说明**
 
@@ -1155,7 +1155,7 @@ https://dora-doc.qiniu.com/gogopher.jpg?imageMogr2/blur/3x5
 
 ![](https://web-ext-storage.dcloud.net.cn/unicloud/ext-storage/gogopher.png?imageMogr2/blur/3x5)
 
-#### 锐化
+#### 锐化@imagemogr2-sharpen
 
 **限制说明**
 
@@ -1209,7 +1209,7 @@ https://dn-odum9helk.qbox.me/resource/gogopher.jpg?imageMogr2/sharpen/1
 
 ![](https://web-ext-storage.dcloud.net.cn/unicloud/ext-storage/gogopher.png?imageMogr2/sharpen/1)
 
-#### 图像DPI
+#### 图像DPI@imagemogr2-density
 
 **限制说明**
 
@@ -1264,7 +1264,7 @@ https://dora-doc.qiniu.com/gogopher.jpg?imageMogr2/density/300
 
 ![](https://web-ext-storage.dcloud.net.cn/unicloud/ext-storage/gogopher.png?imageMogr2/density/300)
 
-### 图片基本信息
+### 图片基本信息@imageinfo
 
 **简介**
 
@@ -1318,7 +1318,7 @@ https://dora-doc.qiniu.com/gogopher.jpg?imageInfo
 |colorModel	|是		|色彩模型，如palette16、ycbcr等。		|
 |frameNumber|			|帧数，gif 图片会返回此项						|
 
-### 图片 EXIF 信息
+### 图片 EXIF 信息@image-exifinfo
 
 **简介**
 
@@ -1385,7 +1385,7 @@ https://dora-doc.qiniu.com/gogopher.jpg?exif
 }
 ```
 
-### 图片圆角
+### 图片圆角@image-roundpic
 
 **简介**
 
@@ -1452,7 +1452,7 @@ https://dora-doc.qiniu.com/gogopher.jpg?roundPic/radius/99999999999
 
 ![](https://dora-doc.qiniu.com/gogopher.jpg?roundPic/radius/99999999999)
 
-### 图片水印处理
+### 图片水印处理@image-watermark-1
 
 **简介**
 
@@ -1548,7 +1548,7 @@ https://dora-doc.qiniu.com/gogopher.jpg?watermark/1/image/a29kbzovL2RldmVsb3Blci
 
 ![](https://dora-doc.qiniu.com/gogopher.jpg?watermark/1/image/a29kbzovL2RldmVsb3Blci1kb2N1bWVudHMtaW1hZ2UvcWluaXV5dW4ucG5n/dissolve/50/gravity/SouthEast/dx/20/dy/20/ws/0.2)
 
-### 图片盲水印处理
+### 图片盲水印处理@image-watermark-5
 
 **简介**
 
@@ -1750,7 +1750,7 @@ https://web-ext-storage.dcloud.net.cn/unicloud/ext-storage/gogopher1.png?waterma
 
 ![](https://web-ext-storage.dcloud.net.cn/unicloud/ext-storage/gogopher1.png?watermark/6/version/2/method/encode/text/OTAyR0h3cmM=|watermark/6/version/2/method/decode/orignal/dW5pY2xvdWQvZXh0LXN0b3JhZ2UvZ29nb3BoZXIxLnBuZw==)
 
-### 动图合成
+### 动图合成@image-animate
 
 **简介**
 
@@ -1841,13 +1841,13 @@ console.log('base64: ', base64);
 
 ## 视频处理@videoshandle
 
-### 音视频转码@transcode
+### 音视频转码@video-transcode
 
 扩展存储支持上传的音视频自动进行转码（无需调用API），[查看音视频转码费用](./price.md#transcode)
 
 开启音视频转码功能需要进 [扩展存储技术交流群](https://im.dcloud.net.cn/#/?joinGroup=65436862cc41b0763842cfc9) 申请发送文字：我想申请开通扩展存储音视频转码功能，我的转码类型是“普通转码（H.264）”
 
-### 视频单帧缩略图
+### 视频单帧缩略图@video-vframe
 
 **简介**
 
@@ -1911,7 +1911,7 @@ https://web-ext-storage.dcloud.net.cn/unicloud/ext-storage/test.mp4?vframe/jpg/o
 
 [](https://web-ext-storage.dcloud.net.cn/unicloud/ext-storage/test.mp4?vframe/jpg/offset/60)
 
-### 音视频元信息
+### 音视频元信息@video-avinfo
 
 **简介**
 
@@ -2061,7 +2061,7 @@ https://web-ext-storage.dcloud.net.cn/unicloud/ext-storage/test.mp4?avinfo
 
 ## 文件处理@fileshandle
 
-### 资源下载二维码
+### 资源下载二维码@file-qrcode
 
 **简介**
 
