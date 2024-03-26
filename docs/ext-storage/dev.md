@@ -2442,7 +2442,15 @@ module.exports = {
 }
 ```
 
-6. 重新启动项目，测试原本上传到内置存储的代码现在是否变成上传到扩展存储了
+6. 右键新建的云对象 `ext-storage-co`，点击 `管理公共模块或扩展库依赖` 选择扩展库 `uni-cloud-ext-storage` 点确定
+
+![](https://web-ext-storage.dcloud.net.cn/unicloud/ext-storage/1711446719364aso0b63gklg.png)
+
+7. 上传云对象 `ext-storage-co`
+
+![](https://web-ext-storage.dcloud.net.cn/unicloud/ext-storage/1711446854423jpkc04uahvo.png)
+
+8. 重新启动项目，测试原本上传到内置存储的代码现在是否变成上传到扩展存储了
 
 如依然有问题，可进群反馈 [扩展存储技术支持群](https://im.dcloud.net.cn/#/?joinGroup=65436862cc41b0763842cfc9)
 
