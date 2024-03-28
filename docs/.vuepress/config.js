@@ -11,7 +11,7 @@ const base = '/uniCloud/'
 
 const config = {
   base,
-  theme: 'vuepress-theme-uni-app-test',
+  theme: 'vuepress-theme-uniapp-official',
   title: 'uniCloud',
   description: 'uniCloud Document',
   evergreen: process.env.NODE_ENV === 'development',
@@ -96,24 +96,6 @@ const config = {
         .end()
 				.plugin('img-add-attrs')
 				.use(require('./markdown/img-add-attrs'))
-        .end()
-				.plugin('attrs')
-        .use(require('markdown-it-attrs'),[{
-          leftDelimiter: '#{',
-          rightDelimiter: '}'
-        }])
-        .end()
-        .plugin('task-lists')
-        .use(require('markdown-it-task-lists'))
-        .end()
-        .plugin('inject-json-to-md')
-        .use(require('./markdown/inject-json-to-md'))
-        .end()
-        .plugin('markdown-it-raw-table')
-        .use(require('markdown-it-raw-table'))
-        .end()
-        .plugin('add-base-to-md')
-        .use(require('./markdown/add-base-to-md'), [{ base }])
     }
   },
   chainWebpack (config, isServer) {
