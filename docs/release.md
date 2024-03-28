@@ -1,3 +1,7 @@
+#### 2024-03-28
+* 修复 上传/下载所有公共模块时HBuilderX控制台无响应的Bug [详情](https://ask.dcloud.net.cn/question/188162)
+* 修复 Web发行目录从H5调整为Web后，导致的上传前端网页托管失败的Bug
+
 #### 2024-03-11
 * 【重要】uni-pay 支持微信小程序虚拟支付 [详情](https://doc.dcloud.net.cn/uniCloud/uni-pay/wxpay-virtual.html)
 * 新增 插件 uni-pay-x，uni-app x 版本的 uni-pay [详情](https://doc.dcloud.net.cn/uniCloud/uni-pay/uni-app-x.html)
