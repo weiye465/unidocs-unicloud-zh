@@ -1,65 +1,71 @@
-# uniCloud 软件版
-
-> uniCloud软件版，即以前的uniCloud私有云软件。
+# uniCloud 私有云
 
 ## 产品介绍
 
-uniCloud提供了私有化部署策略，用户可购买私有云环境，并将uniCloud服务部署至自有服务器上。私有云环境可简单的理解为：nodejs环境 + 私有服务空间运行框架。需要注意的是，私有云环境目前只支持，部署在Linux系统的服务器上。
+[uniCloud官网](https://doc.dcloud.net.cn/uniCloud/)介绍的uniCloud，默认都是`uniCloud公有云`。
 
+`uniCloud公有云`基于云计算的`serverless`技术实现，后端逻辑代码运行在云厂商的公有云服务器（容器）中，服务器（容器）不跟具体开发者关联绑定，会随着终端用户量的变化自动弹性增减或收缩，开发者对服务器的具体型号、配置等无感。
 
-## 私有云环境部署说明
+现实中，部分开发者因合规要求（如数据必须在公司内网），或需要对后端服务器有更强的可控性，希望uniCloud能部署在自己机房内或自己的云厂商账号下，因此，`uniCloud私有云`应运而生。
+
+### uniCloud私有云有哪些特点？
+
+从开发工具、API、生态各维度，私有云和公有云版没有差别。开发者基于公有云版编写的uniCloud项目源码，可以平滑部署到私有云，前端uni-app代码、后端云函数、云对象等代码，均无需修改。
+
+相比公有云版，`uniCloud私有云`最主要的差别如下：
+- 开发者需要单独购买服务器，自己安装操作系统（目前仅支持`linux`操作系统）；
+- 开发者自己购买云存储、开通CDN加速产品；
+- 开发者自己安装数据库，或者购买mongodb实例；
+- 开发者自己处理负载均衡，自己负责日常运维。
+
+而如上工作，`uniCloud公有云版`均无需进行，公有云版通过`服务空间`的概念，将云函数、云存储、云数据库统一封装，开发者可一键开通所有业务，不需要额外去开通云存储及CDN，也无需去安装或购买云数据库实例。
+
+进一步解释，uniCloud私有云实际上是一个`支持uniCloud语法的Node开发框架`。
+
+你可以更具象化理解：uniCloud私有云就是`支持uniCloud语法的类Egg.js框架`。
+
+> 和Egg.js框架差异：uniCloud私有云内置有定制版本的Node.js运行时，并且仅可在内置的定制Node.js上运行，不支持使用开发者安装的Node.js环境。
+
+uniCloud私有云，作为一个开发框架，仅负责云函数、云对象的执行，支持在云函数中连接开发者自己的对象存储和数据库。而这些对象存储和数据库，需要开发者自己去购买开通，uniCloud私有云本身没有内置。
+
+存储方面，uniCloud私有云目前支持如下3种存储方案：
+- 本地存储：文件存储和uniCloud私有云在同一台服务器上；
+- 阿里云OSS
+- 腾讯云COS
+
+数据库方面，uniCloud私有云仅支持`mongodb`，支持uniCloud本地服务器上安装的mongodb，也支持在云厂商购买单独的mongodb实例。
+
+## 安装指南
 
 ::: warning 注意
-1. 为了与公有云保持一致，私有云环境目前仅支持`mongo 4.0` 版本数据库。
-2. 私有云环境内置`node`版本为`16.20.2`。
+1. 为了与公有云保持一致，私有云目前仅支持`mongo 4.0` 版本
+2. uniCloud私有云内置的定制`node.js`版本为`16.20.2`
 :::
 
-### 部署方式
+### 获取安装软件
 
-uniCloud 私有化环境基于 Linux 物理机来构建的，在部署时需要将私有化环境下载至服务器上，生成 license，即可运行。
+uniCloud私有云是付费软件，你需要先发邮件到`bd@dcloud.io`，通过商务采购后才能获得。
 
-### 下载环境包
-
-请先联系`DCloud`工作人员申请私有云环境，待工作人员创建完私有云环境后。
-
-您可在 uniCloud 控制台切换到“私有云环境”页面，查看您的私有云环境。
-
-![](https://web-ext-storage.dcloud.net.cn/unicloud/docs202403051519770.png)
-
-按图示下载私有云环境包(.tar.gz文件)。
-
-![](https://web-ext-storage.dcloud.net.cn/unicloud/docs202403051530127.png)
-
-下载完毕后，将安装包上传至你自己的服务器，建议安装目录为`/uniCloud/`，并解压：
+获得安装软件后，你需要将安装包上传到自己的服务器，然后登录服务器，进行文件解压；
 
 ```
-# 创建uniCloud目录
+# 创建uniCloud目录，需要root用户权限
 mkdir /uniCloud
 # 解压安装包
 tar -zxvf [version].tar.gz -C /uniCloud
 ```
 
-### 获取 license
 
-> license 授权将与服务器进行绑定，一台服务器仅可以绑定一个 license 授权
->
-> 如您有分布式部署需求请联系`DCloud`工作人员
+### 获取激活license
 
-1. 下载获取硬件ID工具到服务器
+uniCloud私有云的license是和服务器硬件绑定的，激活软件之前需要先执行扫描操作：
+- 下载[uniCloud-scan](https://web-ext-storage.dcloud.net.cn/unicloud/private/tools/get-hardware-id)
+- 上传 uniCloud-scan到服务器
+- 在服务器上执行`./uniCloud-scan`
+- 将扫描结果发给DCoud商务经理，由DCloud侧生成`LICENSE`文件
+- 将`LICENSE`文件上传至`/uniCloud/`目录下
 
-`wget https://web-ext-storage.dcloud.net.cn/unicloud/private/tools/get-hardware-id`
-
-执行`./get-hardware-id`, 获取到硬件ID
-
-将获取到的硬件ID发送给 `DCloud` 生成 license 文件
-
-待 license 生成后，可在 uniCloud 控制台，点击“查看服务器凭证”查看。
-
-![](https://web-ext-storage.dcloud.net.cn/unicloud/docs202403051554539.png)
-
-复制凭证后，在私有化服务根目录下新建文件，将复制的凭证保存为 license.txt”。
-
-### 私有化环境启动/停止
+### 启动/关闭软件
 
 > 所有命令请在私有云环境根目录运行
 
@@ -71,19 +77,22 @@ tar -zxvf [version].tar.gz -C /uniCloud
 
 `./unicloud stop -s [服务空间ID]`
 
-### 创建及配置服务空间
 
-#### 创建服务空间目录
+## 开发指南
 
-在[uniCloud控制台](https://unicloud.dcloud.net.cn/) 创建私有云服务空间，然后在`私有云环境根目录/spaces`目录下创建目录，并将目录命名为SpaceId。
+### 创建服务空间
 
-#### 上传云函数及数据库schema文件
+为了和公有云版保持一致的开发体验，你需要创建服务空间：
+- 登录[uniCloud控制台](https://unicloud.dcloud.net.cn/) 创建私有云服务空间，复制新建空间的SpaceId
+- 登录uniCloud私有云服务器，创建空间目录：
+```
+cd /uniCloud/spaces/
+mkdir [SpaceId]
+```
 
-将项目中的`uniCloud`目录下的`cloudfunctions`和`database`文件夹上传至服务空间目录下。
+### 配置服务空间
 
-#### 服务空间配置
-
-在服务空间目录下新增`config.json`配置文件。配置文件内容如下：
+在你的服务空间目录下创建`config.json`配置文件，文件内容如下：
 
 ```js
 //下方为配置示例，如拷贝此内容切记去除注释
@@ -137,6 +146,68 @@ tar -zxvf [version].tar.gz -C /uniCloud
 }
 ```
 
+
+### 使用HBuilerX开发调试
+
+> 私有云暂不支持`oss`、`cos`等存储服务的本地调试。
+
+#### 安装override插件包
+
+私有云环境的`mongo`、`redis`等数据库是由开发者自行购买或安装的，因此要想在`HBuilderX`中连接这些服务，需安装相关的插件包和npm依赖，并为项目添加数据库等服务的配置文件。
+
+1. 下载并解压`override插件包`，插件包可联系`DCloud`工作人员获取。
+
+2. 将`override插件包`目录内的文件，移至`HBuilderX安装目录/plugins/unicloud/override`目录下。
+
+3. 安装`mongo`、`redis`数据库依赖：在`HBuilderX安装目录/plugins/unicloud`目录下，分别执行 `npm install mongodb@3.6.3` 和 `npm install redis@3.1.2`。
+
+
+#### 关联服务空间
+
+`HBuilderX`中运行`uniCloud项目`，必须关联服务空间，但HBuilderX暂不支持关联私有服务空间，此时你需要按照如下操作进行：
+- 创建一个免费的公有云服务空间，仅做为关联使用，无需担心费用；
+- 修改配置文件：`vue2项目`的配置文件为：`vue.config.js`，`vue3项目`的配置文件为：`vite.config.js`，内容如下：
+
+```js
+//客户端私有云服务空间连接配置示例
+process.env.UNI_CLOUD_PROVIDER = JSON.stringify([{
+	provider: 'private',//声明为私有云服务
+	spaceName: 'private-space',//服务空间名称
+	spaceId: 'pvt-xxx', //服务空间编号
+	clientSecret: 'ba461799-fde8-429f-8cc4-4b6d306e2339',//客户端通讯密钥
+	endpoint: 'http://127.0.0.1:7001'//私有云服务器的访问地址
+}])
+```
+
+关于spaceId、clientSecret等私有云服务空间相关信息，可在[uniCloud控制台](https://unicloud.dcloud.net.cn/)查看。
+
+HBuilderX会尽快发版，支持关联私有云的服务空间。
+
+#### 配置数据库链接
+
+在项目中的`uniCloud目录`下新建`config.json`文件，并按需添加配置项。
+
+```json
+//下方为配置示例，如拷贝此内容切记去除注释
+{
+	"mongodb": { //mongo库连接配置
+	  "url": "mongodb://username:password@127.0.0.1:7001",//mongo库连接地址
+	  "database": "unicloud" //数据库名称
+	},
+	"redis": {//redis库连接配置，项目中不使用redis服务可不配置此项
+	  "host": "127.0.0.1",//host
+	  "port": 6379, //端口号
+	  "password": "password"//密码
+	}
+}
+```
+
+#### 重启HBuilderX
+
+以上步骤完成后，需重启`HBuilderX`后方可生效。
+
+## 运维指南
+
 ### 域名解析及代理配置
 
 项目测试期或上线后，通常需要以域名代替ip来访问服务空间中的云函数/云对象。下面我们提供了一个简单的域名解析和代理配置示例。配置生效后，可用`test.pvtcloud.com`代替原本的`127.0.0.1:7001`来访问服务空间中的云函数/云对象。
@@ -176,72 +247,4 @@ http {
 	}
 }
 
-```
-
-
-## 私有云项目在HBuilerX中开发、调试、发行方法说明
-
-### 服务端配置方法说明
-
-私有云环境的`mongo`、`redis`等数据库是由开发者自行购买或安装的，因此要想在`HBuilderX`中连接这些服务，须安装相关的插件包和npm依赖，并为项目添加数据库等服务的配置文件。
-
-::: warning 注意
-1. 由于现阶段`HBuilderX`还不支持私有云服务空间，而在`HBuilderX`中运行`uniCloud项目`必须关联服务空间，因此可以临时创建一个免费的公有云服务空间，仅做为关联使用。
-2. 目前私有云还不支持`oss`、`cos`等存储服务的本地调试。
-:::
-
-#### 安装override插件包
-
-1. 下载并解压`override插件包`，插件包可联系`DCloud`工作人员获取。
-
-2. 将`override插件包`目录内的文件，移至`HBuilderX安装目录/plugins/unicloud/override`目录下。
-
-3. 安装`mongo`、`redis`数据库依赖。既在`HBuilderX安装目录/plugins/unicloud`目录下，分别执行 `npm install mongodb@3.6.3` 和 `npm install redis@3.1.2`。
-
-
-#### 配置数据库链接
-
-在项目中的`uniCloud目录`下新建`config.json`文件，并按需添加配置项。
-
-```json
-//下方为配置示例，如拷贝此内容切记去除注释
-{
-	"mongodb": { //mongo库连接配置
-	  "url": "mongodb://username:password@127.0.0.1:7001",//mongo库连接地址
-	  "database": "unicloud" //数据库名称
-	},
-	"redis": {//redis库连接配置，项目中不使用redis服务可不配置此项
-	  "host": "127.0.0.1",//host
-	  "port": 6379, //端口号
-	  "password": "password"//密码
-	}
-}
-```
-
-#### 重启HBuilderX
-
-以上步骤完成后，需重启`HBuilderX`后方可生效。
-
-
-
-### 客户端配置方法说明
-
-#### 客户端连接指定的私有云服务空间调试
-
-客户端要想连接指定的私有云服务空间，需要在项目配置文件中声明`uniCloud`服务的环境变量，配置后客户端调用`uniCloud`服务将连接配置中声明的服务空间，可用于测试环境、线上环境的本地运行调试和发行，仅在HBuilderX中本地调试无需配置此项。
-
-私有云服务空间相关的配置信息，可在[uniCloud控制台](https://unicloud.dcloud.net.cn/)查看。
-
-- `vue2项目`的配置文件为：`项目根目录/vue.config.js`
-- `vue3项目`的配置文件为：`项目根目录/vite.config.js`
-
-```js
-//客户端私有云服务空间连接配置示例
-process.env.UNI_CLOUD_PROVIDER = JSON.stringify([{
-	provider: 'private',//声明为私有云服务
-	spaceName: 'private-space',//服务空间名称
-	spaceId: 'pvt-xxx', //服务空间编号
-	clientSecret: 'ba461799-fde8-429f-8cc4-4b6d306e2339',//客户端通讯密钥
-	endpoint: 'http://127.0.0.1:7001'//服务空间连接地址
-}])
 ```
