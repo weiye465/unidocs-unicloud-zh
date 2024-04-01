@@ -10,14 +10,14 @@ Hello uniCloud，是一个示例，演示了 uniCloud 的各种能力。
 Hello uniCloud部署了2套，分别连接uniCloud的阿里云版和腾讯云版。
 
 - h5版地址（发布在uniCloud的前端网页托管上）
-	* Hello uniCloud 支付宝小程序云版地址：[https://hellounicloud.dcloud.net.cn/alipay/](https://hellounicloud.dcloud.net.cn/alipay/#/)
+	* Hello uniCloud 支付宝云版地址：[https://hellounicloud.dcloud.net.cn/alipay/](https://hellounicloud.dcloud.net.cn/alipay/#/)
 	* Hello uniCloud 阿里云版地址：[https://hellounicloud.dcloud.net.cn/#/](https://hellounicloud.dcloud.net.cn/#/)
 	* Hello uniCloud 腾讯云版地址：[https://hellounicloud.dcloud.net.cn/tcb/](https://hellounicloud.dcloud.net.cn/tcb/)
 
 	由于该示例未适配pc宽屏，如使用pc浏览器打开地址，建议F12打开控制台，使用手机模式预览。
 
 - apk地址（发布在uniCloud的云存储上）
-	* Hello uniCloud 支付宝小程序云版地址：[apk下载](https://env-00jx4sbgbkj5.normal.cloudstatic.cn/apk/__UNI__HelloUniCloud_0113194553.apk)
+	* Hello uniCloud 支付宝云版地址：[apk下载](https://env-00jx4sbgbkj5.normal.cloudstatic.cn/apk/__UNI__HelloUniCloud_0113194553.apk)
 	* Hello uniCloud 阿里云版地址：[apk下载](https://mp-1a10688c-0b30-4aaa-bbc1-7f4948cc562a.cdn.bspapp.com/apk/__UNI__HelloUniCloud_0113204611.apk)
 	* Hello uniCloud 腾讯云版地址：[apk下载](https://756e-unicloud-demo-eb8ec0-1302284157.tcb.qcloud.la/apk/__UNI__HelloUniCloud_20240113174921.apk)
 
@@ -40,7 +40,7 @@ Hello uniCloud 的源码地址：[https://ext.dcloud.net.cn/plugin?id=4082](http
 
 	- 第一次创建腾讯云服务空间时会为用户创建腾讯云账号并跳转到腾讯云实名界面，等待实名认证审核之后可以开通服务空间。若腾讯云实名认证提示身份证下已创建过多账户，则需要在腾讯云官网注销不用的账户。
 	- 阿里云每个账号可以有一个开发者版免费空间，此空间资源较少仅能用于测试开发。腾讯云无免费空间。
-    - 首次创建支付宝小程序云时，需前往uniCloud控制台开通支付宝小程序云服务空间，开通服务空间时需使用支付宝扫码授权开通支付宝小程序云服务。
+    - 首次创建支付宝云时，需前往uniCloud控制台开通支付宝云服务空间，开通服务空间时需使用支付宝扫码授权开通支付宝云服务。
 
 3. 运行 hello uniCloud项目
 	- 在运行菜单运行项目，浏览器、app、小程序均可。uniCloud项目是云端一体的，运行前端后控制台会同时出现前端和云端的控制台。
@@ -49,7 +49,7 @@ Hello uniCloud 的源码地址：[https://ext.dcloud.net.cn/plugin?id=4082](http
 
 1. 创建uniCloud项目
 
-  HBuilderX中新建项目，选择uni-app项目，并勾选`启用uniCloud`，在右侧选择服务供应商（支付宝小程序云、阿里云、腾讯云）
+  HBuilderX中新建项目，选择uni-app项目，并勾选`启用uniCloud`，在右侧选择服务供应商（支付宝云、阿里云、腾讯云）
 
   项目名称随意，比如 firstunicloud
 

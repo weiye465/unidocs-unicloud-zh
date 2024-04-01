@@ -111,7 +111,7 @@ exports.main = async (event, context) => {
 
 云函数上行的参数内容不能传太大。
 
-- 支付宝小程序云接收参数大小不可超过6MB
+- 支付宝云接收参数大小不可超过6MB
 - 阿里云event大小不可超过2MB
 - 腾讯云event大小不可超过5MB
 

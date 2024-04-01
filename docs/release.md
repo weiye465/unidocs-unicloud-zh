@@ -11,7 +11,7 @@
 * 修复 上传云函数时安装依赖失败后仍然会上传云函数的Bug
 * 修复 上传公共模块时不会剔除 node_modules 目录的Bug
 * 修复 本地运行时无法使用地理位置查询/索引API的Bug
-* 修复 同时存在支付宝小程序云、阿里云、腾讯云空间时，虚拟目录无法正确显示的Bug
+* 修复 同时存在支付宝云、阿里云、腾讯云空间时，虚拟目录无法正确显示的Bug
 * 修复 修复项目关闭后，再次打开云空间未显示关联服务空间的Bug [详情](https://ask.dcloud.net.cn/question/186741)
 * 修复 关联其他项目运行时unicloud目录识别错误的Bug
 * 修复 未登录状态下点击关联服务空间无响应的Bug
@@ -21,7 +21,7 @@
 * 修复 3.97版本引发的安全网络客户端校验功能不可使用的Bug
 
 #### 2024-01-27
-* 新增 支付宝小程序云 云数据库支持地理位置查询
+* 新增 支付宝云 云数据库支持地理位置查询
 * 新增 运行云函数时控制台可以点击云函数名称跳转到对应的云函数
 * 新增 云函数本地node和云端node版本不一致时，上传云函数将提示本地node版本与云端node版本
 * 修复 JQL管理器 不执行选中的语句的Bug [详情](https://issues.dcloud.net.cn/pages/issues/detail?id=534)
@@ -30,19 +30,19 @@
 * 修复 关联服务空间切换云厂商时存在关联项目仍然可以切换的Bug
 * 修复 "上传schema扩展js的配置"超时时间太短，导致上传失败的Bug
 * 修复 cli 创建的项目无法上传schema的Bug [详情](https://issues.dcloud.net.cn/pages/issues/detail?id=592)
-* 修复 支付宝小程序云 云数据库JQL连表查询报错的Bug [详情](https://ask.dcloud.net.cn/question/185177)
-* 修复 支付宝小程序云 云数据库使用原生MongoDB $查询无效的Bug [详情](https://ask.dcloud.net.cn/question/183811)
-* 修复 支付宝小程序云 Redis本地调试无法运行的Bug
+* 修复 支付宝云 云数据库JQL连表查询报错的Bug [详情](https://ask.dcloud.net.cn/question/185177)
+* 修复 支付宝云 云数据库使用原生MongoDB $查询无效的Bug [详情](https://ask.dcloud.net.cn/question/183811)
+* 修复 支付宝云 Redis本地调试无法运行的Bug
 
 #### 2023-12-16
 * 【重要】新增 七牛云扩展存储 价格更优、权限更灵活 [详情](https://uniapp.dcloud.net.cn/uniCloud/ext-storage/intro.html)
 * 新增 uni-app-x 项目支持 uniIdRouter [详情](https://uniapp.dcloud.net.cn/uniCloud/uni-id/summary.html#uni-id-router)
-* 新增 支付宝小程序云 支持云函数URL化
-* 补齐 支付宝小程序云 支持ide中运行JQL文件
-* 修复 支付宝小程序云 doc get 未兼容返回值为 null 的Bug [详情](https://ask.dcloud.net.cn/question/182457)
-* 修复 支付宝小程序云 数据库 where、match 查询对象时结果不正确的Bug
-* 修复 支付宝小程序云 云存储上传失败时，失败原因未在前端展示的Bug
-* 修复 支付宝小程序云 uni.getTempFileURL API 返回只有文件名的Bug
+* 新增 支付宝云 支持云函数URL化
+* 补齐 支付宝云 支持ide中运行JQL文件
+* 修复 支付宝云 doc get 未兼容返回值为 null 的Bug [详情](https://ask.dcloud.net.cn/question/182457)
+* 修复 支付宝云 数据库 where、match 查询对象时结果不正确的Bug
+* 修复 支付宝云 云存储上传失败时，失败原因未在前端展示的Bug
+* 修复 支付宝云 uni.getTempFileURL API 返回只有文件名的Bug
 * 修复 项目存在多个云厂商时，上传云函数识别云厂商错误的Bug
 * 修复 database 目录右击菜单“上传Schema扩展Js的配置”提示“请绑定服务空间”的Bug [详情](https://ask.dcloud.net.cn/question/182971)
 * 修复 创建 Schema 时，存在数据量大的 init_data.json 会导致无法正确下载的Bug
@@ -52,21 +52,21 @@
 * 优化 关联服务空间时可以跨不同云厂商切换服务空间
 
 #### 2023-12-13
-* 新增 支付宝小程序云 支持云函数URL化
+* 新增 支付宝云 支持云函数URL化
 
 #### 2023-11-20
-* 新增 uni-app-x 项目 支持uniCloud支付宝小程序云
-* 新增 支付宝小程序云初始化向导
+* 新增 uni-app-x 项目 支持uniCloud支付宝云
+* 新增 支付宝云初始化向导
 * 优化 基于模板新建schema/新建schemajs时，如模板是由多个文件组成的，允许用户选择创建具体的文件
 * 修复 初始化云数据库时，云端已存在集合触发的弹窗提示中第一个集合默认选中的Bug
 * 修复 打开db_init.json文件后，在编辑区域右键“初始化数据库”无法初始化的Bug
 * 修复 对uniCloud文件夹重命名后，不会更新uniCloud文件夹别名的Bug
 * 修复 上传公共模块时项目目录下不存在uni_modules目录导致无法上传的Bug
-* 修复 微信小程序平台上传文件到支付宝小程序云报错的Bug
-* 修复 支付宝小程序云 database update 操作返回值没有返回 updated 参数
+* 修复 微信小程序平台上传文件到支付宝云报错的Bug
+* 修复 支付宝云 database update 操作返回值没有返回 updated 参数
 
 #### 2023-11-05
-* 【重要】新增 uni-app 项目 支持uniCloud支付宝小程序云版。价格更优，限制更少，支持域名备案
+* 【重要】新增 uni-app 项目 支持uniCloud支付宝云版。价格更优，限制更少，支持域名备案
 * 调整 `db_init.json` 按collection拆分，每个collection由schema.json、index.json、init_data.json三个文件描述 [详情](https://uniapp.dcloud.net.cn/uniCloud/hellodb.html#init-db)
 
 #### 2023-10-19

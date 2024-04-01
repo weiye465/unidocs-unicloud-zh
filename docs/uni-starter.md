@@ -23,10 +23,10 @@ uni-starter是集成商用项目常见功能的、云端一体应用快速开发
 
 	* 扫码体验：<img src="https://qiniu-web-assets.dcloud.net.cn/unidoc/zh/download.png" style="width: 120px;">
 
-	* 支付宝小程序云版演示项目：[https://uni-starter.dcloud.net.cn/alipay/](https://uni-starter.dcloud.net.cn/alipay/)
+	* 支付宝云版演示项目：[https://uni-starter.dcloud.net.cn/alipay/](https://uni-starter.dcloud.net.cn/alipay/)
 
 - apk地址
-	* 支付宝小程序云版地址：[apk下载](https://env-00jx4wokha6m.normal.cloudstatic.cn/__UNI__StarterWithCMS__20231206115357.apk)
+	* 支付宝云版地址：[apk下载](https://env-00jx4wokha6m.normal.cloudstatic.cn/__UNI__StarterWithCMS__20231206115357.apk)
 
 下载地址：[https://ext.dcloud.net.cn/plugin?id=5057](https://ext.dcloud.net.cn/plugin?id=5057)
 

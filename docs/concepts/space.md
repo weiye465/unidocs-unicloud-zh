@@ -140,10 +140,10 @@ function init(options):uniCloud
 |  provider		   | String	 | 是		 |                                          -							                                           |                        aliyun、tencent、alipay																		                        |
 |   spaceId		   | String	 | 是		 |                                          -							                                           |                        服务空间ID，**注意是服务空间ID，不是服务空间名称**										                        |
 | clientSecret	 | String	 | 是		 |                                          -							                                           |           仅阿里云支持，可以在[uniCloud控制台](https://unicloud.dcloud.net.cn)服务空间列表中查看	           |
-|   accessKey   | String  |  是  |                                              -                                              |         仅支付宝小程序云支持, 可以在[uniCloud控制台](https://unicloud.dcloud.net.cn)服务空间详情中查看         |
-|   secretKey   | String  |  是  |                                              -                                              |         仅支付宝小程序云支持, 可以在[uniCloud控制台](https://unicloud.dcloud.net.cn)服务空间详情中查看         |
-|  spaceAppId   | String  |  是  |                                              -                                              |         仅支付宝小程序云支持, 可以在[uniCloud控制台](https://unicloud.dcloud.net.cn)服务空间详情中查看         |
-|  endpoint		   | String	 | 否		 | 阿里云：`https://api.bspapp.com`；<br/> 支付宝小程序云：`https://{spaceId}.api-hz.cloudbasefunction.cn`	 | 服务空间地址，仅阿里云与支付宝小程序云支持。<br /> 阿里云商用版请将此参数设为`https://api.next.bspapp.com`														 |
+|   accessKey   | String  |  是  |                                              -                                              |         仅支付宝云支持, 可以在[uniCloud控制台](https://unicloud.dcloud.net.cn)服务空间详情中查看         |
+|   secretKey   | String  |  是  |                                              -                                              |         仅支付宝云支持, 可以在[uniCloud控制台](https://unicloud.dcloud.net.cn)服务空间详情中查看         |
+|  spaceAppId   | String  |  是  |                                              -                                              |         仅支付宝云支持, 可以在[uniCloud控制台](https://unicloud.dcloud.net.cn)服务空间详情中查看         |
+|  endpoint		   | String	 | 否		 | 阿里云：`https://api.bspapp.com`；<br/> 支付宝云：`https://{spaceId}.api-hz.cloudbasefunction.cn`	 | 服务空间地址，仅阿里云与支付宝云支持。<br /> 阿里云商用版请将此参数设为`https://api.next.bspapp.com`														 |
 
 **示例代码**
 
