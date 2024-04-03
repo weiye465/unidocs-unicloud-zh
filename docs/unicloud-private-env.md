@@ -4,7 +4,7 @@
 
 [uniCloud官网](https://doc.dcloud.net.cn/uniCloud/)介绍的uniCloud，默认都是`uniCloud serverless版`。
 
-`uniCloud serverless版`基于云计算的`serverless`技术实现，后端逻辑代码运行在云厂商的公有云服务器（容器）中，服务器（容器）不跟具体开发者关联绑定，会随着终端用户量的变化自动弹性增减或收缩，开发者对服务器的具体型号、配置等无感。
+`uniCloud serverless版`基于云计算的`serverless`技术实现，后端逻辑代码运行在云厂商的服务器（容器）中，服务器（容器）不跟具体开发者关联绑定，会随着终端用户量的变化自动弹性增减或收缩，开发者对服务器的具体型号、配置等无感。
 
 现实中，部分开发者因合规要求（如数据必须在公司内网），或需要对后端服务器有更强的可控性，希望uniCloud能部署在自己机房内或自己的云厂商账号下，因此，`uniCloud软件版`应运而生。
 
@@ -165,7 +165,7 @@ mkdir [SpaceId]
 #### 关联服务空间
 
 `HBuilderX`中运行`uniCloud项目`，必须关联服务空间，但HBuilderX暂不支持关联DCloud服务空间，此时你需要按照如下操作进行：
-- 创建一个免费的公有云服务空间，仅做为关联使用，无需担心费用；
+- 创建一个免费的serverless版服务空间，仅做为关联使用，无需担心费用；
 - 修改配置文件：`vue2项目`的配置文件为：`vue.config.js`，`vue3项目`的配置文件为：`vite.config.js`，内容如下：
 
 ```js
