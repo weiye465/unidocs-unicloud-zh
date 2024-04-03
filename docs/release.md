@@ -1,3 +1,6 @@
+#### 2024-04-04
+* 修复 4.07 版本引出的无法上传至前端网页托管的Bug [详情](https://ask.dcloud.net.cn/question/188503)
+
 #### 2024-03-28
 * 修复 上传/下载所有公共模块时HBuilderX控制台无响应的Bug [详情](https://ask.dcloud.net.cn/question/188162)
 * 修复 Web发行目录从H5调整为Web后，导致的上传前端网页托管失败的Bug
