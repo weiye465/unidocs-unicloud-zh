@@ -44,13 +44,10 @@ sequenceDiagram
 - 如果您使用uni-id，那么uni-id-pages已经帮您内置好相关功能，前端页面和云端逻辑均已写好，安全、无需开发、拿来就用。[详见](../uni-id/summary.md#frv)
 - 如果您的业务系统不在uniCloud上，那么需要在上述流程图中加一个原业务服务器，由云函数和原业务服务器进行token校验、传递认证结果。
 
-### 接口防刷
-
-由于实人认证涉及费用，为避免其他人盗刷您的余额，您应当谨慎编码，防止漏洞。一般可以通过一个用户每天限制实名次数来实现防刷，未登录用户禁止调用认证接口。如果有更高的安全需求可以使用uni安全网络，可以有效防止伪造客户端请求，[详见](../secure-network.md)
 
 ### 客户端接口
 
-uni-app x的客户端API文档[另见](https://doc.dcloud.net.cn/uni-app-x/api/facial-recognition-verify.html)
+> 如下描述为`uni-app`的客户端API，`uni-app x`的客户端API文档[另见](https://doc.dcloud.net.cn/uni-app-x/api/facial-recognition-verify.html)
 
 #### 获取实人认证设备信息@get-meta-info
 调用刷脸前通过客户端先获取设备信息，调用[uni.getFacialRecognitionMetaInfo](https://uniapp.dcloud.net.cn/api/plugins/facialRecognitionVerify.html)
@@ -349,6 +346,10 @@ module.exports = {
   }
 }
 ```
+
+### 接口防刷
+
+由于实人认证涉及费用，为避免其他人盗刷您的余额，您应当谨慎编码，防止漏洞。一般可以通过一个用户每天限制实名次数来实现防刷，未登录用户禁止调用认证接口。如果有更高的安全需求可以使用uni安全网络，可以有效防止伪造客户端请求，[详见](../secure-network.md)
 
 ### 错误码@err-code
 
