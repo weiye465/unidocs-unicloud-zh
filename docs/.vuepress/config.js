@@ -4,7 +4,7 @@ const highlight = require('@vuepress/markdown/lib/highlight')
 const translatePlugin = require('./markdown/translate')
 const headerPlugin = require('./markdown/header')
 const createSidebar = require('./markdown/createSidebar')
-const { simplifySlugText, tabs } = require('./utils')
+const { simplifySlugText } = require('./utils')
 const copyOptions = require('./config/copy');
 
 const base = '/uniCloud/'
@@ -39,7 +39,7 @@ const config = {
   themeConfig: {
     titleLogo: 'https://qiniu-web-assets.dcloud.net.cn/unidoc/zh/unicloudlogo.png',
     logo: 'https://qiniu-web-assets.dcloud.net.cn/unidoc/zh/logo.png',
-    sidebar: createSidebar(tabs),
+    sidebar: createSidebar(),
     sidebarDepth: 0,
     nextLinks: false,
     prevLinks: false,
