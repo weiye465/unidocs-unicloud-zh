@@ -89,7 +89,7 @@ tar -zxvf [version].tar.gz -C /uniCloud
 ### 获取激活license
 
 uniCloud软件版的license是和服务器硬件绑定的，激活软件之前需要先执行扫描操作：
-- 下载[uniCloud-scan](https://web-ext-storage.dcloud.net.cn/unicloud/private/tools/get-hardware-id)
+- 下载[uniCloud-scan](https://web-ext-storage.dcloud.net.cn/unicloud/private/tools/uniCloud-scan)
 - 上传 uniCloud-scan到服务器
 - 在服务器上执行`./uniCloud-scan`
 - 将扫描结果发给DCoud商务经理，由DCloud侧生成`LICENSE`文件
