@@ -1487,9 +1487,9 @@ package.json是一个标准json文件，不可带注释。下面是一个package
 
 阿里云：Nodejs8、Nodejs12、Nodejs14、Nodejs16，默认Nodejs14
 
-腾讯云：Nodejs8、Nodejs12，默认：Nodejs8
+腾讯云：Nodejs8、Nodejs12，默认Nodejs8
 
-支付宝云：Nodejs16、Nodejs18，默认：Nodejs18
+支付宝云：Nodejs16、Nodejs18，默认Nodejs18
 
 阿里云Nodejs8即将终止支持：终止支持阶段一：禁止新建（2024年06月01日）；终止支持阶段二：禁止新建和更新（2024年09月01日）。**终止支持不影响函数继续运行。建议您及时升级**。
 
