@@ -70,7 +70,11 @@ GitCode 仓库：[https://gitcode.net/dcloud/uni-starter](https://gitcode.net/dc
 - 开通`uniCloud`：本项目是云端一体的，它的云端代码需要部署在uniCloud云服务空间里，需要开通uniCloud。在[https://unicloud.dcloud.net.cn/](https://unicloud.dcloud.net.cn/)登录，按云厂商要求进行实名认证。
 - 在uniCloud认证通过后，创建一个服务空间给本项目使用。选择阿里云或腾讯云均可，两种服务空间差异[详情](https://uniapp.dcloud.net.cn/uniCloud/price)
 
-#### 2. 运行云服务空间初始化向导
+#### 2. 创建并配置uni-id的配置文件
+- 在目录`uniCloud/cloudfunctions/common/uni-config-center/`下新建`uni-id/config.json`
+- 参考文档[云端配置config.json的说明](./uni-id/summary.md#config)完成配置
+
+#### 3. 运行云服务空间初始化向导
 <img style="width:61.8%" src="https://qiniu-web-assets.dcloud.net.cn/unidoc/zh/20210809115104.jpg" />
 <img style="width:61.8%" src="https://qiniu-web-assets.dcloud.net.cn/unidoc/zh/20210809113634.jpg" />
 <img style="width:61.8%" src="https://qiniu-web-assets.dcloud.net.cn/unidoc/zh/20210809114205.jpg" />
