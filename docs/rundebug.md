@@ -128,7 +128,7 @@ uniCloud控制台日志如下图：
 
 **注意事项**
 
-- iOS 14及以上版本客户端连接本地网络的其他设备需要[配置iOS隐私信息访问描述](https://uniapp.dcloud.net.cn/tutorial/app-nativeresource-ios.html#ios%E9%9A%90%E7%A7%81%E4%BF%A1%E6%81%AF%E8%AE%BF%E9%97%AE%E6%8F%8F%E8%BF%B0%E9%85%8D%E7%BD%AE)，添加`使用本地网络的许可描述`，并在运行时允许访问本地网络上的设备。
+- iOS 14及以上版本客户端连接本地网络的其他设备，需要在运行时允许访问本地网络上的设备。如果打包自定义基座用于调试还应该[配置iOS隐私信息访问描述](https://uniapp.dcloud.net.cn/tutorial/app-nativeresource-ios.html#ios%E9%9A%90%E7%A7%81%E4%BF%A1%E6%81%AF%E8%AE%BF%E9%97%AE%E6%8F%8F%E8%BF%B0%E9%85%8D%E7%BD%AE)，添加`使用本地网络的许可描述`。
 
 ## HBuilderX本地uniCloud运行环境介绍@local-tips
 
