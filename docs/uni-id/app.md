@@ -323,3 +323,6 @@ uni.navigateTo({
 ```
 
 可以配套使用[uniIdRouter](summary.md#uni-id-router)；当用户未登录，但访问了需强制登录的页面，或接口提示token无效或过期（响应体以TOKEN_INVALID开头）时均需要打开登录页面。你需要把以上两个路径路径定义为`loginPage`。
+
+### 钩子
+为了便于集成uni-id-pages的项目监听到登录和注销登录事件，提供了两个全局事件：`uni-id-pages-login-success`，`uni-id-pages-logout`。开发者可以通过[uni.$on](https://uniapp.dcloud.net.cn/api/window/communication.html#on)来监听这些事件。
