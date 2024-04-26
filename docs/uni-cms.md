@@ -112,7 +112,7 @@ uni-cms包括管理端和用户端。
 
 > 使用方式简单，只需导入对应的插件至项目中即可。
 
-#### 1. 安装uni-cms管理端插件
+### 1. 安装uni-cms管理端插件
 
 在插件市场中找到[uni-cms](https://ext.dcloud.net.cn/plugin?name=uni-cms)，将插件导入至[uni-admin](admin.md)项目中。
 
@@ -126,7 +126,7 @@ uni-cms包括管理端和用户端。
 
 导入后刷新页面，在uni-admin左侧菜单，可看到内容管理的菜单项，点击即可进入相关页面。
 
-#### 2. 安装uni-cms-article用户端插件
+### 2. 安装uni-cms-article用户端插件
 
 管理端编辑的内容，在用户端呈现。注意管理端和用户端是两个项目，但是连接同一个服务空间。
 
@@ -138,7 +138,7 @@ uni-cms包括管理端和用户端。
 - uni-cms-article使用了[clientDB](clientdb.md)，其权限体系依赖[uni-id](uni-id/summary.md)。
 - 如果您的项目需要账户体系，需将`uni-id-pages`插件导入至项目中，要了解`uni-id-pages` [详见](./uni-id/app.md)。如果您使用了[uni-starter](uni-starter.md)项目，那么其已经内置了 `uni-id-pages`插件。
 
-#### 3. 多作者登录
+### 3. 多作者登录
 
 如果您的cms内容管理涉及多名作者登录。有2种处理方式。
 
@@ -160,7 +160,7 @@ uni-cms包括管理端和用户端。
 
 目前uni-cms没有提供独立的作者端。有需求的开发者需自行改造uni-cms插件。
 
-#### 4. AI 功能开通与使用
+### 4. AI 功能开通与使用
 
 > AI功能基于 `uni-ai-chat` 实现，`uni-ai-chat` 文档请参考[uni-ai-chat](https://uniapp.dcloud.net.cn/uniCloud/uni-ai-chat.html)。
 >
