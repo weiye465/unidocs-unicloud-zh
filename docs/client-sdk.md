@@ -1,7 +1,8 @@
 # uniCloud客户端sdk
 
-uniCloud分为客户端和云端两部分，有些接口名称相同，参数也相近，在此列举客户端sdk内可以使用的接口/属性，避免混淆
+> 适用于uni-app-x的uniCloud客户端api文档请参考：[uniCloud客户端API](https://doc.dcloud.net.cn/uni-app-x/api/unicloud/)
 
+uniCloud分为客户端和云端两部分，有些接口名称相同，参数也相近，在此列举客户端sdk内可以使用的接口/属性，避免混淆
 
 ## API
 
