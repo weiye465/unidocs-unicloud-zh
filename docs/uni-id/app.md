@@ -112,6 +112,11 @@
 **完整的uni-app目录结构[详情查看](https://uniapp.dcloud.io/frame?id=%e7%9b%ae%e5%bd%95%e7%bb%93%e6%9e%84)
 
 ## 前端页面
+
+### 创建并配置uni-id的配置文件
+- 在目录`uniCloud/cloudfunctions/common/uni-config-center/`下新建`uni-id/config.json`
+- 参考文档[云端配置config.json的说明](./summary.md#config)完成配置
+
 ### 初始化
 需要在App.vue中初始化`uni-id-pages`的`init.js`文件
 
