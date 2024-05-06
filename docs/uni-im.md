@@ -703,13 +703,6 @@ let conversationData = await uniIm.conversation.loadMore(param)
 let unreadCount = await uniIm.conversation.unreadCount()
 ```
 
-- 删除指定id的会话数据  
-```js
-// xxx表示会话id
-let param = 'xxxx'
-await uniIm.conversation.remove(param)
-```
-
 - 获取系统消息数据  
 
 1. 不限类型
