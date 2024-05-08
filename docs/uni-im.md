@@ -121,7 +121,9 @@ export default defineConfig({
     cementingPlugin({
       // 需要静态化的页面路径（支持通配符*）
       include: [
+        '**/uni-im-conversation.vue',
         './uni_modules/uni-im/components/uni-im-msg/uni-im-msg.vue',
+        './uni_modules/uni-im/pages/chat/info.nvue'
       ],
       components: {
         // 声明组件，格式 {"$组件名":{"$cementing":"$组件路径"}}
