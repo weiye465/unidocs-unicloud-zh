@@ -108,7 +108,7 @@ uni-im本身并不收费，实际使用中需要依赖uniCloud云服务，会产
 </script>
 ```
 
-如果你是部署到微信小程序端，由于小程序端不支持“动态组件”需要通过引入vite插件[rollup-plugin-uniapp-cementing.js]()实现“动态组件静态化”
+如果你是部署到微信小程序端，由于小程序端不支持“动态组件”需要通过引入vite插件[rollup-plugin-uniapp-cementing.js](https://gitcode.net/dcloud/hello-uni-im/-/blob/v3/rollup-plugin-uniapp-cementing.js)实现“动态组件静态化”
 示例:
 在下面跟目录创建：`vite.config.js`，内容如下：
 ```js
