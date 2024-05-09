@@ -106,7 +106,7 @@ key 说明
 
   ```
   "HW": {
-      "/message/android/notification/importance","LOW"
+      "/message/android/category","填写华为侧的category取值"
   }
   ```
 
