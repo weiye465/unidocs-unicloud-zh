@@ -464,7 +464,7 @@ uniCloud.offRefreshToken(log)
 
 用法：`uniCloud.config.provider`
 
-访问此属性会返回`tencent`、`aliyun`分别代表腾讯云和阿里云
+访问此属性会返回`tencent`、`aliyun`、`alipay`分别代表腾讯云、阿里云、支付宝云
 
 ## 错误对象@uni-cloud-error
 
