@@ -2192,12 +2192,12 @@ https://web-ext-storage.dcloud.net.cn/unicloud/ext-storage/gogopher.png?qrcode
 
 ![](https://web-ext-storage.dcloud.net.cn/unicloud/ext-storage/17155951341825lkaliq963g.png)
 
-### 高级防御（需申请）@cdnsecureplus
+### 额外防御（需申请）@cdnsecureplus
 
-1. 全局带宽达到设置的封顶值，自动关站1-3小时
-2. 可限制单个IP在CDN单节点上的QPS（即每秒访问次数）
+1. 同一个IP在10分钟内，同一个域名下载文件次数超过200次，封禁该IP 1小时，1小时后自动解封（最大封禁3小时）
+2. 单ip频次访问限制，单位是秒，如：单IP每秒访问超过20次，封禁该IP 1小时，1小时后自动解封（最大封禁3小时）
 
-申请方式：在 [扩展存储技术交流群](https://im.dcloud.net.cn/#/?joinGroup=65436862cc41b0763842cfc9) 里发送内容，我想申请七牛云CDN额外防御：全局带宽达到 xxx Gbps，自动关站3小时，同时限制单个IP在CDN单节点上的QPS为10（即每秒访问次数）
+申请方式：在 [扩展存储技术交流群](https://im.dcloud.net.cn/#/?joinGroup=65436862cc41b0763842cfc9) 里发送内容，我想申请七牛云CDN额外防御：同一个IP在10分钟内，同一个域名下载文件次数超过200次，封禁该IP 1小时，1小时后自动解封
 
 ### CDN流量监控告警（需自己部署，即将提供云函数定时任务模板）@cdnsecurewarn
 
