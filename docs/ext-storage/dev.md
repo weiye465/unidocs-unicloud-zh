@@ -334,6 +334,75 @@ return res;
 |errCode	|Number	|0 成功 其他均为失败|
 |errMsg	|String	|失败描述|
 
+## 以下API仅云端运行支持
+
+以下API暂不支持本地运行，只能云端运行才能调用
+
+### 获取域名列表@getdomains
+
+接口名：getDomains
+
+注意：获取的域名列表是账号绑定的所有域名
+
+**云端代码**
+
+```js
+const extStorageManager = uniCloud.getExtStorageManager({
+	provider: "qiniu",
+	domain: "example.com", // 此调用getDomains接口使，这里的域名可以随便填，不会生效，但不能为空
+});
+let { domains = [] } = await extStorageManager.getDomains();
+console.log('域名列表: ', domains);
+```
+
+#### 响应参数@getdomains-result
+
+|字段		|类型	|说明			|
+|:-:		|:-:	|:-				|
+|domains|Array| 域名列表	|
+
+### 获取TOP100统计数据@getcdntop
+
+接口名：getCdnTop
+
+注意：获取的域名列表是账号绑定的所有域名
+
+**云端代码**
+
+```js
+const extStorageManager = uniCloud.getExtStorageManager({
+	provider: "qiniu",
+	domain: "example.com", // 此调用getDomains接口使，这里的域名可以随便填，不会生效，但不能为空
+});
+// 获取域名
+let { domains = [] } = await extStorageManager.getDomains();
+// 查询 2024-05-12 日的TOP100统计数据
+let startDate = "2024-05-12";
+let endDate = "2024-05-12";
+let getCdnTopRes = await extStorageManager.getCdnTop({
+	type: 2, // 1 topURL 2 topIP
+	domains,
+	startDate,
+	endDate
+});
+console.log("TOP100统计数据: ", getCdnTopRes.data);
+```
+
+#### 请求参数@getcdntop-params
+
+|参数名		|类型		|必填	|默认值	|说明																								|
+|:-:			|:-:		|:-:	|:-:		|:-																									|
+|type			|Number	|是		|-			| 必填，查询类型，值为1代表查询topURL 值为2代表查询topIP	|
+|domains	|Array	|是		|-			| 必填，域名列表，总数不超过100条												|
+|startDate|String	|是		|-			| 必填，开始时间，格式为：2006-01-02。起止最大间隔为31天	|
+|endDate	|String	|是		|-			| 必填，结束时间，格式为：2006-01-02。起止最大间隔为31天	|
+
+#### 响应参数@getcdntop-result
+
+|字段	|类型	|说明			|
+|:-:	|:-:	|:-				|
+|data	|Array| TOP100统计数据	|
+
 ## 小程序域名白名单@mp-whitelist
 
 小程序需要添加域名白名单，否则无法正常使用
