@@ -2180,6 +2180,32 @@ https://web-ext-storage.dcloud.net.cn/unicloud/ext-storage/gogopher.png?qrcode
 
 ![](https://web-ext-storage.dcloud.net.cn/unicloud/ext-storage/gogopher.png?qrcode)
 
+## CDN安全防护能力@cdnsecure
+
+### 基础防御（无需申请）@cdnsecurebase
+
+1. referer防盗链设置：防止别人直接白嫖你的图片、视频等资源（可在uniCloud控制台设置）
+
+![](https://web-ext-storage.dcloud.net.cn/unicloud/ext-storage/171559505352924navhej8jg.png)
+
+2. ip黑名单设置：发现异常IP后可以拉黑（uniCloud控制台有提供IP top100查看，但不会自动拉黑，可以在uniCloud控制台操作拉黑）
+
+![](https://web-ext-storage.dcloud.net.cn/unicloud/ext-storage/17155951341825lkaliq963g.png)
+
+### 高级防御（需申请）@cdnsecureplus
+
+1. 全局带宽达到设置的封顶值，自动关站1-3小时
+2. 可限制单个IP在CDN单节点上的QPS（即每秒访问次数）
+
+申请方式：在 [扩展存储技术交流群](https://im.dcloud.net.cn/#/?joinGroup=65436862cc41b0763842cfc9) 里发送内容，我想申请七牛云CDN额外防御：全局带宽达到 xxx Gb/s，自动关站3小时，同时限制单个IP在CDN单节点上的QPS为10（即每秒访问次数）
+
+### CDN流量监控告警（需自己部署，即将提供云函数定时任务模板）@cdnsecurewarn
+
+1. 单个IP 每日流量阈值告警（单位：GB）
+2. 单个IP 每日访问次数阈值告警（单位：次）
+
+提示：通过 `getDomains` 和 `getCdnTop` 这两个API，结合云函数定时任务可以自己实现CDN流量监控告警功能，该告警功能的定时任务代码模板预计2024年5月17日之前发布
+
 ## 常见问题@question
 
 ### 运行报错，当前空间不支持provider:"qiniu"@q1
@@ -2588,28 +2614,6 @@ module.exports = {
 [qshell-下载地址](https://github.com/qiniu/qshell/tree/master)
 
 [qshell-本地文件同步教程](https://github.com/qiniu/qshell/blob/master/docs/qupload.md)
-
-### CDN防护能力
-
-#### 基础防御（无需申请）
-
-1. 防盗链设置：防止别的网站直接挂你的图片
-2. ip黑名单设置：发现异常IP后可以拉黑（控制台有提供IP top100查看，但不会自动拉黑， 可以在控制台操作拉黑）
-
-#### 额外防御（需申请）
-
-1. 全局带宽达到设置的封顶值，自动关站1-3小时
-2. 可限制单个IP在CDN单节点上的QPS（即每秒访问次数）
-
-申请方式：在 [扩展存储技术交流群](https://im.dcloud.net.cn/#/?joinGroup=65436862cc41b0763842cfc9) 里发送内容，我想申请七牛云CDN额外防御：全局带宽达到 xxx Gb/s，自动关站3小时，同时限制单个IP在CDN单节点上的QPS为10（即每秒访问次数）
-
-#### CDN流量监控告警（需自己部署，即将提供云函数定时任务模板）
-
-1. 单个IP 每日流量阈值告警（单位：GB）
-2. 单个IP 每日访问次数阈值告警（单位：次）
-
-提示：通过 `getDomains` 和 `getCdnTop` 这两个API，结合云函数定时任务可以自己实现CDN流量监控告警功能，该告警功能的定时任务代码模板预计2024年5月17日之前发布
-
 
 
 
