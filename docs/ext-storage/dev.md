@@ -2199,12 +2199,266 @@ https://web-ext-storage.dcloud.net.cn/unicloud/ext-storage/gogopher.png?qrcode
 
 申请方式：在 [扩展存储技术交流群](https://im.dcloud.net.cn/#/?joinGroup=65436862cc41b0763842cfc9) 里发送内容，我想申请七牛云CDN额外防御：同一个IP在10分钟内，同一个域名下载文件次数超过200次，封禁该IP 1小时，1小时后自动解封
 
-### CDN流量监控告警（需自己部署，即将提供云函数定时任务模板）@cdnsecurewarn
+### CDN流量监控告警（需自己部署，已提供云函数定时任务模板）@cdnsecurewarn
 
 1. 单个IP 每日流量阈值告警（单位：GB）
 2. 单个IP 每日访问次数阈值告警（单位：次）
 
 提示：通过 `getDomains` 和 `getCdnTop` 这两个API，结合云函数定时任务可以自己实现CDN流量监控告警功能，该告警功能的定时任务代码模板预计2024年5月17日之前发布
+
+#### 监控告警云函数模板@cdnsecurewarntemplate
+
+**安装教程**
+
+1. 新建一个云函数（注意选云函数，非云对象），名为：`ext-storage-cron`
+
+![](https://web-ext-storage.dcloud.net.cn/unicloud/ext-storage/1715603185670vbsdmt4h2j.png)
+
+2. 将下方代码复制到新建的云函数中
+```js
+'use strict';
+const uniCloudExtStorage = require("uni-cloud-ext-storage");
+
+const config = {
+	frequency: 0, // 执行频率，单位：分钟，可选值：0、15、30、60（只能是这4个值的其中一个，设置为0也代表每15分钟执行一次）
+	traffic: 10, // 单个IP 每日流量阈值（单位：GB）如果设置为0代表不限制
+	count: 1000000, // 单个IP 每日访问次数阈值（单位：次）如果设置为0代表不限制
+	sms: {
+		appid: "__UNI__XXXXXXX", // 修改成你的manifest.json里的appid
+		phone: "15200000001", // 修改成你自己的手机号
+		templateId: "uni_cdn_warn", // 无需修改，当然也可以改成你自己的短信模板id（uni_cdn_warn为公共短信模板id，无需申请即可使用，发送频率限制为10分钟内最大1次）
+	},
+	db: {
+		sendLog: "opendb-open-data", // 无需修改，当然也可以改成你自己的数据表名称
+	}
+};
+
+/**
+ * 发送告警信息函数，目前用的是发送短信，你也可以自己更改为发送邮件、微信公众号模板消息等其他方式
+ * @param {Object} list 告警列表
+ * @param {Object} requestId 本次定时任务的请求id（方便在云函数那查询日志）
+ */
+async function sendWarn(list, requestId) {
+	console.log("准备发送告警信息");
+	for (let i = 0; i < list.length; i++) {
+		console.log(`正在发送告警信息，当前进度${i+1}/${list.length}`);
+		let {
+			type, // 告警类型 traffic 流量 count 访问次数
+			domain, // 域名
+			ip, // IP
+			traffic, // 流量（单位：GB）
+			count, // 访问次数（单位：次）
+		} = list[i];
+		let logInfo = await getSendLog({ ip });
+		// 同一个IP在24小时内只发送一次告警信息
+		if (logInfo && logInfo.value && logInfo.value.send_time && Date.now() < (logInfo.value.send_time + 24 * 3600 * 1000)) {
+			console.log("该IP 24小时内已经发送过告警信息，不再发送");
+			continue;
+		}
+		try {
+			let sendSmsRes = await uniCloud.sendSms({
+				...config.sms,
+				data: {}
+			});
+			console.log('sendSmsRes: ', sendSmsRes);
+			if (sendSmsRes.errCode === 0) {
+				// 发送成功，记录该IP的发送时间
+				await setSendLog({
+					type,
+					domain,
+					ip,
+					traffic,
+					count,
+				});
+			}
+		} catch (err) {
+			// 调用失败
+			console.log("发送短信失败：", err)
+		}
+	}
+}
+// 以上代码可以修改-----------------------------------------------------------
+
+
+
+
+// 以下代码无需修改-----------------------------------------------------------
+
+// 查询发送告警信息的时间
+async function getSendLog(data) {
+	try {
+		let {
+			ip, // IP
+		} = data;
+		const db = uniCloud.database();
+		let nowTime = Date.now();
+		let dbRes = await db.collection(config.db.sendLog).doc(`ext-storage-warn:${ip}`).get();
+		return dbRes.data[0];
+	} catch (err) {
+		console.error('err: ', err)
+		return;
+	}
+}
+
+// 记录发送告警信息的时间
+async function setSendLog(data) {
+	try {
+		let {
+			type, // 告警类型 traffic 流量 count 访问次数
+			domain, // 域名
+			ip, // IP
+			traffic, // 流量（单位：GB）
+			count, // 访问次数（单位：次）
+		} = data;
+		const db = uniCloud.database();
+		let nowTime = Date.now();
+		let logInfo = await getSendLog({ ip });
+		if (!logInfo) {
+			logInfo = {
+				value: {
+					type,
+					domain,
+					ip,
+					traffic,
+					count,
+					send_count: 0,
+				},
+				expired: 0
+			}
+		}
+		logInfo.value.send_time = nowTime;
+		if (!logInfo.value.send_count) logInfo.value.send_count = 0;
+		logInfo.value.send_count++; // 记录该IP历史累加发送次数
+		delete logInfo._id;
+
+		// 1个IP只会存在一条记录
+		return await db.collection(config.db.sendLog).doc(`ext-storage-warn:${ip}`).set(logInfo);
+	} catch (err) {
+		console.error('err: ', err)
+		return;
+	}
+}
+
+// 查询今日CDN流量top100
+const extStorageManager = uniCloud.getExtStorageManager({
+	provider: "qiniu", // 扩展存储供应商
+	domain: "https://www.domain.com", // 此处的域名无需更改
+});
+
+exports.main = async (event, context) => {
+	let res = {};
+	let nowTime = Date.now();
+	// 获取当前分钟数
+	let minute = new Date(nowTime).getMinutes();
+	if (!config) {
+		throw new Error(`未找到相关配置信息`);
+	}
+	if (config.frequency > 0 && minute % config.frequency !== 0) {
+		console.log("未到执行时间");
+		return "未到执行时间";
+	}
+
+	// 时区8小时
+	let offset = 8 * 3600 * 1000;
+	let startDate = new Date(nowTime + offset).toISOString().split("T")[0];
+	let endDate = new Date(nowTime + offset).toISOString().split("T")[0];
+	// 获取我绑定的域名列表
+	let { domains = [] } = await extStorageManager.getDomains();
+	// 循环domains数组，查询每个域名的CDN流量top100
+	console.log(`当前查询日期：${startDate}`)
+	let warnList = [];
+	for (let i = 0; i < domains.length; i++) {
+		let domain = domains[i];
+		console.log(`正在查询域名：${domain}，当前进度${i+1}/${domains.length}`);
+		let getCdnTopRes = await getCdnTop({
+			domain,
+			startDate,
+			endDate,
+			requestId: context.request_id
+		});
+		warnList = warnList.concat(getCdnTopRes);
+	}
+	let warnListStr = warnList.map(item => `${item.domain}(${item.ip} : ${item.traffic}GB : ${item.count}次)`).join("、");
+	let msg = `共查询了${domains.length}个域名，触发告警的IP有${warnList.length}个`;
+	if (warnList.length > 0) {
+		msg += `，分别是：${warnListStr}`;
+	}
+	console.log('执行完毕: ', msg);
+	res.msg = msg;
+	return res;
+};
+
+async function getCdnTop(data = {}) {
+	let { domain, startDate, endDate, requestId } = data;
+	let getCdnTopRes = await extStorageManager.getCdnTop({
+		type: 2, // 1 topURL 2 topIP
+		domains: [domain],
+		startDate,
+		endDate
+	});
+	let list = getCdnTopRes.data;
+	//console.log('list: ', list)
+	let warnList = [];
+	for (let i = 0; i < list.length; i++) {
+		let item = list[i];
+		let traffic = parseFloat((item.traffic / 1024 / 1024 / 1024).toFixed(2)); // 流量（单位：GB）
+		let count = item.count; // 访问次数（单位：次）
+		if (config.traffic > 0 && traffic >= config.traffic) {
+			// 流量告警
+			console.log(`域名${domain}触发流量告警，告警IP为：${item.ip}`)
+			warnList.push({
+				type: "traffic",
+				domain,
+				ip: item.ip,
+				traffic,
+				count
+			})
+		} else if (config.count > 0 && count >= config.count) {
+			// 访问次数告警
+			console.log(`域名${domain}触发访问次数告警，告警IP为：${item.ip}`)
+			warnList.push({
+				type: "count",
+				domain,
+				ip: item.ip,
+				traffic,
+				count
+			})
+		}
+	}
+	if (warnList.length > 0) {
+		await sendWarn(warnList, requestId);
+	}
+	return warnList;
+}
+```
+3. 修改上面的配置信息
+4. 修改云函数的package.json文件，替换代码如下
+```js
+{
+  "name": "ext-storage-cron",
+  "extensions": {
+    "uni-cloud-sms": {},
+    "uni-cloud-ext-storage": {}
+  },
+  "cloudfunction-config": {
+    "concurrency": 1,
+    "memorySize": 512,
+    "path": "",
+    "timeout": 600,
+    "triggers": [
+      {
+        "name": "ext-storage-cron",
+        "type": "timer",
+        "config": "0 */15 * * * * *"
+      }
+    ],
+    "runtime": "Nodejs16"
+  }
+}
+```
+5. 上传云函数 `ext-storage-cron`，完成
+
+![](https://web-ext-storage.dcloud.net.cn/unicloud/ext-storage/17156030587837l8qksr5hf.png)
 
 ## 常见问题@question
 
