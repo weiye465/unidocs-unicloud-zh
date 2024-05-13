@@ -2197,7 +2197,7 @@ https://web-ext-storage.dcloud.net.cn/unicloud/ext-storage/gogopher.png?qrcode
 1. 全局带宽达到设置的封顶值，自动关站1-3小时
 2. 可限制单个IP在CDN单节点上的QPS（即每秒访问次数）
 
-申请方式：在 [扩展存储技术交流群](https://im.dcloud.net.cn/#/?joinGroup=65436862cc41b0763842cfc9) 里发送内容，我想申请七牛云CDN额外防御：全局带宽达到 xxx Gb/s，自动关站3小时，同时限制单个IP在CDN单节点上的QPS为10（即每秒访问次数）
+申请方式：在 [扩展存储技术交流群](https://im.dcloud.net.cn/#/?joinGroup=65436862cc41b0763842cfc9) 里发送内容，我想申请七牛云CDN额外防御：全局带宽达到 xxx Gbps，自动关站3小时，同时限制单个IP在CDN单节点上的QPS为10（即每秒访问次数）
 
 ### CDN流量监控告警（需自己部署，即将提供云函数定时任务模板）@cdnsecurewarn
 
