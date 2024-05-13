@@ -2435,6 +2435,9 @@ async function getCdnTop(data = {}) {
 }
 ```
 3. 修改上面的配置信息
+
+![](https://web-ext-storage.dcloud.net.cn/unicloud/ext-storage/17156042667632ukn4s04p2.png)
+
 4. 修改云函数的package.json文件，替换代码如下
 ```js
 {
