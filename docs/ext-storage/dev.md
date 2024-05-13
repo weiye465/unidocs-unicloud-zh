@@ -2215,6 +2215,9 @@ https://web-ext-storage.dcloud.net.cn/unicloud/ext-storage/gogopher.png?qrcode
 ![](https://web-ext-storage.dcloud.net.cn/unicloud/ext-storage/1715603185670vbsdmt4h2j.png)
 
 2. 将下方代码复制到新建的云函数中
+
+**注意：以下代码暂不支持本地运行，只能云端运行才能正常调用**
+
 ```js
 'use strict';
 const uniCloudExtStorage = require("uni-cloud-ext-storage");
