@@ -110,6 +110,7 @@
   * [uni-cms 内容管理](uni-cms.md)
   * [uni-ai-chat ai聊天示例](uni-ai-chat.md)
   * [uni-im 即时通信](uni-im.md)
+  * [uni-ad-admin](uni-ad-admin.md)
   * [uSearch 云端一体搜索](https://ext.dcloud.net.cn/plugin?id=3851)
   * [uni-captcha 图形验证码](uni-captcha.md)
   * [uni-sec-check 内容安全](uni-sec-check.md)
