@@ -74,6 +74,8 @@ module.exports = {
 |:-:							|:-:			|:-:	|:-:		|:-																														|
 |cloudPath				|String		|否		|-			|云端文件路径（不填会自动生成）																	|
 |allowUpdate			|Boolean	|否		| false	|是否允许覆盖更新 true：可覆盖 false：仅新增，不可覆盖							|
+|fsizeLimit			|Number	|否		| -	| 限定上传文件大小最大值，单位Byte。超过限制上传文件大小的最大值会被判为上传失败，返回 413 状态码。值最大为1GB				|
+
 
 #### 响应参数@getuploadfileoptions-result
 
