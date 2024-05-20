@@ -231,7 +231,7 @@ uniCloud的定价、套餐内容、服务SLA，是由云厂商直接公布的。
 
 ## 腾讯云@tencent
 
-**使用腾讯云Nodejs12版本时，务必仔细阅读此文档：[keepRunningAfterReturn](cf-functions.md?id=keep-running)**
+**使用腾讯云Nodejs12及以上版本时，务必仔细阅读此文档：[keepRunningAfterReturn](cf-functions.md?id=keep-running)**
 
 腾讯云于2022年8月12日更新了计费方式。
 

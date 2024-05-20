@@ -1494,7 +1494,7 @@ package.json是一个标准json文件，不可带注释。下面是一个package
 
 阿里云Nodejs8即将终止支持：终止支持阶段一：禁止新建（2024年06月01日）；终止支持阶段二：禁止新建和更新（2024年09月01日）。**终止支持不影响函数继续运行。建议您及时升级**。
 
-**使用腾讯云Nodejs12版本时，务必仔细阅读此文档：[keepRunningAfterReturn](#keep-running)**
+**使用腾讯云Nodejs12及以上版本时，务必仔细阅读此文档：[keepRunningAfterReturn](#keep-running)**
 
 #### 定时任务triggers@triggers
 
