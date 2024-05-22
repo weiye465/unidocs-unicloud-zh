@@ -2205,7 +2205,7 @@ https://web-ext-storage.dcloud.net.cn/unicloud/ext-storage/gogopher.png?qrcode
 1. 单个IP 每日流量阈值告警（单位：GB）
 2. 单个IP 每日访问次数阈值告警（单位：次）
 
-提示：通过 `getDomains` 和 `getCdnTop` 这两个API，结合云函数定时任务可以自己实现CDN流量监控告警功能，该告警功能的定时任务代码模板预计2024年5月17日之前发布
+提示：通过 `getDomains` 和 `getCdnTop` 这两个API，结合云函数定时任务可以自己实现CDN流量监控告警功能，该告警功能的定时任务代码模板如下所示
 
 #### 监控告警云函数模板@cdnsecurewarntemplate
 
@@ -2466,6 +2466,11 @@ async function getCdnTop(data = {}) {
 5. 上传云函数 `ext-storage-cron`，完成
 
 ![](https://web-ext-storage.dcloud.net.cn/unicloud/ext-storage/17156030587837l8qksr5hf.png)
+
+上传成功后，每15分钟定时任务会启动一次，可前往云函数 `ext-storage-cron` 查看运行日志
+
+![](https://web-ext-storage.dcloud.net.cn/unicloud/ext-storage/171636353762842tk5a0ardo.png)
+
 
 ## 常见问题@question
 
