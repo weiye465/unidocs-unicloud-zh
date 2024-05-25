@@ -7,7 +7,7 @@ Hello uniCloud，是一个示例，演示了 uniCloud 的各种能力。
 ### 体验示例
 这个示例目前只发布了h5版本和Android app版。
 
-Hello uniCloud部署了2套，分别连接uniCloud的阿里云版和腾讯云版。
+Hello uniCloud部署了3套，分别连接uniCloud的支付宝云版、阿里云版和腾讯云版。
 
 - h5版地址（发布在uniCloud的前端网页托管上）
 	* Hello uniCloud 支付宝云版地址：[https://hellounicloud.dcloud.net.cn/alipay/](https://hellounicloud.dcloud.net.cn/alipay/#/)
@@ -26,7 +26,7 @@ Hello uniCloud部署了2套，分别连接uniCloud的阿里云版和腾讯云版
 Hello uniCloud 的源码地址：[https://ext.dcloud.net.cn/plugin?id=4082](https://ext.dcloud.net.cn/plugin?id=4082)
 
 1. 在 HBuilderX 新建项目界面，选择uni-app项目，选择 Hello uniCloud 项目模板。
-	- 初次体验推荐阿里云，因为腾讯云的开户流程更复杂。
+	- 初次体验推荐支付宝云或阿里云，因为腾讯云的开户流程更复杂。
 	- 推荐使用vue3版本，因为编译速度更快。但注意不支持低版本Android。
 	<div align=center>
 	  <img src="https://qiniu-web-assets.dcloud.net.cn/unidoc/zh/202310242120336.png"/>
