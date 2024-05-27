@@ -42,7 +42,9 @@ const extStorageManager = uniCloud.getExtStorageManager({
 
 你可以在调用 extStorageManager.getUploadFileOptions 前执行一些自己的业务逻辑，判断用户是否有上传权限。
 
-**云端代码**
+**云端云对象代码**
+
+注意：如果是云函数，写法会略有不同，包括前端调用的代码，故建议使用云对象，跟文档更契合。
 
 ```js
 module.exports = {
