@@ -151,7 +151,7 @@ export default defineConfig({
 ```
 
 4. 配置Schema扩展Js的公共模块或扩展库
-由于uni-im的数据库的触发器依赖了`uni-im-utils`，需要在目录`uniCloud/database`右键 -> 选择“配置Schema扩展Js的公共模块或扩展库” -> 在选择项目的公共模块中找到`uni-im-utils`并勾选 -> 点击确定，完成配置。
+由于uni-im的数据库的触发器依赖了`uni-im-utils`，需要在目录`uniCloud/database`右键 -> 选择“配置Schema扩展Js的公共模块或扩展库” -> 在选择项目的公共模块中找到`uni-im-utils`并勾选 -> 点击确定，完成配置；然后在目录`uniCloud/database`右键 -> 上传Schema扩展Js的配置。
 
 5. 部署到uniCloud  
 对项目根目录uniCloud点右键，选择“云服务空间初始化向导” 按提示部署项目（注意：选择绑定的服务空间，须在uni-push2.0的[web控制台](https://dev.dcloud.net.cn/pages/app/push2/info)关联）
