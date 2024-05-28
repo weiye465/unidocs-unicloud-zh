@@ -158,14 +158,14 @@ export default defineConfig({
 
 6. 登录uni-im  
 
-	uni-im的服务端代码托管在uniCloud下，账户体系是[uni-id 4.0+](https://uniapp.dcloud.net.cn/uniCloud/uni-id/summary.html)的；
-	uni-app生态下绝大部分项目的架构与uni-im相同，所以不需要考虑账号打通问题，用户登录项目后，不需要额外登录uni-im。
+uni-im的服务端代码托管在uniCloud下，账户体系是[uni-id 4.0+](https://uniapp.dcloud.net.cn/uniCloud/uni-id/summary.html)的；
+uni-app生态下绝大部分项目的架构与uni-im相同，所以不需要考虑账号打通问题，用户登录项目后，不需要额外登录uni-im。
 
-	而有些传统项目，服务端的开发语言是php、java、go、.net、python、c#等，是自己设计的账号体系；
-  用户登录所获得的token，与uni-im所需的token不是同一个账号体系；
-  需要在传统服务器端，通过[uni-id的外部系统联登](./uni-id/cloud-object.md#external)同步你项目的账号数据到uni-im用户体系并获得uni-id的token，按如下示例代码完成登录。
+而有些传统项目，服务端的开发语言是php、java、go、.net、python、c#等，是自己设计的账号体系；
+用户登录所获得的token，与uni-im所需的token不是同一个账号体系；
+需要在传统服务器端，通过[uni-id的外部系统联登](./uni-id/cloud-object.md#external)同步你项目的账号数据到uni-im用户体系并获得uni-id的token，按如下示例代码完成登录。
 
-	```js
+```js
   import {mutations as uniIdMutations} from '@/uni_modules/uni-id-pages/common/store.js';
 	uni.request({
 		url: 'https://www.example.com/login', //仅为示例，并非真实接口地址。
@@ -205,44 +205,44 @@ export default defineConfig({
 		}
 	});
 
-	```
+```
 
-	其他情况：  
+其他情况：  
 
-	- 客户端如果不是uni-app的，如果是网页，可iframe内嵌。如果是原生app，可嵌入[uni小程序sdk](https://nativesupport.dcloud.net.cn/README)
+- 客户端如果不是uni-app的，如果是网页，可iframe内嵌。如果是原生app，可嵌入[uni小程序sdk](https://nativesupport.dcloud.net.cn/README)
 
-	- 不基于`uni-id-pages`的客户端代码，仅基于`uni-id-co`的项目，需要在登录成功和用户信息更新时，同步更新uniId store内的当前用户信息（uni-im显示当前用户头像、昵称时会用到）示例代码：
+- 不基于`uni-id-pages`的客户端代码，仅基于`uni-id-co`的项目，需要在登录成功和用户信息更新时，同步更新uniId store内的当前用户信息（uni-im显示当前用户头像、昵称时会用到）示例代码：
 
-	```js
-		//导入uniCloud客户端账户体系，用户信息状态管理模块
-		import {mutations as uniIdMutations} from '@/uni_modules/uni-id-pages/common/store.js';
-		await uniIdMutations.updateUserInfo()
-	```
-	- 基于老版uni-id(版本号：3.x) 开发的项目，需要如下改造：
-		1. 在登录成功和token续期后，绑定当前账号与设备推送标识的关联关系。示例代码：
+  ```js
+      //导入uniCloud客户端账户体系，用户信息状态管理模块
+      import {mutations as uniIdMutations} from '@/uni_modules/uni-id-pages/common/store.js';
+      await uniIdMutations.updateUserInfo()
+  ```
+- 基于老版uni-id(版本号：3.x) 开发的项目，需要如下改造：
+  1. 在登录成功和token续期后，绑定当前账号与设备推送标识的关联关系。示例代码：
 		
-	```js
-		const uniIdCo = uniCloud.importObject("uni-id-co", {customUI: true})
-		uni.getPushClientId({
-			success: async function(e) {
-				console.log(e)
-				let pushClientId = e.cid
-				let res = await uniIdCo.setPushCid({
-					pushClientId
-				})
-				console.log('getPushClientId', res);
-			},
-			fail(e) {
-				console.error(e)
-			}
-		})
-	```
-		2. 在登录成功和用户信息更新时，同步更新uniId store内的当前用户信息（uni-im显示当前用户头像、昵称时会用到）示例代码：
-	```js
-		//导入uniCloud客户端账户体系，用户信息状态管理模块
-		import {mutations as uniIdMutations} from '@/uni_modules/uni-id-pages/common/store.js';
-		await uniIdMutations.updateUserInfo()
-	```
+  ```js
+      const uniIdCo = uniCloud.importObject("uni-id-co", {customUI: true})
+      uni.getPushClientId({
+        success: async function(e) {
+          console.log(e)
+          let pushClientId = e.cid
+          let res = await uniIdCo.setPushCid({
+            pushClientId
+          })
+          console.log('getPushClientId', res);
+        },
+        fail(e) {
+          console.error(e)
+        }
+      })
+  ```
+  2. 在登录成功和用户信息更新时，同步更新uniId store内的当前用户信息（uni-im显示当前用户头像、昵称时会用到）示例代码：
+  ```js
+      //导入uniCloud客户端账户体系，用户信息状态管理模块
+      import {mutations as uniIdMutations} from '@/uni_modules/uni-id-pages/common/store.js';
+      await uniIdMutations.updateUserInfo()
+  ```
 
 7. 确保账户对接成功后，打开“用户列表页”，路径：`/uni_modules/uni-im/pages/userList/userList`可以看到所有的注册用户
 8. 点击某个用户，会自动创建与该用户的会话，并打开“聊天对话页”（路径：`/uni_modules/uni-im/pages/chat/chat`），然后就可以开始聊天了。
