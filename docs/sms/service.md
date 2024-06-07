@@ -10,9 +10,9 @@
 ![](https://qiniu-web-assets.dcloud.net.cn/unidoc/zh/sms/sms20230802-05.png)
 
 开通成功后的页面如下图所示：
-![](https://qiniu-web-assets.dcloud.net.cn/unidoc/zh/sms/sms20230802-07.png)
+![](https://web-ext-storage.dcloud.net.cn/unicloud/sms/sms_open.png)
 
-注意： 页面中显示的“账号 API 密钥”用于接口身份验证，此信息需要妥善保存，一旦泄漏可能会给您带来不必要的财务损失。
+
 
 ### 充值
 短信服务为预付费业务，在发送短信之前，需要先进行充值。点击页面上的“充值”按钮，可以选择预设金额进行充值，也可以选择自定义金额进行充值，充值金额最小为1元。
