@@ -250,7 +250,7 @@ interface ImportObjectOptions {
   /**
    * 使用安全网络的方法及安全网络类型
    */
-  secretMethods?: Record<string, keyof typeof SECRET_TYPE>;
+  secretMethods?: Record<string, 'none' | 'request' | 'response' | 'both'>;
   /**
    * 转化云对象内未捕获的错误或客户端网络错误
    */
