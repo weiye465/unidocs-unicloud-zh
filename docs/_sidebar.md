@@ -53,6 +53,8 @@
     * [费用说明](ext-storage/price.md)
     * [开通服务](ext-storage/service.md)
     * [开发文档](ext-storage/dev.md)
+* 资源用量监控&报警
+  * [支付宝云](monitor/alipay-monitor.md)
 * uni-id用户体系
   * [综述](./uni-id/summary.md)
   * [客户端-uni-app](./uni-id/app.md)
