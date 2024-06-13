@@ -1885,6 +1885,8 @@ https://web-ext-storage.dcloud.net.cn/unicloud/ext-storage/3.png
 https://web-ext-storage.dcloud.net.cn/unicloud/ext-storage/1.png?animate/duration/10/merge/key/dW5pY2xvdWQvZXh0LXN0b3JhZ2UvMi5wbmc=/key/dW5pY2xvdWQvZXh0LXN0b3JhZ2UvMy5wbmc=
 ```
 
+[](https://web-ext-storage.dcloud.net.cn/unicloud/ext-storage/1.png?animate/duration/10/merge/key/dW5pY2xvdWQvZXh0LXN0b3JhZ2UvMi5wbmc=/key/dW5pY2xvdWQvZXh0LXN0b3JhZ2UvMy5wbmc=)
+
 ### URL安全的Base64编码@urlsafebase64encode
 
 图片处理部分API会涉及到 `经过URL安全的Base64编码`，具体算法如下
