@@ -1835,6 +1835,7 @@ https://web-ext-storage.dcloud.net.cn/unicloud/ext-storage/gogopher1.png?waterma
 	- 支持的格式有 jpeg 和 png
 	- 支持的最大帧数为 20
 	- 支持的最大图片尺寸为 1080*1080
+	- 每张图的尺寸必须相同
 
 **接口规格**
 
