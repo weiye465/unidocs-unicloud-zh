@@ -8,7 +8,7 @@
 集成签到、抽奖、金币积分多种好玩的激励玩法，免费读书，广告变现。本书城系统可独立部署，也可作为插件集成至任何流量主APP。
 
 <a href="https://ext.dcloud.net.cn/plugin?id=5187" target="_blank">
-  <img width="400" src="https://img-cdn-aliyun.dcloud.net.cn/stream/plugin_screens/baker-app_0.jpg?image_process=quality,q_70&v=1622277334">
+  <img width="400" src="https://img-cdn-aliyun.dcloud.net.cn/stream/plugin_screens/baker-app_0.jpg">
 </a>
 
 - [中国教育发布(中国教育部官方App )](http://xwapp.moe.gov.cn/h5/sharepage/download.html)[详见报道](http://www.moe.gov.cn/jyb_xwfb/gzdt_gzdt/s5987/202009/t20200904_485105.html)
