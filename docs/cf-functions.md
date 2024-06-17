@@ -676,10 +676,10 @@ clientInfos = [{
 > HBuilderX 4.21版本客户端上传clientInfo信息时不会将所有信息都传到云端。具体字段白名单如下：`'appId', 'appLanguage', 'appName', 'appVersion', 'appVersionCode', 'appWgtVersion',
     'browserName', 'browserVersion',
     'deviceBrand', 'deviceId', 'deviceModel', 'deviceType',
-    'osAndroidAPILevel', 'osLanguage', 'osName', 'osTheme', 'osVersion',
+    'osName', 'osVersion',
     'romName', 'romVersion', 'ua',
-    'hostName', 'hostVersion', 'hostLanguage', 'hostTheme', 'hostPackageName', 'hostSDKVersion',
-    'uniCompileVersion', 'uniPlatform', 'uniRuntimeVersion', 'uniRuntimeVersionCode', 'uniCompilerVersion', 'uniCompilerVersionCode'`
+    'hostName', 'hostVersion',
+    'uniPlatform', 'uniRuntimeVersion', 'uniRuntimeVersionCode', 'uniCompilerVersion', 'uniCompilerVersionCode'`
 
 getClientInfos返回的信息，是在客户端的[uni.getSystemInfo](https://uniapp.dcloud.net.cn/api/system/info#getsysteminfo)的基础之上，增加了一些额外的信息。
 
