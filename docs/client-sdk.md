@@ -29,6 +29,7 @@ uniCloud分为客户端和云端两部分，有些接口名称相同，参数也
 |uniCloud.offRefreshToken()		|移除监听token更新事件 [详情](#off-refresh-token)								|
 |uniCloud.initSecureNetworkByWeixin()		|在微信小程序安全网络请求发送之前与云函数握手 [详情](#init-secure-network-by-weixin)								|
 |uniCloud.getFileInfo()		|阿里云迁移服务空间到商用版时，使用公测版云存储链接获取商用版云存储链接 [详情](./storage/dev.md#get-file-info)								|
+|uniCloud.setCustomClientInfo()		|设置自定义clientInfo字段 [详情](#set-custom-client-info)								|
 
 ### 获取当前用户信息getCurrentUserInfo@client-getcurrentuserinfo
 
@@ -457,6 +458,20 @@ uniCloud.offRefreshToken(log)
 
 - 发送安全网络请求前uniCloud客户端sdk会判断是否完成初始化，如未完成会等待完成后再发送安全网络请求。
 - 需要确保安全网络请求在此方法调用后执行
+
+### 设置自定义clientInfo字段@set-custom-client-info
+
+> 新增于 4.21
+
+用于设置自定义clientInfo字段，此字段会在云函数调用时传递给云函数。**设置的自定义clientInfo无法覆盖默认的clientInfo，只能为clientInfo新增字段，无法修改字段。**调用此接口后，所有的云函数、云对象、clientDB请求都会在clientInfo内携带此字段。
+
+**示例**
+
+```js
+uniCloud.setCustomClientInfo({
+  customField: 'customValue'
+})
+```
 
 ## 属性
 

@@ -654,6 +654,14 @@ uniCloud.getRequestList()
 
 ### 获取客户端信息列表@get-client-infos
 
+> HBuilderX 4.21版本客户端上传clientInfo信息时不会将所有信息都传到云端。具体字段白名单如下：`'appId', 'appLanguage', 'appName', 'appVersion', 'appVersionCode', 'appWgtVersion',
+    'browserName', 'browserVersion',
+    'deviceBrand', 'deviceId', 'deviceModel', 'deviceType',
+    'osName', 'osVersion',
+    'romName', 'romVersion', 'ua',
+    'hostName', 'hostVersion',
+    'uniPlatform', 'uniRuntimeVersion', 'uniRuntimeVersionCode', 'uniCompilerVersion', 'uniCompilerVersionCode'`。如需让客户端上传更多clientInfo字段到云端，可以使用客户端api：[uniCloud.setCustomClientInfo](client-sdk.md#set-custom-client-info)
+
 同理，考虑到单实例多并发，`uniCloud.getClientInfos()`获取客户端信息也是一个数组。
 
 ```js
@@ -672,14 +680,6 @@ clientInfos = [{
 如未开启单实例多并发，那么数组只有1项。单实例多并发场景下返回正在并发的所有请求的客户端信息列表。
 
 **返回值**
-
-> HBuilderX 4.21版本客户端上传clientInfo信息时不会将所有信息都传到云端。具体字段白名单如下：`'appId', 'appLanguage', 'appName', 'appVersion', 'appVersionCode', 'appWgtVersion',
-    'browserName', 'browserVersion',
-    'deviceBrand', 'deviceId', 'deviceModel', 'deviceType',
-    'osName', 'osVersion',
-    'romName', 'romVersion', 'ua',
-    'hostName', 'hostVersion',
-    'uniPlatform', 'uniRuntimeVersion', 'uniRuntimeVersionCode', 'uniCompilerVersion', 'uniCompilerVersionCode'`
 
 getClientInfos返回的信息，是在客户端的[uni.getSystemInfo](https://uniapp.dcloud.net.cn/api/system/info#getsysteminfo)的基础之上，增加了一些额外的信息。
 
@@ -750,7 +750,6 @@ cloudInfos = [{
 在不考虑单实例多并发时，也可以直接使用uniCloud的getRequestList、getClientInfos、getCloudInfos方法中第一个数组项。
 
 或者在云对象的this和云函数的context里获取相关上下文信息也可以。
-
 
 ## 扩展库@extension
 
