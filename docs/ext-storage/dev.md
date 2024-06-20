@@ -2201,9 +2201,9 @@ https://web-ext-storage.dcloud.net.cn/unicloud/ext-storage/gogopher.png?qrcode
 
 ### 额外防御（需申请）@cdnsecureplus
 
-1. 同一个IP在10分钟内，同一个域名下，CDN单节点下载文件次数超过200次，封禁该IP 1小时，1小时后自动解封（最大封禁3小时）
+1. 同一个IP在1分钟内，同一个域名下，CDN单节点下载文件次数超过200次，封禁该IP 1小时，1小时后自动解封（最大封禁3小时）
 
-申请方式：在 [扩展存储技术交流群](https://im.dcloud.net.cn/#/?joinGroup=65436862cc41b0763842cfc9) 里发送内容，我想申请七牛云CDN额外防御：同一个IP在10分钟内，同一个域名下，CDN单节点下载文件次数超过200次，封禁该IP 1小时，1小时后自动解封
+申请方式：在 [扩展存储技术交流群](https://im.dcloud.net.cn/#/?joinGroup=65436862cc41b0763842cfc9) 里发送内容，我想申请七牛云CDN额外防御：同一个IP在1分钟内，同一个域名下，CDN单节点下载文件次数超过200次，封禁该IP 1小时，1小时后自动解封
 
 ### CDN流量监控告警（需自己部署，已提供云函数定时任务模板）@cdnsecurewarn
 
