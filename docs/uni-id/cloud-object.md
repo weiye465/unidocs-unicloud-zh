@@ -2113,7 +2113,7 @@ class Sign {
 
 	getSignature (params, nonce, timestamp) {
 		const paramsStr = this.getParamsString(params)
-		const signature = crypto.createHmac('sha256', `${requestAuthSecret}${nonce}`).update(`${timestamp}${paramsStr}`).digest('hex')
+		const signature = crypto.createHmac('sha256', `${this.requestAuthSecret}${nonce}`).update(`${timestamp}${paramsStr}`).digest('hex')
 
 		return signature.toUpperCase()
 	}
