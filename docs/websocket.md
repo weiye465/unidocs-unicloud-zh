@@ -6,6 +6,8 @@
 
 WebSocket 是一种协议，可通过单个 TCP 连接在网络客户端与网络服务器之间提供全双工通信通道。WebSocket 协议使用 HTTP 协议在客户端与服务器之间建立连。
 
+云函数WebSocket运行原理为客户端请求WebSocket服务器，由WebSocket服务器处理连接后转发给指定的云函数，调用云函数内不同的WebSocket事件完成事件触发与执行。
+
 ## WebSocket 事件
 >
 > WebSocket 支持在云函数与云对象中使用。
@@ -34,14 +36,14 @@ module.exports = {
 
 **入参参数**
 
-event
+**event**
 
 |参数|类型|说明|
 |---|---|---|
 |connectionId|`String`|连接ID|
 |query|`Object`|请求时的query参数|
 
-context
+**context**
 
 云函数 context [参考](https://doc.dcloud.net.cn/uniCloud/cf-callfunction.html#context)
 
