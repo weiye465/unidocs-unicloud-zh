@@ -157,7 +157,7 @@ module.exports = {
 
 返回值: `WebSocketServer`
 
-### <WebSocketServer.send@uniCloud.ws.send>
+### WebSocketServer.send@uniCloud.ws.send
 >
 > 从云函数/云对象中像客户端发送消息
 
@@ -200,7 +200,7 @@ exports.onWebsocketMessage = async function (event) {
 
 ```
 
-### <WebSocketServer.close@uniCloud.ws.close>
+### WebSocketServer.close@uniCloud.ws.close
 >
 > 在云函数/云对象中关闭连接
 
@@ -234,7 +234,7 @@ exports.onWebsocketMessage = async function (event) {
 
 ```
 
-### <WebSocketServer.signedURL@uniCloud.ws.signedURL>
+### WebSocketServer.signedURL@uniCloud.ws.signedURL
 >
 > 在云函数/云对象中生成WebSocket连接地址
 
