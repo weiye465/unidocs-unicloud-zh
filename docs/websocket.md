@@ -153,12 +153,18 @@ module.exports = {
 
 ## 云函数 uniCloud API
 
-### uniCloud.ws.send
+用法：`const ws = uniCloud.webSocketServer()`
+
+返回值: `WebSocketServer`
+
+### <WebSocketServer.send@uniCloud.ws.send>
 >
 > 从云函数/云对象中像客户端发送消息
 
 ```javascript
-await uniCloud.ws.send(connectionId, sendData)
+const ws = uniCloud.webSocketServer()
+
+await ws.send(connectionId, sendData)
 ```
 
 **参数说明**
@@ -175,30 +181,33 @@ await uniCloud.ws.send(connectionId, sendData)
 
 exports.onWebsocketMessage = async function (event) {
     const { connectionId, payload } = event
+    const ws = uniCloud.webSocketServer()
 
     // 发送给单个客户端
-    await uniCloud.ws.send(connectionId, `receive:${payload}`)
+    await ws.send(connectionId, `receive:${payload}`)
 
     // 发送给多个客户端
-    await uniCloud.ws.send([connectionId1, connectionId2, ...], `receive:${payload}`)
+    await ws.send([connectionId1, connectionId2, ...], `receive:${payload}`)
 
     // 发送给客户端对象数据，发送时会自动JSON.stringify
-    await uniCloud.ws.send(connectionId, {
+    await ws.send(connectionId, {
         receive: payload
     })
 
     // 发送给客户端二进制数据
-    await uniCloud.ws.send(connectionId, Buffer.from(`receive:${payload}`))
+    await ws.send(connectionId, Buffer.from(`receive:${payload}`))
 }
 
 ```
 
-### uniCloud.ws.close
+### <WebSocketServer.close@uniCloud.ws.close>
 >
 > 在云函数/云对象中关闭连接
 
 ```javascript
-await uniCloud.ws.close(connectionId)
+const ws = uniCloud.webSocketServer()
+
+await ws.close(connectionId)
 ```
 
 **参数说明**
@@ -214,24 +223,27 @@ await uniCloud.ws.close(connectionId)
 
 exports.onWebsocketMessage = async function (event) {
     const { connectionId, payload } = event
+    const ws = uniCloud.webSocketServer()
 
     // 关闭单个客户端连接
-    await uniCloud.ws.close(connectionId)
+    await ws.close(connectionId)
 
     // 批量关闭客户端连接
-    await uniCloud.ws.close([connectionId1, connectionId2, ...])
+    await ws.close([connectionId1, connectionId2, ...])
 }
 
 ```
 
-### uniCloud.ws.signedURL
+### <WebSocketServer.signedURL@uniCloud.ws.signedURL>
 >
 > 在云函数/云对象中生成WebSocket连接地址
 
 在客户端没有使用 uniCloud SDK 时，可以通过 URL 化在云端生成 WebSocket 连接地址。
 
 ```javascript
-await uniCloud.ws.signedURL(name, query)
+const ws = uniCloud.webSocketServer()
+
+await ws.signedURL(name, query)
 ```
 
 **参数说明**
@@ -248,7 +260,9 @@ WebSocket 连接地址
 **示例**
 
 ```javascript
-await uniCloud.ws.signedURL("exampleWebSocket", {
+const ws = uniCloud.webSocketServer()
+
+await ws.signedURL("exampleWebSocket", {
     key: "val"
 })
 ```
