@@ -2,7 +2,7 @@
 
 > 本文档适用于客户端为 `uni-app` 且 `uni-pay 2.0.0` 及以上版本，需 HBuilderX 3.6.5 及以上版本。旧版本文档请访问：[uni-pay 1.x 文档](./uni-pay-common.md)
 
-> 若客户端为 `uni-app-x` 则请访问：[uni-pay-x 文档](./uni-app-x.md) 
+> 若客户端为 `uni-app-x` 则请访问：[uni-pay-x 文档](./uni-app-x.md)
 
 ## 简介@introduction
 
@@ -38,7 +38,7 @@
 
 - 页面
 	+ 支付收银台组件（让用户选择付款渠道） [组件详情](#uni-pay-component)
-	+ 支付成功结果页（可配置uni-ad广告，增加开发者收益）[uni-AD 广告联盟](https://uniad.dcloud.net.cn/login)
+	+ 支付成功结果页（可配置uni-ad广告，增加开发者收益）[uni-ad 广告联盟](https://uniad.dcloud.net.cn/login)
 
 - 云对象（[uni-pay-co](#uni-pay-co)）
 	+ 微信支付
@@ -2426,7 +2426,7 @@ this.$refs.pay.createOrder({
 				<view><input v-model.number="wxpay_virtual.buy_quantity" /></view>
 			</view>
 		</template>
-		
+
 		<button @click="createOrder('wxpay-virtual')">发起微信虚拟支付</button>
 
 		<button @click="getOrderPopup(true)">查询支付状态</button>
@@ -2510,7 +2510,7 @@ this.$refs.pay.createOrder({
 			}
 		},
 		onLoad(options = {}) {
-			
+
 		},
 		methods: {
 			/**
@@ -2623,7 +2623,7 @@ this.$refs.pay.createOrder({
 			// 监听事件 - 支付订单创建成功（此时用户还未支付）
 			onCreate(res) {
 				console.log('create: ', res);
-				
+
 			},
 			// 监听事件 - 支付成功
 			onSuccess(res) {
@@ -2794,7 +2794,7 @@ this.$refs.pay.createOrder({
 			},
 		},
 		computed: {
-		
+
 		},
 	}
 </script>

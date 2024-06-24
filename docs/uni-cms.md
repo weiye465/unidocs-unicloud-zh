@@ -590,7 +590,7 @@ export default {
 
 ![](https://qiniu-web-assets.dcloud.net.cn/unidoc/zh/202304121447261.png)
 
-3. 在 uni-AD Web 控制台，找到广告位，点击配置激励视频，展开当前广告位项，可看到生成的 `Security key` 与`adp id`，复制 `Security key` 与 `adp id`
+3. 在 uni-ad Web 控制台，找到广告位，点击配置激励视频，展开当前广告位项，可看到生成的 `Security key` 与`adp id`，复制 `Security key` 与 `adp id`
 
 ![](https://qiniu-web-assets.dcloud.net.cn/unidoc/zh/202304121448549.png)
 
@@ -695,4 +695,3 @@ export default {
 <input type="checkbox" disabled /> 支持评论
 
 <input type="checkbox" disabled /> 支持收藏
-
