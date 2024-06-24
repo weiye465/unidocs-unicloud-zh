@@ -6,7 +6,7 @@
 
 WebSocket 是一种协议，可通过单个 TCP 连接在网络客户端与网络服务器之间提供全双工通信通道。WebSocket 协议使用 HTTP 协议在客户端与服务器之间建立连。
 
-云函数WebSocket运行原理为客户端请求WebSocket服务器，由WebSocket服务器处理连接后转发给指定的云函数，调用云函数内不同的WebSocket事件完成事件触发与执行。
+云函数WebSocket运行原理为客户端请求WebSocket网关，由WebSocket网关处理连接后转发给指定的云函数，调用云函数内不同的WebSocket事件完成事件触发与执行。
 
 ## WebSocket 事件
 >
@@ -189,7 +189,7 @@ exports.onWebsocketMessage = async function (event) {
     // 发送给多个客户端
     await ws.send([connectionId1, connectionId2, ...], `receive:${payload}`)
 
-    // 发送给客户端对象数据，发送时会自动JSON.stringify
+    // 发送给客户端对象数据，发送时会自动JSON.stringify为字符串后发送
     await ws.send(connectionId, {
         receive: payload
     })
