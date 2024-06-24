@@ -166,7 +166,7 @@ await uniCloud.ws.send(connectionId, sendData)
 |参数|类型|说明|
 |---|---|---|
 |connectionId|`String` `Array`|客户端连接ID, 支持批量向客户端发送消息|
-|sendData|`String` `Object` `Buffer`|发送给客户端的消息内容|
+|sendData|`String` `Buffer`|发送给客户端的消息内容|
 
 **示例**
 
@@ -182,7 +182,7 @@ exports.onWebsocketMessage = async function (event) {
     // 发送给多个客户端
     await uniCloud.ws.send([connectionId1, connectionId2, ...], `receive:${payload}`)
 
-    // 发送给客户端对象数据
+    // 发送给客户端对象数据，发送时会自动JSON.stringify
     await uniCloud.ws.send(connectionId, {
         receive: payload
     })
