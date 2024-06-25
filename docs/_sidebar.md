@@ -12,6 +12,7 @@
   * [云公共模块](cf-common.md)
   * [定时触发](trigger.md)
   * [云函数URL化](http.md)
+  * [WebSocket](websocket.md)
   * [IP防刷](ip-filter.md)
   * [安全网络](secure-network.md)
   * [云函数请求中的中间状态通知通道](sse-channel.md)
