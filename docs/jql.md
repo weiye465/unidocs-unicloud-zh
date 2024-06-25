@@ -2289,7 +2289,7 @@ const res = await db.collection('table1').groupBy('field1,field2').groupField('s
 
 groupBy内也可以使用数据库运算方法对数据进行处理，为方便书写，clientDB内将数据库运算方法的用法进行了简化（相对于云函数内使用数据库运算方法而言）。用法请参考：[数据库运算方法](jql.md?id=aggregate-operator)
 
-groupField内可以使用分组运算方法对分组结果进行统计，所有可用的累计方法请参考[分组运算方法](jql.md?id=accumulator)，下面以sum（求和）和avg（求均值）为例介绍如何使用
+groupField内可以使用分组运算方法对分组结果进行统计，所有可用的累积方法请参考[分组运算方法](jql.md?id=accumulator)，下面以sum（求和）和avg（求均值）为例介绍如何使用
 
 使用sum方法可以对数据进行求和统计。以上述数据为例，如下写法对不同班级进行分数统计
 
