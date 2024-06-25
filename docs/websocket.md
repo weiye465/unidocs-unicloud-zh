@@ -269,6 +269,8 @@ await ws.signedURL("exampleWebSocket", {
 
 ## 客户端 uniCloud API
 
+> uni-app-x 尚未支持
+
 ### uniCloud.connectWebSocket
 
 快速连接 WebSocket 服务
