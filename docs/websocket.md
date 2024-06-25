@@ -159,7 +159,7 @@ module.exports = {
 
 ### WebSocketServer.send@uniCloud.ws.send
 >
-> 从云函数/云对象中像客户端发送消息
+> 从云函数/云对象中向客户端发送消息
 
 ```javascript
 const ws = uniCloud.webSocketServer()
@@ -189,7 +189,7 @@ exports.onWebsocketMessage = async function (event) {
     // 发送给多个客户端
     await ws.send([connectionId1, connectionId2, ...], `receive:${payload}`)
 
-    // 发送给客户端对象数据，发送时会自动JSON.stringify为字符串后发送
+    // 发送给客户端对象数据，发送时会自动JSON.stringify为字符串
     await ws.send(connectionId, {
         receive: payload
     })
