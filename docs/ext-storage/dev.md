@@ -33,8 +33,8 @@ const extStorageManager = uniCloud.getExtStorageManager({
 |:-:					|:-:		|:-:	|:-:		|:-																									|
 |provider			|String	|是		|-			|必填，扩展存储供应商，可选<br/>qiniu: 七牛云						|
 |domain				|String	|是		|-			|必填，扩展储存域名（域名地址）如：example.com					|
-|bucketName		|String	|否		|-			|选填，扩展储存的bucket名称，不填会自动从绑定的空间中获取	|
-|bucketSecret	|String	|否		|-			|选填，扩展储存的bucket密钥，不填会自动从绑定的空间中获取	|
+|bucketName		|String	|否		|-			|选填，扩展储存的bucket名称，不填会自动从绑定的空间中获取（此参数当前仅云端运行时生效）	|
+|bucketSecret	|String	|否		|-			|选填，扩展储存的bucket密钥，不填会自动从绑定的空间中获取（此参数当前仅云端运行时生效）	|
 
 ### 获取前端上传参数@getuploadfileoptions
 
