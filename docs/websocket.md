@@ -1,6 +1,6 @@
 # WebSocket
 
-> 仅支付宝云云端支持
+> 仅支付宝云(云端)支持
 
 很多情况下需要实时进行网络互动，例如游戏、通信、金融交易和其他高吞吐量活动。
 
@@ -296,7 +296,7 @@ uniCloud.connectWebSocket({
 **示例**
 
 ```javascript
-const exampleWebSocket = uniCloud.connectWebSocket({
+const exampleWebSocket = await uniCloud.connectWebSocket({
     name: "exampleWebSocket",
     query: {
         key: "val"
@@ -314,7 +314,7 @@ exampleWebSocket.onMessage(event => {
 })
 
 // 连接被关闭时触发
-exampleWebSocket.onClose(event) => {
+exampleWebSocket.onClose(event => {
     console.log("WebSocket:close", event)
 })
 
