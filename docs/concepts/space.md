@@ -144,6 +144,7 @@ function init(options):uniCloud
 |   secretKey   | String  |  是  |                                              -                                              |         仅支付宝云支持, 可以在[uniCloud控制台](https://unicloud.dcloud.net.cn)服务空间详情中查看         |
 |  spaceAppId   | String  |  是  |                                              -                                              |         仅支付宝云支持, 可以在[uniCloud控制台](https://unicloud.dcloud.net.cn)服务空间详情中查看         |
 |  endpoint		   | String	 | 否		 | 阿里云：`https://api.bspapp.com`；<br/> 支付宝云：`https://{spaceId}.api-hz.cloudbasefunction.cn`	 | 服务空间地址，仅阿里云与支付宝云支持。<br /> 阿里云商用版请将此参数设为`https://api.next.bspapp.com`														 |
+|  wsEndpoint		   | String	 | 否		 | `wss://{spaceId}.api-hz.cloudbasefunction.cn`	 | websocket网关地址，支付宝云支持。													 |
 
 **示例代码**
 
