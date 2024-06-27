@@ -156,6 +156,32 @@ uni.chooseImage({
 
 **云端代码**
 
+将网络图片转为Buffer上传到扩展存储
+
+```js
+const extStorageManager = uniCloud.getExtStorageManager({
+	provider: "qiniu",
+	domain: "example.com", // 域名地址
+});
+let imageBuffer = await uniCloud.request({
+	url: "https://www.xxx.com/a.jpg",
+	method: "GET",
+	responseType: "buffer",
+	header: {
+		"cache-control": "no-cache",
+	}
+});
+		
+let res = await extStorageManager.uploadFile({
+	cloudPath: `${Date.now()}.png`, // 云端文件名，不填则自动生成
+	fileContent: imageBuffer.data, // 要上传的文件内容
+	allowUpdate: false, // 是否允许覆盖
+});
+console.log('uploadFile: ', res);
+```
+
+将base64转为Buffer上传到扩展存储
+
 ```js
 const extStorageManager = uniCloud.getExtStorageManager({
 	provider: "qiniu",
