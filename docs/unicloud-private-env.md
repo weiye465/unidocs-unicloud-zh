@@ -284,8 +284,8 @@ mkdir [SpaceId]
 |mongodb|Object|-|mongo数据库连接配置|
 |mongodb.url|String|-|mongo数据库连接|
 |mongodb.database|String|-|数据库名称|
-|mongodb.maxPoolSize|Number|30|最大连接数|
-|mongodb.minPoolSize|Number|10|最小连接数|
+|mongodb.maxPoolSize|Number|100|最大连接数|
+|mongodb.minPoolSize|Number|0|最小连接数|
 |storage|Object|-|存储服务配置|
 |storage.provider|String|local|服务商 支持local:本地存储 aliyun: 阿里云存储服务 tencent:腾讯云存储服务 qiniu:七牛云|
 |storage.dir|String|file/upload|文件上传目录|
