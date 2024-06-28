@@ -1635,17 +1635,21 @@ https://web-ext-storage.dcloud.net.cn/unicloud/ext-storage/gogopher.png
 ![](https://web-ext-storage.dcloud.net.cn/unicloud/ext-storage/gogopher.png)
 
 - 水印图片
-	- imageurl = https://web-ext-storage.dcloud.net.cn/unicloud/ext-storage/uniCloud.jpg
-	- encodedimageurl = aHR0cHM6Ly93ZWItZXh0LXN0b3JhZ2UuZGNsb3VkLm5ldC5jbi91bmljbG91ZC9leHQtc3RvcmFnZS91bmlDbG91ZC5qcGc=
+	- imageurl = `https://web-ext-storage.dcloud.net.cn/unicloud/ext-storage/uniCloud.jpg`
+	- encodedimageurl = `aHR0cHM6Ly93ZWItZXh0LXN0b3JhZ2UuZGNsb3VkLm5ldC5jbi91bmljbG91ZC9leHQtc3RvcmFnZS91bmlDbG91ZC5qcGc=`
 - 水印透明度: 50% (dissolve=50)
 - 水印位置: 右下角 (gravity=SouthEast)
 - 横向边距: 20px
 - 纵向边距: 20px
 - 水印图片自适应短边比例：0.2
 
+最终拼接得到图片URL如下
+
 ```
 https://web-ext-storage.dcloud.net.cn/unicloud/ext-storage/gogopher.png?watermark/1/image/aHR0cHM6Ly93ZWItZXh0LXN0b3JhZ2UuZGNsb3VkLm5ldC5jbi91bmljbG91ZC9leHQtc3RvcmFnZS91bmlDbG91ZC5qcGc=/dissolve/50/gravity/SouthEast/dx/20/dy/20/ws/0.2
 ```
+
+效果展示
 
 ![](https://web-ext-storage.dcloud.net.cn/unicloud/ext-storage/gogopher.png?watermark/1/image/aHR0cHM6Ly93ZWItZXh0LXN0b3JhZ2UuZGNsb3VkLm5ldC5jbi91bmljbG91ZC9leHQtc3RvcmFnZS91bmlDbG91ZC5qcGc=/dissolve/50/gravity/SouthEast/dx/20/dy/20/ws/0.2)
 
@@ -1732,47 +1736,63 @@ https://web-ext-storage.dcloud.net.cn/unicloud/ext-storage/gogopher1.png
 
 编码/ 添加盲水印（version/3)
 
-- 水印图片cloudPath：unicloud/ext-storage/uniCloud.png
-- 水印图片encodedImageKey：dW5pY2xvdWQvZXh0LXN0b3JhZ2UvdW5pQ2xvdWQucG5n
+- 水印图片cloudPath：`unicloud/ext-storage/uniCloud.png`
+- 水印图片encodedImageKey：`dW5pY2xvdWQvZXh0LXN0b3JhZ2UvdW5pQ2xvdWQucG5n`
+
+最终拼接得到图片URL如下
 
 ```
 https://web-ext-storage.dcloud.net.cn/unicloud/ext-storage/gogopher1.png?watermark/5/version/3/method/encode/imageKey/dW5pY2xvdWQvZXh0LXN0b3JhZ2UvdW5pQ2xvdWQucG5n
 ```
 
+效果展示
+
 ![](https://web-ext-storage.dcloud.net.cn/unicloud/ext-storage/gogopher1.png?watermark/5/version/3/method/encode/imageKey/dW5pY2xvdWQvZXh0LXN0b3JhZ2UvdW5pQ2xvdWQucG5n)
 
 解码/ 提取盲水印（version/3)
 
-- 水印图片cloudPath：unicloud/ext-storage/uniCloud.png
-- 水印图片encodedImageKey：dW5pY2xvdWQvZXh0LXN0b3JhZ2UvdW5pQ2xvdWQucG5n
+- 水印图片cloudPath：`unicloud/ext-storage/uniCloud.png`
+- 水印图片encodedImageKey：`dW5pY2xvdWQvZXh0LXN0b3JhZ2UvdW5pQ2xvdWQucG5n`
+
+最终拼接得到图片URL如下
 
 ```
 https://web-ext-storage.dcloud.net.cn/unicloud/ext-storage/gogopher1.png?watermark/5/version/3/method/encode/imageKey/dW5pY2xvdWQvZXh0LXN0b3JhZ2UvdW5pQ2xvdWQucG5n|watermark/5/version/3/method/decode
 ```
 
+效果展示
+
 ![](https://web-ext-storage.dcloud.net.cn/unicloud/ext-storage/gogopher1.png?watermark/5/version/3/method/encode/imageKey/dW5pY2xvdWQvZXh0LXN0b3JhZ2UvdW5pQ2xvdWQucG5n|watermark/5/version/3/method/decode)
 
 编码/ 添加盲水印（version/2)
 
-- 水印图片cloudPath：unicloud/ext-storage/u.png
-- 水印图片encodedImageKey：dW5pY2xvdWQvZXh0LXN0b3JhZ2UvdW5pQ2xvdWQucG5n
+- 水印图片cloudPath：`unicloud/ext-storage/u.png`
+- 水印图片encodedImageKey：`dW5pY2xvdWQvZXh0LXN0b3JhZ2UvdW5pQ2xvdWQucG5n`
+
+最终拼接得到图片URL如下
 
 ```
 https://web-ext-storage.dcloud.net.cn/unicloud/ext-storage/gogopher1.png?watermark/5/version/2/method/encode/imageKey/dW5pY2xvdWQvZXh0LXN0b3JhZ2UvdS5wbmc=
 ```
 
+效果展示
+
 ![](https://web-ext-storage.dcloud.net.cn/unicloud/ext-storage/gogopher1.png?watermark/5/version/2/method/encode/imageKey/dW5pY2xvdWQvZXh0LXN0b3JhZ2UvdS5wbmc=)
 
 解码/ 提取盲水印（version/2)
 
-- 水印图片cloudPath：unicloud/ext-storage/u.png
-- 水印图片encodedImageKey：dW5pY2xvdWQvZXh0LXN0b3JhZ2UvdW5pQ2xvdWQucG5n
-- 原图cloudPath：unicloud/ext-storage/gogopher1.png
-- 原图encodedImage：dW5pY2xvdWQvZXh0LXN0b3JhZ2UvZ29nb3BoZXIxLnBuZw==
+- 水印图片cloudPath：`unicloud/ext-storage/u.png`
+- 水印图片encodedImageKey：`dW5pY2xvdWQvZXh0LXN0b3JhZ2UvdW5pQ2xvdWQucG5n`
+- 原图cloudPath：`unicloud/ext-storage/gogopher1.png`
+- 原图encodedImage：`dW5pY2xvdWQvZXh0LXN0b3JhZ2UvZ29nb3BoZXIxLnBuZw==`
+
+最终拼接得到图片URL如下
 
 ```
 https://web-ext-storage.dcloud.net.cn/unicloud/ext-storage/gogopher1.png?watermark/5/version/2/method/encode/imageKey/dW5pY2xvdWQvZXh0LXN0b3JhZ2UvdS5wbmc=|watermark/5/version/2/method/decode/orignal/dW5pY2xvdWQvZXh0LXN0b3JhZ2UvZ29nb3BoZXIxLnBuZw==
 ```
+
+效果展示
 
 ![](https://web-ext-storage.dcloud.net.cn/unicloud/ext-storage/gogopher1.png?watermark/5/version/2/method/encode/imageKey/dW5pY2xvdWQvZXh0LXN0b3JhZ2UvdS5wbmc=|watermark/5/version/2/method/decode/orignal/dW5pY2xvdWQvZXh0LXN0b3JhZ2UvZ29nb3BoZXIxLnBuZw==)
 
@@ -1835,47 +1855,63 @@ https://web-ext-storage.dcloud.net.cn/unicloud/ext-storage/gogopher1.png
 
 编码/ 添加盲水印（version/3)
 
-- 文本原文：123456
-- 文本encodedText：MTIzNDU2
+- 文本原文：`123456`
+- 文本encodedText：`MTIzNDU2`
+
+最终拼接得到图片URL如下
 
 ```
 https://web-ext-storage.dcloud.net.cn/unicloud/ext-storage/gogopher1.png?watermark/6/version/3/method/encode/text/MTIzNDU2
 ```
 
+效果展示
+
 ![](https://web-ext-storage.dcloud.net.cn/unicloud/ext-storage/gogopher1.png?watermark/6/version/3/method/encode/text/MTIzNDU2)
 
 解码/ 提取盲水印（version/3)
 
-- 文本原文：123456
-- 文本encodedText：MTIzNDU2
+- 文本原文：`123456`
+- 文本encodedText：`MTIzNDU2`
+
+最终拼接得到图片URL如下
 
 ```
 https://web-ext-storage.dcloud.net.cn/unicloud/ext-storage/gogopher1.png?watermark/6/version/3/method/encode/text/MTIzNDU2|watermark/6/version/3/method/decode
 ```
 
+效果展示
+
 ![](https://web-ext-storage.dcloud.net.cn/unicloud/ext-storage/gogopher1.png?watermark/6/version/3/method/encode/text/MTIzNDU2|watermark/6/version/3/method/decode)
 
 编码/ 添加盲水印（version/2)
 
-- 文本原文：123456
-- 文本encodedText：MTIzNDU2
+- 文本原文：`123456`
+- 文本encodedText：`MTIzNDU2`
+
+最终拼接得到图片URL如下
 
 ```
 https://web-ext-storage.dcloud.net.cn/unicloud/ext-storage/gogopher1.png?watermark/6/version/2/method/encode/text/MTIzNDU2
 ```
 
+效果展示
+
 ![](https://web-ext-storage.dcloud.net.cn/unicloud/ext-storage/gogopher1.png?watermark/6/version/2/method/encode/text/MTIzNDU2)
 
 解码/ 提取盲水印（version/2)
 
-- 文本原文：123456
-- 文本encodedText：MTIzNDU2
-- 原图cloudPath：unicloud/ext-storage/gogopher1.png
-- 原图encodedImage：dW5pY2xvdWQvZXh0LXN0b3JhZ2UvZ29nb3BoZXIxLnBuZw==
+- 文本原文：`123456`
+- 文本encodedText：`MTIzNDU2`
+- 原图cloudPath：`unicloud/ext-storage/gogopher1.png`
+- 原图encodedImage：`dW5pY2xvdWQvZXh0LXN0b3JhZ2UvZ29nb3BoZXIxLnBuZw==`
+
+最终拼接得到图片URL如下
 
 ```
 https://web-ext-storage.dcloud.net.cn/unicloud/ext-storage/gogopher1.png?watermark/6/version/2/method/encode/text/MTIzNDU2|watermark/6/version/2/method/decode/orignal/dW5pY2xvdWQvZXh0LXN0b3JhZ2UvZ29nb3BoZXIxLnBuZw==
 ```
+
+效果展示
 
 ![](https://web-ext-storage.dcloud.net.cn/unicloud/ext-storage/gogopher1.png?watermark/6/version/2/method/encode/text/MTIzNDU2|watermark/6/version/2/method/decode/orignal/dW5pY2xvdWQvZXh0LXN0b3JhZ2UvZ29nb3BoZXIxLnBuZw==)
 
