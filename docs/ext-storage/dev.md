@@ -1732,8 +1732,8 @@ https://web-ext-storage.dcloud.net.cn/unicloud/ext-storage/gogopher1.png
 
 编码/ 添加盲水印（version/3)
 
-水印图片cloudPath：unicloud/ext-storage/uniCloud.png
-水印图片encodedImageKey：dW5pY2xvdWQvZXh0LXN0b3JhZ2UvdW5pQ2xvdWQucG5n
+- 水印图片cloudPath：unicloud/ext-storage/uniCloud.png
+- 水印图片encodedImageKey：dW5pY2xvdWQvZXh0LXN0b3JhZ2UvdW5pQ2xvdWQucG5n
 
 ```
 https://web-ext-storage.dcloud.net.cn/unicloud/ext-storage/gogopher1.png?watermark/5/version/3/method/encode/imageKey/dW5pY2xvdWQvZXh0LXN0b3JhZ2UvdW5pQ2xvdWQucG5n
@@ -1743,6 +1743,9 @@ https://web-ext-storage.dcloud.net.cn/unicloud/ext-storage/gogopher1.png?waterma
 
 解码/ 提取盲水印（version/3)
 
+- 水印图片cloudPath：unicloud/ext-storage/uniCloud.png
+- 水印图片encodedImageKey：dW5pY2xvdWQvZXh0LXN0b3JhZ2UvdW5pQ2xvdWQucG5n
+
 ```
 https://web-ext-storage.dcloud.net.cn/unicloud/ext-storage/gogopher1.png?watermark/5/version/3/method/encode/imageKey/dW5pY2xvdWQvZXh0LXN0b3JhZ2UvdW5pQ2xvdWQucG5n|watermark/5/version/3/method/decode
 ```
@@ -1751,8 +1754,8 @@ https://web-ext-storage.dcloud.net.cn/unicloud/ext-storage/gogopher1.png?waterma
 
 编码/ 添加盲水印（version/2)
 
-水印图片cloudPath：unicloud/ext-storage/u.png
-水印图片encodedImageKey：dW5pY2xvdWQvZXh0LXN0b3JhZ2UvdW5pQ2xvdWQucG5n
+- 水印图片cloudPath：unicloud/ext-storage/u.png
+- 水印图片encodedImageKey：dW5pY2xvdWQvZXh0LXN0b3JhZ2UvdW5pQ2xvdWQucG5n
 
 ```
 https://web-ext-storage.dcloud.net.cn/unicloud/ext-storage/gogopher1.png?watermark/5/version/2/method/encode/imageKey/dW5pY2xvdWQvZXh0LXN0b3JhZ2UvdS5wbmc=
@@ -1762,10 +1765,10 @@ https://web-ext-storage.dcloud.net.cn/unicloud/ext-storage/gogopher1.png?waterma
 
 解码/ 提取盲水印（version/2)
 
-水印图片cloudPath：unicloud/ext-storage/u.png
-水印图片encodedImageKey：dW5pY2xvdWQvZXh0LXN0b3JhZ2UvdW5pQ2xvdWQucG5n
-原图cloudPath：unicloud/ext-storage/gogopher1.png
-原图encodedImage：dW5pY2xvdWQvZXh0LXN0b3JhZ2UvZ29nb3BoZXIxLnBuZw==
+- 水印图片cloudPath：unicloud/ext-storage/u.png
+- 水印图片encodedImageKey：dW5pY2xvdWQvZXh0LXN0b3JhZ2UvdW5pQ2xvdWQucG5n
+- 原图cloudPath：unicloud/ext-storage/gogopher1.png
+- 原图encodedImage：dW5pY2xvdWQvZXh0LXN0b3JhZ2UvZ29nb3BoZXIxLnBuZw==
 
 ```
 https://web-ext-storage.dcloud.net.cn/unicloud/ext-storage/gogopher1.png?watermark/5/version/2/method/encode/imageKey/dW5pY2xvdWQvZXh0LXN0b3JhZ2UvdS5wbmc=|watermark/5/version/2/method/decode/orignal/dW5pY2xvdWQvZXh0LXN0b3JhZ2UvZ29nb3BoZXIxLnBuZw==
@@ -1832,8 +1835,8 @@ https://web-ext-storage.dcloud.net.cn/unicloud/ext-storage/gogopher1.png
 
 编码/ 添加盲水印（version/3)
 
-文本原文：123456
-文本encodedText：MTIzNDU2
+- 文本原文：123456
+- 文本encodedText：MTIzNDU2
 
 ```
 https://web-ext-storage.dcloud.net.cn/unicloud/ext-storage/gogopher1.png?watermark/6/version/3/method/encode/text/MTIzNDU2
@@ -1843,6 +1846,9 @@ https://web-ext-storage.dcloud.net.cn/unicloud/ext-storage/gogopher1.png?waterma
 
 解码/ 提取盲水印（version/3)
 
+- 文本原文：123456
+- 文本encodedText：MTIzNDU2
+
 ```
 https://web-ext-storage.dcloud.net.cn/unicloud/ext-storage/gogopher1.png?watermark/6/version/3/method/encode/text/MTIzNDU2|watermark/6/version/3/method/decode
 ```
@@ -1851,8 +1857,8 @@ https://web-ext-storage.dcloud.net.cn/unicloud/ext-storage/gogopher1.png?waterma
 
 编码/ 添加盲水印（version/2)
 
-文本原文：123456
-文本encodedText：MTIzNDU2
+- 文本原文：123456
+- 文本encodedText：MTIzNDU2
 
 ```
 https://web-ext-storage.dcloud.net.cn/unicloud/ext-storage/gogopher1.png?watermark/6/version/2/method/encode/text/MTIzNDU2
@@ -1862,10 +1868,10 @@ https://web-ext-storage.dcloud.net.cn/unicloud/ext-storage/gogopher1.png?waterma
 
 解码/ 提取盲水印（version/2)
 
-文本原文：123456
-文本encodedText：MTIzNDU2
-原图cloudPath：unicloud/ext-storage/gogopher1.png
-原图encodedImage：dW5pY2xvdWQvZXh0LXN0b3JhZ2UvZ29nb3BoZXIxLnBuZw==
+- 文本原文：123456
+- 文本encodedText：MTIzNDU2
+- 原图cloudPath：unicloud/ext-storage/gogopher1.png
+- 原图encodedImage：dW5pY2xvdWQvZXh0LXN0b3JhZ2UvZ29nb3BoZXIxLnBuZw==
 
 ```
 https://web-ext-storage.dcloud.net.cn/unicloud/ext-storage/gogopher1.png?watermark/6/version/2/method/encode/text/MTIzNDU2|watermark/6/version/2/method/decode/orignal/dW5pY2xvdWQvZXh0LXN0b3JhZ2UvZ29nb3BoZXIxLnBuZw==
