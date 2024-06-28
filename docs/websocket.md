@@ -269,7 +269,12 @@ await ws.signedURL("exampleWebSocket", {
 
 ## 客户端 uniCloud API
 
-> uni-app-x 尚未支持
+:::warning uni-app-x 连接 WebSocket 说明
+
+uni-app-x WebSocket API 暂未实现，仅影响客户端无法生成WebSocket连接地址，
+可以通过云端API -> [signedURL](https://doc.dcloud.net.cn/uniCloud/websocket.html#unicloud-ws-signedurl) 生成连接地址后，使用 [uni.connectSocket](https://uniapp.dcloud.net.cn/api/request/websocket.html) 连接到 WebSocket 服务
+
+:::
 
 ### uniCloud.connectWebSocket
 
