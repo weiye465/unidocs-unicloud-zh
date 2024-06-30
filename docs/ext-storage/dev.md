@@ -2321,7 +2321,6 @@ https://web-ext-storage.dcloud.net.cn/unicloud/ext-storage/gogopher.png?qrcode
 
 ```js
 'use strict';
-const uniCloudExtStorage = require("uni-cloud-ext-storage");
 
 const config = {
 	frequency: 0, // 执行频率，单位：分钟，可选值：0、15、30、60（只能是这4个值的其中一个，设置为0也代表每15分钟执行一次）
@@ -2503,10 +2502,14 @@ async function getCdnTop(data = {}) {
 	let list = getCdnTopRes.data;
 	//console.log('list: ', list)
 	let warnList = [];
+	let totalTraffic = 0;
+	let totalCount = 0;
 	for (let i = 0; i < list.length; i++) {
 		let item = list[i];
 		let traffic = parseFloat((item.traffic / 1024 / 1024 / 1024).toFixed(2)); // 流量（单位：GB）
 		let count = item.count; // 访问次数（单位：次）
+		totalTraffic += item.traffic;
+		totalCount += count;
 		if (config.traffic > 0 && traffic >= config.traffic) {
 			// 流量告警
 			console.log(`域名${domain}触发流量告警，告警IP为：${item.ip}`)
@@ -2528,6 +2531,9 @@ async function getCdnTop(data = {}) {
 				count
 			})
 		}
+	}
+	if (totalTraffic > 0 || totalCount > 0) {
+		console.log(`域名${domain} TOP100 总流量：${parseFloat((totalTraffic / 1024 / 1024 / 1024).toFixed(6))}GB，共请求${totalCount}次`);
 	}
 	if (warnList.length > 0) {
 		await sendWarn(warnList, requestId);
