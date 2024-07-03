@@ -1,3 +1,7 @@
+#### 2024-07-03
+* 修复 4.22版本引出的支付宝云 WebSocket 默认连接地址不是 wss 协议的Bug [详情](https://issues.dcloud.net.cn/pages/issues/detail?id=2725)
+* 优化 上传网页前端托管上传速度及上传稳定性，减少上传失败的情况
+
 #### 2024-06-24
 * 【重要】新增 支付宝云支持 WebSocket [详情](https://doc.dcloud.net.cn/uniCloud/websocket.html)
 * 修复 支付宝云 uni-app-x ios 端请求在某些情况下云函数报错的Bug [详情](https://ask.dcloud.net.cn/question/193076)
