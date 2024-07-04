@@ -243,9 +243,11 @@ return res;
 
 #### 请求参数@gettempfileurl-params
 
-|参数名		|类型		|必填	|默认值	|说明																														|
-|:-:			|:-:		|:-:	|:-:		|:-																														|
-|fileList	|Array	|是		|-			|文件地址列表，数组内元素值类型支持（fileID、cloudPath、fileURL）<br/>如："qiniu://test.jpg" "test.jpg" "https://example.com/test.jpg" 均表示同一个文件		|
+|参数名		|类型		|必填	|默认值	|说明																																																																							|
+|:-:			|:-:		|:-:	|:-:		|:-																																																																								|
+|fileList	|Array	|是		|-			|文件地址列表，数组内元素值类型支持（fileID、cloudPath、fileURL）<br/>如："qiniu://test.jpg" "test.jpg" "https://example.com/test.jpg" 均表示同一个文件	|
+|expiresIn|Number	|否		|3600		|有效期，单位秒，默认1小时																																																														|
+
 
 #### 响应参数@gettempfileurl-result
 
