@@ -942,7 +942,7 @@ db.command.aggregate.in([<value>, <array>])
  
 ```js
 const $ = db.command.aggregate
-let res = await db.collection('price').aggregate()
+let res = await db.collection('shops').aggregate()
   .project({
     included: $.in(['ice cream', '$topsellers'])
   })
