@@ -261,9 +261,11 @@ exports.main = async function (event){
 | 应用所有者账号信息异常，请检查账号uni一键登录服务是否正常| 包含了不必要的参数（apiKey、apiSecret），请删除这两个参数 |
 | apiKey值不可为空 |1.检查HBuilderX版本为3.94及以上 2.  如下插件需要升级后才不会检查apiKey、apiSecret必填，如果使用uni-id公共模块需要更新到3.3.31版本，如果使用uni-id-pages需要更新到1.1.17版本，如果使用了uni-starter需要更新到2.1.6版本|
 | 获取手机号失败，请稍后重试| 请加群反馈，[加群方式见“常见问题”下方](https://uniapp.dcloud.net.cn/univerify.html#question)| 
+
 **一键登录Demo项目**
 - uni-id-pages（适用于uni-app的uni-id客户端）[详情查看](./uni-id/app.md)
 - uni-id-pages-x（适用于[uni-app x](https://doc.dcloud.net.cn/uni-app-x/)的uni-id客户端）[详情查看](./uni-id/app-x.md)
+
 **其他问题**
 
 [查看详情](https://uniapp.dcloud.net.cn/univerify.html#question)
