@@ -2995,5 +2995,20 @@ module.exports = {
 
 [qshell-本地文件同步教程](https://github.com/qiniu/qshell/blob/master/docs/qupload.md)
 
+### 私有文件如何使用图片处理?@q6
 
+在调用 getTempFileURL 的时候，fileList 内带上图片处理参数即可
 
+**云端代码**
+
+```js
+const extStorageManager = uniCloud.getExtStorageManager({
+	provider: "qiniu",
+	domain: "example.com", // 域名地址
+});
+let res = extStorageManager.getTempFileURL({
+	fileList: ["qiniu://test.jpg?imageMogr2/thumbnail/!20p"], // 文件地址列表
+});
+console.log('getTempFileURL: ', res);
+return res;
+```
