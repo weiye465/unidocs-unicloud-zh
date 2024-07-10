@@ -84,7 +84,7 @@ v1.0.3起提供了商业化能力，与uni-ai对话消耗积分。
 <img width="500px" src="https://qiniu-web-assets.dcloud.net.cn/unidoc/zh/uni-ai-chat/uni-ai-chat-create-adpid.jpg">
 
 	**微信小程序端注意**：
-	- 参考：[uniAD微信小程序广告开通指南](https://ask.dcloud.net.cn/article/39928)开通广告后会自动创建广告位
+	- 参考：[uni-ad微信小程序广告开通指南](https://ask.dcloud.net.cn/article/39928)开通广告后会自动创建广告位
 	- 广告服务器回调，提前条件：详情查看[https://uniapp.dcloud.net.cn/uni-ad/ad-rewarded-video.html#callbackweixin](https://uniapp.dcloud.net.cn/uni-ad/ad-rewarded-video.html#callbackweixin)
 
 3. 配置广告位唯一标识（adpid）
@@ -223,7 +223,7 @@ module.exports = async (obj) => {
   请参考文档：[云函数通过https访问其他服务器时出现“certificate has expired”](faq.md#lets-encrypt-cert)
 
 - **错误信息："Wx0e203209e27b1e66 插件未授权使用 添加插住(env: Windows,mp,1.06.2303060；1ib: 2.31.1)"**
-  请参考文档：[uniAD微信小程序广告开通指南](https://ask.dcloud.net.cn/article/39928)
+  请参考文档：[uni-ad微信小程序广告开通指南](https://ask.dcloud.net.cn/article/39928)
 
 ## 其他
 DCloud基于`uni-ai`提供了很多开源模板，除了本项目`uni-ai-chat`，还有：
