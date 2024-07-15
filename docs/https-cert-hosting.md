@@ -6,7 +6,7 @@
 为云函数自定义域名和静态站点自定义域名的HTTPS 证书提供自动监测与更新功能。当证书接近有效期时，将自动执行域名验证并生成新证书，无需您手动替换，节省您的证书维护时间。
 
 ## 使用指南
- 1. 在[uniCloud控制台](https://unicloud.dcloud.net.cn "uniCloud控制台") --> 服务空间详情 --> 扩展服务 --> HTTPS证书托管页面单击**新增证书**。
+ 1. 在[uniCloud控制台](https://unicloud.dcloud.net.cn "uniCloud控制台") --> 支付宝云服务空间详情 --> 扩展服务 --> HTTPS证书托管页面单击**新增证书**。
  
  ![](https://web-ext-storage.dcloud.net.cn/unicloud/https/cert_list.png)
  
