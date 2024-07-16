@@ -27,7 +27,7 @@ const extStorageManager = uniCloud.getExtStorageManager({
 });
 ```
 
-#### 请求参数@getextstoragemanager-params
+**请求参数**
 
 |参数名				|类型		|必填	|默认值	|说明																								|
 |:-:					|:-:		|:-:	|:-:		|:-																									|
@@ -72,7 +72,7 @@ module.exports = {
 }
 ```
 
-#### 请求参数@getuploadfileoptions-params
+**请求参数**
 
 |参数名						|类型			|必填	|默认值	|说明																														|
 |:-:							|:-:			|:-:	|:-:		|:-																														|
@@ -80,8 +80,7 @@ module.exports = {
 |allowUpdate			|Boolean	|否		| false	|是否允许覆盖更新 true：可覆盖 false：仅新增，不可覆盖							|
 |fsizeLimit			|Number	|否		| -	| 限定上传文件大小最大值，单位Byte。超过限制上传文件大小的最大值会被判为上传失败，返回 413 状态码。值最大为1GB				|
 
-
-#### 响应参数@getuploadfileoptions-result
+**响应参数**
 
 |字段							|类型		|说明																											|
 |:-:							|:-:		|:-																											|
@@ -203,7 +202,7 @@ let res = await extStorageManager.uploadFile({
 console.log('uploadFile: ', res);
 ```
 
-#### 请求参数@uploadfile-params
+**请求参数**
 
 |参数名			|类型		|必填	|默认值	|说明																							|
 |:-:				|:-:		|:-:	|:-:		|:-																							|
@@ -211,7 +210,7 @@ console.log('uploadFile: ', res);
 |cloudPath	|String	|否		|-			|云端文件路径（不填会自动生成）										|
 |allowUpdate			|Boolean|否		| false	|是否允许覆盖更新 true：可覆盖 false：仅新增，不可覆盖|
 
-#### 响应参数@uploadfile-result
+**响应参数**
 
 |字段							|类型		|说明																											|
 |:-:							|:-:		|:-																											|
@@ -241,7 +240,7 @@ console.log('getTempFileURL: ', res);
 return res;
 ```
 
-#### 请求参数@gettempfileurl-params
+**请求参数**
 
 |参数名		|类型		|必填	|默认值	|说明																																																																							|
 |:-:			|:-:		|:-:	|:-:		|:-																																																																								|
@@ -249,7 +248,7 @@ return res;
 |expiresIn|Number	|否		|3600		|有效期，单位秒，默认1小时																																																														|
 
 
-#### 响应参数@gettempfileurl-result
+**响应参数**
 
 |字段							|类型		|说明																											|
 |:-:							|:-:		|:-																											|
@@ -285,13 +284,13 @@ console.log('getTempFileURL: ', res);
 return res;
 ```
 
-#### 请求参数@downloadfile-params
+**请求参数**
 
 |参数名		|类型		|必填	|默认值	|说明																														|
 |:-:			|:-:		|:-:	|:-:		|:-																														|
 |fileID		|String	|是		|-			|待下载的文件，该字段支持的值类型：fileID、cloudPath、fileURL <br/>如："qiniu://test.jpg" "test.jpg" "https://example.com/test.jpg" 均表示同一个文件	|
 
-#### 响应参数@downloadfile-result
+**响应参数**
 
 |字段							|类型		|说明																											|
 |:-:							|:-:		|:-																											|
@@ -318,13 +317,13 @@ console.log('deleteFile: ', res);
 return res;
 ```
 
-#### 请求参数@deletefile-params
+**请求参数**
 
 |参数名		|类型		|必填	|默认值	|说明																														|
 |:-:			|:-:		|:-:	|:-:		|:-																													|
 |fileList	|Array	|是		|-			|文件地址列表，数组内元素值类型支持（fileID、cloudPath、fileURL）<br/>如："qiniu://test.jpg" "test.jpg" "https://example.com/test.jpg" 均表示同一个文件	|
 
-#### 响应参数@deletefile-result
+**响应参数**
 
 |字段			|类型	|说明									|
 |:-:			|:-:	|:-									|
@@ -353,7 +352,7 @@ console.log('updateFileStatus: ', res);
 return res;
 ```
 
-#### 请求参数@updatefilestatus-params
+**请求参数**
 
 |参数名		|类型		|必填	|默认值	|说明																							|
 |:-:			|:-:		|:-:	|:-:		|:-																							|
@@ -361,7 +360,7 @@ return res;
 |isPrivate|Boolean|是		|-			|true 设为私有权限 false 设为公共读权限						|
 
 
-#### 响应参数@updatefilestatus-result
+**响应参数**
 
 |字段	|类型		|说明								|
 |:-:	|:-:		|:-								|
@@ -389,7 +388,7 @@ let { domains = [] } = await extStorageManager.getDomains();
 console.log('域名列表: ', domains);
 ```
 
-#### 响应参数@getdomains-result
+**响应参数**
 
 |字段		|类型	|说明			|
 |:-:		|:-:	|:-				|
@@ -422,7 +421,7 @@ let getCdnTopRes = await extStorageManager.getCdnTop({
 console.log("TOP100统计数据: ", getCdnTopRes.data);
 ```
 
-#### 请求参数@getcdntop-params
+**请求参数**
 
 |参数名		|类型		|必填	|默认值	|说明																								|
 |:-:			|:-:		|:-:	|:-:		|:-																									|
@@ -431,7 +430,7 @@ console.log("TOP100统计数据: ", getCdnTopRes.data);
 |startDate|String	|是		|-			| 必填，开始时间，格式为：2006-01-02。起止最大间隔为31天	|
 |endDate	|String	|是		|-			| 必填，结束时间，格式为：2006-01-02。起止最大间隔为31天	|
 
-#### 响应参数@getcdntop-result
+**响应参数**
 
 |字段	|类型	|说明			|
 |:-:	|:-:	|:-				|
@@ -2616,11 +2615,140 @@ async function getCdnTop(data = {}) {
 
 可以通过云函数或云对象开启URL化的方式来获取前端上传参数，拿到上传参数后即可通过uni.uploadFile（或其他三方请求库）上传文件
 
-相关文档：
+具体步骤
 
-[获取前端上传参数](https://doc.dcloud.net.cn/uniCloud/ext-storage/dev.html#getuploadfileoptions)
+1. 新建一个云对象 `ext-storage-co`，其中 `index.obj.js` 代码如下（如果已经有了，则忽略此步骤）
 
-[云函数URL化](https://doc.dcloud.net.cn/uniCloud/http.html)
+![](https://web-ext-storage.dcloud.net.cn/unicloud/ext-storage/464.png)
+
+```js
+const provider = "qiniu";
+module.exports = {
+	_before: function() {
+
+	},
+	getUploadFileOptions(data = {}) {
+		let {
+			cloudPath,
+			domain,
+		} = data;
+		// 可以在此先判断下此路径是否允许上传等逻辑
+		// ...
+
+		let prefix = "public/"; // 上传文件的目录前缀，比如上传到 public 目录下，这里填写 public/
+
+		// 然后获取 extStorageManager 对象实例
+		const extStorageManager = uniCloud.getExtStorageManager({
+			provider, // 扩展存储供应商
+			domain, // 自定义域名
+		});
+		// 最后调用 extStorageManager.getUploadFileOptions
+		let uploadFileOptionsRes = extStorageManager.getUploadFileOptions({
+			cloudPath: prefix + cloudPath, // 上传文件的云端路径
+			allowUpdate: false, // 是否允许覆盖更新，如果会返回给前端，建议设置false，代表仅新增，不可覆盖（防止文件被意外替换），如果仅服务端直接交互，可以根据业务需要设置为true
+		});
+		return uploadFileOptionsRes;
+	}
+}
+```
+
+2. 替换新建的云对象的 `package.json` 文件，内容如下
+
+```js
+{
+	"name": "ext-storage-co",
+	"dependencies": {},
+	"extensions": {
+		"uni-cloud-ext-storage": {}
+	},
+	"cloudfunction-config": {
+		"concurrency": 1,
+		"memorySize": 512,
+		"keepRunningAfterReturn": false,
+		"path": "/http/ext-storage-co",
+		"timeout": 60,
+		"triggers": [],
+		"runtime": "Nodejs16"
+	}
+}
+```
+
+3. 上传云对象 `ext-storage-co`
+
+![](https://web-ext-storage.dcloud.net.cn/unicloud/ext-storage/1711446854423jpkc04uahvo.png)
+
+4. 前往[uniCloud控制台](https://unicloud.dcloud.net.cn/)进入对应空间详情-云函数/云对象-ext-storage-co详情-复制URL化地址
+
+![](https://web-ext-storage.dcloud.net.cn/unicloud/ext-storage/d9660618-2ba6-4483-9c15-2090392d316f.png)
+
+![](https://web-ext-storage.dcloud.net.cn/unicloud/ext-storage/09f633e3-be18-4b74-8ae3-5be76169c96b.png)
+
+5. 通过HTTP的GET请求方式请求拿到的云对象内的getUploadFileOptions函数拿到上传参数
+
+请求地址为：刚复制URL化地址 + `/getUploadFileOptions`
+
+如 `https://fc-mp-xxxx.next.bspapp.com/http/ext-storage-co/getUploadFileOptions`
+
+6. 通过上传参数内的上传地址和上传token，再通过HTTP的POST请求上传文件
+
+下方的代码用了 axios 作为请求库，这里需要替换成你自己用的请求库
+
+```js
+// TODO 这里的 tokenUrl 需要改成你的自己的云对象 ext-storage-co 的 getUploadFileOptions 的URL化地址
+let tokenUrl = 'https://fc-mp-xxxx.next.bspapp.com/http/ext-storage-co/getUploadFileOptions';
+axios({
+	method: "GET",
+	url: tokenUrl,
+	params: {
+		domain: "cdn.xxx.com", // TODO 改成你七牛绑定的域名
+		cloudPath: `test/${Date.now()}.jpg`, // 文件路径（可自己定义文件名规则）
+	}
+})
+.then((res) => {
+	let uploadFileOptionsRes = res.data;
+	console.log('then-uploadFileOptionsRes: ', uploadFileOptionsRes)
+	let url = uploadFileOptionsRes.uploadFileOptions.url; // 上传地址
+	let name = uploadFileOptionsRes.uploadFileOptions.name; // 上传文件名
+	let token = uploadFileOptionsRes.uploadFileOptions.formData.token; // 上传token
+	let key = uploadFileOptionsRes.uploadFileOptions.formData.key; // 上传key
+	
+	// 创建一个 FormData 对象
+	const formData = new FormData();
+	formData.append('file', file);
+	formData.append('token', token);
+	formData.append('key', key);
+	// 发送请求
+	axios.post(url, formData, {
+		headers: {
+			'Content-Type': 'multipart/form-data'
+		},
+		onUploadProgress: (progressEvent) => {
+			let percentCompleted = Math.round((progressEvent.loaded * 100) / progressEvent.total);
+			console.log(`上传进度：${percentCompleted}%` );
+		}
+	})
+	.then((uploadRes) => {
+		// 处理成功情况
+		const res = {
+			cloudPath: uploadFileOptionsRes.cloudPath, // 文件云端路径
+			fileID: uploadFileOptionsRes.fileID, // 文件ID
+			fileURL: uploadFileOptionsRes.fileURL, // 文件URL（如果是私有权限，则此URL是无法直接访问的）
+			fileInfo: typeof uploadRes.data === "string" ? JSON.parse(uploadRes.data) : uploadRes.data,
+		};
+		// 数据库里可直接保存 fileURL 或 fileID
+		console.log("上传成功", res);
+		console.log("fileURL", res.fileURL);
+		console.log("fileID", res.fileID);
+	})
+	.catch((err) => {
+		// 处理错误情况
+	 console.log("上传失败", err);
+	});
+})
+.catch((err) => {
+	console.log("catch", err);
+});
+```
 
 ### 老项目如何不改变原有代码使用扩展存储@q4
 
@@ -2900,7 +3028,6 @@ uploadFileForExtStorage.init({
 	
 </style>
 ```
-
 
 5. 新建一个云对象 `ext-storage-co`，其中 `index.obj.js` 代码如下
 
