@@ -11,7 +11,8 @@
  ![](https://web-ext-storage.dcloud.net.cn/unicloud/https/cert_list.png)
  
  2. 在**新增证书** 弹窗配置如下信息后单击**确定**。
- ![](https://web-ext-storage.dcloud.net.cn/unicloud/https/create_cert_1.png)
+ 
+![](https://web-ext-storage.dcloud.net.cn/unicloud/https/create_cert_1.png)
  
  **配置说明**
  
@@ -26,7 +27,23 @@
  **补充**
  
  - 域名服务商：
-	- 阿里云：Ali_Key、Ali_Secret 获取请参见[创建 AccessKey](https://help.aliyun.com/zh/ram/user-guide/create-an-accesskey-pair?spm=a2c4g.11186623.0.0.1744259brfnjyW%E3%80%81)
+	- 阿里云：
+	 1. 使用阿里云主账号登录[阿里云控制台](https://homenew.console.aliyun.com/?spm=a2c4g.11186623.0.0.56d94c5cN9M6yn)或RAM管理员（拥有AliyunRAMFullAccess权限的RAM用户）登录[RAM控制台](https://ram.console.aliyun.com/?spm=a2c4g.11186623.0.0.56d94c5cN9M6yn)。
+	 2. 在左侧导航栏，选择身份管理 > 用户。
+	 3. 在用户页面，单击**创建用户** 输入登录名称，访问方式勾选**OpenAPI调用访问**。
+	 
+		![](https://web-ext-storage.dcloud.net.cn/unicloud/https/create_aliyun_user_1.png)
+		 
+	 4. 用户创建成功后，在用户列表页面，单击目标用户登录名称 进入用户管理页面。
+	 
+	    **新增授权**
+		
+		![](https://web-ext-storage.dcloud.net.cn/unicloud/https/aliyun_permission_3.png)
+	 
+	    **创建AccessKey**
+	    
+	    ![](https://web-ext-storage.dcloud.net.cn/unicloud/https/create_accesskey_1.png)
+	    	 
  
  
  
