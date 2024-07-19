@@ -83,7 +83,9 @@ export default {
 
 **运行效果图**
 
-![](https://qiniu-web-assets.dcloud.net.cn/unidoc/zh/3707/409.png)
+<a target="_blank">
+    <img src="https://web-ext-storage.dcloud.net.cn/unicloud/uni-map/9219a88d-f8d8-4ffe-9bc5-16e7213d6f29.png" style="width: 400px;"/>
+</a>
 
 **示例代码**
 
@@ -249,11 +251,13 @@ export default {
 
 #### 渲染动态POI@dynamicspoi
 
-通过从数据库获取POI数据，并通过 uni-id-common 内的路线规划API，计算路线、距离、时间
+通过从数据库获取POI数据，并通过公共模块 [uni-map-common](https://doc.dcloud.net.cn/uniCloud/uni-map-common.html) 内的路线规划API，计算路线、距离、时间
 
 **运行效果图**
 
-![](https://qiniu-web-assets.dcloud.net.cn/unidoc/zh/3707/408.png)
+<a target="_blank" href="https://web-ext-storage.dcloud.net.cn/unicloud/uni-map/uni-map.mp4">
+    <img src="https://web-ext-storage.dcloud.net.cn/unicloud/uni-map/d4d666d7-94de-41f4-aa22-c913cc78d9ca.png" style="width: 400px;" />
+</a>
 
 **示例代码**
 

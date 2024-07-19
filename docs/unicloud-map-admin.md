@@ -24,7 +24,9 @@ unicloud-map-admin是[unicloud-map](unicloud-map.md)组件的admin插件，提�
 
 客户端显示效果
 
-![](https://qiniu-web-assets.dcloud.net.cn/unidoc/zh/3707/409.png)
+<a target="_blank">
+    <img src="https://web-ext-storage.dcloud.net.cn/unicloud/uni-map/9219a88d-f8d8-4ffe-9bc5-16e7213d6f29.png" style="width: 400px;"/>
+</a>
 
 ### 使用教程
 
