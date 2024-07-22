@@ -2983,7 +2983,7 @@ this.$refs.pay.createOrder({
 可以搜索、查看订单详情
 
 <div align=center>
-	<img class="zooming" src="https://qiniu-web-assets.dcloud.net.cn/unidoc/zh/%E6%94%AF%E4%BB%98%E7%BB%9F%E8%AE%A104.png"/>
+	<img class="zooming" src="https://web-ext-storage.dcloud.net.cn/unicloud/uni-pay/541.png"/>
 </div>
 
 
