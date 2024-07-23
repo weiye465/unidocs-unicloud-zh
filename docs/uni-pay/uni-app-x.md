@@ -2245,6 +2245,8 @@ await uniPayCo.getOpenid({
 
 ### 苹果虚拟支付@appleiap
 
+> HBuilderX 版本需≥4.25
+
 **概述**
 
 苹果虚拟支付：In-App Purchase，是指苹果 App Store 的应用内购买，是苹果为 App 内购买虚拟商品或服务提供的一套交易系统。
