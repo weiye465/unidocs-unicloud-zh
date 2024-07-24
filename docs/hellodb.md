@@ -419,8 +419,6 @@ new db.serverDate({
 
 ### 地理位置类型@geo-data-type
 
-> 支付宝云暂不支持
-
 #### Point@geo-point
 
 用于表示地理位置点，用经纬度唯一标记一个点，这是一个特殊的数据存储类型。
