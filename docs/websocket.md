@@ -331,3 +331,19 @@ exampleWebSocket.onError(event => {
 })
 
 ```
+
+## WebSocket 场景示例
+
+### WebSocket 聊天室
+
+[线上预览](https://env-00jxgnnacplt-static.normal.cloudstatic.cn/wschat/index.html)
+
+[源代码](https://gitcode.net/dcloud/websocket-chat-demo)
+
+### WebSocket 协作白板
+
+> 基于开源白板工具[excalidraw](https://github.com/excalidraw/excalidraw)实现
+> 
+> 使用支付宝云WebSocket实现多人协作功能
+
+[线上预览](https://env-00jxgnnacplt-static.normal.cloudstatic.cn/index.html)
