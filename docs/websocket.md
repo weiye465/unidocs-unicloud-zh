@@ -332,7 +332,7 @@ exampleWebSocket.onError(event => {
 
 ```
 
-## WebSocket 场景示例
+## WebSocket 场景示例@demo
 
 ### WebSocket 聊天室
 
