@@ -144,7 +144,7 @@ df -h
 
 登录uniCloud控制台，按图所示进入uni云开发软件版页面
 
-![](https://web-ext-storage.dcloud.net.cn/unicloud/docs202406031627806.png)
+![](https://web-ext-storage.dcloud.net.cn/unicloud/docs20240801211818.png)
 
 初次使用，需先确认uni云开发软件版的服务协议。
 
@@ -152,7 +152,7 @@ df -h
 
 同意并开通后，进入uni云开发软件版集群列表
 
-![](https://web-ext-storage.dcloud.net.cn/unicloud/docs202406031639818.png)
+![](https://web-ext-storage.dcloud.net.cn/unicloud/docs20240801212100.png)
 
 创建一个[集群]()，创建成功后，稍等片刻，云端会在10分钟内为你构建专属uni云开发软件版安装包。
 
