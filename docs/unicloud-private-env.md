@@ -148,7 +148,7 @@ df -h
 
 初次使用，需先确认uni云开发软件版的服务协议。
 
-![](https://web-ext-storage.dcloud.net.cn/unicloud/docs202406031634663.png)
+![](https://web-ext-storage.dcloud.net.cn/unicloud/docs202408021637360.png)
 
 同意并开通后，进入uni云开发软件版集群列表
 
