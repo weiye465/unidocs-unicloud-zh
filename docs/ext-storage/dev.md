@@ -367,10 +367,6 @@ return res;
 |errCode	|Number	|0 成功 其他均为失败|
 |errMsg	|String	|失败描述|
 
-## 以下API仅云端运行支持
-
-以下API暂不支持本地运行，只能云端运行才能调用
-
 ### 获取域名列表@getdomains
 
 接口名：getDomains
@@ -382,7 +378,7 @@ return res;
 ```js
 const extStorageManager = uniCloud.getExtStorageManager({
 	provider: "qiniu",
-	domain: "example.com", // 此调用getDomains接口使，这里的域名可以随便填，不会生效，但不能为空
+	domain: "example.com", // 调用getDomains接口时，这里的域名可以随便填，不会生效，但不能为空
 });
 let { domains = [] } = await extStorageManager.getDomains();
 console.log('域名列表: ', domains);
@@ -405,7 +401,7 @@ console.log('域名列表: ', domains);
 ```js
 const extStorageManager = uniCloud.getExtStorageManager({
 	provider: "qiniu",
-	domain: "example.com", // 此调用getDomains接口使，这里的域名可以随便填，不会生效，但不能为空
+	domain: "example.com", // 调用getDomains接口时，这里的域名可以随便填，不会生效，但不能为空
 });
 // 获取域名
 let { domains = [] } = await extStorageManager.getDomains();
@@ -435,6 +431,112 @@ console.log("TOP100统计数据: ", getCdnTopRes.data);
 |字段	|类型	|说明			|
 |:-:	|:-:	|:-				|
 |data	|Array| TOP100统计数据	|
+
+## 以下API仅云端运行支持
+
+以下API暂不支持本地运行，只能云端运行才能调用
+
+### 获取cdn流量数据@getcdnflow
+
+接口名：getCdnFlow
+
+**云端代码**
+
+```js
+const extStorageManager = uniCloud.getExtStorageManager({
+	provider: "qiniu",
+	domain: "example.com", // 调用getCdnFlow接口时，这里的域名可以随便填，不会生效，但不能为空
+});
+let getCdnFlowRes = await extStorageManager.getCdnFlow({
+	domains: ["cdn.example.com"], // 这里填写你绑定的域名，支持传多个域名
+	granularity: 'day',
+	startDate: "2024-04-01",
+	endDate: "2024-04-30"
+});
+console.log('getCdnFlowRes: ', getCdnFlowRes);
+```
+
+**请求参数**
+
+|参数名		|类型		|必填	|默认值	|说明																								|
+|:-:			|:-:		|:-:	|:-:		|:-																									|
+|domains	|Array	|是		|-			| 必填，域名列表，总数不超过100条												|
+|granularity			|String	|是		|-			| 必填，粒度，取值：5min 、 hour 、day|
+|startDate|String	|是		|-			| 必填，开始时间，格式为：2006-01-02。起止最大间隔为31天	|
+|endDate	|String	|是		|-			| 必填，结束时间，格式为：2006-01-02。起止最大间隔为31天	|
+
+**响应参数**
+
+|字段		|类型	|说明			|
+|:-:		|:-:	|:-				|
+|data	|Object| 流量统计数据	|
+
+**完整响应参数示例**
+
+注意
+
+1. 流量的单位时b，转成GB需要 `/1024/1024/1024`
+2. china 代表国内流量，oversea 代表海外流量
+
+```json
+{
+	"code": 0,
+	"msg": "ok",
+	"errCode": 0,
+	"errMsg": "ok",
+	"data": {
+		"time": [
+			"2024-04-01 00:00:00", "2024-04-02 00:00:00", "2024-04-03 00:00:00", "2024-04-04 00:00:00", "2024-04-05 00:00:00",
+			"2024-04-06 00:00:00", "2024-04-07 00:00:00", "2024-04-08 00:00:00", "2024-04-09 00:00:00", "2024-04-10 00:00:00", 
+			"2024-04-11 00:00:00", "2024-04-12 00:00:00", "2024-04-13 00:00:00", "2024-04-14 00:00:00", "2024-04-15 00:00:00",
+			"2024-04-16 00:00:00", "2024-04-17 00:00:00", "2024-04-18 00:00:00", "2024-04-19 00:00:00", "2024-04-20 00:00:00",
+			"2024-04-21 00:00:00", "2024-04-22 00:00:00", "2024-04-23 00:00:00", "2024-04-24 00:00:00", "2024-04-25 00:00:00",
+			"2024-04-26 00:00:00", "2024-04-27 00:00:00", "2024-04-28 00:00:00", "2024-04-29 00:00:00", "2024-04-30 00:00:00"
+		],
+		"data": {
+			"qiniu.dcloud.net.cn": {
+				"china": [1350, 1312, 1350, 1350, 1350, 0, 3937, 1987, 1350, 1350, 1350, 1350, 1350, 1350, 1350, 1987, 1350, 1350, 675, 1350, 1350, 675,1350, 1350, 1987, 1350, 1350, 1350, 1987, 1312],
+				"oversea": [0, 0, 0, 0, 0, 0, 0, 4050, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+			}
+		},
+		"total": { "china": 42859, "oversea": 4050, "all": 46909 }
+	}
+}
+```
+
+### 修改SSL证书@updatecdncert
+
+接口名：updateCdnCert
+
+**云端代码**
+
+```js
+const extStorageManager = uniCloud.getExtStorageManager({
+	provider: "qiniu",
+	domain: "example.com", // 调用updateCdnCert接口时，这里的域名可以随便填，不会生效，但不能为空
+});
+let updateCdnCertRes = await extStorageManager.updateCdnCert({
+	domain: "cdn.example.com", // 这里填写你绑定的域名
+	pri: "-----BEGIN RSA PRIVATE KEY-----\nMIIEpQxxxxxxikbALs=\n-----END RSA PRIVATE KEY-----\n", // 证书私钥
+	ca: "-----BEGIN CERTIFICATE-----\nMIIGaxxxxxxxVKQPNriiTsBhYscw==\n-----END CERTIFICATE-----", // 证书内容
+});
+console.log('updateCdnCertRes: ', updateCdnCertRes);
+```
+
+**请求参数**
+
+|参数名	|类型		|必填	|默认值	|说明						|
+|:-:		|:-:		|:-:	|:-:		|:-							|
+|domain	|String	|是		|-			| 域名						|
+|pri		|String	|是		|-			| 必填，证书私钥	|
+|ca			|String	|是		|-			| 必填，证书内容	|
+
+**响应参数**
+
+|字段		|类型		|说明										|
+|:-:		|:-:		|:-											|
+|errCode|String	| 0代表正确，其他均为错误	|
+|errMsg	|String	| 错误提示								|
 
 ## 小程序域名白名单@mp-whitelist
 
