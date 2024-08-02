@@ -475,13 +475,11 @@ console.log('getCdnFlowRes: ', getCdnFlowRes);
 
 注意
 
-1. 流量的单位时b，转成GB需要 `/1024/1024/1024`
+1. 流量的单位是b，转成GB需要 `/1024/1024/1024`
 2. china 代表国内流量，oversea 代表海外流量
 
 ```json
 {
-	"code": 0,
-	"msg": "ok",
 	"errCode": 0,
 	"errMsg": "ok",
 	"data": {
@@ -2437,7 +2435,6 @@ https://web-ext-storage.dcloud.net.cn/unicloud/ext-storage/gogopher.png?qrcode
 
 **注意**
 
-- 以下代码暂不支持本地运行，只能云端运行才能正常调用
 - 如果你有多个空间开通了扩展存储，只需要其中任意一个空间部署这个定时任务即可，无需每个空间都部署一次
 
 ```js

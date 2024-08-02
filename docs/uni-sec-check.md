@@ -121,7 +121,7 @@ const uniSecCheck = new UniSecCheck({
 	requestId: this.getUniCloudRequestId(), // 云函数内则写 context.requestId 云对象内则写 this.getUniCloudRequestId()
 });
 const checkRes = await uniSecCheck.imgSecCheck({
-	image: '', // 图片文件url或图片cloudID
+	image: '', // 图片文件url
 	openid: '', // 用户的openid
 	scene: 2, // 场景值
 	version: 2 // 接口版本号
@@ -133,7 +133,7 @@ console.log('checkRes: ', checkRes);
 
 |名称		|类型		|必填	|说明																												|
 |--			|--			|--		|--																													|
-|image	|String	|是		|图片url或图片对应的cloudID																	|
+|image	|String	|是		|图片url														|
 |openid	|String	|否		|用户的openid（用户需在近两小时访问过小程序）version=2时必填|
 |scene	|Number	|否		|场景值（1 资料；2 评论；3 论坛；4 社交日志）								|
 |version|Number	|是		|接口版本号，可选1或2，但1的检测能力很弱											|
