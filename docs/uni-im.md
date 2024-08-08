@@ -1,5 +1,3 @@
-> 本文为uni-im v3.x 的文档，如果旧项目需要继续使用老版本的uni-im v2.x，另见：[https://gitcode.net/dcloud/hello-uni-im/-/blob/v2/README.md](https://gitcode.net/dcloud/hello-uni-im/-/blob/v2/README.md)
-
 **uni-im 已开放需求征集和投票** [点此前往](https://vote.dcloud.net.cn/#/?name=uni-im)
 
 # 简介
