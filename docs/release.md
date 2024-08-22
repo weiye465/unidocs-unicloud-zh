@@ -1,3 +1,6 @@
+#### 2024-08-22
+* 修复 4.18版本引发的 上传云函数安装依赖时报错的Bug [详情](https://issues.dcloud.net.cn/pages/issues/detail?id=7190)
+
 #### 2024-08-17
 * 新增 uni-app x 客户端 SDK 支持连接支付宝云 WebSocket API [详情](https://doc.dcloud.net.cn/uniCloud/websocket.html#unicloud-connectwebsocket)
 * 新增 callFunction 支持传递timeout参数 [详情](https://doc.dcloud.net.cn/uniCloud/cf-callfunction.html)
