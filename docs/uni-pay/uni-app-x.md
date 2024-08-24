@@ -255,14 +255,17 @@ module.exports = {
 			"alipayRootCertPath": path.join(__dirname, 'alipay/alipayRootCert.crt'), // 支付宝根证书路径
 		}
 	},
-	// ios内购相关
-	"appleiap" :{
-		// ios内购支付
+	// 苹果虚拟支付相关
+	"appleiap": {
+		// 苹果虚拟支付支付，参数获取地址：https://appstoreconnect.apple.com/access/integrations/api/subs
 		"app": {
-			"password": "", // App 专用共享密钥，App 专用共享密钥是用于接收此 App 自动续期订阅收据的唯一代码。如果您要将此 App 转让给其他开发者或不想公开主共享密钥，建议使用 App 专用共享密钥。非自动续订场景不需要此参数
-			"timeout": 10000, // 请求超时时间，单位：毫秒
-			"sandbox": false, // 是否是沙箱环境（本地调试ios走的是沙箱环境，故要设置为true，正式发布后，需要设置为false）
-		}
+			"appId": "", // 密钥ID
+			"issuerId": "", // Issuer ID
+			"bundleId": "", // 正式包名（如果dev包名和正式包名一致，则只填bundleId即可）
+			"devBundleId": "", // dev包名（如果dev包名和正式包名一致，则devBundleId可不填）
+			"appCertPath": path.join(__dirname, 'appleiap/apiclient_cert.p8'), // 证书路径
+			"sandbox": true, // 是否是沙箱环境
+		},
 	},
 	// 微信虚拟支付
 	"wxpay-virtual": {
@@ -926,7 +929,8 @@ module.exports = async (obj) => {
 
 ```js
 // 打开支付收银台
-this.$refs.payRef.open({
+const payInstance = this.$refs["payRef"] as UniPayComponentPublicInstance;
+payInstance.open({
 	type: "recharge", // 支付回调类型 recharge 代表余额充值（当然你可以自己自定义）
 });
 ```
@@ -1852,7 +1856,8 @@ uni-pay前端组件和uni-pay-co云对象的方法是一样的。通常情况下
 `open`如果只有一种支付方式，比如微信小程序内只能用微信支付，则不会弹收银台，而是直接调用支付。
 
 ```js
-this.$refs.payRef.open({
+const payInstance = this.$refs["payRef"] as UniPayComponentPublicInstance;
+payInstance.open({
 	total_fee: 1, // 支付金额，单位分 100 = 1元
 	type: "recharge", // 支付回调类型
 	order_no: "20221027011000101001010", // 业务系统订单号
@@ -1902,7 +1907,8 @@ uni.navigateTo({
 不带收银台时，provider参数为必传项，代表支付供应商
 
 ```js
-this.$refs.payRef.createOrder({
+const payInstance = this.$refs["payRef"] as UniPayComponentPublicInstance;
+payInstance.createOrder({
 	provider: "wxpay", // 支付供应商
 	total_fee: 1, // 支付金额，单位分 100 = 1元
 	type: "recharge", // 支付回调类型
@@ -2263,7 +2269,8 @@ await uniPayCo.getOpenid({
 // 发起苹果虚拟支付
 let buy_quantity = 1; // 购买数量
 let goods_price = 1; // 单价（此参数的单位是元）
-this.$refs.payRef.createOrder({
+const payInstance = this.$refs["payRef"] as UniPayComponentPublicInstance;
+payInstance.createOrder({
 	provider: "appleiap", // 支付供应商（这里固定未appleiap，代表苹果虚拟支付）
 	order_no: "20221027011000101001010", // 业务系统订单号
 	out_trade_no: "2022102701100010100101001", // 插件支付单号
@@ -2395,7 +2402,8 @@ this.$refs.payRef.createOrder({
 				let buy_quantity = productInfo.getNumber('buy_quantity') || 1;
 				let goods_price = productInfo.getNumber('goods_price');
 				// 发起支付
-				this.$refs.payRef.createOrder({
+				const payInstance = this.$refs["payRef"] as UniPayComponentPublicInstance;
+				payInstance.createOrder({
 					provider: "appleiap", // 支付供应商（这里固定为appleiap，代表苹果虚拟支付）
 					order_no: this.order_no, // 业务系统订单号（即你自己业务系统的订单表的订单号）
 					out_trade_no: this.out_trade_no, // 插件支付单号
