@@ -699,7 +699,7 @@ module.exports = {
 			"devBundleId": "", // dev包名（如果dev包名和正式包名一致，则devBundleId可不填）
 			"appCertPath": path.join(__dirname, 'appleiap/apiclient_cert.p8'), // 证书路径
 			"sandbox": true, // 是否是沙箱环境
-		}
+		},
 	}
 }
 ```
@@ -2245,7 +2245,7 @@ await uniPayCo.getOpenid({
 
 ### 苹果虚拟支付@appleiap
 
-> HBuilderX 版本需≥4.25
+> HBuilderX 版本需≥4.26
 
 **概述**
 
@@ -2261,17 +2261,20 @@ await uniPayCo.getOpenid({
 
 ```js
 // 发起苹果虚拟支付
-this.$refs.pay.createOrder({
+let buy_quantity = 1; // 购买数量
+let goods_price = 1; // 单价（此参数的单位是元）
+this.$refs.payRef.createOrder({
 	provider: "appleiap", // 支付供应商（这里固定未appleiap，代表苹果虚拟支付）
 	order_no: "20221027011000101001010", // 业务系统订单号
 	out_trade_no: "2022102701100010100101001", // 插件支付单号
 	type: "appleiap", // 支付回调类型（可自定义，建议填写appleiap）
 	description: "为DCloud提供的免费软件进行赞助", // 订单描述
+	total_fee: parseInt((goods_price * 100 * buy_quantity).toFixed(0)), // 插件是以分为单位，故这里需要乘以100
 	// apple_virtual字段仅苹果虚拟支付生效
 	apple_virtual: {
 		product_id: "uniappx.consumable.sponsor_1", // 产品id
-		goods_price: 1, // 单价（此参数的单位是元）
-		buy_quantity: 1, // 购买数量
+		goods_price: goods_price, // 单价（此参数的单位是元）
+		buy_quantity: buy_quantity, // 购买数量
 	},
 	custom: {}, // 自定义数据（此参数不推荐使用，因为是前端传的，此参数可能会被伪造，建议通过order_no查询自己业务订单表来获取自定义业务数据）
 });
@@ -2287,8 +2290,8 @@ this.$refs.pay.createOrder({
 		<view class="uni-list">
 			<radio-group @change="applePriceChange">
 				<view class="uni-list-cell" v-for="(item, index) in productList" :key="index">
-					<radio :value="item.product_id" :checked="product_id == item.product_id"/>
-					<view class="price" @click="product_id = item.product_id">{{item.title}} {{item.goods_price}}元</view>
+					<radio :value="item['product_id']" :checked="product_id == item['product_id']"/>
+					<view class="price" @click="applePriceClick(item)">{{item['title']}} {{item['goods_price']}}元</view>
 				</view>
 			</radio-group>
 		</view>
@@ -2323,7 +2326,7 @@ this.$refs.pay.createOrder({
 					},
 					{
 						"description": "为DCloud提供的免费软件进行赞助",
-						"goods_price": 50, // 单价（元）
+						"goods_price": 5, // 单价（元）
 						"buy_quantity": 1, // 数量（消耗性类型: 数量默认是1，最大值是10）
 						"product_id": "uniappx.consumable.sponsor_50",
 						"title": "消耗性产品：赞助"
@@ -2363,25 +2366,21 @@ this.$refs.pay.createOrder({
 			
 		},
 		onShow() {
-			// if (this.$refs.payRef && this.$refs.payRef.appleiapRestore) {
-			// 	// 苹果虚拟支付未完成订单检测
-			// 	this.$refs.payRef.appleiapRestore();
-			// }
+			
 		},
 		onUnload() {},
 		methods: {
 			// 支付组件加载完毕后执行
-			onMounted(insideData){
+			onMounted(insideData: any){
 				this.init();
 			},
 			// 初始化
-			async init() {
-				this.product_id = this.productList[0].product_id;
+			init() {
+				this.product_id = this.productList[0]["product_id"] as string;
 				this.disabled = false;
-				if (this.$refs.payRef && this.$refs.payRef.appleiapRestore) {
-					// 苹果虚拟支付未完成订单检测
-					this.$refs.payRef.appleiapRestore();
-				}
+				let payRef = this.$refs['payRef'] as UniPayComponentPublicInstance;
+				// 苹果虚拟支付未完成订单检测
+				payRef.appleiapRestore();
 			},
 			/**
 			 * 发起支付
@@ -2390,10 +2389,11 @@ this.$refs.pay.createOrder({
 			createOrder(){
 				this.order_no = `test`+Date.now();
 				this.out_trade_no = this.order_no;
-				let productInfo = this.productList.find((item) => {
-					return item.product_id === this.product_id;
+				let productInfo: UTSJSONObject = this.productList.find((item: UTSJSONObject) : boolean => {
+					return item['product_id'] == this.product_id;
 				});
-				let buy_quantity = productInfo.buy_quantity || 1;
+				let buy_quantity = productInfo.getNumber('buy_quantity') || 1;
+				let goods_price = productInfo.getNumber('goods_price');
 				// 发起支付
 				this.$refs.payRef.createOrder({
 					provider: "appleiap", // 支付供应商（这里固定为appleiap，代表苹果虚拟支付）
@@ -2401,11 +2401,11 @@ this.$refs.pay.createOrder({
 					out_trade_no: this.out_trade_no, // 插件支付单号
 					type: "appleiap", // 支付回调类型（可自定义，建议填写appleiap）
 					description: productInfo.description,
-					total_fee: parseInt((productInfo.goods_price * 100 * buy_quantity).toFixed(0)), // 插件是以分为单位，故这里需要乘以100
+					total_fee: parseInt((goods_price * 100 * buy_quantity).toFixed(0)), // 插件是以分为单位，故这里需要乘以100
 					// apple_virtual字段仅苹果虚拟支付生效
 					apple_virtual: {
 						product_id: this.product_id, // 产品id
-						goods_price: productInfo.goods_price, // 单价
+						goods_price: goods_price, // 单价
 						buy_quantity: buy_quantity, // 购买数量
 					},
 					// 自定义数据
@@ -2443,6 +2443,9 @@ this.$refs.pay.createOrder({
 			applePriceChange(e) {
 				this.product_id = e.detail.value;
 			},
+			applePriceClick(item: any){
+				this.product_id = item['product_id'] as string;
+			}
 		}
 	}
 </script>
