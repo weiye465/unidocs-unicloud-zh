@@ -20,7 +20,7 @@
 
 **线上体验地址**
 
-![](https://web-ext-storage.dcloud.net.cn/unicloud/uni-pay-x/518.png)
+![](https://web-ext-storage.dcloud.net.cn/unicloud/uni-pay-x/apk/apk__UNI__9255DDA___NONE___0826121252.png)
 
 `uni-pay-x` 的功能包括：
 
