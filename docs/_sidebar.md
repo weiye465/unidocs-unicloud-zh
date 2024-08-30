@@ -48,7 +48,7 @@
     * [云存储API](storage/dev.md)
     * [腾讯云自定义登录](storage/authentication.md)
     * [腾讯云权限管理](storage/policy-tcb.md)
-    * [阿里云CDN安全策略](storage/cdn-security-policy.md)
+    * [CDN安全策略](storage/cdn-security-policy.md)
   * 扩展存储
     * [简介](ext-storage/intro.md)
     * [费用说明](ext-storage/price.md)
