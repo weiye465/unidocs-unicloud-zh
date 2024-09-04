@@ -161,9 +161,9 @@ await uniPush.sendMessage(OBJECT)
 例如：
 ```js
 "channel":{
-	"XM":"xxx",
+	"XM":"填写在手机厂商push管理中申请到的值",
 	"HW":"NORMAL",
-	"OP":"xxx",
+	"OP":"填写在手机厂商push管理中申请到的值",
 	"VV":1
 }
 ```
