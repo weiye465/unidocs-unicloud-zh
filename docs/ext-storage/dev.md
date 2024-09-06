@@ -367,6 +367,45 @@ return res;
 |errCode	|Number	|0 成功 其他均为失败|
 |errMsg	|String	|失败描述|
 
+### 缓存CDN缓存@refreshcdncache
+
+接口名：refreshCdnCache
+
+调用此接口可批量缓存云端文件CDN缓存
+
+**注意：**
+
+1. 每日只能刷新100个文件
+2. 刷新CDN缓存生效有延迟，预计在1-10分钟内生效
+3. 如果想要实时刷新缓存，可考虑文件地址后面加?v=文件版本号的方式，如 `https://cdn.example.com/test.jpg?v=1`
+
+**云端代码**
+
+```js
+const extStorageManager = uniCloud.getExtStorageManager({
+	provider: "qiniu",
+	domain: "example.com", // 域名地址
+});
+let res = await extStorageManager.refreshCdnCache({
+	fileList: ["qiniu://test.jpg"], // 待刷新的文件地址列表
+});
+console.log('refreshCdnCache: ', res);
+return res;
+```
+
+**请求参数**
+
+|参数名		|类型		|必填	|默认值	|说明																														|
+|:-:			|:-:		|:-:	|:-:		|:-																													|
+|fileList	|Array	|是		|-			|文件地址列表，数组内元素值类型支持（fileID、cloudPath、fileURL）<br/>如："qiniu://test.jpg" "test.jpg" "https://example.com/test.jpg" 均表示同一个文件	|
+
+**响应参数**
+
+|字段		|类型		|说明										|
+|:-:		|:-:		|:-											|
+|errCode|Number	|0 代表成功，其他均为失败	|
+|errMsg	|String	|失败原因								|
+
 ### 获取域名列表@getdomains
 
 接口名：getDomains
