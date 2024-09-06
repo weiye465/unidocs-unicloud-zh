@@ -3073,7 +3073,7 @@ function getCloudPath(cloudPath) {
 3. 在 `App.vue` 的 `<script>` 下面且是 `export default {` 的上面，新增以下代码
 
 ```js
-import uploadFileForExtStorage from "@/js_sdk/uploadFileForExtStorage.js"
+import uploadFileForExtStorage from "@/js_sdk/ext-storage/uploadFileForExtStorage.js"
 ```
 
 4. 在 `App.vue` 的 `onLaunch` 函数中新增以下代码
@@ -3097,7 +3097,7 @@ uploadFileForExtStorage.init({
 
 ```vue
 <script>
-	import uploadFileForExtStorage from "@/js_sdk/uploadFileForExtStorage.js"
+	import uploadFileForExtStorage from "@/js_sdk/ext-storage/uploadFileForExtStorage.js"
 	export default {
 		onLaunch: function() {
 			console.log('App Launch');
