@@ -377,7 +377,7 @@ return res;
 
 1. 每日只能刷新100个文件
 2. 刷新CDN缓存生效有延迟，预计在1-10分钟内生效
-3. 如果想要实时刷新缓存，可考虑文件地址后面加?v=文件版本号的方式，如 `https://cdn.example.com/test.jpg?v=1`
+3. 如果想要实时刷新缓存，可考虑文件地址后面加?v=文件版本号的方式，如 `https://cdn.example.com/test.jpg?v=1`（此方式即使不执行refreshCdnCache接口也能获取最新的文件）
 
 **云端代码**
 
