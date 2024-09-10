@@ -84,7 +84,6 @@ console.log('认证结果: ', verifyRes.data);
 {
 	"errCode": 0,
 	"errMsg": "",
-	"success": true,
 	"data": {
 		"status": 1,
 		"reasonType": 1,
