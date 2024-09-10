@@ -74,7 +74,7 @@ console.log('认证结果: ', verifyRes.data);
 |:-					|:-:		|:-:			|:-																																																																						|
 |status			|Number	|是				|认证结果，1-通过 2-不通过 3-查无结果 0-待定																																																			|
 |reasonType	|Number	|否				|原因详情：<br/>2-认证不一致	<br/>3-该手机号查询无记录	<br/>4-认证信息有误		<br/>5-号码状态异常（空号、停机等）<br/>6-解析手机号运营商失败<br/>7-其他出错	|
-|taskId			|String	|是				|本次请求数据标识，可以根据该标识查询数据最新结果																																																		|
+|logId			|String	|是				|本次请求日志id，可以根据该标识在控制台查询结果																																																	|
 |isPayed		|Number	|是				|本次请求是否收费标识，1代表收费，0代表不收费																																																			|
 |mobileType	|String	|是				|运营商类型：1-移动，2-联通，3- 电信，9,-未知																																																			|
 
@@ -88,7 +88,7 @@ console.log('认证结果: ', verifyRes.data);
 	"data": {
 		"status": 1,
 		"reasonType": 1,
-		"taskId": "9f9def8638c74506b3f5ef17f893c8b9",
+		"logId": "9f9def8638c74506b3f5ef17f893c8b9",
 		"isPayed": 1,
 		"mobileType": "3",
 		"note": ""
