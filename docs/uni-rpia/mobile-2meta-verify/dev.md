@@ -10,7 +10,7 @@
 
 在需要调用此API的云函数或云对象右键，添加依赖
 
-![](https://web-ext-storage.dcloud.net.cn/unicloud/uni-rpia/c57bf00f-3c0e-4e5f-b979-996e7de20887.png)
+![](https://web-ext-storage.dcloud.net.cn/unicloud/uni-rpia/b866f119-1427-49ba-b3a1-7915cebd5624.png)
 
 勾选 uni-cloud-verify 扩展库依赖
 
