@@ -1,5 +1,11 @@
 # 开发指南
 
+## 接口说明
+
+通过对比权威数据源，对用户上传的姓名、手机号进行验证，校验此二要素是否一致
+
+- 只支持移动，电信，联通下发的手机卡，广电号暂不支持
+
 ## 添加 uni-cloud-verify 扩展库依赖
 
 在需要调用此API的云函数或云对象右键，添加依赖
@@ -52,7 +58,6 @@ const uniVerifyManager = uniCloud.getUniVerifyManager({
 });
 let verifyRes = await uniVerifyManager.mobile2MetaVerify({
 	realName: "姓名",
-	idCard: "身份证",
 	mobile: "手机号",
 });
 console.log('认证结果: ', verifyRes.data);
