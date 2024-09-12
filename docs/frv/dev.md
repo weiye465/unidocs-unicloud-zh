@@ -745,7 +745,7 @@ Request Body 说明
 | 名称         | 类型      | 必须  | 说明                     |
 |------------|---------|-----|------------------------|
 | uid        | string  | 是   | 业务系统中的用户id             |
-| appId      | string  | 是   | uni-frv-external的appId |
+| appId      | string  | 是   | uni-frv-external云对象所在项目的appId |
 | realName		 | String	 | 是		 | 用户真实姓名									        |
 | idCard			  | String	 | 是		 | 用户身份证号									        |
 | metaInfo		 | String	 | 是		 | 客户端获取设备信息返回的metaInfo	  |
@@ -783,7 +783,7 @@ Request Body 说明
 
 | 名称        | 类型     | 必须  | 说明                     |
 |-----------|--------|-----|------------------------|
-| appId     | string | 是   | uni-frv-external的appId |
+| appId     | string | 是   | uni-frv-external云对象所在项目的appId |
 | certifyId | string | 是   | 认证id                   |
 
 Response Body 说明
