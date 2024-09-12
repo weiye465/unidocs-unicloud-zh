@@ -8,6 +8,16 @@
 - 只支持移动，电信，联通下发的手机主卡，广电号暂不支持
 - 不支持物联网卡、虚拟运营商卡（如阿里小号）
 
+## 详版对比简版优势
+
+手机号三要素认证（详版）比手机号三要素认证（简版）在响应参数 reasonType 上有区别，以下是详版专属返回的类型
+
+- 20：手机号已实名，姓名正确，但证件号错误
+- 21：手机号已实名，证件号正确，但姓名错误
+- 22：手机号已实名，但证件号和姓名均非该手机号绑定信息
+
+因此详版优势为：在认证不一致时，会有更多的提示信息，方便用户排查问题。
+
 ## 添加 uni-cloud-verify 扩展库依赖
 
 在需要调用此API的云函数或云对象右键，添加依赖
@@ -46,11 +56,11 @@ const uniVerifyManager = uniCloud.getUniVerifyManager({
 |:-:			|:-:		|:-:	|:-:		|:-															|
 |provider	|String	|是		|-			|必填，当前固定填写 univerify	即可	|
 
-### 获取手机号三要素认证结果@mobile3metaverify
+### 获取手机号三要素认证（详版）结果@mobile3metaverify
 
 接口名：mobile3MetaVerifyPro
 
-你可以在调用 extStorageManager.mobile3MetaVerify 前执行一些自己的业务逻辑，判断用户是否有权限执行此API等等
+你可以在调用 extStorageManager.mobile3MetaVerifyPro 前执行一些自己的业务逻辑，判断用户是否有权限执行此API等等
 
 **云端代码**
 
