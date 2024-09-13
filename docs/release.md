@@ -1,3 +1,6 @@
+#### 2024-09-13
+* 修复 4.25版本引发的 腾讯云callFunction时报timeout参数不能读取的Bug [详情](https://issues.dcloud.net.cn/pages/issues/detail?id=8065)
+
 #### 2024-08-22
 * 修复 4.18版本引发的 上传云函数安装依赖时报错的Bug [详情](https://issues.dcloud.net.cn/pages/issues/detail?id=7190)
 
