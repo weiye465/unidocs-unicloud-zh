@@ -2,6 +2,10 @@
 
 1. 新建云对象 `uni-cloud-verify-co`，云对象名字可自己修改，这里以 `uni-cloud-verify-co` 为例。
 
+![](https://web-ext-storage.dcloud.net.cn/unicloud/uni-rpia/56e57aba-9c24-4482-b0f0-328e3b88242d.png)
+
+在弹窗的窗口中选择云对象，输入名称 uni-cloud-verify-co
+
 ![](https://web-ext-storage.dcloud.net.cn/unicloud/uni-rpia/f1575aef-48de-4ea9-bee7-4e73ce8325dc.png)
 
 2. 修改云对象下的 `package.json` 文件，完整替换内容如下
