@@ -633,3 +633,7 @@ unicloud-map需要创建以下表后才能正常运行，可以右键插件datab
 ### 三方定位和地图服务收费说明@fee
 
 unicloud-map是免费的，但高德、腾讯、百度等地图的使用需向地图厂商采购商业授权。DCloud与地图厂商达成合作，可更优惠的给开发者提供地图服务。[详见](https://uniapp.dcloud.net.cn/component/map.html#%E4%B8%89%E6%96%B9%E5%AE%9A%E4%BD%8D%E5%92%8C%E5%9C%B0%E5%9B%BE%E6%9C%8D%E5%8A%A1%E6%94%B6%E8%B4%B9%E8%AF%B4%E6%98%8E)
+
+### 【福利】高德拉新
+
+一键注册高德企业开发者，最高可获取210元奖励金，详见[https://ask.dcloud.net.cn/article/41279](https://ask.dcloud.net.cn/article/41279)
