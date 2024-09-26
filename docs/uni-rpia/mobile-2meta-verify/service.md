@@ -21,6 +21,12 @@
 
 ### 调用记录
 
-系统可查看API的调用记录，但此业务数据量较大，为了维持服务的稳定性，只能查看30天内的某1天的全部调用记录，默认选择当天。
+可查看API的调用记录，但此业务数据量较大，为了维持服务的稳定性，只能查看30天内的某1天的全部调用记录，默认选择当天。
 
 ![](https://web-ext-storage.dcloud.net.cn/unicloud/uni-rpia/5225b726-af8e-47ee-95e4-9cfc02c5e6bf.png)
+
+### 调用统计
+
+可查看按天分组的调用趋势、调用数量统计
+
+![](https://web-ext-storage.dcloud.net.cn/unicloud/uni-rpia/6b991fbd-37d7-4d71-b616-a96e220e600d.png)
