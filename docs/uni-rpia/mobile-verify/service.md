@@ -8,7 +8,7 @@
 
 手机号三要素认证（简版）为预付费业务，使用之前，需要先进行购买资源包。点击页面上的“购买资源包”按钮，购买相应的资源包（目前只支持资源包的付费方式）
 
-![](https://web-ext-storage.dcloud.net.cn/unicloud/uni-rpia/a39fe476-fdc6-41cc-9706-b5eb4f9f5ecf.png)
+![](https://web-ext-storage.dcloud.net.cn/unicloud/uni-rpia/0c3f2727-e472-42d6-8c21-7621bab45b98.png)
 
 ### 安全配置
 
