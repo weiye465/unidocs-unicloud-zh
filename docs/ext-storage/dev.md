@@ -629,6 +629,8 @@ console.log('updateCdnCertRes: ', updateCdnCertRes);
 
 小程序需要添加域名白名单，否则无法正常使用
 
+![](https://web-ext-storage.dcloud.net.cn/unicloud/ext-storage/b6debafc-06ed-4505-82b4-303cf96e5e65.png)
+
 ### 上传域名@mp-whitelist-uploadfile
 
 将下方域名添加到小程序的uploadFile合法域名列表中
