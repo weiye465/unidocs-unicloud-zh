@@ -1,11 +1,8 @@
-## 业务开通
+## 进入控制台
 
-### 开通流程
-使用开发者账号登录[uniCloud控制台](https://unicloud.dcloud.net.cn/) ，选择`手机号实名核验`栏目。在使用此功能前需要完成实名认证，可前往[开发者中心](https://dev.dcloud.net.cn/pages/user/info)完成实名认证。
+使用开发者账号登录[uniCloud控制台](https://unicloud.dcloud.net.cn/) ，选择 `手机号实名核验` 栏目。在使用此功能前需要完成实名认证，可前往[开发者中心](https://dev.dcloud.net.cn/pages/user/info)完成实名认证。
 
 ![](https://web-ext-storage.dcloud.net.cn/unicloud/uni-rpia/292ad9fe-971e-4ff3-8ee6-0a3178119003.png)
-
-点击进入后会自动开通对应业务
 
 ### 购买资源包
 
