@@ -111,6 +111,8 @@ module.exports = {
 
 **前端上传代码**
 
+**uni-app**
+
 ```js
 uni.chooseImage({
 	count: 1,
@@ -143,6 +145,54 @@ uni.chooseImage({
 			console.log("监听上传进度", res);
 		});
 		uni.hideLoading();
+	}
+});
+```
+
+**uni-app x**
+
+```js
+uni.chooseImage({
+	count: 1,
+	success: (res) => {
+		const filePath = res.tempFilePaths[0];
+		uni.showLoading({ title: "上传中...", mask: true });
+		// ext-storage-co 是你自己写的云对象（参考上面的云端代码）
+		const uniCloudStorageExtCo = uniCloud.importObject("ext-storage-co");
+		uniCloudStorageExtCo.getUploadFileOptions({
+			cloudPath: `test/${Date.now()}.jpg`, // 支持自定义目录
+		}).then((uploadFileOptionsRes : UTSJSONObject) => {
+			const uploadFileOptions = uploadFileOptionsRes['uploadFileOptions'] as UTSJSONObject;
+			const url = uploadFileOptions['url'] as string;
+			const name = uploadFileOptions['name'] as string;
+			const formData = uploadFileOptions['formData'] as UTSJSONObject;
+			const cloudPath = uploadFileOptionsRes['cloudPath'] as string; // 文件云端路径
+			const fileID = uploadFileOptionsRes['fileID'] as string; // 文件ID
+			const fileURL = uploadFileOptionsRes['fileURL'] as string; // 文件URL（如果是私有权限，则此URL是无法直接访问的）
+			const uploadTask = uni.uploadFile({
+				url,
+				name,
+				formData,
+				filePath,
+				success: () => {
+					const uploadRes = {
+						cloudPath, // 文件云端路径
+						fileID, // 文件ID
+						fileURL, // 文件URL（如果是私有权限，则此URL是无法直接访问的）
+					};
+					// 数据库里可直接保存 fileURL 或 fileID
+					console.log("上传成功", uploadRes);
+				},
+				fail: (err) => {
+					console.log("上传失败", err);
+				}
+			});
+			// 监听上传进度
+			uploadTask.onProgressUpdate((res) => {
+				console.log("监听上传进度", res);
+			});
+			uni.hideLoading();
+		});
 	}
 });
 ```
