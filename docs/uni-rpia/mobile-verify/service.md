@@ -1,12 +1,12 @@
-## 进入控制台
+## 开通指南
 
-使用开发者账号登录[uniCloud控制台](https://unicloud.dcloud.net.cn/) ，选择 `手机号实名核验` 栏目。在使用此功能前需要完成实名认证，可前往[开发者中心](https://dev.dcloud.net.cn/pages/user/info)完成实名认证。
+登录[uniCloud控制台](https://unicloud.dcloud.net.cn/) ，选择 `手机号实名核验` 菜单。
 
 ![](https://web-ext-storage.dcloud.net.cn/unicloud/uni-rpia/292ad9fe-971e-4ff3-8ee6-0a3178119003.png)
 
 ### 购买资源包
 
-手机号三要素认证（简版）为预付费业务，使用之前，需要先进行购买资源包。点击页面上的“购买资源包”按钮，购买相应的资源包（目前只支持资源包的付费方式）
+手机号二、三要素认证为预付费业务，使用之前，需要先进行购买资源包。点击页面上的“购买资源包”按钮，购买相应的资源包（目前只支持资源包的付费方式）
 
 ![](https://web-ext-storage.dcloud.net.cn/unicloud/uni-rpia/0c3f2727-e472-42d6-8c21-7621bab45b98.png)
 
