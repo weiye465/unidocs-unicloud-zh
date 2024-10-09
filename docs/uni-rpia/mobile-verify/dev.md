@@ -2,14 +2,6 @@
 
 > 注意：暂只支持连接云端，不支持连接本地运行
 
-## 接口说明@introduce
-
-通过对比权威数据源，对用户上传的姓名、身份证号和手机号进行验证，校验此三要素是否一致
-
-- 支持携号转网，支持阿里宝卡、腾讯王卡等互联网公司与运营合作推出的手卡
-- 只支持移动，电信，联通下发的手机主卡，广电号暂不支持
-- 不支持物联网卡、虚拟运营商卡（如阿里小号）
-
 ## 添加 uni-cloud-verify 扩展库依赖@extend
 
 在需要调用此API的云函数或云对象右键，添加依赖
@@ -21,14 +13,6 @@
 ![](https://web-ext-storage.dcloud.net.cn/unicloud/uni-rpia/665b7307-7506-42ad-ad3f-6c7c1d59569f.png)
 
 ## API@api
-
-### 响应公共字段@publicreturn
-
-|字段		|类型		|说明																											|
-|:-:		|:-:		|:-																												|
-|errCode|Number	|为0代表请求成功，其他均为请求失败，注意，请求成功不代表验证通过	|
-|errMsg	|String	|请求失败的错误描述																					|
-|data		|Object	| 请求成功时，服务端返回的数据																					|
 
 ### 获取uni认证管理对象@getuniverifymanager
 
@@ -47,6 +31,15 @@ const uniVerifyManager = uniCloud.getUniVerifyManager({
 |参数名		|类型		|必填	|默认值	|说明														|
 |:-:			|:-:		|:-:	|:-:		|:-															|
 |provider	|String	|是		|-			|必填，当前固定填写 univerify	即可	|
+
+
+### 响应公共字段@publicreturn
+
+|字段		|类型		|说明																											|
+|:-:		|:-:		|:-																												|
+|errCode|Number	|为0代表请求成功，其他均为请求失败，注意，请求成功不代表验证通过	|
+|errMsg	|String	|请求失败的错误描述																					|
+|data		|Object	| 请求成功时，服务端返回的数据																					|
 
 
 ### 获取手机号二要素认证结果@mobile2eleverify
