@@ -6,7 +6,7 @@
 
 ## 简介@introduction
 
-支付，重要的变现手段，但开发复杂。在不同端，对接微信支付（暂不支持）、支付宝等渠道，前端后端都要写不少代码。
+支付，重要的变现手段，但开发复杂。在不同端，对接微信支付、支付宝等渠道，前端后端都要写不少代码。
 
 涉及金额可不是小事，生成业务订单、获取收银台、发起支付、支付状态查询、支付异步回调、失败处理、发起退款、退款状态查询、支付统计...众多环节，代码量多，出错率高。
 
@@ -14,7 +14,7 @@
 
 `uni-pay-x`应需而生。
 
-开发者在项目中引入 `uni-pay-x` 后，微信支付（暂不支持）、支付宝支付等功能无需自己再开发。由于源码的开放性和层次结构清晰，有二次开发需求也很方便调整。（暂只支持支付宝支付）
+开发者在项目中引入 `uni-pay-x` 后，微信支付、支付宝支付等功能无需自己再开发。由于源码的开放性和层次结构清晰，有二次开发需求也很方便调整。
 
 > 插件市场地址：[https://ext.dcloud.net.cn/plugin?name=uni-pay-x](https://ext.dcloud.net.cn/plugin?name=uni-pay-x)
 
@@ -1278,7 +1278,7 @@ await payInstance.xxx();
 <template>
 	<view class="app">
 		<view>
-			<text style="color: red;">注意：uni-app x暂不支持微信支付</text>
+			<text style="color: red;">注意：uni-app x支持的支付方式详见uni.RequestPayment</text>
 		</view>
 		<view>
 			<view class="label">支付单号：</view>
