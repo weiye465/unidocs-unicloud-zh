@@ -72,6 +72,11 @@
   * [费用说明](frv/price.md)
   * [开通服务](frv/service.md)
   * [开发文档](frv/dev.md)
+* uni手机号实名核验
+  * [简介](uni-rpia/mobile-verify/intro.md)
+  * [费用说明](uni-rpia/mobile-verify/price.md)
+  * [开通服务](uni-rpia/mobile-verify/service.md)
+  * [开发文档](uni-rpia/mobile-verify/dev.md)
 * 短信服务
   * [费用说明](sms/price.md)
   * [开通服务](sms/service.md)
