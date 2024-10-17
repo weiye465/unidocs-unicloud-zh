@@ -1,3 +1,5 @@
+#### 2024-10-16
+* 新增 uni手机号二三要素实名核验服务，包括云函数扩展库、web控制台 [详情](https://doc.dcloud.net.cn/uniCloud/uni-rpia/mobile-verify/intro.html)
 #### 2024-09-13
 * 修复 4.25版本引发的 腾讯云callFunction时报timeout参数不能读取的Bug [详情](https://issues.dcloud.net.cn/pages/issues/detail?id=8065)
 
