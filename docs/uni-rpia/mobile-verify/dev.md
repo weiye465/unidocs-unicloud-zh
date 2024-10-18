@@ -2,6 +2,8 @@
 
 > 注意：暂只支持连接云端，不支持连接本地运行
 
+> 欢迎加入[uni手机号实名核验技术交流群](https://im.dcloud.net.cn/#/?joinGroup=65436862cc41b0763842cfc9)
+
 ## 添加 uni-cloud-verify 扩展库依赖@extend
 
 在需要调用此API的云函数或云对象右键，添加依赖
