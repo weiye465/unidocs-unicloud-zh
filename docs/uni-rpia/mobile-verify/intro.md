@@ -1,6 +1,6 @@
 # uni手机号实名核验
 
-> 欢迎加入[uni手机号实名核验技术交流群](https://im.dcloud.net.cn/#/?joinGroup=65436862cc41b0763842cfc9)
+> 欢迎加入[uni手机号实名核验技术交流群](https://im.dcloud.net.cn/#/?joinGroup=671228ce50c2166f8b4ec837)
 
 uni手机号实名核验分为三个产品：
 - 手机号二要素核验：核验用户的姓名、手机号码一致性

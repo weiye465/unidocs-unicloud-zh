@@ -2,7 +2,7 @@
 
 > 注意：暂只支持连接云端，不支持连接本地运行
 
-> 欢迎加入[uni手机号实名核验技术交流群](https://im.dcloud.net.cn/#/?joinGroup=65436862cc41b0763842cfc9)
+> 欢迎加入[uni手机号实名核验技术交流群](https://im.dcloud.net.cn/#/?joinGroup=671228ce50c2166f8b4ec837)
 
 ## 添加 uni-cloud-verify 扩展库依赖@extend
 
