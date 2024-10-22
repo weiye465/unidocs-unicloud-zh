@@ -156,7 +156,7 @@ console.log('认证结果: ', verifyRes.data);
 } 
 ```
 
-### 获取手机号三要素认证（详版）结果@mobile3eleverify
+### 获取手机号三要素认证（详版）结果@mobile3eleverifypro
 
 接口名：mobile3EleVerifyPro
 
