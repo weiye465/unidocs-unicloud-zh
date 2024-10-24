@@ -1,3 +1,9 @@
+#### 2024-10-24
+* 【重要】 新增 uni云开发软件版私有化部署 [详情](https://doc.dcloud.net.cn/uniCloud/software)
+* 新增 手机号二三要素实名核验服务 [详情](https://doc.dcloud.net.cn/uniCloud/uni-rpia/mobile-verify/intro.html)
+* 新增 统一推送服务扩展库 uni-cloud-push 支持鸿蒙next [详情](https://doc.dcloud.net.cn/uniCloud/uni-cloud-push/api.html)
+* 修复 4.25版本引发的 本地运行云函数包含Redis时报"函数不允许调用"的Bug [详情](https://issues.dcloud.net.cn/pages/issues/detail?id=10362)
+
 #### 2024-10-16
 * 新增 uni手机号二三要素实名核验服务，包括云函数扩展库、web控制台 [详情](https://doc.dcloud.net.cn/uniCloud/uni-rpia/mobile-verify/intro.html)
 #### 2024-09-13
