@@ -88,7 +88,10 @@ await uniPush.sendMessage(OBJECT)
 |content_available	|Number			|否		|0		|0表示普通通知消息(默认为0)；</br>1表示静默推送(无通知栏消息)，静默推送时不需要填写其他参数。</br>苹果官方建议1小时最多推送3条静默消息																																																																																		|ios												|
 |open_url			|string			|否		|无		|填写该值将:强制push类型为“通知栏消息”，点击后系统浏览器将打开此链接。以`http(s)://`开头的有效可访问链接,华为通道必须使用https。长度小于300																																																																																|android											|
 |settings			|Object			|否		|无		|推送条件设置，详细解释见下方[settings](#settings)说明																																																																																																		|													|
-|options			|Object			|否		|无		|HBuilderX 4.31 内置的uni-push-cloud扩展库存在options参数丢失的问题，不能连接本地云函数调试，只能连接云端云函数才能正常使用;下个版本的HBuilderX会修复此问题。</br>实现部分厂商特定功能，包括仅部分厂商支持、不常用或厂商临时新增的功能（不依赖 uni-push，厂商文档支持的参数可直接使用）。例如：推送渠道 ID、消息分类（部分厂商未配置时可能被限量推送或静默推送，即静音且需下拉系统通知栏才可见通知内容）、通知栏富文本[更多关于options的说明](../uni-cloud-push/options)																																															|APP												|
+|options			|Object			|否		|无		|实现部分厂商特定功能，包括仅部分厂商支持、不常用或厂商临时新增的功能（不依赖 uni-push，厂商文档支持的参数可直接使用）。例如：推送渠道 ID、消息分类（部分厂商未配置时可能被限量推送或静默推送，即静音且需下拉系统通知栏才可见通知内容）、通知栏富文本[更多关于options的说明](../uni-cloud-push/options)																																															|APP												|
+::: warning 注意事项
+HBuilderX 4.31 内置的uni-push-cloud扩展库存在options参数丢失的问题，不能连接本地云函数调试，只能连接云端云函数才能正常使用；下个版本会修复此问题。
+:::
 
 **频次限制说明：**
 - 多客户端接收消息推送API，频次限制200万次/天，申请修改请点击右侧“技术咨询”了解详情。
