@@ -64,30 +64,31 @@
 await uniPush.sendMessage(OBJECT)
 ```
 #### 入参说明
-|名称|类型|必填|默认值|描述|平台特性|
-|--|--|--|--|--|--|
-|user_id|String、Array|否|无|基于uni-id的_id，指定接收消息的用户id。</br>支持多个以数组的形式指定多个用户id，如["user_id-1","user_id-2"]，数组长度不大于500| |
-|user_tag|String、Array|否|无|指定接收消息的用户标签，基于uni-id账户体系。</br>支持多个以数组的形式指定多个标签，如["user_tag-1","user_tag-2"]，数组长度不大于500| |
-|device_id|String、Array|否|无|指定接收消息的设备id，基于opendb表的device设备（未开通uni统计或基于uni-id-pages开发的应用，必须基于uni-id-co登录后才可使用）| |
-|push_clientid|String、Array|否|无|基于[uni.getPushClientId](https://uniapp.dcloud.net.cn/api/plugins/push)获取的客户端推送标识，指定接收消息的设备。</br>支持多个以数组的形式指定多个设备，如["cid-1","cid-2"]，数组长度不大于1000| |
-|getui_custom_tag|String|否|无|基于个推`getui_custom_tag`，指定接收消息接设备;</br>注：该功能需要申请相关套餐，请点击右侧“技术咨询”了解详情 。| |
-|getui_big_data_tag|Object Array|否|无|对指定应用的符合筛选条件的设备群发推送消息。支持定时、定速功能。详见下方[getui-big-data-tag 说明](#getui-big-data-tag)| |
-|getui_alias|String、Array|否|无|个推自定义客户端别名，指定消息接收者。</br>支持多个以数组的形式指定多个设备，如["getui_alias-1","getui_alias-2"]，数组长度不大于1000| |
-|platform|String、Array|否|"ALL"|指定接收消息的平台，"ALL"表示所有平台。</br>支持用数组枚举支持的平台，如：["web","app-ios","app-android","mp-weixin"],详情见下方[platform 说明](#platform-说明)</br>仅通过`user_id`、`user_tag`指定消息接收者时有效|
-|check_token|Boolean|否|true|校验客户端登陆状态是否有效（含token过期）</br>仅通过`user_id`、`user_tag`指定消息接收者时有效| |
-|title|String|是|无|通知栏标题，长度小于20|APP|
-|content|String|是|无|通知栏内容，长度小于50|APP|
-|payload|String、Object|是|无|推送透传数据，app程序接受的数据，长度小于800字符;</br>注意：为了确保离线厂商通道，可以获得payload的值，请用Object格式如：`{"text":"xxx"}`| |
-|force_notification|Boolean|否|false|无论是离线推送还是在线推送，都自创建通知栏消息。HBuilderX 3.5.2 及其以上版本的客户端支持| App|
-|badge|Number、String|否|+1|设置应用右上角数字，用于提醒用户未阅读消息数量，支持在原有数字上的+、-操作;</br>例如：badge=+1，表示当前角标+1；</br>badge=-1，(仅iOS支持)表示当前角标-1(角标>=0)；</br>badge=1，(仅iOS和华为EMUI版本10.0.0+支持)表示当前角标置成1。| ios、android-华为|
-|channel|Object|否|无|消息渠道设置，避免被限量推送、静默推送（静音且需下拉系统通知栏才可见通知内容），需要在各家发邮件申请，详情下方[channel说明](#channel)</br>此功能依赖uni原生插件[点此打开](https://ext.dcloud.net.cn/plugin?id=7482)打包后生效。| android|
-|request_id|String|否|无|请求唯一标识号，10-32位之间；如果`request_id`重复，会导致消息丢失||
-|group_name|String|否|无|任务组名。多个消息任务可以用同一个任务组名，后续可根据任务组名查询推送情况（长度限制100字符，且不能含有特殊符号）；</br>仅基于user_id、push_clientid、getui_custom_tag指定消息接收者，或对应用的所有用户群发推送消息时有效。||
-|sound|String|否|无|消息提醒铃声设置，常见的离线语音播报功能就是用它实现。android需要设置channel生效，详见下方[铃声设置注意](#sound)</br>如果铃声文件未找到，响铃为系统默认铃声。</br>铃声文件需要使用uni原生插件[点此打开](https://ext.dcloud.net.cn/plugin?id=7482)打包后生效。</br>建议iOS和Android铃声使用一致的文件名称。直接填写文件名，不含扩展名；如：pushsound.caf或pushsound.mp3，直接填写pushsound即可。|
-|content_available|Number|否|0|0表示普通通知消息(默认为0)；</br>1表示静默推送(无通知栏消息)，静默推送时不需要填写其他参数。</br>苹果官方建议1小时最多推送3条静默消息|ios |
-|open_url|string|否|无|填写该值将:强制push类型为“通知栏消息”，点击后系统浏览器将打开此链接。以`http(s)://`开头的有效可访问链接,华为通道必须使用https。长度小于300|android|
-|settings|Object|否|无|推送条件设置，详细解释见下方settings说明||
-|options|Object|否|无|其他配置，[更多关于options的说明](../uni-cloud-push/options)||
+|名称				|类型			|必填	|默认值	|描述																																																																																																													|平台特性				|
+|--					|--				|--		|--		|--																																																																																																														|--					|
+|user_id			|String、Array	|否		|无		|基于uni-id的_id，指定接收消息的用户id。</br>支持多个以数组的形式指定多个用户id，如["user_id-1","user_id-2"]，数组长度不大于500																																																																																		|					|
+|user_tag			|String、Array	|否		|无		|指定接收消息的用户标签，基于uni-id账户体系。</br>支持多个以数组的形式指定多个标签，如["user_tag-1","user_tag-2"]，数组长度不大于500																																																																																	|					|
+|device_id			|String、Array	|否		|无		|指定接收消息的设备id，基于opendb表的device设备（未开通uni统计或基于uni-id-pages开发的应用，必须基于uni-id-co登录后才可使用）																																																																																			|					|
+|push_clientid		|String、Array	|否		|无		|基于[uni.getPushClientId](https://uniapp.dcloud.net.cn/api/plugins/push)获取的客户端推送标识，指定接收消息的设备。</br>支持多个以数组的形式指定多个设备，如["cid-1","cid-2"]，数组长度不大于1000																																																																		|					|
+|getui_custom_tag	|String			|否		|无		|基于个推`getui_custom_tag`，指定接收消息接设备;</br>注：该功能需要申请相关套餐，请点击右侧“技术咨询”了解详情 。																																																																																						|					|
+|getui_big_data_tag	|Object Array	|否		|无		|对指定应用的符合筛选条件的设备群发推送消息。支持定时、定速功能。详见下方[getui-big-data-tag 说明](#getui-big-data-tag)																																																																																				|					|
+|getui_alias		|String、Array	|否		|无		|个推自定义客户端别名，指定消息接收者。</br>支持多个以数组的形式指定多个设备，如["getui_alias-1","getui_alias-2"]，数组长度不大于1000																																																																																	|					|
+|platform			|String、Array	|否		|"ALL"	|指定接收消息的平台，"ALL"表示所有平台。</br>支持用数组枚举支持的平台，如：["web","app-ios","app-android","mp-weixin"],详情见下方[platform 说明](#platform-说明)</br>仅通过`user_id`、`user_tag`指定消息接收者时有效																																																														|
+|check_token		|Boolean		|否		|true	|校验客户端登陆状态是否有效（含token过期）</br>仅通过`user_id`、`user_tag`指定消息接收者时有效																																																																																										|					|
+|title				|String			|是		|无		|通知栏标题，长度小于20																																																																																																										|APP				|
+|content			|String			|是		|无		|通知栏内容，长度小于50																																																																																																										|APP				|
+|payload			|String、Object	|是		|无		|推送透传数据，app程序接受的数据，长度小于800字符;</br>注意：为了确保离线厂商通道，可以获得payload的值，请用Object格式如：`{"text":"xxx"}`																																																																																|					|
+|category			|Object			|否		|无		|消息类别，鸿蒙通道为必填项，其他通道若未进行配置，会被认定为营销类别，从而受到限量推送。</br>当前仅有鸿蒙、华为以及 vivo 厂商支持此项配置。</br>例如：{"harmony":"EXPRESS", "huawei":"EXPRESS", "vivo":"ORDER"}。</br>其中，harmony 与 huawei 的取值相同[详情查看](https://developer.huawei.com/consumer/cn/doc/HMSCore-Guides/message-classification-0000001149358835#section1085395991513)	</br>vivo 的取值[详情查看](https://dev.vivo.com.cn/documentCenter/doc/359#s-o2cg9ph0)	|Android、harmony 注意：仅HBuilderX4.31及其以上版本支持|
+|force_notification	|Boolean		|否		|false	|无论是离线推送还是在线推送，都自创建通知栏消息。HBuilderX 3.5.2 及其以上版本的客户端支持																																																																																											|ios、android		|
+|badge				|Number、String	|否		|+1		|设置应用右上角数字，用于提醒用户未阅读消息数量，支持在原有数字上的+、-操作;</br>例如：badge=+1，表示当前角标+1；</br>badge=-1，(仅iOS支持)表示当前角标-1(角标>=0)；</br>badge=1，(仅iOS和华为EMUI版本10.0.0+支持)表示当前角标置成1。																																																												|ios、android-华为	|
+|channel			|Object			|否		|无		|已不推荐使用，请通过category和[options](../uni-cloud-push/options)配置。																																																																																																					|android			|
+|request_id			|String			|否		|无		|请求唯一标识号，10-32位之间；如果`request_id`重复，会导致消息丢失																																																																																																|					|
+|group_name			|String			|否		|无		|任务组名。多个消息任务可以用同一个任务组名，后续可根据任务组名查询推送情况（长度限制100字符，且不能含有特殊符号）；</br>仅基于user_id、push_clientid、getui_custom_tag指定消息接收者，或对应用的所有用户群发推送消息时有效。																																																															|					|
+|sound				|String			|否		|无		|消息提醒铃声设置，常见的离线语音播报功能就是用它实现。详见下方[实现推送铃声](#sound)|
+|content_available	|Number			|否		|0		|0表示普通通知消息(默认为0)；</br>1表示静默推送(无通知栏消息)，静默推送时不需要填写其他参数。</br>苹果官方建议1小时最多推送3条静默消息																																																																																		|ios				|
+|open_url			|string			|否		|无		|填写该值将:强制push类型为“通知栏消息”，点击后系统浏览器将打开此链接。以`http(s)://`开头的有效可访问链接,华为通道必须使用https。长度小于300																																																																																|android			|
+|settings			|Object			|否		|无		|推送条件设置，详细解释见下方settings说明																																																																																																						|					|
+|options			|Object			|否		|无		|实现部分厂商特定功能，包括仅部分厂商支持、不常用或厂商临时新增的功能（不依赖 uni-push，厂商文档支持的参数可直接使用）。例如：推送渠道 ID、消息分类（部分厂商未配置时可能被限量推送或静默推送，即静音且需下拉系统通知栏才可见通知内容）、通知栏富文本[更多关于options的说明](../uni-cloud-push/options)																																																																																																|					|
 
 **频次限制说明：**
 - 多客户端接收消息推送API，频次限制200万次/天，申请修改请点击右侧“技术咨询”了解详情。
@@ -95,8 +96,9 @@ await uniPush.sendMessage(OBJECT)
 - 对指定应用的所有用户群发推送消息API，频次限制100次/天，每分钟不能超过5次(推送限制和接口根据条件筛选用户推送共享限制)
 
 **注意：**
-- 调用一次sendMessage，最大推送设备数是500，超过将直接忽略。有超过500台以上设备接收消息的应用场景，应当调用内置在[uni-push-admin插件](https://ext.dcloud.net.cn/plugin?name=uni-push-admin) 中的云对象uni-push-co，调用参数与本api一致
+- 调用一次sendMessage，最大推送设备数是500，超过将直接忽略。有超过500台以上设备接收消息的应用场景，应当分批（递归）调用，可以参考[uni-push-admin插件](https://ext.dcloud.net.cn/plugin?name=uni-push-admin) 中的云对象uni-push-co
 - `push_clientid`如果3个月未登陆会失效，所以uni-id的token过期时间不能超过3个月，否则push模块会有意想不到的故障。
+- harmony 平台的api，本地调试仅 HBuilderX 4.31及其以上版本支持
 
 ##### getui_big_data_tag 说明@getui-big-data-tag
 |名称|类型|是否必需|默认值|描述|
@@ -147,31 +149,9 @@ await uniPush.sendMessage(OBJECT)
 |st|Number|否|无|通道策略1-4，表示含义同上，需要开通st厂商使用该通道推送消息|
 |...|Number|否|无|通道策略1-4，表示含义同上|
 
-##### channel 说明@channel
-
->注意：此功能依赖uni原生插件[点此打开](https://ext.dcloud.net.cn/plugin?id=7482)打包后生效。
-
-|名称|类型|必填|默认值|描述|
-|--|--|--|--|--|
-|HW|string|否|无|取值为“LOW”时，表示消息为资讯营销；取值为“NORMAL”时，表示消息为服务与通讯。需要先向华为侧发邮件申请权限参见[华为消息分类申请](https://developer.huawei.com/consumer/cn/doc/development/HMSCore-Guides/message-classification-0000001149358835)。|
-|XM|string|否|无|小米推送的消息通道分为“普通消息”（默认）和“重要消息”两类，默认下发普通消息。普通消息单日可推送数量有限制，重要消息不限。重要消息申请具体请参考： [小米推送消息分类新规](https://dev.mi.com/console/doc/detail?pId=2422)|
-|OP|string|否|无|需要联系客服开通;OPush平台上所有通道分为“公信”(默认)、“私信”两类，默认下发公信消息。公信消息单日可推送数量有限制，私信消息不限(仅限单个用户)。私信消息申请请参见（OPPO官方文档）[推送私信通道申请](https://open.oppomobile.com/new/developmentDoc/info?id=11227)。|
-|VV|Number|否|无| 0代表运营消息，1代表系统消息;vivo消息分类功能将推送消息类型分为运营消息和系统消息，默认下发运营消息。运营消息单用户单应用单日接收条数上限为5条，系统消息不限。系统消息功能不用申请，可以直接使用，如特殊情况需额外提升系统消息量级，请参见（vivo官方文档）[推送消息分类功能说明](https://dev.vivo.com.cn/documentCenter/doc/359)。|
-
-例如：
-```js
-"channel":{
-	"XM":"填写在手机厂商push管理中申请到的值",
-	"HW":"NORMAL",
-	"OP":"填写在手机厂商push管理中申请到的值",
-	"VV":1
-}
-```
-
-##### 铃声设置注意@sound
-1. 华为通道须 [申请自分类权益](https://developer.huawei.com/consumer/cn/doc/development/HMSCore-Guides/message-classification-0000001149358835#section3699155822013)
-2. 小米通道需：申请重要级别消息Channel —— 申请其他个性化重要级别消息Channel，并设置自定义铃声前端路径格式：`android.resource://你的APP应用包名/raw/铃声文件名`，例如：`android.resource://io.dcloud.UniPush2/raw/pushsound`（路径不需要带音频后缀名）如图
-![](https://docs.getui.com/img/img_getui_server_rest_v2_third_party_1.png)
+##### 实现推送铃声@sound
+1. 本功能App客户端依赖uni原生插件[自定义推送铃声和渠道](https://ext.dcloud.net.cn/plugin?id=7482)，注意需要打包后生效。铃声文件建议iOS和Android铃声使用一致的文件名称，直接填写文件名，不含扩展名；如：pushsound.caf或pushsound.mp3，直接填写pushsound即可。
+2. Android平台需要在options参数中根据厂商规范配置相关参数，详情参考[options示例](../uni-cloud-push/options)
 
 #### 响应体说明
 多个别名推送返回值示例：

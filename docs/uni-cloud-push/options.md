@@ -1,26 +1,66 @@
-> 需要HBuilderX 3.5.1 及其以上版本支持
+实现部分厂商特定功能，包括仅部分厂商支持、不常用或厂商临时新增的功能（不依赖 uni-push，厂商文档支持的参数可直接使用）。
 
-options 参数主要用于实现部分厂商支持但不常用的功能。详情查看：[https://docs.getui.com/getui/server/rest_v2/third_party/](https://docs.getui.com/getui/server/rest_v2/third_party/)
-
-需注意，个推文档中的示例代码与在 uni-push 中的使用存在差异。个推代码示例如下：
+例如要实现发送消息时在:
+- 安卓系统的小米手机下，实现铃声并对app版本号进行筛选
+- 安卓系统的华为手机下，实现铃声并设置富文本内容
+- 鸿蒙系统的华为手机下，指定本次推动为测试消息
+- iOS系统下设置灵动岛id
+用法为：
 ```js
-{
-  "android":{
-    "ups":{
-      "notification":{
-        // ...其他push_channel参数略
+const pushManager = uniCloud.getPushManager({"appId":"__UNI__DEMO123"})
+return await pushManager.sendMessage({
+  title:"消息标题",
+  content:"消息内容",
+  // ...其他参数略，可参考：https://doc.dcloud.net.cn/uniCloud/uni-cloud-push/api.html#%E5%85%A5%E5%8F%82%E8%AF%B4%E6%98%8E
+  options: {
+    android:{
+      "XM": {
+        // 实现铃声
+        "/extra.sound_uri": "小米后台申请的自定义 sound_url 地址",
+        "/extra.channel_id": "小米后台申请的通知类别id",
+        // 对app版本号进行筛选
+        "/extra.app_version": "v3.3.0"
       },
-      "options":{
-        "HW":{
-          "/message/android/ttl":"86400s"
-        }
+      "HW":{
+        //实现铃声
+        "/message/android/notification/default_sound": false,
+        "/message/android/notification/channel_id": "RingRing4",
+        "/message/android/notification/sound": "/raw/ring001",
+        // 设置富文本内容
+        "/message/android/notification/image": "公网可以访问的https图标链接",
+        "/message/android/notification/style": 1,
+        "/message/android/notification/big_title": "big_title",
+        "/message/android/notification/big_body": "big_body"
       }
+    },
+    harmony:{
+      "HW":{
+        "/pushOptions/testMessage": true
+      }
+    },
+    ios: {
+      laId:"灵动岛id",
+      // 略，详情 https://docs.getui.com/getui/server/rest_v2/common_args/#ios-
     }
   }
-}
+})
 ```
 
-而 uni-push 简化了代码，无需 “android.ups”。例如，要实现发送消息时在小米通道上对 app 版本号进行筛选，完整示例代码为：
+更多用法参规范：
+- Android和harmony查看：[https://docs.getui.com/getui/server/rest_v2/third_party/](https://docs.getui.com/getui/server/rest_v2/third_party/)
+- ios节点的参数规范查看[https://docs.getui.com/getui/server/rest_v2/common_args/#ios-](https://docs.getui.com/getui/server/rest_v2/common_args/#ios-)
+
+options参数对照[个推push完整请求体](https://docs.getui.com/getui/server/rest_v2/common_args/#doc-title-2)的关系如下：
+|uni-push	|个推															|
+|--				|--																|
+|	android	|push_channel.android.ups.options	|
+|	harmony	|push_channel.harmony.options			|
+|	ios			|push_channel.ios									|
+
+::: warning 注意事项
+以上为HBuilderX 4.31及其以上版本中的用法，旧版版本中的用法为：
+:::
+
 ```js
 const pushManager = uniCloud.getPushManager({"appId":"__UNI__TEST123"})
 return await pushManager.sendMessage({
@@ -30,13 +70,15 @@ return await pushManager.sendMessage({
   options: {
     "XM": {
       "/extra.app_version": "v3.3.0"
-    }
+    },
+    "HW":{},
+    "VV":{},
+    "OP":{},
+    "IOS":{}
   }
 })
 ```
-
-
-
+此用法不再维护且不再推荐使用（因为无法准确表述Android系统的华为通道，还是鸿蒙系统的华为通道；且不支持ios灵动岛推送）。
 
 <div class="weixin-support">
     <div class="weixin-support-focus">
