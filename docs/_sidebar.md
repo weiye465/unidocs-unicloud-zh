@@ -56,6 +56,10 @@
     * [开发文档](ext-storage/dev.md)
 * 资源用量监控&报警
   * [支付宝云](monitor/alipay-monitor.md)
+* uni云开发软件版
+  * [简介](software/README.md)
+  * [商业授权](software/price.md)
+  * [部署安装](software/deploy.md)
 * uni-id用户体系
   * [综述](./uni-id/summary.md)
   * [客户端-uni-app](./uni-id/app.md)
