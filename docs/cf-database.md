@@ -1200,6 +1200,13 @@ await db.collection('test').where({
 }
 ```
 
+**响应参数**
+
+| 参数	| 类型	|  说明																			|
+| ----	| ------|  ----------------------------------------	|
+|updated| Number| 更新成功条数，数据更新前后没变化时会返回0	|
+|doc|Object|null|更新后的文档|
+
 **注意**
 
 - 使用updateAndReturn时，不可使用field方法
