@@ -1,6 +1,6 @@
 ## uni云端一体安全网络
 
-> HBuilderX 3.6.8+ 支持
+> HBuilderX 3.6.8+ 支持，HarmonOS Next暂不支持安全网络
 
 ## 简介
 
