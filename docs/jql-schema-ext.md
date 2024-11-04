@@ -335,6 +335,14 @@ field为所有被访问的字段的组成的数组，嵌套的字段会被摊平
 }
 ```
 
+**删除数据**
+
+```js
+{
+	deleted: 1 // 删除的条数
+}
+```
+
 #### isEqualToJql@is-equal-to-jql
 
 > 新增于 HBuilderX 3.6.14
