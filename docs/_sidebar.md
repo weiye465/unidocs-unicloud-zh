@@ -144,5 +144,5 @@
 * [已知问题](known-issue.md)
 * [微信云开发转uniCloud](wx2unicloud.md)
 <!-- * [阿里云公测版迁移正式版](aliyun-migrate-business.md) -->
-* [uniCloud产品服务协议](agreement.md)
+* [uniCloud产品服务协议](https://dcloud.io/license/uniCloud.html)
 * [更新日志](release.md)
