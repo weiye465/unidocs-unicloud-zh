@@ -4,81 +4,60 @@
 uni-im 是一款云端一体、全平台、免费且开源的即时通讯系统
 - 基于uni-app，App、小程序、web全端兼容
 - 基于uniCloud，前后端都使用js开发
-- 基于[uni-push2](https://uniapp.dcloud.net.cn/unipush-v2.html)，专业稳定的全端推送系统
-- 基于[uni-id](https://uniapp.dcloud.net.cn/uniCloud/uni-id/summary.html)，完善的账户体系
-- 支持服务端为非uniCloud（比如：应用服务端的开发语言是php、java、go、.net、python、c#等）或 不基于uni-id-pages 开发的项目接入
-
-案例：
-1. 应用名称：DCloud，该 App 的内置聊天模块，即基于 uni-im 开发。下载地址为：[https://im.dcloud.net.cn/uni-portal.html](https://im.dcloud.net.cn/uni-portal.html)  
-
-2. 如图：在插件市场任意插件详情页面，点击“进入交流群”按钮，即可看到基于uni-im搭建的客服系统。
-<img width="600px" src="https://web-ext-storage.dcloud.net.cn/unicloud/uni-im/img/17198039234743b6c4dd0-27b8-11eb-9e1d-136fabf12402.png">
-
-下载地址：[https://ext.dcloud.net.cn/plugin?name=uni-im](https://ext.dcloud.net.cn/plugin?name=uni-im)
-
-## 特点优势  
+- 基于[uni-push2](https://uniapp.dcloud.net.cn/unipush-v2.html)，专业稳定的全端消息推送系统（聚合多个手机厂商推送通道，App关闭后也能收到消息）
+- 开放性高，支持非uniCloud（即支持服务端是php、java、go、.net、python、c#等开发语言的项目），甚至非uni-app开发的项目都可以接入使用
 - 性价比高，前后端代码均免费开源，与同类产品相比，使用uni-im仅需支付因托管在 uniCloud（serverless 服务器）而产生的少量费用，详情可查看[费用说明部分](#cost)
-- 全端可用
-- App端支持nvue，更好的长列表性能。list组件性能优势[详情参考](https://uniapp.dcloud.net.cn/component/list.html)
-- 中心化响应式数据管理，切换会话无需重新加载数据，更流畅的体验
-- App端聚合多个手机厂商推送通道，app不在线也可以收到消息
 
-优先开发哪些，取决于开发者的反馈。同时也欢迎开发者共建这个开源项目。
+插件下载地址：[https://ext.dcloud.net.cn/plugin?name=uni-im](https://ext.dcloud.net.cn/plugin?name=uni-im)
+
+## 案例：
+应用名称：DCloud。此 App 的内置聊天模块即是基于 uni-im 开发的。
+
+web端网址（支持PC宽屏和移动端）：[https://im.dcloud.net.cn/index.html#/](https://im.dcloud.net.cn/index.html#/)
+
+扫码体验： ![](https://web-ext-storage.dcloud.net.cn/doc/im/download.png)
+
+下载地址为：[https://im.dcloud.net.cn/uni-portal.html](https://im.dcloud.net.cn/uni-portal.html)
+
 > uni-im相关功能建议或问题，可以加入由uni-im（本插件）搭建的交流群[点此加入](https://im.dcloud.net.cn/#/?joinGroup=63ef49711d358337456f4d67)
-
-## 使用uniCloud产生的费用说明@cost
-
-uni-im本身并不收费，实际使用中需要依赖uniCloud云服务，会产生费用；而uniCloud的价格很实惠：  
-- 调用10000次云函数仅需0.0133元
-- 调用10000次数据库查询仅需0.015元
-> 更多计费参考：[阿里云版uniCloud按量计费文档](https://uniapp.dcloud.net.cn/uniCloud/price.html#aliyun-postpay)
-
-### 举例说明：  
-- 单聊场景，向用户发送一条消息的过程：
-1. 调用uni-im-co云对象的sendMsg方法（产生1次云函数请求）
-2. 查询当前对话的会话记录（产生1次云数据库读操作）
-3. 根据步骤2的查询结果，如果已经有会话记录，就更新会话，否则就创建一条会话记录（产生1次云数据库写操作）
-4. 查询发送消息的用户信息，用于接收消息时在通知栏显示发送者昵称和头像（产生1次云数据库读操作）
-5. 记录发送的消息内容到数据库，用于保存消息历史记录（产生1次云数据库写操作）
-6. 以`user_id`为标识通过`uni-push2`向用户发送消息会产生0.00000283元uniCloud使用费用[详情查看](https://uniapp.dcloud.net.cn/unipush-v2.html#cost)
-
-合计：1次云函数请求、2次数据库读操作、2次数据库写操作、1次uni-push2推送操作，即 (1 * 0.0133 + 2 * 0.015 + 2 * 0.05 + 1 * 0.0283)/10000 ≈ 0.000017元
-
-- 群聊场景，向用户发送一条消息的过程：
-1. 调用uni-im-co云对象的sendMsg方法（产生1次云函数请求）
-2. 查询当前用户是否为群成员，防止非群成员发送消息（产生1次云数据库读操作）
-3. 查询当前对话的会话记录（产生1次云数据库读操作）
-4. 根据步骤3的查询结果，如果已经有会话记录，就更新会话，否则就创建一条会话记录（产生1次云数据库写操作）
-5. 查询发送消息的用户信息，用于接收消息时在通知栏显示发送者昵称和头像（产生1次云数据库读操作）
-6. 记录发送的消息内容到数据库，用于保存消息历史记录（产生1次云数据库写操作）
-7. 以群id为参数，调用uni-im-co云对象的sendMsgToGroup方法，这是一个递归方法每次向500名群成员推送消息（如果群成员数量为0-500只需执行1次，500-1000需执行2次，以此类推），（会产生最少1次数据库读操作，和1次以`user_id`为标识通过`uni-push2`向用户发送消息会产生0.00000283元uniCloud使用费用[详情查看](https://uniapp.dcloud.net.cn/unipush-v2.html#cost)）
-
-合计：向500人群发送消息，会产生：1次云函数请求、4次数据库读操作、2次数据库写操作、1次uni-push2推送操作，即 (1 * 0.0133 + 4 * 0.015 + 2 * 0.05 + 1 * 0.0283)/10000 ≈ 0.000020元
-
-相比市面上同类型产品，使用uni-im仅需花费如此便宜的uniCloud（serverless服务器）费用；在价格这块uni-im性价比极高。
-
->注：由于uni-im会持续升级，其服务端运行逻辑也会不断优化，或新增其他逻辑，这可能导致上述费用计算方法中的数据库操作次数发生变化。因此，此处的费用算法仅作参考。
 
 # 快速部署体验
 ## 前提条件
-1. 开通uniCloud（服务商推荐选择“支付宝云”，性能更好）并创建服务空间 [控制面板](https://unicloud.dcloud.net.cn/)  
-	传统的IM产品服务端代码托管在服务商名下的服务器内，你只拥有代码和产生的数据的使用权，并非所有权；而uni-im的前后端代码都是开源的，并且托管在您名下的uniCloud（[serverless](https://uniapp.dcloud.net.cn/uniCloud/#%E4%BB%80%E4%B9%88%E6%98%AFserverless)服务器）内。
-2. 开通`uni-push2.0`（注意：**无论是APP、小程序、web端都需要开通，否则消息将无法实时更新**）[点此前往开通](https://uniapp.dcloud.net.cn/unipush-v2.html#%E7%AC%AC%E4%B8%80%E6%AD%A5-%E5%BC%80%E9%80%9A)
+1. 获取运行uni-im服务端代码的云服务环境
 
-> 步骤1中开通的uniCloud是公有云服务器。若您的项目有特殊需求，比如政府项目、对信息保密性要求较高的企事业单位项目或者用户都在海外的项目，这种情况下则需要进行私有化部署，详情可点击[此处](https://doc.dcloud.net.cn/uniCloud/software/#uni%E4%BA%91%E5%BC%80%E5%8F%91%E8%BD%AF%E4%BB%B6%E7%89%88)。
+    注意：这里和你自己项目服务端代码是什么语言开发的，以及运行在什么云服务环境无关。uni-im运行在专有的运行环境uniCloud（即：[serverless 服务器](https://uniapp.dcloud.net.cn/uniCloud/#%E4%BB%80%E4%B9%88%E6%98%AFserverless)）。
+    你的项目代码和 uni-im 之间采用的是‘独立构建模式’，二者通过发送 http 请求并借助事件进行通讯。
+
+- 公有云  
+开通地址：[https://unicloud.dcloud.net.cn/](https://unicloud.dcloud.net.cn/) 服务商推荐选择“支付宝云”，性能更好。
+
+- 私有云  
+普通中小企业项目使用公有云即可，但如果的项目存在特殊需求，例如：政务类、对信息保密性要求较高、用户都在海外的项目，这种情况下则需要进行私有化部署，详情可点击[此处](https://doc.dcloud.net.cn/uniCloud/software/#uni%E4%BA%91%E5%BC%80%E5%8F%91%E8%BD%AF%E4%BB%B6%E7%89%88)。
+
+2. 开通可实时发送消息的推送服务  
+这里我们需要开通`uni-push`，它是基于个推封装的服务；个推是A股上市公司，专业性在推送领域领先。
+开通指南：[点此打开](https://uniapp.dcloud.net.cn/unipush-v2.html#%E7%AC%AC%E4%B8%80%E6%AD%A5-%E5%BC%80%E9%80%9A)
 
 ## 体验步骤  
-1. 打开`uni-im`插件下载地址：[https://ext.dcloud.net.cn/plugin?name=uni-im](https://ext.dcloud.net.cn/plugin?name=uni-im)
-2. 点击`使用HBuilderX导入示例项目`
-3. 对项目根目录uniCloud点右键选择“云服务空间初始化向导”界面按提示部署项目（注意：选择绑定的服务空间，须在uni-push2.0的[web控制台](https://dev.dcloud.net.cn/pages/app/push2/info)关联）
-4. 需要在两个不同的浏览器中`运行项目`，因为在同一个浏览器打开相同网络地址（ip或者域名）的uni-im项目，socket会相互占线。
-	所以需要使用两个浏览器（可以使用浏览器的`无痕式窗口`功能充当第二个浏览器）分别`注册账号并登录`，到此部署已经结束
-5. 向指定用户发起会话，通过访问路径：`/uni_modules/uni-im/pages/chat/chat?user_id=` + `指定用户的id` 即可
+1. 下载示例项目  
+打开`uni-im`插件下载地址：[https://ext.dcloud.net.cn/plugin?name=uni-im](https://ext.dcloud.net.cn/plugin?name=uni-im) 点击`使用HBuilderX导入示例项目`
+
+2. 绑定项目的服务空间  
+在项目根目录uniCloud右键选择“关联云服务空间或项目”（注意：选择关联的服务空间，需在项目的 uni-push2.0的[web控制台](https://dev.dcloud.net.cn/pages/app/push2/info)被关联）
+3. 运行项目  
+在菜单`运行`->`运行到浏览器` 选择要运行的浏览器  
+这里需要运行到两个不同的浏览器（避免同一浏览器打开多个uni-im页面，引起socket占线)，`注册账号并登录`2个账号，体验对话效果
+5. 向指定用户发起会话  
+通过访问路径：`/uni_modules/uni-im/pages/chat/chat?user_id=` + `指定用户的id`即可。  
+如果你不知道用户的id，可通过在浏览器控制台执行`uni.imObservableData.currentUser._id`可获取当前登录的账号id
+
+注意：以上为连接本地云函数体验，如果要发行为正式项目，需要把uniCloud内的文件部署到云端。操作方式为：对项目根目录uniCloud点右键选择“云服务空间初始化向导”界面按提示部署项目
 
 ## 部署到自己的项目
-1. 打开`uni-im`插件下载地址：[https://ext.dcloud.net.cn/plugin?name=uni-im](https://ext.dcloud.net.cn/plugin?name=uni-im)
-2. 点击`使用HBuilderX导入插件`，选择你的项目，点击确定（同时会自动导入依赖的uni_modules`uni-id-pages`）按提示操作自动配置`pages.json`
-3. 打开项目根目录的App.vue文件，初始化uni-id-pages和uniIm模块  
+1. 项目的客户端需要启用uni-push2.0 [详情参考](https://uniapp.dcloud.net.cn/unipush-v2.html#%E5%AE%A2%E6%88%B7%E7%AB%AF%E5%90%AF%E7%94%A8uni-push2-0)
+2. 打开`uni-im`插件下载地址：[https://ext.dcloud.net.cn/plugin?name=uni-im](https://ext.dcloud.net.cn/plugin?name=uni-im)
+3. 点击`使用HBuilderX导入插件`，选择你的项目，点击确定（同时会自动导入依赖的uni_modules`uni-id-pages`）按提示操作配置`pages.json`
+4. 打开项目根目录的App.vue文件，初始化uni-id-pages和uniIm模块  
 示例如下：
 
 ```html
@@ -92,10 +71,10 @@ uni-im本身并不收费，实际使用中需要依赖uniCloud云服务，会产
 	export default {
 		onLaunch: async function() {
 			console.log('App Launch');
-      //4. 安装uniIm扩展插件
-      MsgReaderExtension.install()
-			//5. 初始化uni身份信息管理模块
+      //4. 初始化uni身份信息管理模块
 			uniIdPagesInit();
+			//5. 安装uniIm扩展插件
+      MsgReaderExtension.install()
 			//6. 初始化uniIm
 			uniIm.init();
 		},
@@ -109,7 +88,8 @@ uni-im本身并不收费，实际使用中需要依赖uniCloud云服务，会产
 </script>
 ```
 
-如果你是部署到微信小程序端，由于小程序端不支持“动态组件”需要通过引入vite插件[rollup-plugin-uniapp-cementing.js](https://gitcode.net/dcloud/hello-uni-im/-/blob/v3/rollup-plugin-uniapp-cementing.js)实现“动态组件静态化”
+uni-im的“扩展插件功能”基于“动态组件”实现的。而需要注意的是，微信小程序并不支持“动态组件”。倘若你的项目有在微信小程序端部署的需求，那么就需要引入vite插件[rollup-plugin-uniapp-cementing.js](https://gitcode.net/dcloud/hello-uni-im/-/blob/v3/rollup-plugin-uniapp-cementing.js)实现“动态组件静态化”。
+
 示例:
 在项目根目录创建：`vite.config.js`，内容如下：
 ```js
@@ -151,16 +131,15 @@ export default defineConfig({
 });
 ```
 
-4. 配置Schema扩展Js的公共模块或扩展库
+5. 配置Schema扩展Js的公共模块或扩展库  
 先复制示例项目的`/uni_modules/uni-id-pages/uniCloud/database/uni-id-users.schema.json`文件覆盖到自己项目，解决表操作权限问题。
 由于uni-im的数据库的触发器依赖了`uni-im-utils`，需要在目录`uniCloud/database`右键 -> 选择“配置Schema扩展Js的公共模块或扩展库” -> 在选择项目的公共模块中找到`uni-im-utils`并勾选 -> 点击确定，完成配置；然后在目录`uniCloud/database`右键 -> 上传Schema扩展Js的配置。
 
-5. 部署到uniCloud 
+6. 部署到uniCloud  
 在项目根目录uniCloud点右键，选择“云服务空间初始化向导” 按提示部署项目（注意：选择绑定的服务空间，须在uni-push2.0的[web控制台](https://dev.dcloud.net.cn/pages/app/push2/info)关联）
 
-6. 登录uni-im  
-
-uni-im的服务端代码托管在uniCloud下，账户体系是[uni-id 4.0+](https://uniapp.dcloud.net.cn/uniCloud/uni-id/summary.html)的；
+7. 登录uni-im  
+uni-im的服务端代码托管在uniCloud下，账户体系是[uni-id 4.0+](https://uniapp.dcloud.net.cn/uniCloud/uni-id/summary.html)的。
 uni-app生态下绝大部分项目的架构与uni-im相同，所以不需要考虑账号打通问题，用户登录项目后，不需要额外登录uni-im。
 
 而有些传统项目，服务端的开发语言是php、java、go、.net、python、c#等，是自己设计的账号体系；
@@ -250,10 +229,10 @@ uni.request({
       await uniIdMutations.updateUserInfo()
   ```
 
-7. 确保账户对接成功后，打开“用户列表页”，路径：`/uni_modules/uni-im/pages/userList/userList`可以看到所有的注册用户
-8. 点击某个用户，会自动创建与该用户的会话，并打开“聊天对话页”（路径：`/uni_modules/uni-im/pages/chat/chat`），然后就可以开始聊天了。
-9. 还可以导入uni-im的示例项目作为管理员端与用户聊天。
-10. 如果你是2个不同appId的应用相互通讯（比如：淘宝的买家端和卖家端通讯）的场景，请打开聊天对话文件（路径：`/uni_modules/uni-im/pages/chat/chat`）搜索`msg.appId = this.systemInfo.appId`修改`this.systemInfo.appId`为相对的appId
+8. 确保账户对接成功后，打开“用户列表页”，路径：`/uni_modules/uni-im/pages/userList/userList`可以看到所有的注册用户
+9. 点击某个用户，会自动创建与该用户的会话，并打开“聊天对话页”（路径：`/uni_modules/uni-im/pages/chat/chat`），然后就可以开始聊天了。
+10. 还可以导入uni-im的示例项目作为管理员端与用户聊天。
+11. 如果你是2个不同appId的应用相互通讯（比如：淘宝的买家端和卖家端通讯）的场景，请打开聊天对话文件（路径：`/uni_modules/uni-im/pages/chat/chat`）搜索`msg.appId = this.systemInfo.appId`修改`this.systemInfo.appId`为相对的appId
 
 不基于uni-id-pages开发的项目还要注意以下两个问题：
 1. 退出登录；需要在执行退出登录/切换账号时，调用uni-id的退出登录接口。否则会出现退出登录后的设备仍然能收到im消息，或导致此设备再登录其他账号不能正常收到消息的问题；示例代码如下：
@@ -293,11 +272,12 @@ uni.navigateTo({
 1. 添加`uni-im`配置文件，打开：`/uni_modules/uni-config-center/uniCloud/cloudfunctions/common/uni-config-center/`；新建`uni-im`文件夹和`config.json`文件，示例如下：
 ```json
 {
+  "conversation_grade": 100,
 	"customer_service_uids":["user-id-01","user-id-02"]
 }
 ```
 
-2. 配置`customer_service_uids`的值为管理员客服的user_id（支持多个以数组的形式指定），如果会话双方均不属于此域则无法通讯。不配置或为false则表示不限制。
+2. 配置customer_service_uids[详情查看](#uni-im-cloud-config)
 
 # 开发文档  
 ## 目录结构  
@@ -454,7 +434,7 @@ uni.navigateTo({
 - 聊天会话ID  
 根据通讯双方用户id，或群聊id，生成的唯一索引值；用于更加方便查找聊天记录等。
 - 聊天会话  
-以会话ID为索引的一组数据，记录：未读消息数量、会话更新时间、会话类型、会话所属用户的id、对话的用户id、对话的群id、群信息、最后一条消息概述（文本消息的前15个字，消息为多媒体时只描述类型）
+以会话ID为索引的一组数据，记录：未读消息数量、会话更新时间、会话类型、会话所属用户的id、对话的用户id、对话的群id、最后一条消息概述（文本消息的前15个字，消息为多媒体时只描述类型）等，更多详情参考项目根目录下的`/uni_modules/uni-im/uniCloud/database/uni-im-conversation.schema.json`文件
 
 ## uni-im-co 云函数（云对象）  
 API列表
@@ -656,28 +636,28 @@ import uniIm from '@/uni_modules/uni-im/sdk/index.js';
 
 - 获取会话数据
 
-1. 获取全部会话数据
+1. 拿到全部本地会话数据
 ```js
-let param = null
-let conversationList = await uniIm.conversation.get(param)
+// 这是一个响应式数据对象，可以直接挂到计算属性上
+let conversationList = uniIm.conversation.dataList
 ```
 2. 获取指定会话的id会话数据
 ```js
 //xxx表示会话id
 let param = "xxx"
-let conversationList = await uniIm.conversation.get(param)
+let conversation = await uniIm.conversation.get(param)
 ```
 3. 获取指定好友id的会话数据（如果本地不存在则从云端拉取，仍然不存在则本地自动创建）
 ```js
 //xxx表示好友id
 let param = {"friend_uid":"xxx"},
-let conversationList = await uniIm.conversation.get(param)
+let conversation = await uniIm.conversation.get(param)
 ```
 4. 获取指定群聊id的会话数据（如果本地不存在则从云端拉取，仍然不存在则本地自动创建）
 ```js
 //xxx表示群聊id
 let param = {"group_id":"xxx"}
-let conversationList = await uniIm.conversation.get(param)
+let conversation = await uniIm.conversation.get(param)
 ```
 
 5. 移除/隐藏会话（软删除，有新消息后自动恢复）
@@ -715,7 +695,7 @@ let conversationData = await uniIm.conversation.loadMore(param)
 |chatInputContent	|string				|当前会话的文本框文字内容									|
 
 
-- 统计所有消息的未读数  
+- 获取所有消息的未读数  
 ```js
 let unreadCount = await uniIm.conversation.unreadCount()
 ```
@@ -761,7 +741,8 @@ await uniIm.notification.get(param)
 
 - 获取好友数据  
 ```js
-await uniIm.friend.get()
+// 这是一个响应式数据对象，可以直接挂到计算属性上
+uniIm.friend.dataList
 ```
 
 - 加载更多好友数据  
@@ -776,7 +757,8 @@ await uniIm.friend.loadMore(param)
 ```
 - 获取群列表数据  
 ```js
-await uniIm.group.get()
+// 这是一个响应式数据对象，可以直接挂到计算属性上
+uniIm.group.dataList
 ```
 
 - 加载更多群数据  
@@ -827,7 +809,7 @@ uni-im遵循uni-app的插件模块化规范，即：[uni_modules](https://uniapp
 在项目根目录下的`uni_modules`目录下，以插件ID即`uni-im`为插件文件夹命名，在该目录右键也会看到“从插件市场更新”选项，点击即可更新该插件。也可以用插件市场web界面下载覆盖。
 
 
-## 许可协议
+# 许可协议
 uni-im源码使用许可协议
 
 2022年10月
@@ -864,3 +846,36 @@ d) 如您违反本许可协议，需承担因此给DCloud造成的损失。
 根据发展，DCloud可能会对本协议进行修改。修改时，DCloud会在产品或者网页中显著的位置发布相关信息以便及时通知到用户。如果您选择继续使用本框架，即表示您同意接受这些修改。
 
 条款结束
+
+# 使用uniCloud产生的费用说明@cost
+
+uni-im本身并不收费，实际使用中需要依赖uniCloud云服务，会产生费用；而uniCloud的价格很实惠：  
+- 调用10000次云函数仅需0.0133元
+- 调用10000次数据库查询仅需0.015元
+> 更多计费参考：[阿里云版uniCloud按量计费文档](https://uniapp.dcloud.net.cn/uniCloud/price.html#aliyun-postpay)
+
+举例说明：  
+- 单聊场景，向用户发送一条消息的过程：
+1. 调用uni-im-co云对象的sendMsg方法（产生1次云函数请求）
+2. 查询当前对话的会话记录（产生1次云数据库读操作）
+3. 根据步骤2的查询结果，如果已经有会话记录，就更新会话，否则就创建一条会话记录（产生1次云数据库写操作）
+4. 查询发送消息的用户信息，用于接收消息时在通知栏显示发送者昵称和头像（产生1次云数据库读操作）
+5. 记录发送的消息内容到数据库，用于保存消息历史记录（产生1次云数据库写操作）
+6. 以`user_id`为标识通过`uni-push2`向用户发送消息会产生0.00000283元uniCloud使用费用[详情查看](https://uniapp.dcloud.net.cn/unipush-v2.html#cost)
+
+合计：1次云函数请求、2次数据库读操作、2次数据库写操作、1次uni-push2推送操作，即 (1 * 0.0133 + 2 * 0.015 + 2 * 0.05 + 1 * 0.0283)/10000 ≈ 0.000017元
+
+- 群聊场景，向用户发送一条消息的过程：
+1. 调用uni-im-co云对象的sendMsg方法（产生1次云函数请求）
+2. 查询当前用户是否为群成员，防止非群成员发送消息（产生1次云数据库读操作）
+3. 查询当前对话的会话记录（产生1次云数据库读操作）
+4. 根据步骤3的查询结果，如果已经有会话记录，就更新会话，否则就创建一条会话记录（产生1次云数据库写操作）
+5. 查询发送消息的用户信息，用于接收消息时在通知栏显示发送者昵称和头像（产生1次云数据库读操作）
+6. 记录发送的消息内容到数据库，用于保存消息历史记录（产生1次云数据库写操作）
+7. 以群id为参数，调用uni-im-co云对象的sendMsgToGroup方法，这是一个递归方法每次向500名群成员推送消息（如果群成员数量为0-500只需执行1次，500-1000需执行2次，以此类推），（会产生最少1次数据库读操作，和1次以`user_id`为标识通过`uni-push2`向用户发送消息会产生0.00000283元uniCloud使用费用[详情查看](https://uniapp.dcloud.net.cn/unipush-v2.html#cost)）
+
+合计：向500人群发送消息，会产生：1次云函数请求、4次数据库读操作、2次数据库写操作、1次uni-push2推送操作，即 (1 * 0.0133 + 4 * 0.015 + 2 * 0.05 + 1 * 0.0283)/10000 ≈ 0.000020元
+
+相比市面上同类型产品，使用uni-im仅需花费如此便宜的uniCloud（serverless服务器）费用；在价格这块uni-im性价比极高。
+
+>注：由于uni-im会持续升级，其服务端运行逻辑也会不断优化，或新增其他逻辑，这可能导致上述费用计算方法中的数据库操作次数发生变化。因此，此处的费用算法仅作参考。
