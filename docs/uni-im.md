@@ -26,7 +26,7 @@ web端网址（支持PC宽屏和移动端）：[https://im.dcloud.net.cn/index.h
 1. 获取运行uni-im服务端代码的云服务环境
 
     注意：这里和你自己项目服务端代码是什么语言开发的，以及运行在什么云服务环境无关。uni-im运行在专有的运行环境uniCloud（即：[serverless 服务器](https://uniapp.dcloud.net.cn/uniCloud/#%E4%BB%80%E4%B9%88%E6%98%AFserverless)）。
-    你的项目代码和 uni-im 之间采用的是‘独立构建模式’，二者通过发送 http 请求并借助事件进行通讯。
+    你的项目服务端和uni-im的服务端之间，采用是“独立构建模式”，二者通过发送 http 请求并借助事件进行通讯。
 
 - 公有云  
 开通地址：[https://unicloud.dcloud.net.cn/](https://unicloud.dcloud.net.cn/) 服务商推荐选择“支付宝云”，性能更好。
