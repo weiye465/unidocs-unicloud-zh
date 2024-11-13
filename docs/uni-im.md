@@ -853,7 +853,7 @@ d) 如您违反本许可协议，需承担因此给DCloud造成的损失。
 uni-im本身并不收费，实际使用中需要依赖uniCloud云服务，会产生费用；而uniCloud的价格很实惠：  
 - 调用10000次云函数仅需0.0133元
 - 调用10000次数据库查询仅需0.015元
-> 更多计费参考：[阿里云版uniCloud按量计费文档](https://uniapp.dcloud.net.cn/uniCloud/price.html#aliyun-postpay)
+> 更多计费参考：[支付宝云版uniCloud按量计费文档](https://doc.dcloud.net.cn/uniCloud/price.html#alipay)
 
 举例说明：  
 - 单聊场景，向用户发送一条消息的过程：
