@@ -105,7 +105,7 @@ export default defineConfig({
       include: [
         '**/uni-im-conversation.vue',
         './uni_modules/uni-im/components/uni-im-msg/uni-im-msg.vue',
-        './uni_modules/uni-im/pages/chat/info.nvue'
+        './uni_modules/uni-im/pages/chat/info.vue'
       ],
       components: {
         // 声明组件，格式 {"$组件名":{"$cementing":"$组件路径"}}
