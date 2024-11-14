@@ -2221,7 +2221,7 @@ db.collection("department").get({
 
 分组统计有groupBy和groupField。和传统sql略有不同，传统sql没有单独的groupField。
 
-JQL的groupField里不能直接写field字段，只能使用[分组运算方法](jql.md?id=accumulator)来处理字段，常见的累积器计算符包括：count(*)、sum(字段名称)、avg(字段名称)。更多分组运算方法[详见](clientdb.md?id=accumulator)
+JQL的groupField里不能直接写field字段，只能使用分组运算方法来处理字段，常见的累积器计算符包括：count(*)、sum(字段名称)、avg(字段名称)。更多分组运算方法[详见](jql-operator-example.md#group)
 
 其中count(*)是固定写法。
 
