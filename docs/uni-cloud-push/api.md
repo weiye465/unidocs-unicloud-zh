@@ -358,7 +358,7 @@ await uniPush.getTaskDetail(OBJECT)
 一个cid只能绑定一个别名，若已绑定过别名的cid再次绑定新别名，则前一个别名会自动解绑，并绑定新别名。
 ##### 接口形式
 ```js
-await uniPush.cidBindAlias(OBJECT)
+await uniPush.cidBindAlias(Array)
 ```
 ##### 入参说明
 * 参数示例
