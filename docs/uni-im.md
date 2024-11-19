@@ -442,7 +442,7 @@ API列表
 
 |API								|描述																															|
 |--									|--																																|
-|httpApi						|用于方便第三方服务器调用uni-im-co url 化后的任意方法[见下方](#httpapi)	|
+|httpApi						|方便外部服务器调用uni-im-co url化的链接，以请求其内部方法。[见下方](#httpapi)	|
 |getConversationList|获取会话列表[见下方](#cogetconversationlist)												|
 |sendMsg						|发送聊天消息[见下方](#cosendmsg)																		|
 |sendPushMsg				|触发器专用消息推送方法																								|
@@ -455,7 +455,8 @@ API列表
 
 #### 背景介绍  
 uni-im-co会校验uni-id-token以验证请求的合法性。常有外部服务器调用uniCloud中的uni-im-co实现模拟某个用户向其他用户发消息、撤回消息、拉群等需求。
-httpApi应运而生，通过[uni-cloud-s2s](https://doc.dcloud.net.cn/uniCloud/uni-cloud-s2s.html#%E5%A4%96%E9%83%A8%E6%9C%8D%E5%8A%A1%E5%99%A8%E5%A6%82%E4%BD%95%E4%B8%8Eunicloud%E5%AE%89%E5%85%A8%E9%80%9A%E8%AE%AF) 实现安全通讯，外部服务器无需传递uni-id-token，可实现模拟任意用户、任意客户端环境、操作uni-im-co中的任意方法。
+httpApi应运而生，通过[uni-cloud-s2s](https://doc.dcloud.net.cn/uniCloud/uni-cloud-s2s.html#%E5%A4%96%E9%83%A8%E6%9C%8D%E5%8A%A1%E5%99%A8%E5%A6%82%E4%BD%95%E4%B8%8Eunicloud%E5%AE%89%E5%85%A8%E9%80%9A%E8%AE%AF) 
+实现安全通讯，外部服务器无需传递uni-id-token，可实现模拟任意用户、任意客户端环境、请求uni-im-co内的方法。
 #### 使用示例  
 1. 获取http请求的网络地址  
 在项目根目录的uniCloud目录右键，选择“打开uniCloud web控制台” -> 云函数/云对象 -> 云函数/云对象列表 -> 找到“云对象uni-im-co” -> 点击右侧的“详情”-> 在页面最下方可以看到“云函数URL化”点击“复现路径“。
