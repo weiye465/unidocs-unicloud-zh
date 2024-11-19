@@ -440,18 +440,18 @@ uni.navigateTo({
 ## uni-im-co 云函数（云对象）  
 API列表
 
-|API								|描述																														|
-|--									|--																															|
-|httpApi						|用于方便第三方服务器调用uni-im-co url 化后的任意方法[见下方](#httpApi)	|
-|getConversationList|获取会话列表[见下方](#coGetConversationList)											|
-|sendMsg						|发送聊天消息[见下方](#cosendmsg)																	|
-|sendPushMsg				|触发器专用消息推送方法																							|
-|sendMsgToGroup			|向群用户递归推送消息[见下方](#cosendmsgtogroup)											|
-|addFriendInvite		|向用户发起加好友邀请[见下方](#coaddfriendinvite)										|
-|chooseUserIntoGroup|选择用户加入群聊（不传群id时为创建群）[见下方](#cosendmsgtogroup)			|
-|revokeMsg					|撤回已经发送的消息[见下方](#corevokemsg)														|
+|API								|描述																															|
+|--									|--																																|
+|httpApi						|用于方便第三方服务器调用uni-im-co url 化后的任意方法[见下方](#httpapi)	|
+|getConversationList|获取会话列表[见下方](#cogetconversationlist)												|
+|sendMsg						|发送聊天消息[见下方](#cosendmsg)																		|
+|sendPushMsg				|触发器专用消息推送方法																								|
+|sendMsgToGroup			|向群用户递归推送消息[见下方](#cosendmsgtogroup)												|
+|addFriendInvite		|向用户发起加好友邀请[见下方](#coaddfriendinvite)											|
+|chooseUserIntoGroup|选择用户加入群聊（不传群id时为创建群）[见下方](#cosendmsgtogroup)				|
+|revokeMsg					|撤回已经发送的消息[见下方](#corevokemsg)															|
 
-### httpApi @httpApi
+### httpApi @httpapi
 
 #### 背景介绍  
 uni-im-co会校验uni-id-token以验证请求的合法性。常有外部服务器调用uniCloud中的uni-im-co实现模拟某个用户向其他用户发消息、撤回消息、拉群等需求。
@@ -546,7 +546,7 @@ await uniCloud.httpclient.request(url,
   })
 ```
     
-### 获取会话列表 getConversationList@coGetConversationList
+### 获取会话列表 getConversationList@cogetconversationlist
 **参数说明**
 
 |参数名								|类型		|必填	|说明																					|
