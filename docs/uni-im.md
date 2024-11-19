@@ -440,17 +440,112 @@ uni.navigateTo({
 ## uni-im-co 云函数（云对象）  
 API列表
 
-|API								|描述																												|
-|--									|--																													|
-|getConversationList|获取会话列表[见下方](#cogetconversationlist)									|
-|sendMsg						|发送聊天消息[见下方](#cosendmsg)															|
-|sendPushMsg				|触发器专用消息推送方法																					|
-|sendMsgToGroup			|向群用户递归推送消息[见下方](#cosendmsgtogroup)									|
-|addFriendInvite		|向用户发起加好友邀请[见下方](#coaddfriendinvite)								|
-|chooseUserIntoGroup|选择用户加入群聊（不传群id时为创建群）[见下方](#cosendmsgtogroup)	|
-|revokeMsg					|撤回已经发送的消息[见下方](#corevokemsg)												|
+|API								|描述																														|
+|--									|--																															|
+|httpApi						|用于方便第三方服务器调用uni-im-co url 化后的任意方法[见下方](#httpApi)	|
+|getConversationList|获取会话列表[见下方](#coGetConversationList)											|
+|sendMsg						|发送聊天消息[见下方](#cosendmsg)																	|
+|sendPushMsg				|触发器专用消息推送方法																							|
+|sendMsgToGroup			|向群用户递归推送消息[见下方](#cosendmsgtogroup)											|
+|addFriendInvite		|向用户发起加好友邀请[见下方](#coaddfriendinvite)										|
+|chooseUserIntoGroup|选择用户加入群聊（不传群id时为创建群）[见下方](#cosendmsgtogroup)			|
+|revokeMsg					|撤回已经发送的消息[见下方](#corevokemsg)														|
 
+### httpApi @httpApi
 
+#### 背景介绍  
+uni-im-co会校验uni-id-token以验证请求的合法性。常有外部服务器调用uniCloud中的uni-im-co实现模拟某个用户向其他用户发消息、撤回消息、拉群等需求。
+httpApi应运而生，通过[uni-cloud-s2s](https://doc.dcloud.net.cn/uniCloud/uni-cloud-s2s.html#%E5%A4%96%E9%83%A8%E6%9C%8D%E5%8A%A1%E5%99%A8%E5%A6%82%E4%BD%95%E4%B8%8Eunicloud%E5%AE%89%E5%85%A8%E9%80%9A%E8%AE%AF) 实现安全通讯，外部服务器无需传递uni-id-token，可实现模拟任意用户、任意客户端环境、操作uni-im-co中的任意方法。
+#### 使用示例  
+1. 获取http请求的网络地址  
+在项目根目录的uniCloud目录右键，选择“打开uniCloud web控制台” -> 云函数/云对象 -> 云函数/云对象列表 -> 找到“云对象uni-im-co” -> 点击右侧的“详情”-> 在页面最下方可以看到“云函数URL化”点击“复现路径“。
+
+2. 配置uni-cloud-s2s安全通讯密钥  
+  - **文件路径**：`/uni_modules/uni-config-center/uniCloud/cloudfunctions/common/uni-config-center/uni-cloud-s2s/config.json`（如果没有需要自己创建，或拷贝示例项目相关文件）。
+  - **uni-cloud-s2s有**：`connectCode` 和 `数据签名`2种安全通讯验证方式，这里以`connectCode`为例，配置内容为：
+    ```json
+    {
+      "type": "connectCode",
+      "connectCode": "youConnectCodeValue"
+    }
+    ```    
+    其中 youConnectCodeValue 为你配置的 connectCode 密钥，用一个较长的字符串即可，不可包含中文。配置此密钥是为了后续在请求时进行安全通讯验证。
+
+3. 模拟用户 001 向用户 002 发消息：
+    ```js
+    // 以下是一个POST请求示例，用于模拟用户001向用户002发送文本消息
+    POST /uni-im-co/httpApi HTTP/1.1
+    Host: xxx.com // 这里的Host需填写步骤①中获取到的http网络地址的域名
+    Content-Type: application/json
+    Cache-Control: no-cache // 此处设置可根据实际需求调整，比如是否允许缓存等情况，当前设置为不缓存
+    Unicloud-S2s-Authorization: "CONNECTCODE youConnectCodeValue" // 按照配置的安全通讯验证类型及密钥填写
+
+    [
+      {
+        "sendMsg":{
+          "type": "text", // 表示消息类型为文本
+          "to_uid": "is002user_id", // 接收消息用户的id
+          "body": "你好002，我是001", // 消息具体内容
+          "appId": "应用的appid" // 应用对应的appId
+        }
+      },
+      {
+        "userInfo":{
+          "_id":"is001user_id" // 必填参数，表示操作当前方法的账号id
+        }
+      }
+    ]
+    ```
+    注意:body 是一个长度为 2 的数组，且每一项都是对象，如：
+      ```js
+      [
+        {"方法名":"参数"},
+        {
+          "userInfo":"用户信息，详情：/uni_modules/uni-id-pages/uniCloud/database/uni-id-users.schema.json",
+          "clientInfo":"客户端信息，详情：https://uniapp.dcloud.net.cn/api/system/info.html （客户端信息相关参考内容）"
+        }
+      ]
+      ```
+      + 方法名，包括 uni-im-co 下除 httpApi 以外的其他方法
+      + `userInfo._id` 为必填参数（表示操作当前方法的账号 id）
+      + clientInfo 为可选参数
+      + Unicloud-S2s-Authorization 的值为：安全通讯验证类型名 + 空格 + 你配置的密钥；即当前示例为："connectCode" + " " +"youConnectCodeValue"。
+  
+补充示例（为了方便进一步理解，以在uniCloud中请求外部接口为例）：
+```js
+// uni-im-co云对象url化后的网络地址
+const uniImCoUrl = "https://env-xxxxxxxxx.dev-hz.cloudbasefunction.cn/uni-im-co" 
+// 要请求的方法名
+const functionName = "/httpApi" 
+// http请求的网络地址
+const url =  uniImCoUrl + functionName
+await uniCloud.httpclient.request(url,
+  {
+    method: "POST",
+    dataType: 'json',
+    headers: {
+      "Unicloud-S2s-Authorization": "CONNECTCODE youConnectCodeValue",
+      "Content-Type": "application/json",
+      "Cache-Control": "no-cache"
+    },
+    data: [
+      {
+        "sendMsg":{
+          "type": "text",
+          "to_uid": "is002user_id",
+          "body": "你好002，我是001",
+          "appId": "__UNI__XXXXXX"
+        }
+      },
+      {
+        "userInfo":{
+          "_id":"is001user_id"
+        }
+      }
+    ]
+  })
+```
+    
 ### 获取会话列表 getConversationList@coGetConversationList
 **参数说明**
 
