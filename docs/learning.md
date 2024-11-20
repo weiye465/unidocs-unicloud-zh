@@ -16,8 +16,8 @@
 视频教程：
 - [网易云课堂unicloud入门到精通](https://study.163.com/course/introduction.htm?courseId=1209978085#/courseDetail?tab=1)
 - [B站uniCloud多用户社区博客实战项目开发教程](https://www.bilibili.com/video/BV1yG4y1h7ck?p=1)
+- [B站uniCloud云开发超细致快速入门](https://www.bilibili.com/video/BV1Dw1uYaE5s/)
 - [其他B站uniCloud视频教程](https://search.bilibili.com/all?keyword=unicloud)
-
 
 uni-app结合云函数开发小程序博客教程：
 - [第一节](https://juejin.im/post/5ea78879e51d454dd60cf473)
