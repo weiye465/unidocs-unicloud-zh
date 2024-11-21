@@ -122,7 +122,7 @@ DCloud为开发者提供了`uni发布平台`，包括网站发布、App发布和
 
 注意：各运营商下载证书的后缀可能不同，一般来说，`.key`文件对应私钥，`.pem`或`.crt`文件对应证书。这几种类型文件都是文本内容，可选择记事本打开查看内容。
 
-如果您还没有SSL证书，点此[快速获取](https://market.aliyun.com/agents/yscdcloud#J_2430492660)。
+如果您还没有SSL证书，点此[快速获取](https://market.aliyun.com/common/agents/yscdcloud?userCode=yp4pevgx)。
 
 **注意事项**
 
