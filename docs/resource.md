@@ -4,6 +4,10 @@
 
 如下是使用 ``uniCloud`` 的插件市场项目或开源案例。欢迎大家提交插件或开源项目，可以以pr方式直接编辑本文档。
 
+- 西安铁路局 [uni软件版](./software/README.md)案例，私有化部署
+
+- 大众汽车 [uni软件版](./software/README.md)案例，私有化部署
+
 - [贝壳阅读](https://ext.dcloud.net.cn/plugin?id=5187)
 集成签到、抽奖、金币积分多种好玩的激励玩法，免费读书，广告变现。本书城系统可独立部署，也可作为插件集成至任何流量主APP。
 
@@ -15,17 +19,6 @@
 
 <a href="http://xwapp.moe.gov.cn/h5/sharepage/download.html" target="_blank">
   <img width="400" src="https://qiniu-web-assets.dcloud.net.cn/unidoc/zh/10.png">
-</a>
-
-
-- [鲸鱼解忧馆](https://qiniu-qiniu-web-assets.dcloud.net.cn/unidoc/zh/123.png) 一个通过交流与诉说以消除烦恼的平台。
-我们的愿望是每个用户在这里写下烦恼后能够得到解答与回应，并且找到与自己拥有同样烦恼的人和群体。
-也许回应不会那么迅速，但总归会得到暖心的回复。答案难道不是一种值得期待的事情吗？
-也许“答案”不是那么“准确”，因为人与人的心理与性格各异。但我们初心的是引导你走出心里的围墙。
-一个无需过多言语便懂你的慢社交轻社区。
-
-<a href="https://qiniu-web-assets.dcloud.net.cn/unidoc/zh/123.png" target="_blank">
-<img width="800" src="https://qiniu-web-assets.dcloud.net.cn/unidoc/zh/123.png">
 </a>
 
 - [uni-starter](https://ext.dcloud.net.cn/plugin?id=5057)
