@@ -1,8 +1,9 @@
 # 开发指南
 
-> 注意：暂只支持连接云端，不支持连接本地运行
-
-> 欢迎加入[uni手机号实名核验技术交流群](https://im.dcloud.net.cn/#/?joinGroup=671228ce50c2166f8b4ec837)
+::: warning 注意
+- 已支持云端运行，本地运行需HBuilderX 4.35+
+- 欢迎加入[uni手机号实名核验技术交流群](https://im.dcloud.net.cn/#/?joinGroup=671228ce50c2166f8b4ec837)
+:::
 
 ## 添加 uni-cloud-verify 扩展库依赖@extend
 
