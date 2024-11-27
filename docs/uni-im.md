@@ -22,6 +22,12 @@ web端网址（支持PC宽屏和移动端）：[https://im.dcloud.net.cn/index.h
 > uni-im相关功能建议或问题，可以加入由uni-im（本插件）搭建的交流群[点此加入](https://im.dcloud.net.cn/#/?joinGroup=63ef49711d358337456f4d67)
 
 # 快速部署体验
+
+演示视频
+[
+![](https://web-ext-storage.dcloud.net.cn/doc/im/20241125164315.jpg)
+](https://www.bilibili.com/video/BV1BmzcYME8H/?vd_source=b123f8c166833c59567e6923b9aa2013)
+
 ## 前提条件
 1. 获取运行uni-im服务端代码的云服务环境
 
@@ -53,11 +59,6 @@ web端网址（支持PC宽屏和移动端）：[https://im.dcloud.net.cn/index.h
 如果你不知道用户的id，可通过在浏览器控制台执行`uni.imObservableData.currentUser._id`可获取当前登录的账号id
 
 注意：以上为连接本地云函数体验，如果要发行为正式项目，需要把uniCloud内的文件部署到云端。操作方式为：对项目根目录uniCloud点右键选择“云服务空间初始化向导”界面按提示部署项目
-
-演示视频
-[
-![](https://web-ext-storage.dcloud.net.cn/doc/im/20241125164315.jpg)
-](https://www.bilibili.com/video/BV1BmzcYME8H/?vd_source=b123f8c166833c59567e6923b9aa2013)
 
 ## 部署到自己的项目
 1. 项目的客户端需要启用uni-push2.0 [详情参考](https://uniapp.dcloud.net.cn/unipush-v2.html#%E5%AE%A2%E6%88%B7%E7%AB%AF%E5%90%AF%E7%94%A8uni-push2-0)
