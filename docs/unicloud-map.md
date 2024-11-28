@@ -2,8 +2,6 @@
 
 ::: warning 注意
 该组件依赖 [uni-map-common 公共模块](uni-map-common.md)
-
-该组件基于map组件封装，故APP端不支持腾讯地图
 :::
 
 ### 介绍@introduce
