@@ -2631,6 +2631,10 @@ module.exports = {
 }
 ```
 
+### 微信小程序@tips-wxpay-mp
+
+微信小程序支付除了配置uni-pay的支付配置外，还需要配置 `manifest.json` 内的 微信小程序appid
+
 ### APP支付@tips-app
 
 APP支付除了配置uni-pay的支付配置外，还需要打包时添加支付模块，如下图所示。
