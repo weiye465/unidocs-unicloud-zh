@@ -2765,3 +2765,7 @@ https://api.next.bspapp.com;https://api.bspapp.com;https://tcb-api.tencentclouda
 方案一：使用微信支付v3版本
 
 方案二：将云函数的node版本切换成node16（支付宝云默认是node18，而node18不再支持微信支付v2证书pfx的加密算法导致的）
+
+### 微信小程序支付成功后直接跳了广告页面，返回后不执行后续逻辑，怎么办？@question-mp-weixin-ad
+
+打开[微信小程序后台](https://mp.weixin.qq.com/)，依次点击左侧菜单【流量主】-【支付订单详情页广告】- 关闭广告即可。
