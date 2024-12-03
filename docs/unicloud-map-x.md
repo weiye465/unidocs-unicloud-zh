@@ -460,15 +460,23 @@ export default {
 
 地图Key需要在两个地方进行配置：前端配置和云端配置（必须都配置）。
 
-前端配置Key：
-
-在 manifest.json 文件中点击 Web 配置，选择并配置腾讯地图或高德地图中的任意一个即可。
-
-![](https://qiniu-web-assets.dcloud.net.cn/unidoc/zh/3707/416.png)
+前端配置Key：[点击查看](https://doc.dcloud.net.cn/uni-app-x/component/map.html#map-key%E9%85%8D%E7%BD%AE)
 
 云端配置Key：
 
-在 uni-config-center/uni-map/config.js 中进行配置。（没有配置文件就新建）
+在 uni-config-center/uni-map/config.js 中进行配置。（没有配置文件和目录就新建目录和文件）
+
+config.js 文件内容
+
+```js
+module.exports = {
+	"default": "qqmap", // 使用的平台
+	"key": {
+		"qqmap": "", // 腾讯地图key
+		"amap": "", // 高德地图key
+	}
+}
+```
 
 ![](https://qiniu-web-assets.dcloud.net.cn/unidoc/zh/3707/419.png)
 
@@ -699,6 +707,10 @@ unicloud-map需要创建以下表后才能正常运行，可以右键插件datab
 ### 三方定位和地图服务收费说明@fee
 
 unicloud-map是免费的，但高德、腾讯、百度等地图的使用需向地图厂商采购商业授权。DCloud与地图厂商达成合作，可更优惠的给开发者提供地图服务。[详见](https://uniapp.dcloud.net.cn/component/map.html#%E4%B8%89%E6%96%B9%E5%AE%9A%E4%BD%8D%E5%92%8C%E5%9C%B0%E5%9B%BE%E6%9C%8D%E5%8A%A1%E6%94%B6%E8%B4%B9%E8%AF%B4%E6%98%8E)
+
+### 三方地图SDK
+
+[点击查看](https://doc.dcloud.net.cn/uni-app-x/component/map.html#mapsdk)
 
 ### 【福利】高德拉新
 

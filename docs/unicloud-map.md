@@ -440,7 +440,19 @@ export default {
 
 云端配置Key：
 
-在 uni-config-center/uni-map/config.js 中进行配置。（没有配置文件就新建）
+在 uni-config-center/uni-map/config.js 中进行配置。（没有配置文件和目录就新建目录和文件）
+
+config.js 文件内容
+
+```js
+module.exports = {
+	"default": "qqmap", // 使用的平台
+	"key": {
+		"qqmap": "", // 腾讯地图key
+		"amap": "", // 高德地图key
+	}
+}
+```
 
 ![](https://qiniu-web-assets.dcloud.net.cn/unidoc/zh/3707/419.png)
 
