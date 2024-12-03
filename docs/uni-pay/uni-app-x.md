@@ -1,6 +1,6 @@
 # uni-pay-x
 
-> `uni-pay-x` 是 `uni-pay` 的 `uni-app x` 版，目前 `uni-pay-x` 仅支持 Android 端，且只支持支付宝支付
+> `uni-pay-x` 是 `uni-pay` 的 `uni-app x` 版
 
 > 本文档适用于客户端为 `uni-app x` 的版本，需 HBuilderX 4.02 及以上版本。若客户端为 `uni-app` 则请访问：[uni-pay 文档](./uni-app.md)
 

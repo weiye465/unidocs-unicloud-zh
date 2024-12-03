@@ -116,7 +116,7 @@
   * [uni-upgrade-center App升级中心](upgrade-center.md)
   * uni-pay 统一支付```{"collapsable": true}```
   * * [uni-pay 云端一体页面模板 uni-app](uni-pay/uni-app.md)
-  * * [uni-pay 云端一体页面模板 uni-app-x](uni-pay/uni-app-x.md)
+  * * [uni-pay 云端一体页面模板 uni-app x](uni-pay/uni-app-x.md)
   * * [uni-pay 公共模块](uni-pay/uni-pay-common.md)
   * * [uni-pay 微信小程序虚拟支付](uni-pay/wxpay-virtual.md)
   * [uni-cms 内容管理](uni-cms.md)
@@ -133,7 +133,8 @@
   * [uni-subscribemsg 订阅消息发送](uni-subscribemsg.md)
   * uni-map 地图```{"collapsable": true}```
   * * [uni-map-common 公共模块](uni-map-common.md)
-  * * [unicloud-map 云端一体组件](unicloud-map.md)
+  * * [unicloud-map 云端一体组件 uni-app](unicloud-map.md)
+  * * [unicloud-map 云端一体组件 uni-app x](unicloud-map-x.md)
   * * [unicloud-map 管理端](unicloud-map-admin.md)
   * * [unicloud-city-select 城市选择组件](unicloud-city-select.md)
 * [案例](resource.md)
