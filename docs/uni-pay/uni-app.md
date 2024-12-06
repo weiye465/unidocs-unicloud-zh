@@ -311,7 +311,7 @@ module.exports = {
 	"huawei": {
 		// 华为 - 元服务支付
 		"mp": {
-			"appId": "", // 应用的apId
+			"appId": "", // 应用的appId
 			"mchId": "", // 商户号
 			"mchAuthId": "", // 商户证书编号
 			"mchPrivateKey": "", // 商户私钥内容
@@ -320,7 +320,7 @@ module.exports = {
 		},
 		// 华为 - APP支付
 		"app": {
-			"appId": "", // 应用的apId
+			"appId": "", // 应用的appId
 			"mchId": "", // 商户号
 			"mchAuthId": "", // 商户证书编号
 			"mchPrivateKey": "", // 商户私钥内容
@@ -814,7 +814,7 @@ module.exports = {
 	"huawei": {
 		// 华为 - 元服务支付
 		"mp": {
-			"appId": "", // 应用的apId
+			"appId": "", // 应用的appId
 			"mchId": "", // 商户号
 			"mchAuthId": "", // 商户证书编号
 			"mchPrivateKey": "", // 商户私钥内容
@@ -854,7 +854,7 @@ module.exports = {
 	"huawei": {
 		// 华为 - APP支付
 		"app": {
-			"appId": "", // 应用的apId
+			"appId": "", // 应用的appId
 			"mchId": "", // 商户号
 			"mchAuthId": "", // 商户证书编号
 			"mchPrivateKey": "", // 商户私钥内容
