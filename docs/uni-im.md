@@ -51,6 +51,9 @@ web端网址（支持PC宽屏和移动端）：[https://im.dcloud.net.cn/index.h
 
 2. 绑定项目的服务空间  
 在项目根目录uniCloud右键选择“关联云服务空间或项目”（注意：选择关联的服务空间，需在项目的 uni-push2.0的[web控制台](https://dev.dcloud.net.cn/pages/app/push2/info)被关联）
+
+注意：部分服务空间不会自动创建数据表，需要打开项目根目录：uniCloud/database 目录，右键`上传所有DB Schema（含扩展库）`
+
 3. 运行项目  
 在菜单`运行`->`运行到浏览器` 选择要运行的浏览器  
 这里需要运行到两个不同的浏览器（避免同一浏览器打开多个uni-im页面，引起socket占线)，`注册账号并登录`2个账号，体验对话效果
