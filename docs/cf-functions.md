@@ -1489,15 +1489,15 @@ package.json是一个标准json文件，不可带注释。下面是一个package
   }],
   // 云函数Url化path部分
   "path": "",
-  "runtime": "", // nodejs版本，可选Nodejs8、Nodejs12、Nodejs14、Nodejs16、Nodejs18
+  "runtime": "", // nodejs版本，可选Nodejs8、Nodejs12、Nodejs14、Nodejs16、Nodejs18、Nodejs20
   "keepRunningAfterReturn": true // 是否在云函数return之后继续执行，仅腾讯云nodejs12生效，详情见下方说明
 }
 ```
 **runtime 支持情况**
 
-阿里云：Nodejs12、Nodejs14、Nodejs16，默认Nodejs16
+阿里云：Nodejs12、Nodejs14、Nodejs16、Nodejs18、Nodejs20，默认Nodejs16
 
-腾讯云：Nodejs8、Nodejs12，默认Nodejs8
+腾讯云：Nodejs8（即将下线，不推荐使用）、Nodejs12、Nodejs16、Nodejs18，默认Nodejs16
 
 支付宝云：Nodejs16、Nodejs18，默认Nodejs18
 
