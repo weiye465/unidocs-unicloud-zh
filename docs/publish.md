@@ -32,6 +32,8 @@ HBuilderX有多种发行方式
 - 阿里云迁移正式版后未重新发布的项目仍会请求公测版地址（api.bspapp.com）
 - 如果项目使用了uni-push，还需要将uni-push的socket域名添加到白名单[详情查看](https://uniapp.dcloud.net.cn/unipush-v2.html#useinmp)
 - 支付宝云的域名是动态的，需要在小程序管理后台配置`{spaceId}.api-hz.cloudbasefunction.cn`，其中`{spaceId}`是服务空间的id，可以在uniCloud web控制台的服务空间总览页面查看
+- 2024年12月10日之后新建的腾讯云空间，额外增加了request合法域名，需要在小程序管理后台配置`{spaceId}.ap-shanghai.tcb-api.tencentcloudapi.com`，其中`{spaceId}`是服务空间的id，可以在uniCloud web控制台的服务空间总览页面查看
+- 抖音小程序报错`Unauthenticated access is denied`，报错的网络请求header中携带了头条的referer，也就是前端发起请求跨域了，需要在服务空间添加跨域域名，默认是`tmaservice.developer.toutiao.com`
 
 **阿里云查看上传、下载安全域名**
 
