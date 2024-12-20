@@ -41,7 +41,8 @@
       "MgoKeySchema": { // 索引规则
           "MgoIndexKeys": [{
               "Name": "user_id", // 索引字段
-              "Direction": "1" // 索引方向，1：ASC-升序，-1：DESC-降序，2dsphere：地理位置
+              "Direction": "1", // 索引方向，1：ASC-升序，-1：DESC-降序，2dsphere：地理位置
+              "Type": "varchar" // 索引类型，仅支付宝云生效，varchar/bool/int/long/float
           },{
               "Name": "article_id", // 索引字段
               "Direction": "1" // 索引方向，1：ASC-升序，-1：DESC-降序，2dsphere：地理位置
