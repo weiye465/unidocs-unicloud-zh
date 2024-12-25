@@ -1,3 +1,6 @@
+#### 2024-12-18
+* 修复 vue2项目使用迁移后的腾讯云服务空间后调用云函数报错`access token disabled for ANONYMOUS login`的Bug [详情](https://issues.dcloud.net.cn/pages/issues/detail?id=14287)
+
 #### 2024-12-12
 * 修复 12月份之后新创建的腾讯云服务空间使用unicloud客户端SDK请求云函数时报错的Bug [详情](https://issues.dcloud.net.cn/pages/issues/detail?id=14037)
 * 修复 支付宝云数据库不支持arrayElemAt运算符的Bug [详情](https://ask.dcloud.net.cn/question/200275)
