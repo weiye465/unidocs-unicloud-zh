@@ -342,7 +342,7 @@ content-length: 9897
 
 ```js
 {
-    mpserverlessComposedResponse: false, // 使用阿里云返回集成响应是需要此字段为true
+    mpserverlessComposedResponse: true, // 使用阿里云返回集成响应是需要此字段为true
     isBase64Encoded: false,
     statusCode: 301,
     headers: {
