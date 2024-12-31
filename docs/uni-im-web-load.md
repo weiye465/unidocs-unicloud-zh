@@ -2,12 +2,13 @@
 帮助开发者以 web-view 的方式，快速将 uni-im 模块集成至项目（支持非unicloud项目），实现客服等相关功能。
 
 视频介绍（点击观看）  
+
 <a target="_blank" href="https://www.bilibili.com/video/BV1dQ6EYHEmG">
-<img style="max-width:500px!important;" src="https://web-ext-storage.dcloud.net.cn/doc/im/20251231171927.jpg"></img>
+	<img style="max-width:800px!important;" src="https://web-ext-storage.dcloud.net.cn/doc/im/20251231171927.jpg" />
 </a>
 
 ### 时序图
-<img style="max-width: 500px!important;" src="https://web-ext-storage.dcloud.net.cn/doc/im/im.jpg"></img>  
+<img style="max-width: 800px!important;" src="https://web-ext-storage.dcloud.net.cn/doc/im/im.jpg"></img>  
 
 关键词说明：
 ### uni-im-web 页面  
