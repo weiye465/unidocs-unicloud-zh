@@ -7,9 +7,9 @@
 </a>
 
 ### 时序图
-<img style="max-width: 800px;" src="https://web-ext-storage.dcloud.net.cn/doc/im/im.jpg"></img>
+<img style="max-width: 800px;" src="https://web-ext-storage.dcloud.net.cn/doc/im/im.jpg"></img>  
 
-### 关键词说明@keyword
+关键词说明：
 ### uni-im-web 页面  
 此页面已集成在本插件，路径：`/uni_modules/uni-im-web-load/pages/index/index.vue`
 ### getUserInfo接口@getUserInfo  
@@ -18,7 +18,7 @@
 - 导入本插件，对云函数 `uni-im-getUserInfo`（路径：`/uni_modules/uni-im-web-load/uniCloud/cloudfunctions/uni-im-getUserInfo`）右键`上传部署`。
 - 在项目根目录的 uniCloud 目录处右键，选择 `打开 unicloud Web 控制台`，依次点击 `云函数/云对象` -> `函数/对象列表`
 - 找到云函数 `uni-im-getUserInfo` 并点击详情，在页面底部的 `云函数 URL 化` 模块，点击“复制路径”即可获得所需接口的链接地址。
-2. **由php、java、python等非unicloud开发**，请参照如下说明实现：@getUserInfo
+2. **由php、java、python等非unicloud开发**，请参照如下说明实现：
 - **请求类型**：`POST` 
 - **请求参数**：
 	```json
@@ -40,7 +40,7 @@
 		}
 	}
 	```
-说明：其中“errCode”为0表示成功，此字段保持固定，可根据实际情况自定义其他成功状态码。  
+	说明：其中“errCode”为0表示成功，此字段保持固定，可根据实际情况自定义其他成功状态码。  
 + **失败响应示例**：
 	```json
 	{
@@ -48,12 +48,9 @@
 		"errMsg": "用户不存在"
 	}
 	```
-说明：“errCode”自定义除0以外的数值表示失败，“errMsg”可自定义失败原因描述。
+	说明：“errCode”自定义除0以外的数值表示失败，“errMsg”可自定义失败原因描述。
 
-## 使用教程
-### 客户端  
-客户端无需编写额外代码。只需直接导入本插件，然后打开路径`/uni_modules/uni-im-web-load/pages/index/index.vue`，按照注释说明，选择或修改传递至uni-im模块的参数即可。
-
+## 使用教程  
 ### 服务端  
 服务端直接通过在线部署实现
 1. 首先，打开 [uni-im插件](https://test-ext.dcloud.net.cn/plugin?id=9711)，点击右侧的“在线部署”按钮。
@@ -64,6 +61,9 @@
     - **通过 api 回调地址获取**：此模式会将前端以 get 方式传到 uni-im-web url 后的 token 传递给配置的 getUserInfo 接口，校验项目的 token 验证用户身份的合法性，实现注册/登录操作到uni-im，同时将最新的用户昵称和头像等信息同步到 uni-im模块当中。
 
 提示：在完成部署操作之后，可以在 [插件部署记录](https://test-ext.dcloud.net.cn/manage/one-click-deployment) 当中查看到刚刚部署的 uni-im的网络地址以及 httpApi 密钥等信息。 
+
+### 客户端  
+客户端无需编写额外代码。只需直接导入本插件，然后打开路径`/uni_modules/uni-im-web-load/pages/index/index.vue`，按照注释说明，选择或修改传递至uni-im模块的参数即可。
 
 ## 常见问题
 1. **如何提前在uni-im统预置一批用户数据**
