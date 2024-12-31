@@ -3,11 +3,11 @@
 
 视频介绍（点击观看）  
 <a target="_blank" href="https://www.bilibili.com/video/BV1dQ6EYHEmG">
-	<img style="max-height: 445px;max-width: 800px;" src="https://web-ext-storage.dcloud.net.cn/doc/im/20251231171927.jpg"></img>
+<img style="max-width:500px!important;" src="https://web-ext-storage.dcloud.net.cn/doc/im/20251231171927.jpg"></img>
 </a>
 
 ### 时序图
-<img style="max-width: 800px;" src="https://web-ext-storage.dcloud.net.cn/doc/im/im.jpg"></img>  
+<img style="max-width: 500px!important;" src="https://web-ext-storage.dcloud.net.cn/doc/im/im.jpg"></img>  
 
 关键词说明：
 ### uni-im-web 页面  
