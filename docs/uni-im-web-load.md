@@ -2,50 +2,53 @@
 帮助开发者以 web-view 的方式，快速将 uni-im 模块集成至项目（支持非unicloud项目），实现客服等相关功能。
 
 视频介绍（点击观看）  
-[
-	![](https://web-ext-storage.dcloud.net.cn/doc/im/20251231171927.jpg)
-](https://www.bilibili.com/video/BV1dQ6EYHEmG)
+<a target="_blank" href="https://www.bilibili.com/video/BV1dQ6EYHEmG">
+	<img style="max-height: 445px;max-width: 800px;" src="https://web-ext-storage.dcloud.net.cn/doc/im/20251231171927.jpg"></img>
+</a>
 
 ### 时序图
-![](https://web-ext-storage.dcloud.net.cn/doc/im/im.jpg)
-图中关键词说明：
-1. 项目下 uni-im-web 页面，已集成在本插件。路径：`/uni_modules/uni-im-web-load/pages/index/index.vue`
-2. 开发者服务器的getUserInfo接口，由项目的服务端开发语言不同分为以下两种情况：
-- **项目的服务端为unicloud开发**无需自行编写此接口，按如下操作：  
-		+ 导入本插件，对云函数 `uni-im-getUserInfo`（路径：`/uni_modules/uni-im-web-load/uniCloud/cloudfunctions/uni-im-getUserInfo`）右键`上传部署`。
-		+ 在项目根目录的 uniCloud 目录处右键，选择 `打开 unicloud Web 控制台`，依次点击 `云函数/云对象` -> `函数/对象列表`
-		+ 找到云函数 `uni-im-getUserInfo` 并点击详情，在页面底部的 `云函数 URL 化` 模块，点击“复制路径”即可获得所需接口的链接地址。
-- **由php、java、python等非unicloud开发**，请参照如下说明实现：
-		+ **请求类型**：`POST` 
-		+ **请求参数**：
-			```json
-			{
-				"token": "你在客户端传递的token",
-				//... 其他你自定义传的参数例如user_id等
+<img style="max-width: 800px;" src="https://web-ext-storage.dcloud.net.cn/doc/im/im.jpg"></img>
+
+### 关键词说明@keyword
+### uni-im-web 页面  
+此页面已集成在本插件，路径：`/uni_modules/uni-im-web-load/pages/index/index.vue`
+### getUserInfo接口@getUserInfo  
+由项目的服务端开发语言不同，分为以下两种情况：
+1. **由unicloud开发**无需自行编写此接口，按如下操作：  
+- 导入本插件，对云函数 `uni-im-getUserInfo`（路径：`/uni_modules/uni-im-web-load/uniCloud/cloudfunctions/uni-im-getUserInfo`）右键`上传部署`。
+- 在项目根目录的 uniCloud 目录处右键，选择 `打开 unicloud Web 控制台`，依次点击 `云函数/云对象` -> `函数/对象列表`
+- 找到云函数 `uni-im-getUserInfo` 并点击详情，在页面底部的 `云函数 URL 化` 模块，点击“复制路径”即可获得所需接口的链接地址。
+2. **由php、java、python等非unicloud开发**，请参照如下说明实现：@getUserInfo
+- **请求类型**：`POST` 
+- **请求参数**：
+	```json
+	{
+		"token": "你在客户端传递的token",
+		//... 其他你自定义传的参数例如user_id等
+	}
+	```
+- **成功响应示例**：
+	```json
+	{
+		"errCode": 0,
+		"userInfo": {
+			"_id": "用户id",
+			"nickname": "用户昵称",
+			"avatar_file": {
+				"url": "https://example.com/avatar.jpg"
 			}
-			```
-		+ **成功响应示例**：
-			```json
-			{
-				"errCode": 0,
-				"userInfo": {
-					"_id": "用户id",
-					"nickname": "用户昵称",
-					"avatar_file": {
-						"url": "https://example.com/avatar.jpg"
-					}
-				}
-			}
-			```
-			说明：其中“errCode”为0表示成功，此字段保持固定，可根据实际情况自定义其他成功状态码。  
-		+ **失败响应示例**：
-			```json
-			{
-				"errCode": 10001,
-				"errMsg": "用户不存在"
-			}
-			```
-			说明：“errCode”自定义除0以外的数值表示失败，“errMsg”可自定义失败原因描述。
+		}
+	}
+	```
+说明：其中“errCode”为0表示成功，此字段保持固定，可根据实际情况自定义其他成功状态码。  
++ **失败响应示例**：
+	```json
+	{
+		"errCode": 10001,
+		"errMsg": "用户不存在"
+	}
+	```
+说明：“errCode”自定义除0以外的数值表示失败，“errMsg”可自定义失败原因描述。
 
 ## 使用教程
 ### 客户端  
