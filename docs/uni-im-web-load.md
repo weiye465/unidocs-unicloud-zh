@@ -54,14 +54,14 @@
 ## 使用教程  
 ### 服务端  
 服务端直接通过在线部署实现
-1. 首先，打开 [uni-im插件](https://test-ext.dcloud.net.cn/plugin?id=9711)，点击右侧的“在线部署”按钮。
+1. 首先，打开 [uni-im插件](https://ext.dcloud.net.cn/plugin?id=9711)，点击右侧的“在线部署”按钮。
 ![](https://web-ext-storage.dcloud.net.cn/doc/im/20241227152920.jpg)
 2. 在部署过程中，“集成模式”必须选择“嵌到项目”选项。
 3. **用户资料获取途径**：
     - **通过客户端传递**：此模式不校验客户端token，易于集成。直接在客户端传递用户id、昵称、头像，即可。适用于无账号体系的、支持游客临时登录的，或不关心发消息用户身份可靠性的项目。
     - **通过 api 回调地址获取**：此模式会将前端以 get 方式传到 uni-im-web url 后的 token 传递给配置的 getUserInfo 接口，校验项目的 token 验证用户身份的合法性，实现注册/登录操作到uni-im，同时将最新的用户昵称和头像等信息同步到 uni-im模块当中。
 
-提示：在完成部署操作之后，可以在 [插件部署记录](https://test-ext.dcloud.net.cn/manage/one-click-deployment) 当中查看到刚刚部署的 uni-im的网络地址以及 httpApi 密钥等信息。 
+提示：在完成部署操作之后，可以在 [插件部署记录](https://ext.dcloud.net.cn/manage/one-click-deployment) 当中查看到刚刚部署的 uni-im的网络地址以及 httpApi 密钥等信息。 
 
 ### 客户端  
 客户端无需编写额外代码。只需直接导入本插件，然后打开路径`/uni_modules/uni-im-web-load/pages/index/index.vue`，按照注释说明，选择或修改传递至uni-im模块的参数即可。
