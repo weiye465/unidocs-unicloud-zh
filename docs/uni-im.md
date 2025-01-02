@@ -60,13 +60,16 @@ web端网址（支持PC宽屏和移动端）：[https://im.dcloud.net.cn/index.h
 4. 运行项目  
 在菜单`运行`->`运行到浏览器` 选择要运行的浏览器  
 这里需要运行到两个不同的浏览器（避免同一浏览器打开多个uni-im页面，引起socket占线)，`注册账号并登录`2个账号，体验对话效果
+
 5. 向指定用户发起会话  
 通过访问路径：`/uni_modules/uni-im/pages/chat/chat?user_id=` + `指定用户的id`即可。  
 如果你不知道用户的id，可通过在浏览器控制台执行`uni.imObservableData.currentUser._id`可获取当前登录的账号id
 
 注意：以上为连接本地云函数体验，如果要发行为正式项目，需要把uniCloud内的文件部署到云端。操作方式为：对项目根目录uniCloud点右键选择“云服务空间初始化向导”界面按提示部署项目
 
-## 部署到自己的项目
+## 部署到自己的项目  
+> 如果你的项目客户端，不是基于Vue3版本的uni-app + uniCloud + uni-id-pages 或对im的交互性能要求不高，或希望便捷快速地给你的项目增加个客服功能。建议直接使用[uni-im-web-load](https://doc.dcloud.net.cn/uniCloud/uni-im-web-load.html)部署（即：将uni-im打包发行为web页面，通过web-view的方式集成至项目）。
+
 1. 项目的客户端需要启用uni-push2.0 [详情参考](https://uniapp.dcloud.net.cn/unipush-v2.html#%E5%AE%A2%E6%88%B7%E7%AB%AF%E5%90%AF%E7%94%A8uni-push2-0)
 2. 打开`uni-im`插件下载地址：[https://ext.dcloud.net.cn/plugin?name=uni-im](https://ext.dcloud.net.cn/plugin?name=uni-im)
 3. 点击`使用HBuilderX导入插件`，选择你的项目，点击确定（同时会自动导入依赖的uni_modules`uni-id-pages`）按提示操作配置`pages.json`
@@ -445,9 +448,9 @@ uni.navigateTo({
 </pre>
 名词解释
 - 聊天会话ID  
-根据通讯双方用户id，或群聊id，生成的唯一索引值；用于更加方便查找聊天记录等。
+根据通讯双方用户id，或群聊id，生成的唯一的固定值；用于更加方便对会话数据的操作及聊天记录查找等。
 - 聊天会话  
-以会话ID为索引的一组数据，记录：未读消息数量、会话更新时间、会话类型、会话所属用户的id、对话的用户id、对话的群id、最后一条消息概述（文本消息的前15个字，消息为多媒体时只描述类型）等，更多详情参考项目根目录下的`/uni_modules/uni-im/uniCloud/database/uni-im-conversation.schema.json`文件
+一组描述会话状态的数据，记录：未读消息数量、会话更新时间、会话类型、会话所属用户的id、对话的用户id、对话的群id、最后一条消息概述（文本消息的前15个字，消息为多媒体时只描述类型）等，更多详情参考项目根目录下的`/uni_modules/uni-im/uniCloud/database/uni-im-conversation.schema.json`文件
 
 ## uni-im-co 云函数（云对象）  
 API列表
