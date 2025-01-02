@@ -28,31 +28,30 @@
 - 索引是支持多字段组合的，所以不是简单的设某个字段为索引。而是需要先给索引起一个name，然后在该索引下配置1个或多个字段。
 - 索引字段的排序，指查询语句中的orderby的顺序。如果实际查询是需要倒叙，那么索引就设为倒叙，这样查询速度才能变快。
 
-### 在db_init.json内配置集合索引
+### 在{表名}.index.json内配置集合索引
 
-在db_init.json内用如下写法可以给特定集合设置索引（推荐在服务空间初始化时使用）
+如数据表名为`table-abc`，则可以在项目uniCloud的`database`目录下创建table-abc.index.json，索引文件内写法如下：
 
 ```json
-{
-  "opendb-news-article": {
-    "data": [],
-    "index":[{
-      "IndexName": "user_article_", // 索引名称
-      "MgoKeySchema": { // 索引规则
-          "MgoIndexKeys": [{
-              "Name": "user_id", // 索引字段
-              "Direction": "1", // 索引方向，1：ASC-升序，-1：DESC-降序，2dsphere：地理位置
-              "Type": "varchar" // 索引类型，仅支付宝云生效，varchar/bool/int/long/float
-          },{
-              "Name": "article_id", // 索引字段
-              "Direction": "1" // 索引方向，1：ASC-升序，-1：DESC-降序，2dsphere：地理位置
-          }],
-          "MgoIsUnique": false // 索引是否唯一
-      }
-    }]
+[{
+  "IndexName": "user_article_", // 索引名称
+  "MgoKeySchema": { // 索引规则
+      "MgoIndexKeys": [{
+          "Name": "user_id", // 索引字段
+          "Direction": "1", // 索引方向，1：ASC-升序，-1：DESC-降序，2dsphere：地理位置
+          "Type": "varchar" // 索引类型，仅支付宝云生效，varchar/bool/int/long/float/point/array
+      },{
+          "Name": "article_id", // 索引字段
+          "Direction": "1" // 索引方向，1：ASC-升序，-1：DESC-降序，2dsphere：地理位置
+      }],
+      "MgoIsUnique": false // 索引是否唯一
   }
-}
+}]
 ```
+
+**支付宝云空间特别注意：**
+配置索引的数据表字段存储类型需与索引类型匹配，比如`table-abc`中的`name`字段存储的是字符串，那么设置索引时的`Type`必须是`varchar`，否则会对数据插入及查询有影响。
+
 
 ## 单字段索引
 
