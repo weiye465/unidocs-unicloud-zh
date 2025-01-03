@@ -1,5 +1,7 @@
 ## 功能概述
-帮助开发者以 web-view 的方式，快速将 uni-im 模块集成至项目（支持非unicloud项目），实现客服等相关功能。
+帮助开发者以 web-view 的方式，快速将 uni-im 模块集成至项目（支持非unicloud项目），实现客服等相关功能。  
+
+插件下载地址：[https://ext.dcloud.net.cn/plugin?name=uni-im-web-load](https://ext.dcloud.net.cn/plugin?name=uni-im-web-load)  
 
 视频介绍（点击观看）  
 
