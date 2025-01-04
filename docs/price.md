@@ -219,7 +219,7 @@ uniCloud的定价、套餐内容、服务SLA，是由云厂商直接公布的。
 - 余额欠费停服：
 按量计费空间没有到期时间，是在账户欠费时开始停服。阿里云在每天上午9点左右出前一日账单，出账后如果账户发生欠费，按量计费服务空间则会被停服无法正常使用，资源会保留15天。15天内操作余额充正服务恢复正常（续费后大约有10分钟左右延迟），15天后会销毁空间资源且无法找回。
 
-> 支持服务空间到期、阿里云服务空间资源用量、阿里云数据库限流、余额余量等相关uniCloud产品设置报警啦 同时可以购买短信报警资源包接收短信通知。前往设置：[https://unicloud.dcloud.net.cn/pages/product-alarm/rule-list](https://unicloud.dcloud.net.cn/pages/product-alarm/rule-list)
+> 推荐使用[uniCloud监控告警服务](#monitor-alarm)，随时监控资源使用量、空间余额等，避免欠费停服。
 
 ### 阿里云公测版@aliyun-public
 
@@ -311,7 +311,7 @@ uniCloud的定价、套餐内容、服务SLA，是由云厂商直接公布的。
 
 当腾讯云按量余额欠费时，服务空间的`云函数日志`及`超限按量`将会自动关闭。如果服务空间套餐资源已超上限，则服务将会停服不可用。腾讯云按量余额充正后需手动开启相关服务。
 
-> 支持服务空间到期、余额余量等相关uniCloud产品设置报警啦 同时可以购买短信报警资源包接收短信通知。前往设置：[https://unicloud.dcloud.net.cn/pages/product-alarm/rule-list](https://unicloud.dcloud.net.cn/pages/product-alarm/rule-list)
+> 推荐使用[uniCloud监控告警服务](#monitor-alarm)，随时监控资源使用量、空间余额等，避免欠费停服。
 
 ## 支付宝云@alipay
 
@@ -501,9 +501,9 @@ uniCloud的定价、套餐内容、服务SLA，是由云厂商直接公布的。
 - 余额欠费停服：
   支付宝云在每天上午10点左右出前一日账单（T+1），出账后如果账户发生欠费，则无法操作新购、续费及变配并停服所有支付宝云服务空间，欠费后第7天释放所有按量计费服务空间。欠费充值余额正常后，大于有5分钟延迟来恢复停服空间。
 
-> 支持服务空间到期、余额余量等相关uniCloud产品设置报警啦 同时可以购买短信报警资源包接收短信通知。前往设置：[https://unicloud.dcloud.net.cn/pages/product-alarm/rule-list](https://unicloud.dcloud.net.cn/pages/product-alarm/rule-list)
-
 **注意：** 如果一个支付宝关联了多个DCloud账号（最多可绑定5个）且支付宝云按量余额独立存在（无法合并至服务空间通用按量余额），当其中一个DCloud账号的支付宝按量余额欠费时，**该支付宝账号关联的所有DCloud账号服务空间都会停服**。
+
+> 推荐使用[uniCloud监控告警服务](#monitor-alarm)，随时监控资源使用量、空间余额等，避免欠费停服。
 
 ## 余额及保证金@balance
 
@@ -564,6 +564,26 @@ uniCloud的定价、套餐内容、服务SLA，是由云厂商直接公布的。
 
 *注意：如果您注册uniCloud账号使用的是`qq号@qq.com`这类邮箱，发送邮件时，请勿使用qq邮箱的域名邮箱，需更换为`qq号@qq.com` 这种邮箱发送邮件。*
 
+## 监控告警：资源用量监控、到期提醒、余额余量提醒等@monitor-alarm
+
+uniCloud提供了多维度、多渠道的资源监控及告警服务，监控告警设置入口：[https://unicloud.dcloud.net.cn/pages/product-alarm/rule-list](https://unicloud.dcloud.net.cn/pages/product-alarm/rule-list)。
+
+![](https://web-ext-storage.dcloud.net.cn/unicloud/uniCloud-alarm.jpg)
+
+uniCloud的监控告警服务，支持的资源项包括：
+- 服务空间到期时间
+- 服务空间资源用量（仅阿里云支持）
+- 数据库限流（仅阿里云支持）
+- 短信余额
+- 一键登录余额
+- 实人认证余额
+
+告警方式支持：
+- 邮件
+- uni-im
+- 站内信
+- 公众号消息
+- 短信（需付费购买）
 
 ## 发生故障时如何判断故障点
 
