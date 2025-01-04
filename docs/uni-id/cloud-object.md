@@ -591,6 +591,42 @@ await uniIdCo.loginByApple({
 |&nbsp;&#124;-&nbsp;token		|string				|token			|
 |&nbsp;&#124;-&nbsp;tokenExpired|string				|token过期时间	|
 
+
+#### 华为登录@login-by-huawei
+> 支持鸿蒙应用与鸿蒙元服务
+
+此登录同时允许华为账号登录及华为授权手机号登录
+
+接口名：loginByHuawei
+
+**接口形式**
+
+```js
+await uniIdCo.loginByHuawei({
+	code,
+	phoneCode,
+	inviteCode
+})
+```
+
+**参数说明**
+
+| 参数名			       |类型	| 必填	 | 说明									                        |
+|--------------|--		|-----|------------------------------------|
+| code	        |string	| 否		 | 华为账号登录获取的code，与phoneCode二选一	       |
+| phoneCode		   |string	| 否		 | 华为授权手机号登录获取的code，与code二选一									 |
+| inviteCode		 |string	| 否		 | 邀请码，仅注册时生效					                    |
+
+**返回值**
+
+|参数名							|类型				|说明			|
+|--								|--					|--				|
+|errCode						|string&#124;number	|错误码			|
+|errMsg							|string				|错误信息		|
+|newToken						|object				|token信息		|
+|&nbsp;&#124;-&nbsp;token		|string				|token			|
+|&nbsp;&#124;-&nbsp;tokenExpired|string				|token过期时间	|
+
 #### 登出@logout
 
 接口名：logout
@@ -927,6 +963,39 @@ await uniIdCo.bindApple({
 
 - 仅在用户token即将过期时返回新newToken
 
+
+#### 绑定华为账号@bind-apple
+
+接口名：bindHuawei
+
+**接口形式**
+
+```js
+await uniIdCo.bindHuawei({
+	code
+})
+```
+
+**参数说明**
+
+| 参数名			 |类型	|必填	| 说明							     |
+|--------|--		|--		|---------------|
+| code	  |string	|是		| 华为账号登录获取的code |
+
+**返回值**
+
+|参数名							|类型				|说明			|
+|--								|--					|--				|
+|errCode						|string&#124;number	|错误码			|
+|errMsg							|string				|错误信息		|
+|newToken						|object				|token信息		|
+|&nbsp;&#124;-&nbsp;token		|string				|token			|
+|&nbsp;&#124;-&nbsp;tokenExpired|string				|token过期时间	|
+
+**注意**
+
+- 仅在用户token即将过期时返回新newToken
+
 ### 解绑第三方账号@unbind-third-account <Badge text="uni-id-co 1.0.25+" />
 
 > 如账号只有一个第三方登录方式时，需绑定手机号后在解绑。
@@ -976,6 +1045,18 @@ await uniIdCo.unbindAlipay()
 **接口形式**
 ```js
 await uniIdCo.unbindApple()
+```
+**返回值**
+|参数名							|类型				|说明			|
+|--								|--					|--				|
+|errCode						|string&#124;number	|错误码			|
+|errMsg							|string				|错误信息		|
+
+#### 解绑华为账号@unbind-huawei
+接口名：unbindHuawei
+**接口形式**
+```js
+await uniIdCo.unbindHuawei()
 ```
 **返回值**
 |参数名							|类型				|说明			|
