@@ -20,7 +20,7 @@
 - unipay 对入参和返回值均做了驼峰转化，开发者在对照微信支付或者支付宝支付对应的文档时需要注意。
 - 特殊参数`appId`、`mchId`需注意大小写
 - 所有金额被统一为以分为单位（避免浮点误差）
-- 为避免无关参数干扰此文档仅列举必填参数，其余参数请参照[微信支付-小程序](https://pay.weixin.qq.com/wiki/doc/api/wxa/wxa_api.php?chapter=9_1)、[微信支付-App](https://pay.weixin.qq.com/wiki/doc/api/app/app.php?chapter=9_1)、[支付宝支付-小程序](https://opendocs.alipay.com/apis/api_1/alipay.trade.create)、[支付宝支付-App](https://opendocs.alipay.com/apis/api_1/alipay.trade.app.pay)
+- 为避免无关参数干扰此文档仅列举必填参数，其余参数请参照[微信支付-小程序](https://pay.weixin.qq.com/wiki/doc/api/wxa/wxa_api.php?chapter=9_1)、[微信支付-App](https://pay.weixin.qq.com/wiki/doc/api/app/app.php?chapter=9_1)、[支付宝支付-小程序](https://opendocs.alipay.com/apis/api_1/alipay.trade.create)、[支付宝支付-App](https://opendocs.alipay.com/apis/api_1/alipay.trade.app.pay)、[华为支付](https://developer.huawei.com/consumer/cn/doc/harmonyos-references-V5/payment-rest-V5)
 - 微信支付沙箱环境不支持小程序支付，另外此沙箱环境只可以跑微信提供的测试用例不可以随意测试
 - 无论是微信还是支付宝，沙箱环境都不确保稳定，如果使用沙箱的过程中遇到疑难问题建议切换成正式环境测试
 
@@ -218,8 +218,34 @@ const unipayIns = unipay.initWeixinVirtualPayment({
 })
 ```
 
+### 华为支付@huawei-pay
 
-## Api 列表
+> 新增于 `uni-pay@xxx`
+
+**入参说明**
+
+|        参数名				        |  类型		   | 必填	 |     默认值		      |                           说明																																												                            |
+|:---------------------:|:-------:|:---:|:--------------:|:---------------------------------------------------------------------------------------------------:|
+|      appId					       | String	 | 是	  |   -									   |                         应用ID																																														                          |
+|       mchId				       | String	 | 是	  |   -									   |                          商户号																																													                           |
+|     mchAuthId				     | String	 | 是	  |   -									   |                         商户证书编号																																													                         |
+|    clientType				     | String	 | 是	  |   -									   | 华为客户端类型 <br/> 鸿蒙应用 app-harmony <br /> 鸿蒙元服务 mp-harmony																																													 |
+|   mchPrivateKey				   | String	 | 是	  |   -									   |                         商户私钥证书																																													                         |
+| platformPublicKey				 | String	 | 否	  |   -									   |                   华为支付公钥；非必传，用于接口验签																																													                    |
+|      timeout				      | Number	 | 否	  | 10000									 |                      请求华为支付超时时间  																																													                      |
+
+
+```js
+const path = require('path'); // 引入内置的path模块
+
+const unipayIns = unipay.initHuawei({
+  appId: 'your appId',
+  mchId: 'your mchId',
+  mchAuthId: 'you mchAuthId',
+  clientType: 'you clientType',
+  mchPrivateKey: 'you mchPrivateKey',
+})
+```
 
 ### 获取支付参数
 
@@ -227,17 +253,18 @@ const unipayIns = unipay.initWeixinVirtualPayment({
 
 **入参说明**
 
-|   参数名			|  类型					|                必填| 默认值																			|                                    说明|         支持平台																																																	|
-| :--------:		| :----:				| :--------------------------------:| :----:																			| :------------------------------------------------------------------------:| :----------------------:																																													|
-|   openid			| String				|支付宝小程序、微信小程序必填，App端支付不需要|   -																					|通过对应 [uni-id](../uni-id/summary.md) 接口进行获取，服务商模式应使用子商户获取的openid| 支付宝小程序、微信小程序																																													|
-|  subject			| String				|支付宝支付必填，微信支付时忽略此项|   -																					|订单标题|        支付宝支付																																																	|
-|    body				| String				|微信支付必填|   -																					|商品描述|         微信支付																																																	|
-| outTradeNo		| String				|必填		|   -																					|商户订单号,有长度限制（微信支付为32字符以内，支付宝为64字符以内）、只能包含字母、数字、下划线；需保证在商户端不重复|																																																										|
-|  totalFee			| Number				|必填		|   -																					|订单金额，单位：分| 支付宝小程序、微信小程序																																													|
-| notifyUrl			| String				|必填		|   -																					|支付结果通知地址，**需要注意支付宝支付时退款也会通知到此地址，务必处理好自己的业务逻辑**|																																																										|
-| spbillCreateIp| String				|必填		|   -																					|客户端IP，云函数内可以通过`context.CLIENTIP`获取|-																																																									|
-| tradeType			| String| 是																					|  -		| 交易类型；见下方 tradeType 的说明																																									|
-| sceneInfo			| Object				|微信tradeType为MWEB时必填|   -																					|见下方sceneInfo的说明|-																																																									|
+|     参数名			     |  类型					   |            必填            | 默认值																			 |                               说明                                |    支持平台																																																	     |
+|:--------------:|:----------:|:------------------------:|:----------------------:|:---------------------------------------------------------------:|:------------------------------------------------------------:|
+|   openid			    | String				 | 支付宝小程序、微信小程序必填，App端支付不需要 | -																					 | 通过对应 [uni-id](../uni-id/summary.md) 接口进行获取，服务商模式应使用子商户获取的openid |  支付宝小程序、微信小程序																																													   |
+|   subject			   | String				 |  支付宝支付、华为支付必填，微信支付时忽略此项  | -																					 |                              订单标题                               |    支付宝支付																																																	    |
+|    body				    | String				 |          微信支付必填          | -																					 |                              商品描述                               |    微信支付																																																	     |
+|  outTradeNo		  | String				 |           必填		           | -																					 |  商户订单号,有长度限制（微信支付为32字符以内，支付宝为64字符以内）、只能包含字母、数字、下划线；需保证在商户端不重复   |  																																																										  |
+|  totalFee			   | Number				 |           必填		           | -																					 |                            订单金额，单位：分                            |  支付宝小程序、微信小程序																																													   |
+|  notifyUrl			  | String				 |           必填		           | -																					 |         支付结果通知地址，**需要注意支付宝支付时退款也会通知到此地址，务必处理好自己的业务逻辑**          |  																																																										  |
+| spbillCreateIp | String				 |           必填		           | -																					 |               客户端IP，云函数内可以通过`context.CLIENTIP`获取                |  -																																																									  |
+|  tradeType			  |   String   |  是																					  |          -		           | 交易类型；见下方 tradeType 的说明																																									 |
+|  sceneInfo			  | Object				 |   微信tradeType为MWEB时必填    | -																					 |                         见下方sceneInfo的说明                         |  -																																																									  |
+|   bizType			   | String				 |          华为支付必填          | -																					 |                         华为支付业务类型；见下方说明                          | 华为支付																																																								 |
 
 **注意**
 
@@ -272,6 +299,39 @@ tradeType支持以下选项
 		"wapName": "腾讯充值" // 开发者网站名称
 	}
 }
+```
+
+**华为支付业务类型**
+
+- 100001：虚拟商品购买
+- 100002：实物商品购买
+- 100003：预付类账号充值
+- 100004：航旅交通服务
+- 100005：活动票务订购
+- 100006：商业服务消费
+- 100007：生活服务消费
+- 100008：租金缴纳
+- 100009：会员费缴纳
+- 100011：其他商家消费
+- 100037：公共便民服务
+
+uni-pay 已内置以上业务类型常量字段，开发者可以直接使用
+
+```js
+
+const UniPay = require('uni-pay')
+
+UniPay.HuaweiPaymentBizType.VIRTUAL // 100001：虚拟商品购买
+UniPay.HuaweiPaymentBizType.GOODS // 100002：实物商品购买
+UniPay.HuaweiPaymentBizType.PREPAID_ACCOUNT // 100003：预付类账号充值
+UniPay.HuaweiPaymentBizType.TRAVEL // 100004：航旅交通服务
+UniPay.HuaweiPaymentBizType.TICKET // 100005：活动票务订购
+UniPay.HuaweiPaymentBizType.BUSINESS // 100006：商业服务消费
+UniPay.HuaweiPaymentBizType.LIFE // 100007：生活服务消费
+UniPay.HuaweiPaymentBizType.RENT // 100008：租金缴纳
+UniPay.HuaweiPaymentBizType.MEMBERSHIP // 100009：会员费缴纳
+UniPay.HuaweiPaymentBizType.OTHER_BUSINESS // 100011：其他商家消费
+UniPay.HuaweiPaymentBizType.PUBLIC // 100037：公共便民服务
 ```
 
 **返回值说明**
@@ -362,20 +422,27 @@ uniCloud.callFunction({
 **订单状态**
 
 微信支付：
-SUCCESS—支付成功
-REFUND—转入退款
-NOTPAY—未支付
-CLOSED—已关闭
-REVOKED—已撤销（刷卡支付）
-USERPAYING--用户支付中
-PAYERROR--支付失败(其他原因，如银行返回失败)。
+
+- SUCCESS—支付成功
+- REFUND—转入退款
+- NOTPAY—未支付
+- CLOSED—已关闭
+- REVOKED—已撤销（刷卡支付）
+- USERPAYING--用户支付中
+- PAYERROR--支付失败(其他原因，如银行返回失败)。
 
 支付宝支付：
-USERPAYING（交易创建，等待买家付款）
-CLOSED（未付款交易超时关闭，或支付完成后全额退款）
-SUCCESS（交易支付成功）
-FINISHED（交易结束，不可退款）
 
+- USERPAYING（交易创建，等待买家付款）
+- CLOSED（未付款交易超时关闭，或支付完成后全额退款）
+- SUCCESS（交易支付成功）
+- FINISHED（交易结束，不可退款）
+
+华为支付：
+
+- SUCCESS 交易成功
+- FAIL 交易失败
+- PROCESSING 交易处理中
 
 **使用示例**
 
@@ -389,6 +456,8 @@ exports.main = async function (event) {
 ```
 
 ### 关闭订单
+
+> 华为支付暂未支持
 
 `unipayIns.closeOrder`，用于交易创建后，用户在一定时间内未进行支付，可调用该接口直接将未付款的交易进行关闭，避免重复支付。
 
@@ -424,6 +493,8 @@ exports.main = async function (event) {
 ```
 
 ### 撤销订单
+
+> 华为支付暂未支持
 
 `unipayIns.cancelOrder`，**此接口仅支付宝支持**，支付交易返回失败或支付系统超时，调用该接口撤销交易。如果此订单用户支付失败，支付宝系统会将此订单关闭；如果用户支付成功，支付宝系统会将此订单资金退还给用户。 注意：只有发生支付系统超时或者支付结果未知时可调用撤销，其他正常支付的单如需实现相同功能请调用申请退款 API。提交支付交易后调用【查询订单 API】，没有明确的支付结果再调用【撤销订单 API】。
 
@@ -464,29 +535,36 @@ exports.main = async function (event) {
 4. 每个支付订单的部分退款次数不能超过 50 次
 5. 如果同一个用户有多笔退款，建议分不同批次进行退款，避免并发退款导致退款失败
 
+**华为支付退款规则**
+1. 不支持对同一笔交易单进行并发退款。
+    - 一笔普通收单多次退款，时间间隔要在1分钟以上。
+    - 合单多笔子单退款，时间间隔要在1分钟以上。
+2. 订单退款只支持180天内的订单。
+3. 申请退款成功不代表退款成功，退款场景是异步处理，需收到退款成功的异步回调通知才表示退款成功。
+
 **入参说明**
 
-|    参数名		|  类型	|        必填				         | 默认值|     说明											| 支持平台	  |
-| :-----------:	| :----:|:---------------------:| :----:| :----------:										|:------:|
-|  outTradeNo	| String| 和 transactionId 二选一		 |   -	|  商户订单号										|  -		   |
-| transactionId	| String|  和 outTradeNo 二选一		   |   -	|  平台订单号										|  -		   |
-|  outRefundNo	| String|    微信支付必填，支付宝支付选填	    |   -	| 商户退款单号										|   -	   |
-|   totalFee	| Number|       微信支付必填			       |   -	|  订单总金额										|  -			  |
-|   refundFee	| Number|        必填				         |   -	|  退款总金额										| 微信支付	  |
-| refundFeeType	| String|     微信支付V3必填				      |   -	|   货币种类										|   微信支付V3		   |
-|  refundDesc	| String|        选填				         |   -	|   退款原因										|  -		   |
-|   notifyUrl	| String|    微信支付选填，支付宝不支持	     |   -	| 退款通知 url，支付宝会通知获取支付参数时的通知地址| 微信支付	  |
+|    参数名		|  类型	|         必填				         | 默认值|     说明											|   支持平台	    |
+| :-----------:	| :----:|:----------------------:| :----:| :----------:										|:----------:|
+|  outTradeNo	| String| 和 transactionId 二选一		  |   -	|  商户订单号										|    -		     |
+| transactionId	| String|   和 outTradeNo 二选一		   |   -	|  平台订单号										|    -		     |
+|  outRefundNo	| String| 微信支付必填，支付宝支付选填，华为支付必填	 |   -	| 商户退款单号										|     -	     |
+|   totalFee	| Number|       微信支付必填			        |   -	|  订单总金额										|    -			    |
+|   refundFee	| Number|         必填				         |   -	|  退款总金额										| 微信支付、华为支付	 |
+| refundFeeType	| String|      微信支付V3必填				      |   -	|   货币种类										|  微信支付V3		  |
+|  refundDesc	| String|         选填				         |   -	|   退款原因										|    -		     |
+|   notifyUrl	| String| 微信支付选填，支付宝不支持，华为支付必填	  |   -	| 退款通知 url，支付宝会通知获取支付参数时的通知地址|   微信支付	    |
 
 **返回值说明**
 
-|    参数名     |  类型  |     说明     | 支持平台 |
-| :-----------: | :----: | :----------: | :------: |
-|  outTradeNo   | String |  商户订单号  |     -     |
-| transactionId | String |  平台订单号  |     -     |
-|  outRefundNo  | String | 商户退款单号 | 微信支付 |
-|   refundId    | String | 平台退款单号 |     -     |
-|   refundFee   | Number |  退款总金额  |     -     |
-| cashRefundFee | Number | 现金退款金额 |     -     |
+|    参数名     |  类型  |     说明     |    支持平台    |
+| :-----------: | :----: | :----------: |:----------:|
+|  outTradeNo   | String |  商户订单号  |     -      |
+| transactionId | String |  平台订单号  |     -      |
+|  outRefundNo  | String | 商户退款单号 |    微信支付    |
+|   refundId    | String | 平台退款单号 |     -      |
+|   refundFee   | Number |  退款总金额  |     -      |
+| cashRefundFee | Number | 现金退款金额 | 微信支付、支付宝支付 |
 
 **使用示例**
 
@@ -508,13 +586,13 @@ exports.main = async function (event) {
 
 **入参说明**
 
-|    参数名     |  类型  |                    必填                     | 默认值 |                                        说明                                        | 支持平台 |
-| :-----------: | :----: |:-----------------------------------------:| :----: | :--------------------------------------------------------------------------------: | :------: |
-|  outTradeNo   | String | 微信支付V2四选一，支付宝和 transactionId 二选一 |   -    |                                     商户订单号                                     |     -     |
+|    参数名     |  类型  |                    必填                     | 默认值 |                                        说明                                        |   支持平台    |
+| :-----------: | :----: |:-----------------------------------------:| :----: | :--------------------------------------------------------------------------------: |:---------:|
+|  outTradeNo   | String |     微信支付V2四选一，支付宝和 transactionId 二选一      |   -    |                                     商户订单号                                     |     -     |
 | transactionId | String |       微信支付V2四选一，支付宝和 outTradeNo 二选一       |   -    |                                     平台订单号                                     |     -     |
-|  outRefundNo  | String |              微信支付V3必填，微信支付V2四选一，支付宝必填              |   -    |                                    商户退款单号                                    |     -     |
-|   refundId    | String |                 微信支付V2四选一                 |   -    |                                    平台退款单号                                    | 微信支付 |
-|    offset     | Number |                 微信支付V2选填                  |   -    | 偏移量，当部分退款次数超过 10 次时可使用，表示返回的查询结果从这个偏移量开始取记录 |      -    |
+|  outRefundNo  | String | 微信支付V3必填，微信支付V2四选一，支付宝必填，华为支付和refundId二选一 |   -    |                                    商户退款单号                                    |     -     |
+|   refundId    | String |                微信支付V2四选一，华为支付和outRefundNo二选一                 |   -    |                                    平台退款单号                                    | 微信支付、华为支付 |
+|    offset     | Number |                 微信支付V2选填                  |   -    | 偏移量，当部分退款次数超过 10 次时可使用，表示返回的查询结果从这个偏移量开始取记录 |     -     |
 
 **注意**
 
@@ -522,16 +600,16 @@ exports.main = async function (event) {
 
 **返回值说明**
 
-|     参数名     |              类型               |          说明          | 支持平台  |
-| :------------: | :-----------------------------: |:--------------------:|:-----:|
-|   outTradeNo   |             String              |        商户订单号         |   -   |
-| transactionId  |             String              |        平台订单号         |   -   |
-|    totalFee    |             Number              |         订单金额         |   -   |
-|    refundId    |             String              | 平台退款单号，仅支付宝、微信支付V3返回 |   -   |
-|   refundFee    |             Number              |        退款总金额         |   -   |
-|   refundDesc   |             String              |         退款理由         |   -   |
-|   refundList   |     Array&lt;refundItem&gt;     |   分笔退款信息，仅微信支付V2返回   | 微信支付V2 |
-| refundRoyaltys | Array&lt;refundRoyaltysItem&gt; |    退分账明细信息，仅支付宝返回    | 支付宝支付 |
+|     参数名     |              类型               |          说明          |    支持平台    |
+| :------------: | :-----------------------------: |:--------------------:|:----------:|
+|   outTradeNo   |             String              |        商户订单号         |     -      |
+| transactionId  |             String              |        平台订单号         |     -      |
+|    totalFee    |             Number              |         订单金额         |     -      |
+|    refundId    |             String              | 平台退款单号，仅支付宝、微信支付V3返回 |     -      |
+|   refundFee    |             Number              |        退款总金额         |     -      |
+|   refundDesc   |             String              |         退款理由         | 微信支付、支付宝支付 |
+|   refundList   |     Array&lt;refundItem&gt;     |   分笔退款信息，仅微信支付V2返回   |   微信支付V2   |
+| refundRoyaltys | Array&lt;refundRoyaltysItem&gt; |    退分账明细信息，仅支付宝返回    |   支付宝支付    |
 
 **refundItem 说明**
 
@@ -581,6 +659,8 @@ exports.main = async function (event) {
 ```
 
 ### 下载交易账单
+
+> 华为支付暂未支持
 
 `unipayIns.downloadBill`，商户可以通过该接口下载历史交易清单。**仅微信支付支持**
 
@@ -644,6 +724,8 @@ exports.main = async function (event) {
 ```
 
 ### 下载资金账单
+
+> 华为支付暂未支持
 
 `unipayIns.downloadFundflow`,商户可以通过该接口下载自 2017 年 6 月 1 日起的历史资金流水账单。**仅微信支持**
 
@@ -763,6 +845,20 @@ exports.main = async function (event) {
     },
     body: "success"
   }
+  
+  // 华为支付处理成功
+  return {
+    mpserverlessComposedResponse: true,
+    statusCode: 200,
+    headers: {
+      'content-type': 'application/json'
+    },
+    body: {
+      // “000000”表示成功，其他值表示失败，如返回值格式不匹配或非“000000”将视为回调失败。
+      resultCode: "000000",
+      resultDesc: "Success."
+    }
+  }
 }
 ```
 
@@ -780,19 +876,19 @@ exports.main = async function (event) {
 
 **返回值说明**
 
-|       参数名				|  类型	|                         说明													| 支持平台|
-| :-----------------:	| :----:| :---------------------------------------------------:	| :------:|
-|      totalFee				| Number|                      订单总金额												|    -		|
-|      refundFee			| Number|                     申请退款金额											|    -		|
-| settlementTotalFee	| Number|                     应结订单金额，支付宝不返回				|    -		|
-| settlementRefundFee	| Number|                       退款金额，支付宝不返回					|   -			|
-|     outTradeNo			| String|                      商户订单号												|    -		|
-|    transactionId		| String|                      平台订单号												|    -		|
-|      refundId				| String|                     平台退款单号，支付宝不返回				|    -		|
-|     outRefundNo			| String|                     商户退款单号											|    -		|
-|    refundStatus			| String| SUCCESS-退款成功,CHANGE-退款异常,REFUNDCLOSE—退款关闭|      -	|
-|    refundAccount		| String|                     退款资金来源，支付宝不返回				|    -		|
-|  refundRecvAccout		| String|                     退款入账账户，支付宝不返回				|    -		|
+|       参数名				        |  类型	   |                                说明													                                 |     支持平台     |
+|:--------------------:|:------:|:------------------------------------------------------------------------------:|:------------:|
+|     totalFee				     | Number |                               订单总金额												                                | 微信支付、支付宝支付		 |
+|     refundFee			     | Number |                               申请退款金额											                                |     -		      |
+| settlementTotalFee	  | Number |                                   应结订单金额				                                   |     -		      | 微信支付
+| settlementRefundFee	 | Number |                                   退款金额					                                    |     -			     | 微信支付、华为支付
+|    outTradeNo			     | String |                               商户订单号												                                | 微信支付、支付宝支付		 |
+|   transactionId		    | String |                               平台订单号												                                | 微信支付、支付宝支付		 |
+|     refundId				     | String |                                   平台退款单号				                                   | 微信支付、华为支付		  |
+|    outRefundNo			    | String |                               商户退款单号											                                |     -		      |
+|   refundStatus			    | String | SUCCESS-退款成功,CHANGE-退款异常,REFUNDCLOSE—退款关闭,FAIL-退款失败(华为支付),PROCESSING-退款中(华为支付) |      -	      |
+|   refundAccount		    | String |                                   退款资金来源				                                   |    微信支付		    |
+|  refundRecvAccout		  | String |                                   退款入账账户				                                   |    微信支付		    |
 
 **使用示例**
 
@@ -817,6 +913,20 @@ exports.main = async function (event) {
       'content-type': 'text/plain'
     },
     body: "success"
+  }
+
+  // 华为支付处理成功
+  return {
+    mpserverlessComposedResponse: true,
+    statusCode: 200,
+    headers: {
+      'content-type': 'application/json'
+    },
+    body: {
+      // “000000”表示成功，其他值表示失败，如返回值格式不匹配或非“000000”将视为回调失败。
+      resultCode: "000000",
+      resultDesc: "Success."
+    }
   }
 }
 ```
