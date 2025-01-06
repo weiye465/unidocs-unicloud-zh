@@ -247,6 +247,8 @@ const unipayIns = unipay.initHuawei({
 })
 ```
 
+## Api 列表
+
 ### 获取支付参数
 
 `unipayIns.getOrderInfo`
