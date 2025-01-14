@@ -17,7 +17,7 @@ Hello uniCloud部署了3套，分别连接uniCloud的支付宝云版、阿里云
 	由于该示例未适配pc宽屏，如使用pc浏览器打开地址，建议F12打开控制台，使用手机模式预览。
 
 - apk地址（发布在uniCloud的云存储上）
-	* Hello uniCloud 支付宝云版地址：[apk下载](https://env-00jx4sbgbkj5.normal.cloudstatic.cn/apk/__UNI__HelloUniCloud_0113194553.apk)
+	* Hello uniCloud 支付宝云版地址：[apk下载](https://env-00jxt1cobm47.normal.cloudstatic.cn/apk/__UNI__HelloUniCloud__20250114151851.apk)
 	* Hello uniCloud 阿里云版地址：[apk下载](https://mp-1a10688c-0b30-4aaa-bbc1-7f4948cc562a.cdn.bspapp.com/apk/__UNI__HelloUniCloud_0113204611.apk)
 	* Hello uniCloud 腾讯云版地址：[apk下载](https://756e-unicloud-demo-eb8ec0-1302284157.tcb.qcloud.la/apk/__UNI__HelloUniCloud_20240113174921.apk)
 
