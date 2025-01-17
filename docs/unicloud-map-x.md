@@ -315,7 +315,8 @@ export default {
 				] as Array<UTSJSONObject>,
 				isStart: false,
 				polyline: [] as Polyline[],
-				isReady: false
+				isReady: false,
+				updateNum: 0
 			}
 		},
 		onLoad() {
@@ -327,6 +328,7 @@ export default {
 		methods: {
 			async initData() {
 				let res = await uniMapCo.initDynamics001();
+				await this.getPolyline();
 				await this.refresh();
 				this.setPolyline(res['polyline'] as Array<UTSJSONObject>);
 			},
@@ -335,10 +337,21 @@ export default {
 				// 启动监听
 				this.start();
 				// 先执行一次刷新，获得配送路线
+				await this.getPolyline();
 				await this.refresh();
 				let polyline = this.polyline
 				if (polyline.length > 0) {
-					let length = polyline[0].points.length;
+					// 去除重复的点
+					let points = polyline[0].points;
+					for (let i = 0; i < points.length - 1; i++) {
+						let item = points[i];
+						let nextItem = points[i + 1];
+						if (item.latitude == nextItem.latitude && item.longitude == nextItem.longitude) {
+							points.splice(i, 1);
+							i--;
+						}
+					}
+					let length = points.length;
 					for (let i = 0; i < length; i++) {
 						// 为了更快的显示变化，这里加速显示
 						let rate = 5;
@@ -350,9 +363,11 @@ export default {
 						if (!this.isStart) {
 							break;
 						}
-						let item = polyline[0].points[i];
+						let item = points[i];
 						await sleep(500); // 模拟停顿
-						// 模拟上报当前的坐标 
+						if (i == length - 1) {
+							await this.getPolyline();
+						}
 						await uniMapCo.updateMyLocation({
 							longitude: item.longitude,
 							latitude: item.latitude,
@@ -360,18 +375,21 @@ export default {
 					}
 				}
 			},
-			// 刷新地图
+			// 刷新POI
 			async refresh() {
+				this.updateNum++;
+				if (this.updateNum % 5 == 0) {
+					await this.getPolyline();
+				}
 				const mapInstance = this.$refs["map"] as UnicloudMapComponentPublicInstance;
 				await mapInstance.refresh({
 					needIncludePoints: true
 				});
+			},
+			// 获取路线
+			async getPolyline() {
 				let res = await uniMapCo.getPolyline();
 				if (res['end'] != null && res['end'] as boolean) {
-					await mapInstance.refresh({
-						needIncludePoints: true
-					});
-					this.stop();
 					this.setPolyline([] as Array<UTSJSONObject>);
 				} else {
 					this.setPolyline(res['polyline'] as Array<UTSJSONObject>);
@@ -401,11 +419,11 @@ export default {
 				let polylines = polyline.map((item : UTSJSONObject) : Polyline => {
 					let itemPoints = item['points'] as Array<UTSJSONObject>;
 					let points = itemPoints.map((point : UTSJSONObject) : LocationObject => {
-						let latitude = point['latitude'] as number;
-						let longitude = point['longitude'] as number;
+						let latitude = point['latitude'] as string;
+						let longitude = point['longitude'] as string;
 						return {
-							latitude,
-							longitude
+							latitude: parseFloat(latitude),
+							longitude: parseFloat(longitude)
 						} as LocationObject;
 					});
 					return {

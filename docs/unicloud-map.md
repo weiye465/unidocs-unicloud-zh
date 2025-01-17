@@ -267,41 +267,41 @@ export default {
 <template>
 	<view class="page">
 
-		<unicloud-map
+		<unicloud-map 
 			ref="map"
-			:debug="false"
+			:debug="false" 
 			loadtime="auto"
-			collection="opendb-poi"
-			:where="where"
-			:width="750"
-			:height="heightCom"
-			:latitude="latitude"
-			:longitude="longitude"
-			:scale="13"
+			collection="opendb-poi" 
+			:where="where" 
+			:width="750" 
+			:height="heightCom" 
+			:latitude="latitude" 
+			:longitude="longitude" 
+			:scale="13" 
 			:poi-maximum="100"
 			:default-icon="defaultIcon"
-			:custom-icons="customIcons"
-			:enable-scroll="true"
-			:enable-zoom="true"
-			:show-compass="true"
-			:show-location="true"
+			:custom-icons="customIcons" 
+			:enable-scroll="true" 
+			:enable-zoom="true" 
+			:show-compass="true" 
+			:show-location="true" 
 		></unicloud-map>
-
+		
 		<view class="btn-box first">
 			<button @click="initData" size="mini" class="btn">初始化配送点</button>
 			<button @click="virtuallyTest" size="mini" class="btn">模拟配送（上报位置）</button>
 		</view>
 		<view class="btn-box">
 			<button @click="start" size="mini" class="btn" v-if="!isStart">开启监听</button>
-			<button @click="stop" size="mini" class="btn" v-else>暂停监听</button>
+			<button @click="stop" size="mini" class="btn" v-else>暂停监听</button>	
 		</view>
 	</view>
 </template>
 
 <script>
-
+	
 	var timer;
-
+	
 	const uniMapCo = uniCloud.importObject('uni-map-co', {
 		customUI: true
 	});
@@ -325,11 +325,12 @@ export default {
 				],
 				isStart: false,
 				polyline:[],
-				isReady: false
+				isReady: false,
+				updateNum: 0
 			}
 		},
 		onLoad() {
-
+			
 		},
 		onUnload() {
 			this.stop();
@@ -349,11 +350,29 @@ export default {
 				const sleep = ms => new Promise(resolve => setTimeout(resolve, ms));
 				let polyline = JSON.parse(JSON.stringify(this.polyline))
 				if (polyline && polyline.length > 0) {
-					for (let i = 0; i < polyline[0].points.length; i++) {
+					// 去除重复的点
+					let points = polyline[0].points;
+					for (let i = 0; i < points.length - 1; i++) {
+						let item = points[i];
+						let nextItem = points[i + 1];
+						if (item.latitude == nextItem.latitude && item.longitude == nextItem.longitude) {
+							points.splice(i, 1);
+							i--;
+						}
+					}
+					let length = points.length;
+					for (let i = 0; i < length; i++) {
+						// 为了更快的显示变化，这里加速显示
+						let rate = 5;
+						if ((length - 1) > (i + rate)) {
+							i = i + rate;
+						} else {
+							i = length - 1;
+						}
 						if (!this.isStart) {
 							break;
 						}
-						let item = polyline[0].points[i];
+						let item = points[i];
 						await sleep(500); // 模拟停顿
 						// 模拟上报当前的坐标
 						await uniMapCo.updateMyLocation({
@@ -365,15 +384,18 @@ export default {
 			},
 			// 刷新地图
 			async refresh() {
+				if (this.updateNum % 5 == 0) {
+					await this.getPolyline();
+				}
+				this.updateNum++;
 				await this.$refs.map.refresh({
 					needIncludePoints: true
 				});
-
+			},
+			// 获取路线
+			async getPolyline() {
 				let res = await uniMapCo.getPolyline();
 				if (res.end) {
-					await this.$refs.map.refresh({
-						needIncludePoints: true
-					});
 					this.stop();
 					this.setPolyline([]);
 				} else {
