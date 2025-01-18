@@ -1,4 +1,4 @@
-## unicloud-map 云端一体组件 uni-app x
+## unicloud-map 云端一体组件 uni-app
 
 ::: warning 注意
 该组件依赖 [uni-map-common 公共模块](uni-map-common.md)
