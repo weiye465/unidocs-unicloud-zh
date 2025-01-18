@@ -23,6 +23,38 @@ unicloud-city-select是一个方便用户在应用中快速选择目标城市的
 
 ![](https://qiniu-web-assets.dcloud.net.cn/unidoc/zh/3707/410.png)
 
+### 部署教程@install
+
+**非unICloud项目需要先开通uniCloud**
+
+此插件依赖uniCloud，如果你的项目不是uniCloud项目，需右键项目名 - 创建uniCloud云开发环境 - 选择任意云厂商均可
+
+![](https://web-ext-storage.dcloud.net.cn/doc/unicloud/uni-map-common/67a7f6e7-e372-434e-8f7f-892b93d88b94.png)
+
+创建完成后，再右键uniCloud目录，关联空间
+
+![](https://web-ext-storage.dcloud.net.cn/doc/unicloud/uni-map-common/3b7ec77e-d659-4ef8-a9d1-5645e44425ef.png)
+
+如果还没有购买空间，则点击新建
+
+![](https://web-ext-storage.dcloud.net.cn/doc/unicloud/uni-map-common/47e8937d-89d9-4ec0-87eb-9847ad7d9fbc.png)
+
+如果已有空间，则可直接关联
+
+![](https://web-ext-storage.dcloud.net.cn/doc/unicloud/uni-map-common/785cfb10-7262-4df6-a088-b34f7de103e8.png)
+
+**空间准备完成，开始部署**
+
+右键 cloudfunctions 目录，点击上传所有云函数、公共模块及Actions
+
+![](https://web-ext-storage.dcloud.net.cn/doc/unicloud/uni-map-common/3325841c-5eec-4b4d-91ef-3d467004336e.png)
+
+等待全部上传成功后，再右键 database 目录，点击初始化云数据库
+
+![](https://web-ext-storage.dcloud.net.cn/doc/unicloud/uni-map-common/552e4165-2492-4002-8834-725780cd5e25.png)
+
+等待数据库初始化完成，代表云端已部署完成，可以在前端使用了
+
 ### 用法示例@example
 
 注意：由于组件是读取数据库表[opendb-city-china](https://gitee.com/dcloud/opendb/blob/master/collection/opendb-city-china/collection.json)进行查询，若表不存在或表内没有数据，则不会显示城市列表，可以右键插件database目录下的opendb-city-china.schema上传Schema（会自动添加城市数据）
