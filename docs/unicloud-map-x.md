@@ -260,8 +260,6 @@ export default {
 
 **示例代码**
 
-注意：此代码如果运行在APP中，需要使用nvue模式
-
 ```vue
 <template>
 	<view class="page">
@@ -419,11 +417,11 @@ export default {
 				let polylines = polyline.map((item : UTSJSONObject) : Polyline => {
 					let itemPoints = item['points'] as Array<UTSJSONObject>;
 					let points = itemPoints.map((point : UTSJSONObject) : LocationObject => {
-						let latitude = point['latitude'] as string;
-						let longitude = point['longitude'] as string;
+						let latitude = point['latitude'] as number;
+						let longitude = point['longitude'] as number;
 						return {
-							latitude: parseFloat(latitude),
-							longitude: parseFloat(longitude)
+							latitude: latitude,
+							longitude: longitude
 						} as LocationObject;
 					});
 					return {
