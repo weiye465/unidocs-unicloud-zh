@@ -1,7 +1,7 @@
 **uni-im 已开放需求征集和投票** [点此前往](https://vote.dcloud.net.cn/#/?name=uni-im)
 
 # 简介
-uni-im 是一款云端一体、全平台、免费且开源的即时通讯系统
+uni-im 是一款集云端一体、全平台支持、免费且开源的即时通讯系统
 - 基于uni-app，App、小程序、web全端兼容
 - 基于uniCloud，前后端都使用js开发
 - 基于[uni-push2](https://uniapp.dcloud.net.cn/unipush-v2.html)，专业稳定的全端消息推送系统（聚合多个手机厂商推送通道，App关闭后也能收到消息）
@@ -10,7 +10,7 @@ uni-im 是一款云端一体、全平台、免费且开源的即时通讯系统
 
 插件下载地址：[https://ext.dcloud.net.cn/plugin?name=uni-im](https://ext.dcloud.net.cn/plugin?name=uni-im)
 
-## 案例：
+## 案例  
 应用名称：DCloud。此 App 的内置聊天模块即是基于 uni-im 开发的。
 
 web端网址（支持PC宽屏和移动端）：[https://im.dcloud.net.cn/index.html#/](https://im.dcloud.net.cn/index.html#/)
@@ -28,7 +28,7 @@ web端网址（支持PC宽屏和移动端）：[https://im.dcloud.net.cn/index.h
 ![](https://web-ext-storage.dcloud.net.cn/doc/im/20241125164315.jpg)
 ](https://www.bilibili.com/video/BV1BmzcYME8H/?vd_source=b123f8c166833c59567e6923b9aa2013)
 
-注意：实际情况可能**与视频中的存在差异**，部分服务空间可能不会自动创建数据表，需要打开项目根目录：`uniCloud/database` 目录，右键`上传所有DB Schema（含扩展库）`
+注意：实际情况可能与视频存在差异，部分服务空间可能不会自动创建数据表。此时，需打开项目根目录下的：`uniCloud/database` 目录，右键`上传所有DB Schema（含扩展库）`
 
 ## 前提条件  
 1. 创建运行uni-im服务端代码的云服务环境
@@ -68,11 +68,11 @@ web端网址（支持PC宽屏和移动端）：[https://im.dcloud.net.cn/index.h
 注意：以上为连接本地云函数体验，如果要发行为正式项目，需要把uniCloud内的文件部署到云端。操作方式为：对项目根目录uniCloud点右键选择“云服务空间初始化向导”界面按提示部署项目
 
 ## 部署到自己的项目  
-> 如果你的项目客户端，不是基于Vue3版本的uni-app + uniCloud + uni-id-pages 或对im的交互性能要求不高，或希望便捷快速地给你的项目增加个客服功能。建议直接使用[uni-im-web-load](https://doc.dcloud.net.cn/uniCloud/uni-im-web-load.html)部署（即：将uni-im打包发行为web页面，通过web-view的方式集成至项目）。
+> 如果你的项目客户端，不是基于Vue3版本的uni-app + uniCloud + uni-id-pages 或对im的交互性能要求不高，或希望便捷快速地给你的项目增加个客服功能。建议直接使用[uni-im-web-load](/uni-im-web-load.md)部署（即：将uni-im打包发行为web页面，通过web-view的方式集成至项目）。
 
 1. 项目的客户端需要启用uni-push2.0 [详情参考](https://uniapp.dcloud.net.cn/unipush-v2.html#enable-app)
 2. 打开`uni-im`插件下载地址：[https://ext.dcloud.net.cn/plugin?name=uni-im](https://ext.dcloud.net.cn/plugin?name=uni-im)
-3. 点击`使用HBuilderX导入插件`，选择你的项目，点击确定（同时会自动导入依赖的uni_modules`uni-id-pages`）按提示操作配置`pages.json`
+3. 点击`使用HBuilderX导入插件`，选择你的项目，点击确定（同时会自动导入依赖的uni_modules`uni-id-pages`）并按需要配置`pages.json`
 4. 打开项目根目录的App.vue文件，初始化uni-id-pages和uniIm模块  
 示例如下：
 
@@ -82,15 +82,15 @@ web端网址（支持PC宽屏和移动端）：[https://im.dcloud.net.cn/index.h
 	import uniIdPagesInit from '@/uni_modules/uni-id-pages/init.js';
 	//2. 导入uniIm
 	import uniIm from '@/uni_modules/uni-im/sdk/index.js';
-  // 3.引入扩展插件（项目默认引入了，扩展插件uniImMsgReader用于展示消息是否已读）
-  import MsgReaderExtension from '@/uni_modules/uni-im-msg-reader/extension.js'
+	// 3.引入扩展插件（项目默认引入了，扩展插件uniImMsgReader用于展示消息是否已读）
+	import MsgReaderExtension from '@/uni_modules/uni-im-msg-reader/extension.js'
 	export default {
 		onLaunch: async function() {
 			console.log('App Launch');
-      //4. 初始化uni身份信息管理模块
+			//4. 初始化uni身份信息管理模块
 			uniIdPagesInit();
 			//5. 安装uniIm扩展插件
-      MsgReaderExtension.install()
+			MsgReaderExtension.install()
 			//6. 初始化uniIm
 			uniIm.init();
 		},
@@ -157,7 +157,7 @@ export default defineConfig({
 
 7. 登录uni-im  
 基于[uni-id-pages](https://doc.dcloud.net.cn/uniCloud/uni-id/app.html)实现用户体系的项目，
-集成 uni-im 不需要考虑账号打通问题，用户登录项目后，不需要额外登录 uni-im。
+集成 uni-im 不需要考虑账号打通问题，用户登录项目后，不需要额外登录 uni-im。  
 其他项目，需要通过 uni-im 的客户端 sdk 的[login](#client-login)方法，实现登录。
 
 ### 常见问题：
@@ -356,7 +356,6 @@ API列表
 
 |API								|描述																																	|
 |--									|--																																		|
-|httpApi						|方便外部服务器调用uni-im-co url化的链接，以请求其内部方法。[见下方](#httpapi)	|
 |login							|用户登录，[见下方](#client-login)																				|
 |getConversationList|获取会话列表[见下方](#cogetconversationlist)														|
 |sendMsg						|发送聊天消息[见下方](#cosendmsg)																				|
@@ -366,73 +365,79 @@ API列表
 |chooseUserIntoGroup|选择用户加入群聊（不传群id时为创建群）[见下方](#cosendmsgtogroup)						|
 |revokeMsg					|撤回已经发送的消息[见下方](#corevokemsg)																	|
 
-### httpApi @httpapi
+uni-im-co 云函数（云对象）支持：`在uni-app客户端`及`外部服务器`调用。
+### 在uni-app客户端调用  
+示例代码：
+```js
+// 导入uni-im-co云对象
+const uniImCo = uniCloud.importObject('uni-im-co', {customUI: true});
+const functionName = "方法名"
+const param = "请求参数"
+// 请求时会自动带上用户的uni-id-token和客户端信息
+await uniImCo[functionName](param);
+```
+更多[详情参考](https://doc.dcloud.net.cn/uniCloud/cloud-obj.html#%E5%AE%A2%E6%88%B7%E7%AB%AF%E8%B0%83%E7%94%A8)
 
-#### 背景介绍  
-uni-im-co会校验uni-id-token以验证请求的合法性。常有外部服务器调用uniCloud中的uni-im-co实现模拟某个用户向其他用户发消息、撤回消息、拉群等需求。
-httpApi应运而生，通过[uni-cloud-s2s](https://doc.dcloud.net.cn/uniCloud/uni-cloud-s2s.html#%E5%A4%96%E9%83%A8%E6%9C%8D%E5%8A%A1%E5%99%A8%E5%A6%82%E4%BD%95%E4%B8%8Eunicloud%E5%AE%89%E5%85%A8%E9%80%9A%E8%AE%AF) 
-实现安全通讯，外部服务器无需传递uni-id-token，可实现模拟任意用户、任意客户端环境、请求uni-im-co内的方法。
-#### 使用示例  
+### 在外部服务器调用@httpCallImCo  
+在实际应用中，常有外部服务器模拟用户执行向其他用户发消息、撤回消息、拉群等操作。
+例如：创建一个名为“系统通知”的用户，通过接口向其他用户发送系统通知。
+
 1. 获取http请求的网络地址  
-在项目根目录的uniCloud目录右键，选择“打开uniCloud web控制台” -> 云函数/云对象 -> 云函数/云对象列表 -> 找到“云对象uni-im-co” -> 点击右侧的“详情”-> 在页面最下方可以看到“云函数URL化”点击“复现路径“。
+在项目根目录的uniCloud目录右键，选择“打开uniCloud web控制台” -> 云函数/云对象 -> 云函数/云对象列表 -> 找到“云对象uni-im-co” -> 点击右侧的“详情”-> 在页面最下方可以看到“云函数URL化”点击“复制路径“。
 
-2. 配置uni-cloud-s2s安全通讯密钥  
-  - **文件路径**：`/uni_modules/uni-config-center/uniCloud/cloudfunctions/common/uni-config-center/uni-cloud-s2s/config.json`（如果没有需要自己创建，或拷贝示例项目相关文件）。
-  - **uni-cloud-s2s有**：`connectCode` 和 `数据签名`2种安全通讯验证方式，这里以`connectCode`为例，配置内容为：
-    ```json
-    {
-      "type": "connectCode",
-      "connectCode": "youConnectCodeValue"
-    }
-    ```    
-    其中 youConnectCodeValue 为你配置的 connectCode 密钥，用一个较长的字符串即可，不可包含中文。配置此密钥是为了后续在请求时进行安全通讯验证。
+2. 实现安全通讯  
+为防止uni-im-co的url化链接，遭受非法HTTP请求，其默认设置为禁止访问。若要启用访问功能，需配置安全通讯密钥，以此建立可信的访问通道。 
+- **文件路径**：`/uni_modules/uni-config-center/uniCloud/cloudfunctions/common/uni-config-center/uni-cloud-s2s/config.json`（如果没有需要自己创建）。
+	配置内容为：
+	```json
+	{
+		"type": "connectCode",
+		"connectCode": "youConnectCodeValue"
+	}
+	```    
+	其中 youConnectCodeValue 为你配置的 connectCode 密钥，用一个较长的字符串即可，不可包含中文。配置此密钥是为了后续在请求时进行安全通讯验证。
+	> 此安全通讯基于`uni-cloud-s2s`实现，有：`connectCode` 和 `数据签名`2种安全通讯验证方式，这里以`connectCode`为例。如您希望通过数据签名验证[详情参考](https://doc.dcloud.net.cn/uniCloud/uni-cloud-s2s.html)
 
-3. 模拟用户 001 向用户 002 发消息：
-    ```js
-    // 以下是一个POST请求示例，用于模拟用户001向用户002发送文本消息
-    POST /uni-im-co/httpApi HTTP/1.1
-    Host: xxx.com // 这里的Host需填写步骤①中获取到的http网络地址的域名
-    Content-Type: application/json
-    Cache-Control: no-cache // 此处设置可根据实际需求调整，比如是否允许缓存等情况，当前设置为不缓存
-    Unicloud-S2s-Authorization: "CONNECTCODE youConnectCodeValue" // 按照配置的安全通讯验证类型及密钥填写
+3. 通讯规范  
+```js
+// 以下是一个POST请求示例，用于模拟用户001向用户002发送文本消息
+POST /uni-im-co/sendMsg HTTP/1.1 // "/uni-im-co"是固定值，"/sendMsg"是要请求的方法名
+Host: xxx.com // 这里的Host需填写步骤①中获取到的http网络地址的域名
+Content-Type: application/json
+Cache-Control: no-cache // 此处设置可根据实际需求调整，比如是否允许缓存等情况，当前设置为不缓存
+Unicloud-S2s-Authorization: "CONNECTCODE youConnectCodeValue" // 配置安全通讯验证信息，"CONNECTCODE" + " " + 你配置的密钥
+[
+	{
+		"type": "text", // 表示消息类型为文本
+		"to_uid": "is002user_id", // 接收消息用户的id
+		"body": "你好002，我是001", // 消息具体内容
+		"appId": "应用的appid" // 应用对应的appId
+	},
+	{
+		"userInfo":{
+			"_id":"is001user_id" // 必填参数，表示操作当前方法的账号id
+		}
+	}
+]
+```
 
-    [
-      {
-        "sendMsg":{
-          "type": "text", // 表示消息类型为文本
-          "to_uid": "is002user_id", // 接收消息用户的id
-          "body": "你好002，我是001", // 消息具体内容
-          "appId": "应用的appid" // 应用对应的appId
-        }
-      },
-      {
-        "userInfo":{
-          "_id":"is001user_id" // 必填参数，表示操作当前方法的账号id
-        }
-      }
-    ]
-    ```
-    注意:body 是一个长度为 2 的数组，且每一项都是对象，如：
-      ```js
-      [
-        {"方法名":"参数"},
-        {
-          "userInfo":"用户信息，详情：/uni_modules/uni-id-pages/uniCloud/database/uni-id-users.schema.json",
-          "clientInfo":"客户端信息，详情：https://uniapp.dcloud.net.cn/api/system/info.html （客户端信息相关参考内容）"
-        }
-      ]
-      ```
-      + 方法名，包括 uni-im-co 下除 httpApi 以外的其他方法
-      + `userInfo._id` 为必填参数（表示操作当前方法的账号 id）
-      + clientInfo 为可选参数
-      + Unicloud-S2s-Authorization 的值为：安全通讯验证类型名 + 空格 + 你配置的密钥；即当前示例为："connectCode" + " " +"youConnectCodeValue"。
-  
+完整的body 是一个长度为 2 的数组，且每一项都是对象：
+```js
+[
+	{请求参数},
+	{
+		"userInfo":"用户信息，详情查看：https://gitee.com/dcloud/opendb/blob/master/collection/uni-id-users/collection.json",
+		"clientInfo":"客户端信息（可选），详情查看：https://uniapp.dcloud.net.cn/api/system/info.html"
+	}
+]
+```
+
 补充示例（为了方便进一步理解，以在uniCloud中请求外部接口为例）：
 ```js
 // uni-im-co云对象url化后的网络地址
-const uniImCoUrl = "https://env-xxxxxxxxx.dev-hz.cloudbasefunction.cn/uni-im-co" 
+const uniImCoUrl = "https://xx.com/uni-im-co" 
 // 要请求的方法名
-const functionName = "/httpApi" 
+const functionName = "/sendMsg" 
 // http请求的网络地址
 const url =  uniImCoUrl + functionName
 await uniCloud.httpclient.request(url,
@@ -445,22 +450,23 @@ await uniCloud.httpclient.request(url,
       "Cache-Control": "no-cache"
     },
     data: [
-      {
-        "sendMsg":{
-          "type": "text",
-          "to_uid": "is002user_id",
-          "body": "你好002，我是001",
-          "appId": "__UNI__XXXXXX"
-        }
-      },
-      {
-        "userInfo":{
-          "_id":"is001user_id"
-        }
-      }
+		{
+			"type": "text",
+			"to_uid": "is002user_id",
+			"body": "你好002，我是001",
+			"appId": "__UNI__XXXXXX"
+		},
+		{
+			"userInfo":{
+				"_id": "is001user_id"
+			}
+		}
     ]
   })
 ```
+
+### httpApi @httpapi  
+已废弃。uni-im-co已支持通过http访问云对象内的任意方法，无需额外请求httpApi方法。详情查看[在外部服务器调用uni-im-co](#httpCallImCo)
 
 ### 登录 login@coLogin  
 **参数说明**
@@ -621,6 +627,7 @@ await uniImCo.sendMsg({
 
 其中`conversation,msg,friend,group,notification`继承类`/uni_modules/uni-im/sdk/ext/CloudData.class.js`类，均拥有:
 - 属性
+
 |名称			|作用								|
 |:--:			|:--:								|
 |dataList	|数据列表							|
@@ -629,6 +636,7 @@ await uniImCo.sendMsg({
 |loadLimit|分页加载时的单页记录数	|
 
 - 方法
+
 |名称			|作用																											|
 |:--:			|:--:																											|
 |reset		|重置数据																										|
@@ -670,7 +678,8 @@ uniIm.login({
 })
 ```
 
-2. 配置为：“获取用户信息的接口地址（规范：[详情点此](./uni-im-web-load.md#getuserinfo)）”，则支持使用你项目的token登录
+2. 配置为：“获取你的用户信息接口地址（规范：[详情点此](./uni-im-web-load.md#getuserinfo)#{target=_blank}），则支持使用你项目的token登录  
+原理为：客户端传递token到uni-im云端，uni-im云端请求你配置的接口实现：验证token的有效性、获取用户信息，添加或者更新用户信息到uni-im的数据库，返回uni-id-token给客户端，完成登录。
 
 **参数说明**
 

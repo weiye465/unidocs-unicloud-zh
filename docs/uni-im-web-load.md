@@ -70,26 +70,9 @@
 
 ## 常见问题
 1. **如何提前在uni-im统预置一批用户数据**
-若要提前在 uni-im系统预置一批用户数据，可通过 uni-im-httpApi 执行 login 方法，相关文档参考：[https://doc.dcloud.net.cn/uniCloud/uni-imhtml#httpapi](https://doc.dcloud.net.cn/uniCloud/uni-imhtml#httpapi)。
-请求体示例如下：
-	```js
-	[
-		{
-			"login": {
-				"_id": "用户id",
-				"nickname": "用户昵称",
-				"avatar_file": {
-					"url": "用户头像链接地址"
-				}
-			}
-		},
-		{ // 由于login方法是不校验操作者身份的，这里留空对象即可
-			"userInfo": {}
-		}
-	]
-	```
+若要提前在 uni-im系统预置一批用户数据，可通过 http的方式请求uni-im-co的url化链接 执行 login 方法[相关文档参考](./uni-im.md#httpCallImCo)。
 2. **商城项目，如何自动向客服发送商品信息**
 - 用户在商品页面，点击联系客服时，先向服务端发送一个请求（参数：商品id），服务端根据商品id查询商品的标题、主图、商家user_id。
-- 再通过[uni-im-httpApi](https://doc.dcloud.net.cn/uniCloud/uni-imhtml#httpapi)模拟用户向商家发送消息，内容：当前用户正在浏览的商品为：${标题},${图片}。
+- 再通过http的方式请求uni-im-co的url化链接 执行 sendMsg 方法[相关文档参考](./uni-im.md#httpCallImCo)模拟用户向商家发送消息，内容：当前用户正在浏览的商品为：${标题},${图片}。
 3. **如何实现自动回复**
-配置web hook url（即将支持），收到客户端用户发送的消息，然后通过[uni-im-httpApi](https://doc.dcloud.net.cn/uniCloud/uni-imhtml#httpapi)回复即可。
+配置web hook url（即将支持），收到客户端用户发送的消息，然后通过http的方式请求uni-im-co的url化链接 执行 sendMsg 方法[相关文档参考](./uni-im.md#httpCallImCo)回复即可。
