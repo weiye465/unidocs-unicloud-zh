@@ -673,7 +673,7 @@ uniIm.login({
 })
 ```
 
-2. 配置为：“获取你的用户信息接口地址”（规范：[详情点此](./uni-im-web-load.md#getuserinfo)#{target=_blank}），则支持使用你项目的token登录  
+2. 配置为：“获取你的用户信息接口地址”（接口规范：[详情点此](./uni-im-web-load.md#getuserinfo)#{target=_blank}），则支持使用你项目的token登录  
 原理为：客户端传递token到uni-im云端，uni-im云端请求你配置的接口实现：验证token的有效性、获取用户信息，添加或者更新用户信息到uni-im的数据库，返回uni-id-token给客户端，完成登录。
 
 **参数说明**
