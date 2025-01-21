@@ -468,11 +468,6 @@ await uniCloud.httpclient.request(url,
 ### httpApi @httpapi  
 已废弃。uni-im-co已支持通过http访问云对象内的任意方法，无需额外请求httpApi方法。详情查看[在外部服务器调用uni-im-co](#httpCallImCo)
 
-### 登录 login@coLogin  
-**参数说明**
-
-|参数
-    
 ### 获取会话列表 getConversationList@cogetconversationlist
 **参数说明**
 
