@@ -1,3 +1,7 @@
+#### 2025-01-21
+* 新增 un-ai minimax与讯飞部分模型支持联网搜索 [详情](https://doc.dcloud.net.cn/uniCloud/uni-ai.html)
+* 修复 3.99版本引发的uniCloud下database目录右键菜单"创建数据库扩展校验函数目录"菜单项重复的Bug [详情](https://issues.dcloud.net.cn/pages/issues/detail?id=15199)
+
 #### 2024-12-18
 * 修复 vue2项目使用迁移后的腾讯云服务空间后调用云函数报错`access token disabled for ANONYMOUS login`的Bug [详情](https://issues.dcloud.net.cn/pages/issues/detail?id=14287)
 
