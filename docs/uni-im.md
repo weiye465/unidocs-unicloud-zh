@@ -645,9 +645,11 @@ await uniImCo.sendMsg({
 |update		|更新数据																										|
 
 ### login@client-login
-适用于非unicloud或用户体系前端非uni-id-pages的项目登录im，同时实现同步你项目的用户数据到uni-im的数据库中。
+适用于非unicloud或用户体系前端非uni-id-pages的项目登录im，同时实现同步你项目的用户数据到uni-im的数据库中。  
 
-此方法根据你配置的get_external_userinfo字段的值，支持两种登录模式：
+**前提条件** ：需要配置uni-id的 `tokenSecret` `tokenExpiresIn` `tokenExpiresThreshold`[详情查看](https://doc.dcloud.net.cn/uniCloud/uni-id/summary.html#config)
+
+此方法根据uni-im服务端配置中`get_external_userinfo`字段的值，支持两种登录模式：
 > 配置路径：`uniCloud/cloudfunctions/common/uni-config-center/uni-im/config.json`
 
 1. 配置为："use-param"，则表示支持直接在客户端传递用户信息，不需要服务端验证，完成登录。  
