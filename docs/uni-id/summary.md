@@ -283,13 +283,15 @@ uni-id的云端配置文件在`uniCloud/cloudfunctions/common/uni-config-center/
         "privateKey": "", // 私钥
         "keyType": "PKCS8" // 私钥类型，如果私钥类型不是PKCS8，需要填写此字段，否则会出现“error:0D0680A8:asn1 encoding routines:ASN1_CHECK_TLEN:wrong tag”错误
       }
-    },
-    "mp-harmony": {
+    }
+  },
+  "mp-harmony": {
+      "oauth": {
         "huawei": { // 鸿蒙元服务使用华为登录
           "clientId": "",
           "clientSecret": ""
         }
-    }
+      }
   },
   "service": {
     "sms": {
