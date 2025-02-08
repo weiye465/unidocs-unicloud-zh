@@ -42,7 +42,7 @@ LLM不等于ai的全部，除了LLM，还有ai生成图片等其他模型。
 
 |参数				|类型		|必填																														|默认值	| 说明																																																																						                                                                                                 |
 |---				|---		|---																														|---		|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-|provider		|string	|否																															|minimax| llm服务商，目前支持`openai`、`baidu`、`minimax`、`azure`（azure新增于HBuilderX 3.8.3）、`ifly`（ifly新增于HBuilderX 3.8.10）、`deepseek` (deepseek新增与HBuilderX 4.52)																											 |
+|provider		|string	|否																															|minimax| llm服务商，目前支持`openai`、`baidu`、`minimax`、`azure`（azure新增于HBuilderX 3.8.3）、`ifly`（ifly新增于HBuilderX 3.8.10）、`deepseek` (deepseek新增于HBuilderX 4.52)																											 |
 |apiKey			|string	|使用uni-ai计费网关时不填。使用自己的key时必填									|-			| llm服务商的apiKey。																																																														                                                                                             |
 |endpoint		|string	|使用uni-ai计费网关时不填。使用自己的azure账户时必填						|-			| azure服务端点，在azure创建ai服务时获取																																																					                                                                                           |
 |groupId		|string	|使用uni-ai计费网关时不填。使用自己的minimax账户时必填					|-			| minimax的groupId参数。																																																													                                                                                          |
