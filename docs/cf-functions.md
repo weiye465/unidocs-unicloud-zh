@@ -1243,8 +1243,8 @@ exports.main = async function() {
 云函数运行在 node 环境中。可以使用 node api `process.version` 获取 node 版本。
 
 - uniCloud 支付宝云默认是 node18, 也可以在 package.json 中选择 node16
-- uniCloud 阿里云默认是 node16，也可以在 package.json 中选择 node12
-- uniCloud 腾讯云默认是 node8.9.4，也可以在 package.json 中选择 node12
+- uniCloud 阿里云默认是 node16，也可以在 package.json 中选择 node18
+- uniCloud 腾讯云默认是 node16，也可以在 package.json 中选择 node18
 - HBuilderX 本地运行环境使用的是 HBuilderX 自带的 node 版本，目前为 node16。在 package.json 选择 node版本 只云端生效，且只在第一次上传云函数时生效。
 
 **注意**
