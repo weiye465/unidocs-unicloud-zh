@@ -80,4 +80,6 @@
   <img width="600" src="https://qiniu-web-assets.dcloud.net.cn/unidoc/zh/resource-anxinji-todo.png">
 </a>
 
+- 一天一句毒鸡汤：趣味鸡汤小程序，摸鱼必备，蹲坑必完，微信小程序搜索“一天一句毒鸡汤”。[详见](https://static-mp-0421f619-cbb4-4191-a37b-c9ef96e4ec23.next.bspapp.com/publish)
+
 更多uniClouid项目和插件，见**插件市场**：[https://ext.dcloud.net.cn/?cat1=7](https://ext.dcloud.net.cn/?cat1=7)
