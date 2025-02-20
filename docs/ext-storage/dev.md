@@ -2489,6 +2489,189 @@ https://web-ext-storage.dcloud.net.cn/unicloud/ext-storage/gogopher.png?qrcode
 
 ![](https://web-ext-storage.dcloud.net.cn/unicloud/ext-storage/gogopher.png?qrcode)
 
+## 机器智能审核-图片视频鉴黄@examine-pulp
+
+扩展存储支持机器智能审核，会在用户上传图片和视频的时候异步进行审核，审核结果通过异步回调通知到您。
+
+开通方式：开通此功能需要进 [扩展存储技术交流群](https://im.dcloud.net.cn/#/?joinGroup=65436862cc41b0763842cfc9) 申请发送文字：我想申请开通扩展存储“机器智能审核”功能。
+
+### 审核异步回调函数
+
+新建云函数 `ext-storage-examine-notice`，操作如下图所示。
+
+![](https://web-ext-storage.dcloud.net.cn/doc/unicloud/ext-storage/941d8f2c-46b2-447b-b88a-7f636df288e4.png)
+
+编写 `ext-storage-examine-notice/package.json` 文件，内容如下：
+
+```json
+{
+	"name": "ext-storage-examine-notice",
+	"extensions": {
+		"uni-cloud-ext-storage": {}
+	},
+	"cloudfunction-config": {
+		"concurrency": 1,
+		"memorySize": 512,
+		"path": "/ext-storage-examine-notice",
+		"timeout": 60,
+		"triggers": [],
+		"runtime": "Nodejs18",
+		"keepRunningAfterReturn": false
+	}
+}
+```
+
+再编写 `ext-storage-examine-notice/index.js` 文件，内容如下：
+
+```js
+'use strict';
+const uniCloudExtStorage = require("uni-cloud-ext-storage");
+
+exports.main = async (event = {}, context) => {
+
+	const path = event.path;
+	let body = event.body;
+	if (event.isBase64Encoded) {
+		body = Buffer.from(body, 'base64').toString();
+	}
+	console.log('body: ', body);
+	if (typeof body === "string") {
+		try {
+			body = JSON.parse(body);
+		} catch (e) {
+			body = false;
+		}
+	}
+
+	if (!body) {
+		console.log("body参数格式错误");
+		return { code: -1, msg: "参数格式错误", }
+	}
+
+	if (path === "/video") {
+		// 视频审核异步回调通知
+		await videoExamineNotice(body);
+	} else {
+		// 图片审核异步回调通知
+		await imageExamineNotice(body);
+	}
+
+	return {
+		code: 0
+	}
+};
+
+// 图片审核异步回调通知
+async function imageExamineNotice(body) {
+	let {
+		code, // 状态码0成功，1等待处理，2正在处理，3处理失败，4通知提交失败。
+		desc, // 	与状态码相对应的详细描述。
+		id, // 处理任务的persistentID
+		inputBucket, // 处理源文件所在的Bucket名
+		inputKey, // 	处理源文件的文件名。
+		reqid, // 	云处理请求的请求id
+		items // 	审核结果详情
+	} = body;
+	const extStorageManager = uniCloud.getExtStorageManager({
+		provider: "qiniu", // 扩展存储供应商
+		domain: "example.com", // 域名地址，此处的域名无需更改
+	});
+	if (code !== 0) {
+		console.log("自动审核未成功", code, desc);
+		return;
+	}
+	let finalSuggestion = "pass";
+	for (let i = 0; i < items.length; i++) {
+		let item = items[i];
+		let result = item.result.result;
+		let {
+			disable, // 文件是否被禁用的标识，true表示文件已被禁用，false表示文件没有被禁用。如果用户在增量设置中开启了“自动禁用违规文件”，那么增量违规文件就会被自动禁用，此时该字段就显示为true。
+			suggestion, // 审核结果建议，取值范围：pass：正常，review：疑似违规，block：违规
+			scenes = {}, // 审核场景具体信息
+		} = result;
+
+		if (suggestion === "block") {
+			finalSuggestion = "block";
+		} else if (suggestion === "review") {
+			if (finalSuggestion === "pass") finalSuggestion = "review";
+		}
+	}
+	if (finalSuggestion === "block") {
+		console.log("该文件违规，需要立即删除");
+		let deleteFileRes = await extStorageManager.deleteFile({
+			fileList: [`qiniu://${inputKey}`], // 待删除的文件地址列表
+		});
+		console.log('deleteFileRes: ', deleteFileRes);
+		// 注意，删除后如果不刷新缓存，可能cdn因为缓存问题，用户还能查看图片，但刷新缓存有次数限制，故此时没有执行刷新缓存
+	} else if (finalSuggestion === "review") {
+		console.log("该文件疑似违规，需要人工审核");
+		// 这里可以写自己的业务逻辑
+
+	} else {
+		console.log("该文件正常，无需处理");
+	}
+}
+
+// 视频审核异步回调通知
+async function videoExamineNotice(body) {
+	let {
+		code, // 状态码0成功，1等待处理，2正在处理，3处理失败，4通知提交失败。
+		desc, // 	与状态码相对应的详细描述。
+		id, // 处理任务的persistentID
+		inputBucket, // 处理源文件所在的Bucket名
+		inputKey, // 	处理源文件的文件名。
+		reqid, // 	云处理请求的请求id
+		items // 	审核结果详情
+	} = body;
+	const extStorageManager = uniCloud.getExtStorageManager({
+		provider: "qiniu", // 扩展存储供应商
+		domain: "example.com", // 域名地址，此处的域名无需更改
+	});
+	if (code !== 0) {
+		console.log("自动审核未成功", code, desc);
+		return;
+	}
+	let finalSuggestion = "pass";
+	for (let i = 0; i < items.length; i++) {
+		let item = items[i];
+		let result = item.result.result;
+		let {
+			disable, // 文件是否被禁用的标识，true表示文件已被禁用，false表示文件没有被禁用。如果用户在增量设置中开启了“自动禁用违规文件”，那么增量违规文件就会被自动禁用，此时该字段就显示为true。
+			suggestion, // 审核结果建议，取值范围：pass：正常，review：疑似违规，block：违规
+			scenes = {}, // 审核场景具体信息
+		} = result;
+
+		if (suggestion === "block") {
+			finalSuggestion = "block";
+		} else if (suggestion === "review") {
+			if (finalSuggestion === "pass") finalSuggestion = "review";
+		}
+	}
+	if (finalSuggestion === "block") {
+		console.log("该文件违规，需要立即删除");
+		let deleteFileRes = await extStorageManager.deleteFile({
+			fileList: [`qiniu://${inputKey}`], // 待删除的文件地址列表
+		});
+		console.log('deleteFileRes: ', deleteFileRes);
+		// 注意，删除后如果不刷新缓存，可能cdn因为缓存问题，用户还能查看图片，但刷新缓存有次数限制，故此时没有执行刷新缓存
+	} else if (finalSuggestion === "review") {
+		console.log("该文件疑似违规，需要人工审核");
+		// 这里可以写自己的业务逻辑
+
+	} else {
+		console.log("该文件正常，无需处理");
+	}
+}
+```
+
+保存文件后，还需要上传 `ext-storage-examine-notice` 云函数才能生效。
+
+![](https://web-ext-storage.dcloud.net.cn/doc/unicloud/ext-storage/a7214561-1dea-4499-9958-3bd86896936f.png)
+
+此时进入 [uniCloud控制台](https://unicloud.dcloud.net.cn/) 找到对应空间下的云函数列表中的 `ext-storage-examine-notice` 云函数，点击查看详情，得到url接口地址，将这个地址发给扩展存储管理员即可开通【机器智能审核】
+
+![](https://web-ext-storage.dcloud.net.cn/doc/unicloud/ext-storage/cd200da5-0a82-45cf-ab7b-b1723a2eb367.png)
+
 ## CDN安全防护能力@cdnsecure
 
 ### 基础防御（无需申请）@cdnsecurebase
@@ -2785,7 +2968,6 @@ async function getCdnTop(data = {}) {
 上传成功后，每15分钟定时任务会启动一次，可前往云函数 `ext-storage-cron` 查看运行日志
 
 ![](https://web-ext-storage.dcloud.net.cn/unicloud/ext-storage/171636353762842tk5a0ardo.png)
-
 
 ## 常见问题@question
 
