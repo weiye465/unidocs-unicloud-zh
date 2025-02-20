@@ -2489,7 +2489,7 @@ https://web-ext-storage.dcloud.net.cn/unicloud/ext-storage/gogopher.png?qrcode
 
 ![](https://web-ext-storage.dcloud.net.cn/unicloud/ext-storage/gogopher.png?qrcode)
 
-## 机器智能审核-图片视频鉴黄@examine-pulp
+## 机器智能审核@examine-pulp
 
 扩展存储支持机器智能审核，会在用户上传图片和视频的时候异步进行审核，审核结果通过异步回调通知到您。
 
