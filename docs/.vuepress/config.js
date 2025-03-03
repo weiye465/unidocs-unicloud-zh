@@ -96,6 +96,9 @@ const config = {
         .end()
 				.plugin('img-add-attrs')
 				.use(require('./markdown/img-add-attrs'))
+        .end()
+        .plugin('add-base-to-md')
+        .use(require('./markdown/add-base-to-md'), [{ base }])
     }
   },
   chainWebpack (config, isServer) {
