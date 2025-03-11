@@ -121,6 +121,7 @@ export default defineConfig({
       include: [
         '**/uni-im-conversation.vue',
         './uni_modules/uni-im/components/uni-im-msg/uni-im-msg.vue',
+        './uni_modules/uni-im/components/uni-im-msg/msg-content.vue',
         './uni_modules/uni-im/pages/chat/info.vue'
       ],
       components: {
