@@ -41,3 +41,19 @@
 
 ![](https://qiniu-web-assets.dcloud.net.cn/unidoc/zh/3707/428.png)
 
+## 服务协议@agreements
+
+七牛云提供了服务等级协议（SLA），以七牛云官网标准协议为准。
+
+- 存储服务等级协议：https://www.qiniu.com/agreements/sla/kodo
+
+- CDN服务等级协议：https://www.qiniu.com/agreements/sla/fusion
+
+- 七牛云用户协议：https://www.qiniu.com/agreements/user-agreement
+
+- 隐私政策：https://www.qiniu.com/agreements/privacy-right
+
+如果您购买了七牛云版的uniCloud扩展存储的，且七牛云未满足其承诺的服务标准，则可以索赔。
+
+DCloud将负责为您协调七牛云的赔偿。赔偿标准和相关规定见上述服务等级协议。
+
