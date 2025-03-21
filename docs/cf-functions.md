@@ -1232,7 +1232,8 @@ exports.main = async function() {
 ### return的策略@return
 
 - 阿里云 return 之后云函数立即终止，逻辑不会继续执行，包括 settimeout 或其他异步操作都会立即终止。
-- 腾讯云 node8 return 之后也不会继续执行，但 node12 可以配置是否继续执行
+- 腾讯云 node8 return 之后也不会继续执行，但 node12 可以配置是否继续执行。
+- 支付宝云 return 之后还会继续执行异步逻辑。
 - HBuilderX 本地运行
 	* 不通过客户端发起，直接本地运行云函数/云对象，return 之后还可以执行300ms
 	* 通过客户端连接本地云函数/云对象，return 之后可以继续执行
