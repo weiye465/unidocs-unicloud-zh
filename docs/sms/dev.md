@@ -232,7 +232,7 @@ exports.main = async (event, context) => {
 
 <a class="join-group-chat" target="_blank" href="https://qiniu-web-assets.dcloud.net.cn/unidoc/zh/Dcloud-%E7%9F%AD%E4%BF%A1.png"><img src="https://qiniu-web-assets.dcloud.net.cn/unidoc/zh/Dcloud-%E7%9F%AD%E4%BF%A1.png">
 </a>
-## 短信回执失败、短信收不到的公告
+## 短信回执失败、短信收不到的公告@notice
 
 根据工信部及各级运营商最新要求，短信内容提供者需报备相关资质信息。若短信签名与企业资质主体无关联，新申请的签名将被运营商驳回，存量签名也可能面临审核并被强制下线。  
 
@@ -252,7 +252,7 @@ exports.main = async (event, context) => {
 - **小程序/公众号应用签名** 需包含在公司名称内
 
 ### 如何提交信息？
-请加入 **DCloud 短信技术交流群 **，并私聊技术支持提供上述信息。  
+请加入 **DCloud 短信技术交流群 群二维码如上 **，并私聊技术支持提供上述信息。  
 感谢您的理解与支持！
 
  
