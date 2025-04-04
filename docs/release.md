@@ -1,3 +1,9 @@
+#### 2025-04-03
+* 新增 软件版服务空间支持跨服务空间调用云函数
+* 修复 阿里云云数据库 updateAdnReturn 传入空间不会报错的Bug [详情](https://ask.dcloud.net.cn/question/206249)
+* 修复 HBuilderX 项目存在多服务空间时，运行本地云函数不支持集群空间运行的Bug
+* 修复 下载云函数时如果本地已存在云函数弹出对话框，点击关闭会继续下载的Bug
+
 #### 2025-02-24
 * 修复 4.32版本引发的 uni-app-x 腾讯云云函数、云对象等网络请求返回的数据没有被转为UTSJSONObject [详情](https://issues.dcloud.net.cn/pages/issues/detail?id=15653)
 
