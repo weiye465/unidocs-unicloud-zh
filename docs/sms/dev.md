@@ -232,28 +232,24 @@ exports.main = async (event, context) => {
 
 <a class="join-group-chat" target="_blank" href="https://qiniu-web-assets.dcloud.net.cn/unidoc/zh/Dcloud-%E7%9F%AD%E4%BF%A1.png"><img src="https://qiniu-web-assets.dcloud.net.cn/unidoc/zh/Dcloud-%E7%9F%AD%E4%BF%A1.png">
 </a>
-## 短信回执失败、短信收不到公告@notice
+## 关于短信签名实名资质信息完善提醒@notice
 
 根据工信部及各级运营商最新要求，短信内容提供者需报备相关资质信息。若短信签名与企业资质主体无关联，新申请的签名将被运营商驳回，存量签名也可能面临审核并被强制下线。  
 
  **平台正在进行存量签名合规性核查**，如您的短信签名不符合上述规范，请尽快补充相关资质信息。
 
-### 需提供的信息：
-- **公司全称**
+### 需补充信息：
+- **营业执照**
 - **统一社会信用代码**
-- **经办人姓名**
-- **经办人身份证号码**
-- **法人姓名**
-- **法人身份证号码**
+- **法人身份证正反面**
+- **经办人身份证正反面、手持照片**
 
-### 重要注意事项：
-- 签名报备生效时间约 **3-7 个工作日**
-- **个人开发者** 需持有营业执照，并将签名名称调整为公司名称
-- **小程序/公众号应用签名** 需包含在公司名称内
+补充入口:「短信服务」 - 「签名配置」 
 
-### 如何提交信息？
-请加入 **DCloud 短信技术交流群** 群二维码如上，并私聊技术支持提供上述信息。    
+![](https://web-ext-storage.dcloud.net.cn/unicloud/sms/smsinfo.png)
+
 感谢您的理解与支持！
+
 
  
 <style>
