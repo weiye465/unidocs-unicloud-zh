@@ -358,6 +358,29 @@ uni云开发软件版服务空间使用 `dcloud` 标识
 
 建议部署时采用分布式部署方案，即使用2台以上服务器部署可以保证服务的稳定性，在服务重启时也不会中断服务。
 
+### 云函数内跨集群空间调用@multi-space
+
+云函数内跨集群空间调用与在公有云中跨服务空间调用方式一致，详情[参考](https://doc.dcloud.net.cn/uniCloud/concepts/space.html#multi-space)
+
+**需要注意以下限制：**
+
+1. 目前跨集群空间调用仅支持调用callFunction和importObject。
+2. 软件版运行与应用的appId绑定，所以在调用 uniCloud.init 之后还需要调用实例化后的 setClientInfo 方法，将appId传递进去。
+
+示例：
+```js
+const uniCloud2 = uniCloud.init({
+  spaceId: 'dc-xxxxx', // 集群空间ID
+  clientSecret: 'xxxxx-xxx-xxx-xxx-xxxxx', // 集群空间clientSecret
+  endpoint: 'http://127.0.0.1:7001', // 集群空间部署地址
+})
+
+// 设置连接集群空间的appId，必须调用此方法，否则请求将报错！
+uniCloud2.setClientInfo({
+  APPID: "__UNI__DCloud"
+})
+```
+
 ## 配置文件@config
 
 uni云开发软件版需要单独配置mongodb数据库、文件存储、redis等，所有配置全部在`config.json`中完成。
