@@ -15,7 +15,7 @@ uni-cms包括管理端和用户端。
 
 客户端插件之所以起名为 uni-cms-article 。是因为未来可能还会拓展 uni-cms-image、uni-cms-video 等插件，实现对富媒体内容的管理。
 
-需求建议、bug反馈请点击加入[uni-cms交流群](https://im.dcloud.net.cn/#/?joinGroup=646f00f2ccc1c16acbc002e1)反馈与交流。
+**需求建议、bug反馈请点击加入[uni-cms交流群](https://im.dcloud.net.cn/#/?joinGroup=646f00f2ccc1c16acbc002e1)反馈与交流。**
 
 ## 产品亮点
 
@@ -118,24 +118,41 @@ uni-cms包括管理端和用户端。
 
 如果还未使用过uni-admin，请先在HBuilderX新建项目时选择uni-admin项目。并需要了解[uni-admin](admin.md)的相关知识。
 
-导入uni-cms后，运行启动uni-admin，在web管理后台，点击左侧菜单栏的菜单管理，添加“内容管理”菜单。
+导入`uni-cms`插件后，在 uni-admin 项目中找到 `uniCloud/database` 目录，右键点击“配置Schema扩展js的公共模块或扩展库”，在弹出的界面中选择 `quill-delta-converter` 公共模块并确定。
+
+如下图所示：
+
+![](https://web-ext-storage.dcloud.net.cn/unicloud/docs/202504091937830.png)
+
+完成以上配置，运行启动uni-admin，在web管理后台，点击左侧菜单栏的菜单管理，添加“内容管理”菜单。
 
 如下图所示：
 
 ![](https://qiniu-web-assets.dcloud.net.cn/unidoc/zh/202303232139066.png)
 
-导入后刷新页面，在uni-admin左侧菜单，可看到内容管理的菜单项，点击即可进入相关页面。
+添加后刷新页面，在uni-admin左侧菜单，可看到内容管理的菜单项，点击即可进入相关页面。
 
 ### 2. 安装uni-cms-article用户端插件
 
-管理端编辑的内容，在用户端呈现。注意管理端和用户端是两个项目，但是连接同一个服务空间。
+管理端编辑的内容，在用户端呈现。在插件市场中找到[uni-cms-article](https://ext.dcloud.net.cn/plugin?name=uni-cms-article)，将插件导入至uni-app用户端项目中。
 
-在插件市场中找到[uni-cms-article](https://ext.dcloud.net.cn/plugin?name=uni-cms-article)，将插件导入至uni-app用户端项目中。
+`uni-cms-article` 插件所在项目需要和 `uni-cms` 插件所在项目关联同一服务空间。
+
+如果开发者同时开发管理管和客户端，可以在`uniCloud`目录上右键“关联服务空间”，在弹窗中选择“绑定其他项目的服务空间”，在列表中选择管理端项目并关联。
+
+如下图所示：
+
+![](https://web-ext-storage.dcloud.net.cn/unicloud/docs/202504092001806.png)
+
+如果项目单独使用`uni-cms-article`插件，需要在`unCloud/database`目录上右键点击“创建Schema”来创建`uni-cms-articles`与`uni-cms-categories`表。
+
+关联服务空间后，需要在[uni-cms配置文件](#uni-cms-config)中，配置`clientAppIds`字段，值类型为数组，数组中每一项是客户端appId，详细配置文件[参考](#uni-cms-config)
+
+如需将文章列表页作为首页访问，需要修改`pages.json`文件，将文章列表页路径提升至`pages`数组的第一项，并且替换`tabBar.list`数组第一项为文章列表页路径，具体`pages.json`文件配置项参考[pages.json文档](https://uniapp.dcloud.net.cn/collocation/pages.html)。
 
 **注意**
 
-- 如果您的项目单独使用`uni-cms-article`，需要在`unCloud/database`目录上点击“创建Schema”来创建`uni-cms-articles`与`uni-cms-categories`表后运行项目。
-- uni-cms-article使用了[clientDB](clientdb.md)，其权限体系依赖[uni-id](uni-id/summary.md)。
+- `uni-cms-article`使用了[clientDB](clientdb.md)，其权限体系依赖[uni-id](uni-id/summary.md)。
 - 如果您的项目需要账户体系，需将`uni-id-pages`插件导入至项目中，要了解`uni-id-pages` [详见](./uni-id/app.md)。如果您使用了[uni-starter](uni-starter.md)项目，那么其已经内置了 `uni-id-pages`插件。
 
 ### 3. 多作者登录
@@ -435,20 +452,29 @@ uni-cms的云端的配置文件统一使用[uni-config-center](uni-config-center
 
 > 云函数`uni-cms`、`uni-cms-unlock-callback` 都使用同一个配置文件
 
-新建配置文件，路径为 `uni_modules/uni-config-center/uniCloud/cloudfunctions/common/uni-config-center/uni-cms/config.json`，用于配置uni-cms相关信息，完整配置如下:
+新建配置文件（如不存在），路径为 `uni_modules/uni-config-center/uniCloud/cloudfunctions/common/uni-config-center/uni-cms/config.json`，用于配置uni-cms，完整配置如下:
 
 ```json
 {
-  "clientAppIds": ["__UNI__XXXxx"], // 配置用户端appId（必须），可配置多个appId。
-  "contentSecurity": { // 内容安全配置
-    "allowCheckType": ["content", "image"] // 配置可检测的内容；可选值仅为 content 或 image，content 表示检测文字，image 表示检测图片
+  "clientAppIds": ["__UNI__XXXxx"],
+  "contentSecurity": {
+    "allowCheckType": ["content", "image"]
   },
-  "adConfig": { // 广告解锁相关配置
-    "securityKey": "Xxxxxxxxxxxxxxxxxxxxxxxxxx", // 广告位 Security key
-    "watchAdUniqueType": "device" // 观看广告的唯一标识类型，可选值为 user 或者 device，user 表示用户唯一，device 表示设备唯一
+  "adConfig": {
+    "securityKey": "Xxxxxxxxxxxxxxxxxxxxxxxxxx",
+    "watchAdUniqueType": "device"
   }
 }
 ```
+
+|参数|类型|默认值|必填|说明|
+|---|---|---|---|---|
+|clientAppIds|Array|[]|是|配置客户端appId（必须），未配置可能导致客户端无法正常解析正文|
+|contentSecurity|Object|-|否|内容安全配置|
+|contentSecurity.allowCheckType| Array<'content'\|'image'> | [] | 否 | 配置可检测的内容；可选值仅为 content 或 image，content 表示检测文字，image 表示检测图片|
+|adConfig| Object | - | 否 | 广告解锁相关配置|
+|adConfig.securityKey| String | - | 否 | 广告位 Security key|
+|adConfig.watchAdUniqueType | "user"\|"device" | - | 否 | 观看广告的唯一标识类型，可选值为 user 或者 device，user 表示用户唯一，device 表示设备唯一
 
 **说明**
 - contentSecurity内容安全，即配置uni-cms是否开启、以及对什么内容类型开启安全检测。详[见下](#content-security-check)
@@ -677,6 +703,24 @@ export default {
 - `allowCheckType`存在`content`值时；内容安全将会对文章标题、文章内容、文章摘要进行检测。
 - `allowCheckType`存在`image`值时；内容安全将会对上传的封面图片、文章内容中的图片进行检测。
 - 详细的`uni-cms`配置文件参考[uni-cms配置](#uni-cms-config)
+
+## 常见问题
+
+> **遇到无法解决的问题，点击加入[uni-cms交流群](https://im.dcloud.net.cn/#/?joinGroup=646f00f2ccc1c16acbc002e1)反馈**
+
+### Q: 客户端运行后没有看到文章列表页
+
+检查项目根目录下的 `pages.json` 文件中是否存在 uni-cms-article 插件内页面，在 `pages.json` 文件内搜索“uni-cms-article”关键字。
+
+如果搜索结果为空，可能是未导入`uni-cms-article`插件或者导入插件时在“合并Pages窗口”弹窗中跳过了合并`pages.json`文件，重新导入插件即可。
+
+如果存在`uni-cms-article`插件页面，说明导入正常。直接访问文章列表页面路径即可，文章列表页面路径是`uni_modules/uni-cms-article/pages/list/list`。
+
+如果想要文章列表页作为应用的首页，需要在`pages.json`文件内，将文章列表页路径提升至`pages`数组的第一项，并且在`tabBar.list`数组的第一项也替换为文章列表页路径，具体`pages.json`文件配置项参考[pages.json文档](https://uniapp.dcloud.net.cn/collocation/pages.html)。
+
+### Q: 客户端打开文章详情页不显示内容
+
+检查`uni-cms`配置文件是否将客户端`appId`配置在`clientAppIds`数组内，如未添加客户端`appId`客户端不会正常解析文章正文内容，详细配置文件[参考](#uni-cms-config)
 
 ## 后续计划
 
