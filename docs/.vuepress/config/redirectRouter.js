@@ -1,11 +1,5 @@
 const routerMap = {
-	'/uniCloud/database': '/clientdb.html',
-	'/uniCloud/uni-clientDB': '/clientdb.html',
-
-	'/uniCloud/uni-id-summary': '/uniCloud/uni-id/summary.html',
-	'/uniCloud/uni-id-pages': '/uniCloud/uni-id/redirect.html',
-	'/uniCloud/uni-id-common': '/uniCloud/uni-id/cloud-common.html',
-	'/uniCloud/uni-id': '/uniCloud/uni-id/old.html'
+	'/uni-id-pages.html': '/uniCloud/uni-id/app.html'
 };
 
 export default ({ fullPath, path, hash }) => {
@@ -23,18 +17,6 @@ export default ({ fullPath, path, hash }) => {
 	if (matchPath) {
 		return {
 			path: matchPath,
-			hash,
-			replace: true,
-		};
-	}
-
-	if (
-		path.indexOf('/app-') === 0 ||
-		path.indexOf('/android-') === 0 ||
-		path.indexOf('/ios-') === 0
-	) {
-		return {
-			path: `/tutorial${path}`,
 			hash,
 			replace: true,
 		};
