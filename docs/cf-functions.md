@@ -806,9 +806,9 @@ Tips:
 
 以下为已知无法在云端云函数环境中运行的npm依赖：
 
-|npm依赖|问题|替代方案|
-|---|---|---|
-|[node-canvas](https://www.npmjs.com/package/canvas)|云函数环境缺少系统级依赖导致无法编译|使用纯js实现的模块替代<br/>[fabricjs](https://www.npmjs.com/package/fabric)|
+|npm依赖|问题|
+|---|---|
+|[node-canvas](https://www.npmjs.com/package/canvas)|云函数环境缺少系统级依赖导致无法编译|
 
 
 ## 云函数/云对象中调用云函数@callbyfunction
