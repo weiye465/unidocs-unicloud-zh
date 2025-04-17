@@ -309,6 +309,7 @@ HBuilderX 3.4.0之前的版本“本地运行云函数”时云函数内callFunc
 
 ```js
 const clientInfo = { // 模拟clientInfo
+  appId:"xxx",
   uniPlatform: 'web',
   source: 'client', // 调用来源，不传时默认为 client
   clientIP: '127.0.0.1', // 客户端ip，不传时默认为 127.0.0.1
