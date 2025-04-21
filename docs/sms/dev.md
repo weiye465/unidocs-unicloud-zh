@@ -229,9 +229,8 @@ exports.main = async (event, context) => {
  **其他问题**
 
 更多问题：欢迎加入DCloud短信技术交流群咨询。
+![](https://qiniu-web-assets.dcloud.net.cn/unidoc/zh/Dcloud-%E7%9F%AD%E4%BF%A1.png)
 
-<a class="join-group-chat" target="_blank" href="https://qiniu-web-assets.dcloud.net.cn/unidoc/zh/Dcloud-%E7%9F%AD%E4%BF%A1.png"><img src="https://qiniu-web-assets.dcloud.net.cn/unidoc/zh/Dcloud-%E7%9F%AD%E4%BF%A1.png">
-</a>
 ## 关于短信签名实名资质信息完善提醒@notice
 
 根据工信部及各级运营商最新要求，短信内容提供者需报备相关资质信息。若短信签名与企业资质主体无关联，新申请的签名将被运营商驳回，存量签名也可能面临审核并被强制下线。  
