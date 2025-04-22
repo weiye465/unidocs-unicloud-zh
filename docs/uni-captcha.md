@@ -97,10 +97,10 @@ GitCode 仓库：[https://gitee.com/dcloud/uni-captcha](https://gitee.com/dcloud
 		"expiresDate":180,
 		"scene":{
 			"login":{
-				"mathExpr":true	 	//该配置会覆盖根节点的值，表示scene的值为login时，验证码使用数学表达式
+				"mathExpr":true	 	//该配置会覆盖根节点的值，表示 scene 的值为 login 时，验证码使用数学表达式
 			},
 			"register":{
-				"expiresDate":60,	 //该配置会覆盖根节点的值，表示scene的值为login时，验证码过期时间为60秒
+				"expiresDate":60,	 //该配置会覆盖根节点的值，表示scene的值为 register 时，验证码过期时间为 60 秒
 			}
 		}
 	}
