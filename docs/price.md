@@ -198,7 +198,7 @@ uniCloud的定价、套餐内容、服务SLA，是由云厂商直接公布的。
 |删除QPS																		|300	|
 |查询QPS																		|300	|
 
-目前单个账号可创建20个正式版服务空间，如有更多需求需发邮件到service@dcloud.io申请。此外云函数数量限制、集合数量限制也可申请提升。邮件模板见下方：[申请解除限制邮件模板](#apply-email-template)
+目前单个账号可创建20个正式版服务空间，如有更多需求需发邮件到service@dcloud.io申请。此外集合数量限制也可申请提升。邮件模板见下方：[申请解除限制邮件模板](#apply-email-template)
 
 ### 申请解除限制邮件模板@apply-email-template
 
