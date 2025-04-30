@@ -169,7 +169,7 @@ export default defineConfig({
 答：先下载示例项目，部署并正确配置push后，体验没问题了再部署到自己的项目。
 
 3. 非unicloud项目提前导入用户数据  
-答：通过uni-im的[httpapi](https://doc.dcloud.net.cn/uniCloud/uni-imhtml#httpapi)调用login方法，实现用户数据导入。
+答：通过uni-im的[httpapi](#httpapi)调用login方法，实现用户数据导入。
 
 
 ## 限制普通用户向其他用户发起会话
