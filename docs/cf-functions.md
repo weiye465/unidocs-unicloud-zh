@@ -1688,3 +1688,7 @@ cloudfunction-config说明如下
 }
 
 ```
+
+## 云函数日志
+
+详见[云端日志](rundebug.md?id=unicloudlogger)
