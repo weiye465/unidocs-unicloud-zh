@@ -148,3 +148,57 @@ module.exports = {
 **注意**
 
 - 定时触发云对象时，`_before`和`_after`均不执行
+
+**注意**
+- 截止时间：2025年3月21日14:50:59。如果在HBuilderX中上传定时器控制的云函数，碰到错误：“上传失败：InvalidTimingTriggerConfig: Specified parameter TimingTriggerConfig is not valid. RequestId:...”，请遵循以下步骤：
+  - 修改本地的云函数/云对象的package.json
+  `{
+    "name": "update-status",
+    "version": "1.0.0",
+    "description": "",
+    "main": "index.js",
+    "dependencies": [],
+    "extensions": [],
+    "cloudfunction-config": {
+        "concurrency": 1,
+        "memorySize": 256,
+        "timeout": 600,
+        "runtime": "Nodejs20",        
+        "path": ""
+    }
+}`
+  - 登录并且打开你自己的云函数。网址类似：“https://unicloud.dcloud.net.cn/pages/cloud-function/cloud-function”
+  - 找到你自己的“云函数/云对象”
+  - 点击“详情”
+  - 找到“定时触发器”，下面有一个“编辑”按钮。点击这个按钮。
+  - 写入：
+  `[    "0 0 1 * * *"    ]`
+  - 点击“确定”按钮。
+  - 在HBuilderX中同步当前云函数/云对象。将会看到新的代码：
+  `
+  {
+    "name": "update-status",
+    "version": "1.0.0",
+    "description": "",
+    "main": "index.js",
+    "dependencies": [],
+    "extensions": [],
+    "cloudfunction-config": {
+        "concurrency": 1,
+        "memorySize": 256,
+        "timeout": 600,
+        "runtime": "Nodejs20",
+        // 下面这部分代码是同步指导的代码
+        "triggers": [
+            {
+                "name": "myTrigger",
+                "type": "timer",
+                "config": "0 0 1 * * * *"
+            }
+        ],
+        "path": ""
+    }
+  }
+  `
+  - 在HBuilderX中修改triggers中的config，这里可以参考官网的cron去做出修改。
+  - 注意：同步之后的 `"config": "0 0 1 * * * *"` 会在最后面多出一个“*”，但是在cron模拟器中得到的会少一个“*”。你只需要改前面的六个字符就行了，最后那个别动。
